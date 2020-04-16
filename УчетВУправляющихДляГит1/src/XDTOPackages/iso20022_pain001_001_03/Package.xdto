@@ -1,0 +1,582 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Document" type="d2p1:Document"/>
+	<valueType name="ActiveOrHistoricCurrencyAndAmount_SimpleType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="18" fractionDigits="5"/>
+	<valueType name="ActiveOrHistoricCurrencyCode" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{3,3}</pattern>
+	</valueType>
+	<valueType name="AddressType2Code" base="xs:string" variety="Atomic">
+		<enumeration>ADDR</enumeration>
+		<enumeration>PBOX</enumeration>
+		<enumeration>HOME</enumeration>
+		<enumeration>BIZZ</enumeration>
+		<enumeration>MLTO</enumeration>
+		<enumeration>DLVY</enumeration>
+	</valueType>
+	<valueType name="AnyBICIdentifier" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}</pattern>
+	</valueType>
+	<valueType name="Authorisation1Code" base="xs:string" variety="Atomic">
+		<enumeration>AUTH</enumeration>
+		<enumeration>FDET</enumeration>
+		<enumeration>FSUM</enumeration>
+		<enumeration>ILEV</enumeration>
+	</valueType>
+	<valueType name="BICIdentifier" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}</pattern>
+	</valueType>
+	<valueType name="BaseOneRate" base="xs:decimal" variety="Atomic" totalDigits="11" fractionDigits="10"/>
+	<valueType name="BatchBookingIndicator" base="xs:boolean" variety="Atomic"/>
+	<valueType name="CashAccountType4Code" base="xs:string" variety="Atomic">
+		<enumeration>CASH</enumeration>
+		<enumeration>CHAR</enumeration>
+		<enumeration>COMM</enumeration>
+		<enumeration>TAXE</enumeration>
+		<enumeration>CISH</enumeration>
+		<enumeration>TRAS</enumeration>
+		<enumeration>SACC</enumeration>
+		<enumeration>CACC</enumeration>
+		<enumeration>SVGS</enumeration>
+		<enumeration>ONDP</enumeration>
+		<enumeration>MGLD</enumeration>
+		<enumeration>NREX</enumeration>
+		<enumeration>MOMA</enumeration>
+		<enumeration>LOAN</enumeration>
+		<enumeration>SLRY</enumeration>
+		<enumeration>ODFT</enumeration>
+	</valueType>
+	<valueType name="ChargeBearerType1Code" base="xs:string" variety="Atomic">
+		<enumeration>DEBT</enumeration>
+		<enumeration>CRED</enumeration>
+		<enumeration>SHAR</enumeration>
+		<enumeration>SLEV</enumeration>
+	</valueType>
+	<valueType name="ChequeDelivery1Code" base="xs:string" variety="Atomic">
+		<enumeration>MLDB</enumeration>
+		<enumeration>MLCD</enumeration>
+		<enumeration>MLFA</enumeration>
+		<enumeration>CRDB</enumeration>
+		<enumeration>CRCD</enumeration>
+		<enumeration>CRFA</enumeration>
+		<enumeration>PUDB</enumeration>
+		<enumeration>PUCD</enumeration>
+		<enumeration>PUFA</enumeration>
+		<enumeration>RGDB</enumeration>
+		<enumeration>RGCD</enumeration>
+		<enumeration>RGFA</enumeration>
+	</valueType>
+	<valueType name="ChequeType2Code" base="xs:string" variety="Atomic">
+		<enumeration>CCHQ</enumeration>
+		<enumeration>CCCH</enumeration>
+		<enumeration>BCHQ</enumeration>
+		<enumeration>DRFT</enumeration>
+		<enumeration>ELDR</enumeration>
+	</valueType>
+	<valueType name="CountryCode" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{2,2}</pattern>
+	</valueType>
+	<valueType name="CreditDebitCode" base="xs:string" variety="Atomic">
+		<enumeration>CRDT</enumeration>
+		<enumeration>DBIT</enumeration>
+	</valueType>
+	<valueType name="DecimalNumber" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="17"/>
+	<valueType name="DocumentType3Code" base="xs:string" variety="Atomic">
+		<enumeration>RADM</enumeration>
+		<enumeration>RPIN</enumeration>
+		<enumeration>FXDR</enumeration>
+		<enumeration>DISP</enumeration>
+		<enumeration>PUOR</enumeration>
+		<enumeration>SCOR</enumeration>
+	</valueType>
+	<valueType name="DocumentType5Code" base="xs:string" variety="Atomic">
+		<enumeration>MSIN</enumeration>
+		<enumeration>CNFA</enumeration>
+		<enumeration>DNFA</enumeration>
+		<enumeration>CINV</enumeration>
+		<enumeration>CREN</enumeration>
+		<enumeration>DEBN</enumeration>
+		<enumeration>HIRI</enumeration>
+		<enumeration>SBIN</enumeration>
+		<enumeration>CMCN</enumeration>
+		<enumeration>SOAC</enumeration>
+		<enumeration>DISP</enumeration>
+		<enumeration>BOLD</enumeration>
+		<enumeration>VCHR</enumeration>
+		<enumeration>AROI</enumeration>
+		<enumeration>TSUT</enumeration>
+	</valueType>
+	<valueType name="ExchangeRateType1Code" base="xs:string" variety="Atomic">
+		<enumeration>SPOT</enumeration>
+		<enumeration>SALE</enumeration>
+		<enumeration>AGRD</enumeration>
+	</valueType>
+	<valueType name="ExternalAccountIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalCategoryPurpose1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalClearingSystemIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="5"/>
+	<valueType name="ExternalFinancialInstitutionIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalLocalInstrument1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+	<valueType name="ExternalOrganisationIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalPersonIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalPurpose1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalServiceLevel1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="IBAN2007Identifier" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}</pattern>
+	</valueType>
+	<valueType name="ISODate" base="xs:date" variety="Atomic"/>
+	<valueType name="ISODateTime" base="xs:dateTime" variety="Atomic"/>
+	<valueType name="Instruction3Code" base="xs:string" variety="Atomic">
+		<enumeration>CHQB</enumeration>
+		<enumeration>HOLD</enumeration>
+		<enumeration>PHOB</enumeration>
+		<enumeration>TELB</enumeration>
+	</valueType>
+	<valueType name="Max10Text" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+	<valueType name="Max128Text" base="xs:string" variety="Atomic" minLength="1" maxLength="128"/>
+	<valueType name="Max140Text" base="xs:string" variety="Atomic" minLength="1" maxLength="140"/>
+	<valueType name="Max15NumericText" base="xs:string" variety="Atomic">
+		<pattern>[0-9]{1,15}</pattern>
+	</valueType>
+	<valueType name="Max16Text" base="xs:string" variety="Atomic" minLength="1" maxLength="16"/>
+	<valueType name="Max2048Text" base="xs:string" variety="Atomic" minLength="1" maxLength="2048"/>
+	<valueType name="Max34Text" base="xs:string" variety="Atomic" minLength="1" maxLength="34"/>
+	<valueType name="Max35Text" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+	<valueType name="Max4Text" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="Max70Text" base="xs:string" variety="Atomic" minLength="1" maxLength="70"/>
+	<valueType name="NamePrefix1Code" base="xs:string" variety="Atomic">
+		<enumeration>DOCT</enumeration>
+		<enumeration>MIST</enumeration>
+		<enumeration>MISS</enumeration>
+		<enumeration>MADM</enumeration>
+	</valueType>
+	<valueType name="Number" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="0"/>
+	<valueType name="PaymentMethod3Code" base="xs:string" variety="Atomic">
+		<enumeration>CHK</enumeration>
+		<enumeration>TRF</enumeration>
+		<enumeration>TRA</enumeration>
+	</valueType>
+	<valueType name="PercentageRate" base="xs:decimal" variety="Atomic" totalDigits="11" fractionDigits="10"/>
+	<valueType name="PhoneNumber" base="xs:string" variety="Atomic">
+		<pattern>\+[0-9]{1,3}-[0-9()+\-]{1,30}</pattern>
+	</valueType>
+	<valueType name="Priority2Code" base="xs:string" variety="Atomic">
+		<enumeration>HIGH</enumeration>
+		<enumeration>NORM</enumeration>
+	</valueType>
+	<valueType name="RegulatoryReportingType1Code" base="xs:string" variety="Atomic">
+		<enumeration>CRED</enumeration>
+		<enumeration>DEBT</enumeration>
+		<enumeration>BOTH</enumeration>
+	</valueType>
+	<valueType name="RemittanceLocationMethod2Code" base="xs:string" variety="Atomic">
+		<enumeration>FAXI</enumeration>
+		<enumeration>EDIC</enumeration>
+		<enumeration>URID</enumeration>
+		<enumeration>EMAL</enumeration>
+		<enumeration>POST</enumeration>
+		<enumeration>SMSM</enumeration>
+	</valueType>
+	<valueType name="TaxRecordPeriod1Code" base="xs:string" variety="Atomic">
+		<enumeration>MM01</enumeration>
+		<enumeration>MM02</enumeration>
+		<enumeration>MM03</enumeration>
+		<enumeration>MM04</enumeration>
+		<enumeration>MM05</enumeration>
+		<enumeration>MM06</enumeration>
+		<enumeration>MM07</enumeration>
+		<enumeration>MM08</enumeration>
+		<enumeration>MM09</enumeration>
+		<enumeration>MM10</enumeration>
+		<enumeration>MM11</enumeration>
+		<enumeration>MM12</enumeration>
+		<enumeration>QTR1</enumeration>
+		<enumeration>QTR2</enumeration>
+		<enumeration>QTR3</enumeration>
+		<enumeration>QTR4</enumeration>
+		<enumeration>HLF1</enumeration>
+		<enumeration>HLF2</enumeration>
+	</valueType>
+	<objectType name="AccountIdentification4Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="IBAN" type="d3p1:IBAN2007Identifier" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Othr" type="d3p1:GenericAccountIdentification1" lowerBound="0"/>
+	</objectType>
+	<objectType name="AccountSchemeName1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ExternalAccountIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ActiveOrHistoricCurrencyAndAmount">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Ccy" type="d3p1:ActiveOrHistoricCurrencyCode" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="__content" type="d3p1:ActiveOrHistoricCurrencyAndAmount_SimpleType" form="Text"/>
+	</objectType>
+	<objectType name="AmountType3Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="InstdAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="EqvtAmt" type="d3p1:EquivalentAmount2" lowerBound="0"/>
+	</objectType>
+	<objectType name="Authorisation1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:Authorisation1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max128Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="BranchAndFinancialInstitutionIdentification4">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="FinInstnId" type="d3p1:FinancialInstitutionIdentification7"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="BrnchId" type="d3p1:BranchData2" lowerBound="0"/>
+	</objectType>
+	<objectType name="BranchData2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Id" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PstlAdr" type="d3p1:PostalAddress6" lowerBound="0"/>
+	</objectType>
+	<objectType name="CashAccount16">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Id" type="d3p1:AccountIdentification4Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Tp" type="d3p1:CashAccountType2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Ccy" type="d3p1:ActiveOrHistoricCurrencyCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Nm" type="d3p1:Max70Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CashAccountType2" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:CashAccountType4Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CategoryPurpose1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ExternalCategoryPurpose1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="Cheque6">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ChqTp" type="d3p1:ChequeType2Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ChqNb" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ChqFr" type="d3p1:NameAndAddress10" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DlvryMtd" type="d3p1:ChequeDeliveryMethod1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DlvrTo" type="d3p1:NameAndAddress10" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="InstrPrty" type="d3p1:Priority2Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ChqMtrtyDt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="FrmsCd" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="MemoFld" type="d3p1:Max35Text" lowerBound="0" upperBound="2"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RgnlClrZone" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PrtLctn" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ChequeDeliveryMethod1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ChequeDelivery1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ClearingSystemIdentification2Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ExternalClearingSystemIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ClearingSystemMemberIdentification2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ClrSysId" type="d3p1:ClearingSystemIdentification2Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="MmbId" type="d3p1:Max35Text"/>
+	</objectType>
+	<objectType name="ContactDetails2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="NmPrfx" type="d3p1:NamePrefix1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PhneNb" type="d3p1:PhoneNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="MobNb" type="d3p1:PhoneNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="FaxNb" type="d3p1:PhoneNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="EmailAdr" type="d3p1:Max2048Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Othr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreditTransferTransactionInformation10">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PmtId" type="d3p1:PaymentIdentification1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PmtTpInf" type="d3p1:PaymentTypeInformation19" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Amt" type="d3p1:AmountType3Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="XchgRateInf" type="d3p1:ExchangeRateInformation1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ChrgBr" type="d3p1:ChargeBearerType1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ChqInstr" type="d3p1:Cheque6" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="UltmtDbtr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="IntrmyAgt1" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="IntrmyAgt1Acct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="IntrmyAgt2" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="IntrmyAgt2Acct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="IntrmyAgt3" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="IntrmyAgt3Acct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CdtrAgt" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CdtrAgtAcct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cdtr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CdtrAcct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="UltmtCdtr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="InstrForCdtrAgt" type="d3p1:InstructionForCreditorAgent1" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="InstrForDbtrAgt" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Purp" type="d3p1:Purpose2Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RgltryRptg" type="d3p1:RegulatoryReporting3" lowerBound="0" upperBound="10"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Tax" type="d3p1:TaxInformation3" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RltdRmtInf" type="d3p1:RemittanceLocation2" lowerBound="0" upperBound="10"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RmtInf" type="d3p1:RemittanceInformation5" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreditorReferenceInformation2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Tp" type="d3p1:CreditorReferenceType2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Ref" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreditorReferenceType1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:DocumentType3Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreditorReferenceType2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CdOrPrtry" type="d3p1:CreditorReferenceType1Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CustomerCreditTransferInitiationV03">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="GrpHdr" type="d3p1:GroupHeader32"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PmtInf" type="d3p1:PaymentInstructionInformation3" lowerBound="1" upperBound="-1"/>
+	</objectType>
+	<objectType name="DateAndPlaceOfBirth">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="BirthDt" type="d3p1:ISODate"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PrvcOfBirth" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CityOfBirth" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CtryOfBirth" type="d3p1:CountryCode"/>
+	</objectType>
+	<objectType name="DatePeriodDetails">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="FrDt" type="d3p1:ISODate"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ToDt" type="d3p1:ISODate"/>
+	</objectType>
+	<objectType name="Document">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CstmrCdtTrfInitn" type="d3p1:CustomerCreditTransferInitiationV03"/>
+	</objectType>
+	<objectType name="DocumentAdjustment1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CdtDbtInd" type="d3p1:CreditDebitCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Rsn" type="d3p1:Max4Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="AddtlInf" type="d3p1:Max140Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="EquivalentAmount2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CcyOfTrf" type="d3p1:ActiveOrHistoricCurrencyCode"/>
+	</objectType>
+	<objectType name="ExchangeRateInformation1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="XchgRate" type="d3p1:BaseOneRate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RateTp" type="d3p1:ExchangeRateType1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CtrctId" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="FinancialIdentificationSchemeName1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ExternalFinancialInstitutionIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="FinancialInstitutionIdentification7">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="BIC" type="d3p1:BICIdentifier" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ClrSysMmbId" type="d3p1:ClearingSystemMemberIdentification2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PstlAdr" type="d3p1:PostalAddress6" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Othr" type="d3p1:GenericFinancialIdentification1" lowerBound="0"/>
+	</objectType>
+	<objectType name="GenericAccountIdentification1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Id" type="d3p1:Max34Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="SchmeNm" type="d3p1:AccountSchemeName1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="GenericFinancialIdentification1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Id" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="SchmeNm" type="d3p1:FinancialIdentificationSchemeName1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="GenericOrganisationIdentification1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Id" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="SchmeNm" type="d3p1:OrganisationIdentificationSchemeName1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="GenericPersonIdentification1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Id" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="SchmeNm" type="d3p1:PersonIdentificationSchemeName1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="GroupHeader32">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="MsgId" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CreDtTm" type="d3p1:ISODateTime"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Authstn" type="d3p1:Authorisation1Choice" lowerBound="0" upperBound="2"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="NbOfTxs" type="d3p1:Max15NumericText"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CtrlSum" type="d3p1:DecimalNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="InitgPty" type="d3p1:PartyIdentification32"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="FwdgAgt" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+	</objectType>
+	<objectType name="InstructionForCreditorAgent1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:Instruction3Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="InstrInf" type="d3p1:Max140Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="LocalInstrument2Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ExternalLocalInstrument1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="NameAndAddress10">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Nm" type="d3p1:Max140Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Adr" type="d3p1:PostalAddress6"/>
+	</objectType>
+	<objectType name="OrganisationIdentification4">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="BICOrBEI" type="d3p1:AnyBICIdentifier" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Othr" type="d3p1:GenericOrganisationIdentification1" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="OrganisationIdentificationSchemeName1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ExternalOrganisationIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="Party6Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="OrgId" type="d3p1:OrganisationIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PrvtId" type="d3p1:PersonIdentification5" lowerBound="0"/>
+	</objectType>
+	<objectType name="PartyIdentification32">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PstlAdr" type="d3p1:PostalAddress6" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Id" type="d3p1:Party6Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CtryOfRes" type="d3p1:CountryCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CtctDtls" type="d3p1:ContactDetails2" lowerBound="0"/>
+	</objectType>
+	<objectType name="PaymentIdentification1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="InstrId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="EndToEndId" type="d3p1:Max35Text"/>
+	</objectType>
+	<objectType name="PaymentInstructionInformation3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PmtInfId" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PmtMtd" type="d3p1:PaymentMethod3Code"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="BtchBookg" type="d3p1:BatchBookingIndicator" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="NbOfTxs" type="d3p1:Max15NumericText" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CtrlSum" type="d3p1:DecimalNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PmtTpInf" type="d3p1:PaymentTypeInformation19" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ReqdExctnDt" type="d3p1:ISODate"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PoolgAdjstmntDt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Dbtr" type="d3p1:PartyIdentification32"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DbtrAcct" type="d3p1:CashAccount16"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DbtrAgt" type="d3p1:BranchAndFinancialInstitutionIdentification4"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DbtrAgtAcct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="UltmtDbtr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ChrgBr" type="d3p1:ChargeBearerType1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ChrgsAcct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="ChrgsAcctAgt" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CdtTrfTxInf" type="d3p1:CreditTransferTransactionInformation10" upperBound="-1"/>
+	</objectType>
+	<objectType name="PaymentTypeInformation19">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="InstrPrty" type="d3p1:Priority2Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="SvcLvl" type="d3p1:ServiceLevel8Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="LclInstrm" type="d3p1:LocalInstrument2Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CtgyPurp" type="d3p1:CategoryPurpose1Choice" lowerBound="0"/>
+	</objectType>
+	<objectType name="PersonIdentification5">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DtAndPlcOfBirth" type="d3p1:DateAndPlaceOfBirth" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Othr" type="d3p1:GenericPersonIdentification1" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="PersonIdentificationSchemeName1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ExternalPersonIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="PostalAddress6">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="AdrTp" type="d3p1:AddressType2Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Dept" type="d3p1:Max70Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="SubDept" type="d3p1:Max70Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="StrtNm" type="d3p1:Max70Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="BldgNb" type="d3p1:Max16Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="PstCd" type="d3p1:Max16Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TwnNm" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CtrySubDvsn" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Ctry" type="d3p1:CountryCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="AdrLine" type="d3p1:Max70Text" lowerBound="0" upperBound="7"/>
+	</objectType>
+	<objectType name="Purpose2Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ExternalPurpose1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReferredDocumentInformation3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Tp" type="d3p1:ReferredDocumentType2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Nb" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RltdDt" type="d3p1:ISODate" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReferredDocumentType1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:DocumentType5Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReferredDocumentType2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CdOrPrtry" type="d3p1:ReferredDocumentType1Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="RegulatoryAuthority2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Ctry" type="d3p1:CountryCode" lowerBound="0"/>
+	</objectType>
+	<objectType name="RegulatoryReporting3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DbtCdtRptgInd" type="d3p1:RegulatoryReportingType1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Authrty" type="d3p1:RegulatoryAuthority2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Dtls" type="d3p1:StructuredRegulatoryReporting3" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="RemittanceAmount1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DuePyblAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DscntApldAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CdtNoteAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TaxAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="AdjstmntAmtAndRsn" type="d3p1:DocumentAdjustment1" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RmtdAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+	</objectType>
+	<objectType name="RemittanceInformation5">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Ustrd" type="d3p1:Max140Text" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Strd" type="d3p1:StructuredRemittanceInformation7" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="RemittanceLocation2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RmtId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RmtLctnMtd" type="d3p1:RemittanceLocationMethod2Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RmtLctnElctrncAdr" type="d3p1:Max2048Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RmtLctnPstlAdr" type="d3p1:NameAndAddress10" lowerBound="0"/>
+	</objectType>
+	<objectType name="ServiceLevel8Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:ExternalServiceLevel1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="StructuredRegulatoryReporting3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Tp" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Dt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Ctry" type="d3p1:CountryCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cd" type="d3p1:Max10Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Inf" type="d3p1:Max35Text" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="StructuredRemittanceInformation7">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RfrdDocInf" type="d3p1:ReferredDocumentInformation3" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RfrdDocAmt" type="d3p1:RemittanceAmount1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CdtrRefInf" type="d3p1:CreditorReferenceInformation2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Invcr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Invcee" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="AddtlRmtInf" type="d3p1:Max140Text" lowerBound="0" upperBound="3"/>
+	</objectType>
+	<objectType name="TaxAmount1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Rate" type="d3p1:PercentageRate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TaxblBaseAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TtlAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Dtls" type="d3p1:TaxRecordDetails1" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TaxAuthorisation1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Titl" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxInformation3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Cdtr" type="d3p1:TaxParty1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Dbtr" type="d3p1:TaxParty2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="AdmstnZn" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RefNb" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Mtd" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TtlTaxblBaseAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TtlTaxAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Dt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="SeqNb" type="d3p1:Number" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Rcrd" type="d3p1:TaxRecord1" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TaxParty1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TaxId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RegnId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TaxTp" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxParty2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TaxId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="RegnId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TaxTp" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Authstn" type="d3p1:TaxAuthorisation1" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxPeriod1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Yr" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Tp" type="d3p1:TaxRecordPeriod1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="FrToDt" type="d3p1:DatePeriodDetails" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxRecord1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Tp" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Ctgy" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CtgyDtls" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="DbtrSts" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="CertId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="FrmsCd" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prd" type="d3p1:TaxPeriod1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="TaxAmt" type="d3p1:TaxAmount1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="AddtlInf" type="d3p1:Max140Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxRecordDetails1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Prd" type="d3p1:TaxPeriod1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:pain.001.001.03" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+	</objectType>
+</package>

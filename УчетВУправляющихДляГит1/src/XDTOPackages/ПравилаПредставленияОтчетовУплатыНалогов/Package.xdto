@@ -1,0 +1,43 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://its.1c.ru/calendar">
+	<import namespace="http://v8.1c.ru/8.1/data/enterprise/current-config"/>
+	<import namespace="http://www.w3.org/2001/XMLSchema"/>
+	<property name="ПравилаПредставленияОтчетовУплатыНалогов"/>
+	<valueType name="ВерсияСхемы" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">3.0.1.1</enumeration>
+		<enumeration>3.0.1.2</enumeration>
+		<enumeration>3.0.1.3</enumeration>
+		<enumeration xsi:type="xs:string">3.0.1.4</enumeration>
+	</valueType>
+	<objectType name="ПравилаПредставленияОтчетовУплатыНалогов">
+		<property xmlns:d3p1="http://its.1c.ru/calendar" name="ВерсияФормата" type="d3p1:ВерсияСхемы" form="Attribute"/>
+		<property xmlns:d3p1="http://its.1c.ru/calendar" name="Задача" type="d3p1:Задача" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="Задача">
+		<property name="Идентификатор" type="xs:string" form="Attribute"/>
+		<property name="Представление" type="xs:string"/>
+		<property name="НаименованиеПолное" type="xs:string"/>
+		<property name="Порядок" type="xs:integer" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://its.1c.ru/calendar" name="Требование" type="d3p1:Требование" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="Требование">
+		<property name="Идентификатор" type="xs:string" form="Attribute"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="ДатаИзменения" type="xs:date" lowerBound="0" nillable="true" form="Attribute"/>
+		<property name="НачалоДействия" type="xs:date" lowerBound="0" nillable="true"/>
+		<property name="КонецДействия" type="xs:date" lowerBound="0" nillable="true"/>
+		<property name="Описание" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="ФинансовыйПериод" type="d3p1:EnumRef.Периодичность"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="Действие" type="d3p1:EnumRef.ВидыДействийКалендаряБухгалтера"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="Периодичность" type="d3p1:EnumRef.Периодичность"/>
+		<property name="ОграничениеПериода" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СрокМесяцев" type="xs:int"/>
+		<property name="СрокДней" type="xs:int"/>
+		<property name="ПеренестиНаРабочийДень" type="xs:integer" lowerBound="0" upperBound="1" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="БазовыйПериод" type="d3p1:EnumRef.Периодичность" lowerBound="0" nillable="true"/>
+		<property name="ОтставаниеБазовогоПериода" type="xs:int"/>
+		<property name="Порядок" type="xs:integer" lowerBound="0" nillable="true"/>
+		<property name="ЕстьИнформацияНаИТС" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="Условие" type="d3p1:EnumRef.УсловияПримененияТребованийЗаконодательства" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="РасширенныйПервыйНалоговыйПериод" type="d3p1:EnumRef.ВариантыРасширенногоПервогоНалоговогоПериода" lowerBound="0" nillable="true"/>
+	</objectType>
+</package>

@@ -1,0 +1,2486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetUnion">
+		<name>КредиторскаяЗадолженность</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:required>true</dcscom:required>
+			</role>
+			<presentationExpression>Счет.Код + " " + Счет.Наименование</presentationExpression>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьПоставщикам</dataPath>
+			<field>ЗадолженностьПоставщикам</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ЗадолженностьПоставщикам</dataPath>
+			<field>Отбор.ЗадолженностьПоставщикам</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность поставщикам (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто1</dataPath>
+			<field>Субконто1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Субконто 1</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Субконто2</dataPath>
+			<field>Субконто2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Субконто 2</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				<dcscom:required>true</dcscom:required>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+			<field>Показатели.КредиторскаяЗадолженность</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.АвансыОтПокупателей</dataPath>
+			<field>Отбор.АвансыОтПокупателей</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Авансы от покупателей  (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ЗадолженностьПокупателям</dataPath>
+			<field>Отбор.ЗадолженностьПокупателям</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность покупателям (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.НДСпоАвансамИПредоплатам</dataPath>
+			<field>Отбор.НДСпоАвансамИПредоплатам</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>НДСпо авансам и предоплатам  (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ВекселяВыданные</dataPath>
+			<field>Отбор.ВекселяВыданные</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Векселя выданные  (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьВФедеральныйБюджет</dataPath>
+			<field>ЗадолженностьВФедеральныйБюджет</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.НалогиВФедеральныйБюджет</dataPath>
+			<field>Отбор.НалогиВФедеральныйБюджет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>НДФЛ, НДС, акцизы, ЕН при УСН  (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.НалогиВБюджетыРазныхУровней</dataPath>
+			<field>Отбор.НалогиВБюджетыРазныхУровней</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Налог на прибыль и прочие налоги и сборы  (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ОбязанностиНалоговогоАгента</dataPath>
+			<field>Отбор.ОбязанностиНалоговогоАгента</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>НДСНалогового агента (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьВРегиональныйБюджет</dataPath>
+			<field>ЗадолженностьВРегиональныйБюджет</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.НалогиВРегиональныйБюджет</dataPath>
+			<field>Отбор.НалогиВРегиональныйБюджет</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Транспортный нелог, налог на имущество, на рекламу ЕНВД  (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьВФонды</dataPath>
+			<field>ЗадолженностьВФонды</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Any</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ЗадолженностьВФонды</dataPath>
+			<field>Отбор.ЗадолженностьВФонды</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расчеты по социальному страхованию (Счет) </v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ЗадолженностьПередРаботниками</dataPath>
+			<field>Отбор.ЗадолженностьПередРаботниками</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность перед работниками (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ПрочаяЗадолженность</dataPath>
+			<field>Отбор.ПрочаяЗадолженность</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Прочая задолженность (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ЗадолженностьПрочимКредиторам</dataPath>
+			<field>Отбор.ЗадолженностьПрочимКредиторам</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Задолженность прочим кредиторам (Счет)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВекселяВыданные</dataPath>
+			<field>ВекселяВыданные</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ЗадолженностьПрочимПоставщикам</dataPath>
+			<field>Отбор.ЗадолженностьПрочимПоставщикам</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Контрагент</dataPath>
+			<field>Контрагент</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорСПоставщиком</dataPath>
+			<field>ДоговорСПоставщиком</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.НалогиВМестныйБюджет</dataPath>
+			<field>Отбор.НалогиВМестныйБюджет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗадолженностьВМестныйБюджет</dataPath>
+			<field>ЗадолженностьВМестныйБюджет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УчетПоПодразделениям</dataPath>
+			<field>УчетПоПодразделениям</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Учет по подразделениям</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отбор.ЗадолженностьВФССпоНС</dataPath>
+			<field>Отбор.ЗадолженностьВФССпоНС</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Отбор.Задолженность ВФССпо НС</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<item xsi:type="DataSetQuery">
+			<name>ЗадолженностьПоставщикам</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗадолженностьПоставщикам</dataPath>
+				<field>СуммаРазвернутыйОстатокКт</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ЗадолженностьПоставщикам</dataPath>
+				<field>ОтборПоСчету</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поставщик</dataPath>
+				<field>Поставщик</field>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Контрагенты</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоговорСПоставщиком</dataPath>
+				<field>ДоговорСПоставщиком</field>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.Субконто2 КАК Субконто2,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Счет.*,
+	Субконто1.*,
+	Субконто2.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			&amp;ВидыСубконтоКонтрагентИДоговор,
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Контрагент, (Субконто1).*, (Субконто1).* КАК Поставщик, (Субконто2).*, (Субконто2).* КАК ДоговорСПоставщиком}) КАК ХозрасчетныйОстатки</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>АвансыОтПокупателей</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+				<field>СуммаОстатокКт</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.АвансыОтПокупателей</dataPath>
+				<field>ОтборПоСчету</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Контрагент</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.СуммаОстатокКт КАК СуммаОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет,
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.Субконто2 КАК Субконто2
+{ВЫБРАТЬ
+	СуммаОстатокКт,
+	Счет.*,
+	Субконто1,
+	Субконто2}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			&amp;ВидыСубконтоКонтрагентИДоговор,
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Контрагент, (Субконто1).*, (Субконто2).*}) КАК ХозрасчетныйОстатки</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗадолженностьПокупателям</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ЗадолженностьПокупателям</dataPath>
+				<field>ОтборПоСчету</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+				<field>СуммаРазвернутыйОстатокКт</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.Субконто2 КАК Субконто2,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Субконто1.*,
+	Субконто2.*,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			&amp;ВидыСубконтоКонтрагентИДоговор,
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Контрагент, (Субконто1).*, (Субконто2).*}) КАК ХозрасчетныйОстатки</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>НДСпоАвансамИПредоплатам</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+				<field>СуммаОстатокДт</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.НДСпоАвансамИПредоплатам</dataPath>
+				<field>ОтборПоСчету</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:account>true</dcscom:account>
+					<dcscom:accountTypeExpression>Счет.Вид</dcscom:accountTypeExpression>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	-ХозрасчетныйОстатки.СуммаОстатокДт КАК СуммаОстатокДт,
+	ХозрасчетныйОстатки.Счет КАК Счет,
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.Субконто2 КАК Субконто2
+{ВЫБРАТЬ
+	СуммаОстатокДт,
+	Счет.*,
+	Субконто1,
+	Субконто2}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			,
+			{(Организация В (&amp;Организация))}) КАК ХозрасчетныйОстатки</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ВекселяВыданные</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ВекселяВыданные</dataPath>
+				<field>СуммаОстатокКт</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ВекселяВыданные</dataPath>
+				<field>ОтборПоСчету</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗадолженностьПоставщикам</dataPath>
+				<field>ЗадолженностьПоставщикам</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Задолженность поставщикам</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Контрагент</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.СуммаОстатокКт КАК СуммаОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет,
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.Субконто2 КАК Субконто2,
+	ХозрасчетныйОстатки.СуммаОстатокКт КАК ЗадолженностьПоставщикам
+{ВЫБРАТЬ
+	СуммаОстатокКт,
+	Счет.*,
+	Субконто1,
+	Субконто2,
+	ЗадолженностьПоставщикам}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			&amp;ВидыСубконтоКонтрагентИДоговор,
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Контрагент, (Субконто1).*, (Субконто2).*}) КАК ХозрасчетныйОстатки</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗадолженностьПередРаботниками</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+				<field>СуммаРазвернутыйОстатокКт</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ЗадолженностьПередРаботниками</dataPath>
+				<field>ОтборПоСчету</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Субконто1.*,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			,
+			{(Организация В (&amp;Организация)), (Субконто1).*}) КАК ХозрасчетныйОстатки</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ПрочаяЗадолженность</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+				<field>СуммаОстатокКт</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ПрочаяЗадолженность</dataPath>
+				<field>ОтборПоСчету</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.СуммаОстатокКт КАК СуммаОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет,
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.Субконто2 КАК Субконто2
+{ВЫБРАТЬ
+	СуммаОстатокКт,
+	Счет.*,
+	Субконто1,
+	Субконто2}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			,
+			{(Организация В (&amp;Организация))}) КАК ХозрасчетныйОстатки</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗадолженностьПрочимКредиторам</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+				<field>СуммаРазвернутыйОстатокКт</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ЗадолженностьПрочимКредиторам</dataPath>
+				<field>ОтборПоСчету</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет,
+	НЕ ВидыСубконтоХозрасчетный.Ссылка ЕСТЬ NULL КАК ЕстьСубконтоДоговоры
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+		ЛЕВОЕ СОЕДИНЕНИЕ ПланСчетов.Хозрасчетный.ВидыСубконто КАК ВидыСубконтоХозрасчетный
+		ПО Хозрасчетный.Ссылка = ВидыСубконтоХозрасчетный.Ссылка
+			И (ВидыСубконтоХозрасчетный.ВидСубконто = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Договоры))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ЗНАЧЕНИЕ(Справочник.ДоговорыКонтрагентов.ПустаяСсылка) КАК Субконто2,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Субконто1.*,
+	Субконто2,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета
+				ГДЕ
+					НЕ ВТ_Счета.ЕстьСубконтоДоговоры),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты),
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Контрагент, (Субконто1).*}) КАК ХозрасчетныйОстатки
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1,
+	ХозрасчетныйОстатки.Субконто2,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета
+				ГДЕ
+					ВТ_Счета.ЕстьСубконтоДоговоры),
+			&amp;ВидыСубконтоКонтрагентИДоговор,
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Контрагент, (Субконто1).*}) КАК ХозрасчетныйОстатки</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetUnion">
+			<name>ЗадолженностьПередБюджетом</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗадолженностьВФедеральныйБюджет</dataPath>
+				<field>ЗадолженностьВФедеральныйБюджет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.НалогиВФедеральныйБюджет</dataPath>
+				<field>Отбор.НалогиВФедеральныйБюджет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.НалогиВБюджетыРазныхУровней</dataPath>
+				<field>Отбор.НалогиВБюджетыРазныхУровней</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ОбязанностиНалоговогоАгента</dataPath>
+				<field>Отбор.ОбязанностиНалоговогоАгента</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗадолженностьВРегиональныйБюджет</dataPath>
+				<field>ЗадолженностьВРегиональныйБюджет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.НалогиВРегиональныйБюджет</dataPath>
+				<field>Отбор.НалогиВРегиональныйБюджет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.НалогиВМестныйБюджет</dataPath>
+				<field>Отбор.НалогиВМестныйБюджет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗадолженностьВМестныйБюджет</dataPath>
+				<field>ЗадолженностьВМестныйБюджет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<item xsi:type="DataSetQuery">
+				<name>НалогиВФедеральныйБюджет</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗадолженностьВФедеральныйБюджет</dataPath>
+					<field>СуммаРазвернутыйОстатокКт</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Отбор.НалогиВФедеральныйБюджет</dataPath>
+					<field>ОтборПоСчету</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто1</dataPath>
+					<field>Субконто1</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по подразделениям</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто2</dataPath>
+					<field>Субконто2</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	НЕОПРЕДЕЛЕНО КАК Субконто2,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Субконто1.*,
+	Субконто2,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ВидыПлатежейВГосБюджет),
+			{(Организация В (&amp;Организация)), (Субконто1).*}) КАК ХозрасчетныйОстатки
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1,
+	ХозрасчетныйОстатки.Субконто2,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			&amp;ВидыСубконтоКонтрагентИДоговор,
+			{(Организация В (&amp;Организация)), (Субконто1).*}) КАК ХозрасчетныйОстатки</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>НалогиВБюджетыРазныхУровней</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Отбор.НалогиВБюджетыРазныхУровней</dataPath>
+					<field>ОтборПоСчету</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто1</dataPath>
+					<field>Субконто1</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто2</dataPath>
+					<field>Субконто2</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗадолженностьВФедеральныйБюджет</dataPath>
+					<field>ЗадолженностьВФедеральныйБюджет</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗадолженностьВМестныйБюджет</dataPath>
+					<field>ЗадолженностьВМестныйБюджет</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗадолженностьВРегиональныйБюджет</dataPath>
+					<field>ЗадолженностьВРегиональныйБюджет</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по подразделениям</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.Субконто2 КАК Субконто2,
+	ВЫБОР
+		КОГДА НЕ ХозрасчетныйОстатки.Субконто2 = &amp;МестныйБюджет
+				И НЕ ХозрасчетныйОстатки.Субконто2 = &amp;РегиональныйБюджет
+			ТОГДА ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗадолженностьВФедеральныйБюджет,
+	ХозрасчетныйОстатки.Счет КАК Счет,
+	ВЫБОР
+		КОГДА ХозрасчетныйОстатки.Субконто2 = &amp;РегиональныйБюджет
+			ТОГДА ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗадолженностьВРегиональныйБюджет,
+	ВЫБОР
+		КОГДА ХозрасчетныйОстатки.Субконто2 = &amp;МестныйБюджет
+			ТОГДА ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗадолженностьВМестныйБюджет
+{ВЫБРАТЬ
+	ЗадолженностьВФедеральныйБюджет,
+	Счет.*,
+	Субконто1.*,
+	Субконто2.*,
+	ЗадолженностьВРегиональныйБюджет,
+	ЗадолженностьВМестныйБюджет}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			&amp;ВидыСубконтоВидыПлатежейВБюджетИУровниБюджетов,
+			{(Организация В (&amp;Организация)), (Субконто1).*, (Субконто2).*}) КАК ХозрасчетныйОстатки</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ОбязанностиНалоговогоАгента</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗадолженностьВФедеральныйБюджет</dataPath>
+					<field>СуммаОстатокКт</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Отбор.ОбязанностиНалоговогоАгента</dataPath>
+					<field>ОтборПоСчету</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто1</dataPath>
+					<field>Субконто1</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по подразделениям</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.СуммаОстатокКт КАК СуммаОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет,
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1
+{ВЫБРАТЬ
+	СуммаОстатокКт,
+	Счет.*,
+	Субконто1}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			,
+			{(Организация В (&amp;Организация))}) КАК ХозрасчетныйОстатки</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>НалогиВРегиональныйБюджет</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗадолженностьВРегиональныйБюджет</dataPath>
+					<field>СуммаРазвернутыйОстатокКт</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Отбор.НалогиВРегиональныйБюджет</dataPath>
+					<field>ОтборПоСчету</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто1</dataPath>
+					<field>Субконто1</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по подразделениям</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Субконто1.*,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ВидыПлатежейВГосБюджет),
+			{(Организация В (&amp;Организация)), (Субконто1).*}) КАК ХозрасчетныйОстатки</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>НалогиВМестныйБюджет</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗадолженностьВМестныйБюджет</dataPath>
+					<field>СуммаРазвернутыйОстатокКт</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Отбор.НалогиВМестныйБюджет</dataPath>
+					<field>ОтборПоСчету</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто1</dataPath>
+					<field>Субконто1</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по подразделениям</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Субконто1.*,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ВидыПлатежейВГосБюджет),
+			{(Организация В (&amp;Организация)), (Субконто1).*}) КАК ХозрасчетныйОстатки</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗадолженностьПрочимПоставщикам</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+				<field>СуммаРазвернутыйОстатокКт</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ЗадолженностьПрочимПоставщикам</dataPath>
+				<field>ОтборПоСчету</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Контрагент</dataPath>
+				<field>Контрагент</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто2</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поставщик</dataPath>
+				<field>Поставщик</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Поставщик</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет,
+	НЕ ВидыСубконтоХозрасчетный.Ссылка ЕСТЬ NULL КАК ЕстьСубконтоДоговоры
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+		ЛЕВОЕ СОЕДИНЕНИЕ ПланСчетов.Хозрасчетный.ВидыСубконто КАК ВидыСубконтоХозрасчетный
+		ПО Хозрасчетный.Ссылка = ВидыСубконтоХозрасчетный.Ссылка
+			И (ВидыСубконтоХозрасчетный.ВидСубконто = ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Договоры))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ЗНАЧЕНИЕ(Справочник.ДоговорыКонтрагентов.ПустаяСсылка) КАК Субконто2,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Субконто1.*,
+	Субконто2,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета
+				ГДЕ
+					НЕ ВТ_Счета.ЕстьСубконтоДоговоры),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты),
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Контрагент, (Субконто1).* КАК Поставщик, (Субконто1).*}) КАК ХозрасчетныйОстатки
+{ГДЕ
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт}
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1,
+	ХозрасчетныйОстатки.Субконто2,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета
+				ГДЕ
+					ВТ_Счета.ЕстьСубконтоДоговоры),
+			&amp;ВидыСубконтоКонтрагентИДоговор,
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Контрагент, (Субконто1).* КАК Поставщик, (Субконто1).*}) КАК ХозрасчетныйОстатки</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetUnion">
+			<name>ЗадолженностьВФонды</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗадолженностьВФонды</dataPath>
+				<field>ЗадолженностьВФонды</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ЗадолженностьВФонды</dataPath>
+				<field>Отбор.ЗадолженностьВФонды</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Субконто1</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Учет по подразделениям</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+				<field>Показатели.КредиторскаяЗадолженность</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Отбор.ЗадолженностьВФССпоНС</dataPath>
+				<field>Отбор.ЗадолженностьВФССпоНС</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Отбор.Задолженность ВФССпо НС</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<item xsi:type="DataSetQuery">
+				<name>ЗадолженностьВФондыКромеФССпоНС</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗадолженностьВФонды</dataPath>
+					<field>СуммаРазвернутыйОстатокКт</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Отбор.ЗадолженностьВФонды</dataPath>
+					<field>ОтборПоСчету</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто1</dataPath>
+					<field>Субконто1</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по подразделениям</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Субконто1.*,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ВидыПлатежейВГосБюджет),
+			{(Организация В (&amp;Организация)), (Субконто1).*}) КАК ХозрасчетныйОстатки</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ЗадолженностьВФССпоНС</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Отбор.ЗадолженностьВФССпоНС</dataPath>
+					<field>ОтборПоСчету</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Отбор.Задолженность ВФССпо НС</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Субконто1</dataPath>
+					<field>Субконто1</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по подразделениям</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+					<field>СуммаРазвернутыйОстатокКт</field>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК ОтборПоСчету,
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОстатки.Субконто1 КАК Субконто1,
+	ХозрасчетныйОстатки.СуммаРазвернутыйОстатокКт КАК СуммаРазвернутыйОстатокКт,
+	ХозрасчетныйОстатки.Счет КАК Счет
+{ВЫБРАТЬ
+	СуммаРазвернутыйОстатокКт,
+	Субконто1.*,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Остатки(
+			&amp;КонецПериода,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ВидыПлатежейВГосБюджет),
+			{(Организация В (&amp;Организация)), (Субконто1).*}) КАК ХозрасчетныйОстатки</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+		</item>
+	</dataSet>
+	<calculatedField>
+		<dataPath>КредиторскаяЗадолженность</dataPath>
+		<expression>ЕстьNull(Показатели.КредиторскаяЗадолженность,0) + ЕстьNull(ЗадолженностьПоставщикам,0) + ЕстьNull(ЗадолженностьВФедеральныйБюджет,0) + ЕстьNull(ЗадолженностьВРегиональныйБюджет,0)  + ЕстьNull(ЗадолженностьВМестныйБюджет,0) + ЕстьNull(ЗадолженностьВФонды,0)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Кредиторская задолженность</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Шрифт</dcscor:parameter>
+				<dcscor:value xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xsi:type="v8ui:Font" ref="style:TextFont" bold="true" italic="false" underline="false" strikeout="false" kind="StyleItem"/>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<calculatedField>
+		<dataPath>ЗадолженностьПередБюджетом</dataPath>
+		<expression>ЕстьNull(ЗадолженностьВФедеральныйБюджет,0) + ЕстьNull(ЗадолженностьВРегиональныйБюджет,0) + ЕстьNull(ЗадолженностьВМестныйБюджет,0)</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Задолженность перед бюджетом</v8:content>
+			</v8:item>
+		</title>
+		<appearance>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:use>false</dcscor:use>
+				<dcscor:parameter>Шрифт</dcscor:parameter>
+				<dcscor:value xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+			</dcscor:item>
+			<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+				<dcscor:parameter>Формат</dcscor:parameter>
+				<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+			</dcscor:item>
+		</appearance>
+		<valueType>
+			<v8:Type>xs:decimal</v8:Type>
+			<v8:NumberQualifiers>
+				<v8:Digits>0</v8:Digits>
+				<v8:FractionDigits>0</v8:FractionDigits>
+				<v8:AllowedSign>Any</v8:AllowedSign>
+			</v8:NumberQualifiers>
+		</valueType>
+	</calculatedField>
+	<totalField>
+		<dataPath>Показатели.КредиторскаяЗадолженность</dataPath>
+		<expression>Сумма(Показатели.КредиторскаяЗадолженность)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КредиторскаяЗадолженность</dataPath>
+		<expression>Сумма(КредиторскаяЗадолженность)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗадолженностьПоставщикам</dataPath>
+		<expression>Сумма(ЗадолженностьПоставщикам)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗадолженностьВФедеральныйБюджет</dataPath>
+		<expression>Сумма(ЗадолженностьВФедеральныйБюджет)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗадолженностьВРегиональныйБюджет</dataPath>
+		<expression>Сумма(ЗадолженностьВРегиональныйБюджет)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗадолженностьПередБюджетом</dataPath>
+		<expression>Сумма(ЗадолженностьПередБюджетом)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗадолженностьВФонды</dataPath>
+		<expression>Сумма(ЗадолженностьВФонды)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ВекселяВыданные</dataPath>
+		<expression>Сумма(ВекселяВыданные)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗадолженностьВМестныйБюджет</dataPath>
+		<expression>Сумма(ЗадолженностьВМестныйБюджет)</expression>
+	</totalField>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>ДобавитьКДате(&amp;КонецПериода, "СЕКУНДА", 1)</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ВидыСубконтоКонтрагентИДоговор</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Виды субконто контрагент и договор</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоХозрасчетные</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Договоры</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ВидыСубконтоВидыПлатежейВБюджетИУровниБюджетов</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Виды субконто виды платежей в бюджет и уровни бюджетов</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоХозрасчетные</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ВидыПлатежейВГосБюджет</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.УровниБюджетов</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>МестныйБюджет</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Местный бюджет</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.УровниБюджетов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.УровниБюджетов.МестныйБюджет</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>РегиональныйБюджет</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Региональный бюджет</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:EnumRef.УровниБюджетов</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">Перечисление.УровниБюджетов.РегиональныйБюджет</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.АвансыОтПокупателей</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАвансамПолученным</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАвансамПолученнымВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАвансамПолученнымУЕ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПоставщикам</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПоставщиками</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиУЕ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПокупателям</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателями</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиУЕ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НДСпоАвансамИПредоплатам</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСпоАвансамИПредоплатам</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ВекселяВыданные</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ВекселяВыданные</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НалогиВФедеральныйБюджет</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДФЛ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДС</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.Акцизы</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ЕНприУСН</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСТаможенныйСоюзКУплате</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НалогиВБюджетыРазныхУровней</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСБюджетом</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеНалогиИСборы</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ОбязанностиНалоговогоАгента</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСНалоговогоАгента</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСНалоговогоАгентаПоОтдельнымВидамТоваров</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НалогНаПрибыльНалоговогоАгента</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НалогиВРегиональныйБюджет</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ТранспортныйНалог</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НалогНаИмущество</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НалогНаРекламу</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ЕНВД</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ТорговыйСбор</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьВФонды</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ФСС</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПФР</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ФОМС</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ЕСН_ФБ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПФР_ДОБР</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ФСС_ДобровольныеВзносы</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьВФССпоНС</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ФСС_НСиПЗ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПередРаботниками</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПерсоналомПоОплатеТруда</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПодотчетнымиЛицами_</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоПрочимОперациям</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеРасчетыСФизическимиЛицами</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ПрочаяЗадолженность</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоПричитающимсяДивидендам</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоДепонированнымСуммам</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.КорректировкаРасчетовПрошлогоПериода</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоВыплатеДоходов</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоНДСотложенномуДляУплатыВБюджет</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПрочимКредиторам</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПокупателямиИЗаказчиками</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПокупателямиИЗаказчикамиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПокупателямиИЗаказчикамиУЕ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоИмущественномуЛичномуИДобровольномуСтрахованию</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоИмущественномуИЛичномуСтрахованиюВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеРасчетыСРазнымиДебиторамиИКредиторами</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеРасчетыСРазнымиДебиторамиИКредиторамиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеРасчетыСРазнымиДебиторамиИКредиторамиУЕ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоИсполнительнымДокументамРаботников</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАренде</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАрендеВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАрендеУЕ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоПрочимУдержаниямРаботников</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПрочимПоставщикам</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПоставщикамиИПодрядчиками</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПоставщикамиИПодрядчикамиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПоставщикамиИПодрядчикамиУЕ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НалогиВМестныйБюджет</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ЗемельныйНалог</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РегиональныйБюджет</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">РОССИЯ</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">МакетОформленияОтчетовЗеленый</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Расшифровка</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Расшифровка</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.АвансыОтПокупателей</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАвансамПолученным</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАвансамПолученнымВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАвансамПолученнымУЕ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПоставщикам</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПоставщиками</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиУЕ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПокупателям</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателями</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПокупателямиУЕ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НДСпоАвансамИПредоплатам</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСпоАвансамИПредоплатам</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ВекселяВыданные</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ВекселяВыданные</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НалогиВФедеральныйБюджет</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДФЛ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДС</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.Акцизы</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ЕНприУСН</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСТаможенныйСоюзКУплате</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НалогиВБюджетыРазныхУровней</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСБюджетом</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеНалогиИСборы</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НалогиВМестныйБюджет</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ЗемельныйНалог</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ОбязанностиНалоговогоАгента</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСНалоговогоАгента</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НДСНалоговогоАгентаПоОтдельнымВидамТоваров</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НалогНаПрибыльНалоговогоАгента</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.НалогиВРегиональныйБюджет</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ТранспортныйНалог</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НалогНаИмущество</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.НалогНаРекламу</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ЕНВД</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ТорговыйСбор</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьВФонды</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ФСС</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПФР</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ФОМС</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ЕСН_ФБ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПФР_ДОБР</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ФСС_ДобровольныеВзносы</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьВФССпоНС</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ФСС_НСиПЗ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПередРаботниками</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПерсоналомПоОплатеТруда</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПодотчетнымиЛицами_</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоПрочимОперациям</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеРасчетыСФизическимиЛицами</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ПрочаяЗадолженность</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоПричитающимсяДивидендам</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоДепонированнымСуммам</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.КорректировкаРасчетовПрошлогоПериода</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоВыплатеДоходов</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоНДСотложенномуДляУплатыВБюджет</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПрочимКредиторам</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПокупателямиИЗаказчиками</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПокупателямиИЗаказчикамиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПокупателямиИЗаказчикамиУЕ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоИмущественномуЛичномуИДобровольномуСтрахованию</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоИмущественномуИЛичномуСтрахованиюВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеРасчетыСРазнымиДебиторамиИКредиторами</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеРасчетыСРазнымиДебиторамиИКредиторамиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.ПрочиеРасчетыСРазнымиДебиторамиИКредиторамиУЕ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоИсполнительнымДокументамРаботников</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАренде</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАрендеВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоАрендеУЕ</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыПоПрочимУдержаниямРаботников</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:left xsi:type="dcscor:Field">Отбор.ЗадолженностьПрочимПоставщикам</dcsset:left>
+					<dcsset:comparisonType>InListByHierarchy</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПоставщикамиИПодрядчиками</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПоставщикамиИПодрядчикамиВал</dcsset:right>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">ПланСчетов.Хозрасчетный.РасчетыСПрочимиПоставщикамиИПодрядчикамиУЕ</dcsset:right>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РегиональныйБюджет</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">РОССИЯ</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">МакетОформленияОтчетовЗеленый</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+						<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Субконто1</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Субконто2</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

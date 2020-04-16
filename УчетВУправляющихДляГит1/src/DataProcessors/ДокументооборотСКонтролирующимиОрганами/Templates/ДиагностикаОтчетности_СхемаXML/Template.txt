@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="1c.services" attributeFormDefault="qualified" elementFormDefault="qualified"
+    targetNamespace="1c.services" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+    <xs:complexType name="ТипОтчет">
+        <xs:sequence>
+            <xs:element name="Абонент" type="tns:ТипАбонент" minOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Данные абонента и учетной записи</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Проверки" minOccurs="1" maxOccurs="1" type="tns:ТипВсеПроверки">
+                <xs:annotation>
+                    <xs:documentation>Выполненные проверки и результаты</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ДополнительнаяИнформация" type="tns:ТипИнформация" minOccurs="1"
+                maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Дополнительная информация об OS и окружении</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="ВерсияФормата" use="required">
+            <xs:annotation>
+                <xs:documentation>Версия формата</xs:documentation>
+            </xs:annotation>
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:maxLength value="3"/>
+                    <xs:enumeration value="1.0"/>
+                    <xs:enumeration value="1.1"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="ВерсияПрограммы" type="xs:string" use="required">
+            <xs:annotation>
+                <xs:documentation>Версия передающей программы</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="ДатаВремя" type="xs:dateTime" use="required">
+            <xs:annotation>
+                <xs:documentation>Дата, время формирования отчета</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:complexType>
+    <xs:complexType name="ТипАбонент">
+        <xs:sequence>
+            <xs:element name="НазваниеАбонента" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Краткое наименование организации или ИП</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ИНН">
+                <xs:annotation>
+                    <xs:documentation>ИНН организации или ИП</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:pattern value="\d{9,12}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="КПП" minOccurs="0" nillable="true" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>КПП организации или ИП, необязательный</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="УчетнаяЗапись" type="tns:ТипУчетнаяЗапись"/>
+            <xs:element minOccurs="0" name="РегНомерПФР" type="xs:string"/>
+            <xs:element minOccurs="0" name="РегНомерФСС" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПроверкаУЗ">
+        <xs:sequence>
+            <xs:element name="Активна" type="xs:boolean"/>
+            <xs:element name="СрокГодности" type="xs:unsignedByte">
+                <xs:annotation>
+                    <xs:documentation>Данные о сроке действия лицензии на 1С-отчетность</xs:documentation>
+                    <xs:documentation>0 Срок годности ОК</xs:documentation>
+                    <xs:documentation>1 Срок годности истекает</xs:documentation>
+                    <xs:documentation>2 Срок годности истек</xs:documentation>
+                    <xs:documentation>3 Срок годности не начался</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="СведенияСовпадают" type="tns:ТипРезультатСведенияУЗ" nillable="false">
+                <xs:annotation>
+                    <xs:documentation>Сведения об организации совпадают с указанными в полях сертификата и в файле автонастройки</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ИнформацияДоверенности" type="tns:ТипРезультатСведенияУЗДоверенности"
+                nillable="false">
+                <xs:annotation>
+                    <xs:documentation>Список доверенностей и их состояние</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="СертификатВыданНаПредставителя" type="xs:boolean" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>v 1.1+</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="НетОшибокИЗамечаний" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ТипПроверкаРесурса">
+        <xs:sequence>
+            <xs:element name="Ресурс" type="tns:ТипРесурс" minOccurs="1" maxOccurs="unbounded"/>
+            <xs:element name="Предупреждения" minOccurs="0" type="tns:ТипПредупреждения">
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="НетОшибокИЗамечаний" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ТипРесурс">
+        <xs:sequence>
+            <xs:element name="Хост" type="xs:string"/>
+            <xs:element name="Порт" type="xs:unsignedShort"/>
+            <xs:element name="HTTPКодОтвета" minOccurs="0" type="xs:unsignedShort"> </xs:element>
+            <xs:element name="Доступен" type="xs:boolean"/>
+            <xs:element name="Ошибка" type="tns:ТипПоляОшибки" minOccurs="0"/>
+            <xs:element minOccurs="0" name="ПоказателиВнешнейПроверки"
+                type="tns:ТипПоказателиВнешнейПроверки"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПроверкаКриптографии">
+        <xs:sequence>
+            <xs:element name="КомпонентКриптографии" type="tns:ТипРезультатПроверкиКомпоненты"/>
+            <xs:element name="СовместимыйCSP" type="tns:ТипРезультатПроверкиCSP"/>
+            <xs:element name="РасширениеРаботыСФайлами" type="tns:ТипРезультатПроверкиКомпоненты"/>
+        </xs:sequence>
+        <xs:attribute name="НетОшибокИЗамечаний" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ТипПроверкаСертификатов">
+        <xs:sequence>
+            <xs:element name="Сертификат" type="tns:ТипСертификат" minOccurs="1"
+                maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="НетОшибокИЗамечаний" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ТипСертификат">
+        <xs:sequence>
+            <xs:element name="Отпечаток" nillable="false">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:minLength value="40"/>
+                        <xs:maxLength value="40"/>
+                        <xs:pattern value="[A-Fa-f0-9]{40}"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Хранилище" nillable="false" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="MY"/>
+                        <xs:enumeration value="ADDRESSBOOK"/>
+                        <xs:enumeration value="CA"/>
+                        <xs:enumeration value="ROOT"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="НаименованиеПолучателя" type="xs:string" minOccurs="0"/>
+            <xs:element minOccurs="0" name="Выдан" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="ГоденДо" type="xs:dateTime"/>
+            <xs:element minOccurs="0" name="Содержимое" type="xs:string"/>
+            <xs:element name="Найден" type="xs:boolean" nillable="false"/>
+            <xs:element name="Ошибка" type="tns:ТипПростоеСобытие" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПроверкаКриптоопераций">
+        <xs:sequence>
+            <xs:element name="Криптооперация" type="tns:ТипКриптооперация" minOccurs="1"
+                maxOccurs="unbounded"/>
+        </xs:sequence>
+        <xs:attribute name="НетОшибокИЗамечаний" type="xs:boolean" use="required"/>
+    </xs:complexType>
+    <xs:complexType name="ТипКриптооперация">
+        <xs:sequence>
+            <xs:element name="Код" type="xs:unsignedByte">
+                <xs:annotation>
+                    <xs:documentation>Код тестируемой операции</xs:documentation>
+                    <xs:documentation>0 Шифрование</xs:documentation>
+                    <xs:documentation>1 Расшифровка</xs:documentation>
+                    <xs:documentation>2 Подпись</xs:documentation>
+                    <xs:documentation>3 Проверка подписи</xs:documentation>
+                    <xs:documentation>4 Подсчет хеша</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Описание">
+                <xs:annotation>
+                    <xs:documentation>Подробное описание операции</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="50"/>
+                        <xs:minLength value="1"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Успешно" type="xs:boolean"/>
+            <xs:element name="Ошибка" type="tns:ТипПоляОшибки" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипРезультат">
+        <xs:sequence>
+            <xs:element name="Результат">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Предупреждения" type="tns:ТипПростоеСобытие" minOccurs="0"/>
+            <xs:element name="Ошибки" type="tns:ТипПростоеСобытие" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипРезультатСведенияУЗ">
+        <xs:sequence>
+            <xs:element name="Состояние" type="xs:boolean">
+                <xs:annotation>
+                    <xs:documentation>Результат проверки сведений</xs:documentation>
+                    <xs:documentation>true Нет ошибок</xs:documentation>
+                    <xs:documentation>false Есть ошибки или предупреждения, проверяй список отличий</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Различия" minOccurs="0" type="tns:ТипОтличиеСведений"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипРезультатСведенияУЗСрокГодности" block="" final="">
+        <xs:simpleContent>
+            <xs:extension base="xs:unsignedByte"> </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="ТипРезультатСведенияУЗДоверенности">
+        <xs:sequence>
+            <xs:element name="Доверенность" minOccurs="0" maxOccurs="unbounded"
+                type="tns:ТипПоляДоверенности"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипРезультатПроверкиКомпоненты">
+        <xs:sequence>
+            <xs:element name="Состояние">
+                <xs:annotation>
+                    <xs:documentation>Результат проверки компоненты</xs:documentation>
+                    <xs:documentation>0 Нет ошибок</xs:documentation>
+                    <xs:documentation>2 Ошибка компонента</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:unsignedByte">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Ошибка" type="tns:ТипПоляОшибки" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипРезультатПроверкиCSP">
+        <xs:sequence>
+            <xs:element name="Состояние">
+                <xs:annotation>
+                    <xs:documentation>Результат проверки CSP</xs:documentation>
+                    <xs:documentation>0 Нет ошибок</xs:documentation>
+                    <xs:documentation>1 Установлено более одного поддерживаемого криптопровайдера</xs:documentation>
+                    <xs:documentation>2 Не установлен криптопровайдер</xs:documentation>
+                    <xs:documentation>3 Ошибка криптокомпонента</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:unsignedByte">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                        <xs:enumeration value="3"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Ошибка" type="tns:ТипПоляОшибки" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПростоеСобытие">
+        <xs:sequence>
+            <xs:element name="Код" type="xs:unsignedInt"/>
+            <xs:element name="Описание" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипИнформацияСписками">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element minOccurs="0" name="Компонент" type="tns:ТипКомпонентАВ"/>
+            <xs:element minOccurs="0" name="Направление" type="tns:ТипПоляНаправления"> </xs:element>
+            <xs:element minOccurs="0" name="Сообщение" type="tns:ТипПоляНерасшифрованногоСообщения"/>
+            <xs:element minOccurs="0" name="ЗаписьЖурнала" type="tns:ТипРеквизитыЗаписиЖР"/>
+            <xs:element name="Заявление" type="tns:ТипРеквизитыИнформацииЗаявления" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипКомпонентАВ">
+        <xs:sequence>
+            <xs:element name="Группа" type="xs:string"/>
+        </xs:sequence>
+        <xs:attribute name="Start"/>
+        <xs:attribute name="ImagePath"/>
+        <xs:attribute name="DisplayName"/>
+        <xs:attribute name="Запущен"/>
+    </xs:complexType>
+    <xs:complexType name="ТипПоляНерасшифрованногоСообщения">
+        <xs:sequence>
+            <xs:element name="ИдентификаторСообщения" type="xs:string"/>
+            <xs:element name="ИдентификаторДокументооборота" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Значение X-Message-ID, X-Stat-Message-ID</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ДатаТранспорта" type="xs:dateTime"/>
+            <xs:element name="Тема" type="xs:string"/>
+            <xs:element name="Отправитель" type="xs:string"/>
+            <xs:element name="Контейнеры" type="tns:ТипКонтейнеры" minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>v 1.1+</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипУчетнаяЗапись">
+        <xs:sequence>
+            <xs:element name="ИдентификаторАбонента" type="xs:string">
+                <xs:annotation>
+                    <xs:documentation>Идентификатор абонента из файла автонастройки</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ТипЛицензии" type="xs:string"/>
+            <xs:element name="НачалоДействияЛицензии" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:documentation>Дата, время начала действия подписки</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ОкончаниеДействияЛицензии" type="xs:dateTime">
+                <xs:annotation>
+                    <xs:documentation>Дата, время окончания действия подписки</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ЭПВоблаке" type="xs:boolean"/>
+            <xs:element name="Криптопровайдер">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="КриптоПро CSP"/>
+                        <xs:enumeration value="ViPNet CSP"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипИнформация">
+        <xs:sequence>
+            <xs:element name="Инфо" minOccurs="1" maxOccurs="unbounded" type="tns:ТипПоляИнформации"
+                > </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:element name="Отчет" type="tns:ТипОтчет"/>
+    <xs:complexType name="ТипВсеПроверки">
+        <xs:sequence>
+            <xs:element name="ПроверкаУчетнойЗаписи" type="tns:ТипПроверкаУЗ" minOccurs="1"/>
+            <xs:element name="ПроверкаДоступностиРесурсов" type="tns:ТипПроверкаРесурса"
+                minOccurs="1"/>
+            <xs:element name="ПроверкаКриптографии" type="tns:ТипПроверкаКриптографии" minOccurs="0"
+                maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Не используется для Фреша</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ПроверкаСертификатов" type="tns:ТипПроверкаСертификатов" minOccurs="0"
+                maxOccurs="1">
+                <xs:annotation>
+                    <xs:documentation>Не используется для Фреша</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="ПроверкаКриптоопераций" type="tns:ТипПроверкаКриптоопераций"
+                minOccurs="0">
+                <xs:annotation>
+                    <xs:documentation>Не используется для Фреша</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипОтличиеСведений">
+        <xs:sequence maxOccurs="unbounded" minOccurs="1">
+            <xs:element name="Отличие" type="tns:ТипПоляОтличия"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПоляОтличия">
+        <xs:sequence>
+            <xs:element name="Реквизит" type="xs:string"/>
+            <xs:element name="СтароеЗначение" type="xs:string"/>
+            <xs:element name="НовоеЗначение" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПростаяОшибка">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="Ошибка" type="tns:ТипПоляОшибки"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПоляДоверенности">
+        <xs:sequence>
+            <xs:element name="ДатаВыдачи" type="xs:dateTime" minOccurs="0"/>
+            <xs:element minOccurs="0" name="ДатаОкончанияДействия" type="xs:dateTime"/>
+            <xs:element name="Номер" type="xs:string" minOccurs="0"/>
+            <xs:element minOccurs="0" name="Представитель" type="xs:string"/>
+            <xs:element name="КПП" type="xs:string"/>
+            <xs:element name="КодОрганаИФНС" type="xs:string"/>
+            <xs:element name="ОписаниеКратко" type="xs:string"/>
+            <xs:element name="Состояние">
+                <xs:annotation>
+                    <xs:documentation>Результат проверки доверенности</xs:documentation>
+                    <xs:documentation>0 Нет ошибок</xs:documentation>
+                    <xs:documentation>1 Нет ошибок, но заканчивается срок годности</xs:documentation>
+                    <xs:documentation>2 Доверенность недействительна, смотри список ошибок</xs:documentation>
+                    <xs:documentation>3 Доверенность отсутствует</xs:documentation>
+                </xs:annotation>
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="0"/>
+                        <xs:enumeration value="1"/>
+                        <xs:enumeration value="2"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Ошибки" minOccurs="0" type="tns:ТипПростаяОшибка"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПоляОшибки">
+        <xs:sequence>
+            <xs:element name="Код" type="xs:unsignedInt"/>
+            <xs:element name="Описание" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПоказателиВнешнейПроверки">
+        <xs:sequence>
+            <xs:element name="Доступен" type="xs:boolean"/>
+            <xs:element name="ДоступностьЗаПоследнийЧас" type="xs:unsignedByte"/>
+            <xs:element name="ДоступностьЗаПоследниеСутки" type="xs:unsignedByte"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПредупреждения">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="Предупреждение" type="tns:ТипПростоеСобытие"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПоляИнформации">
+        <xs:sequence>
+            <xs:element name="Вид">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:maxLength value="35"/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="Значение" type="xs:string" maxOccurs="1" minOccurs="0"/>
+            <xs:element name="Значения" type="tns:ТипИнформацияСписками" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипПоляНаправления">
+        <xs:sequence>
+            <xs:element name="ТипПолучателя" type="xs:string"/>
+            <xs:element name="КодПолучателя" type="xs:string"/>
+            <xs:element name="КПП" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипРеквизитыЗаписиЖР">
+        <xs:sequence>
+            <xs:element name="Уровень" type="xs:string"/>
+            <xs:element name="Дата" type="xs:dateTime"/>
+            <xs:element name="Событие" type="xs:string"/>
+            <xs:element name="Комментарий" type="xs:string"/>
+            <xs:element name="ПредставлениеДанных" type="xs:string"/>
+            <xs:element minOccurs="0" name="Метаданные" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипРеквизитыИнформацииЗаявления">
+        <xs:sequence>
+            <xs:element name="Представление" type="xs:string"/>
+            <xs:element name="Лицензия" type="xs:boolean"/>
+            <xs:element name="Сертификат" type="xs:boolean"/>
+            <xs:element name="Направления" type="xs:boolean"/>
+            <xs:element name="Реквизиты" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="List">
+        <xs:sequence maxOccurs="1">
+            <xs:element name="Reports" type="tns:ListItem"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ListItemFields">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="date"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+    <xs:complexType name="ListItem">
+        <xs:sequence maxOccurs="unbounded">
+            <xs:element name="Report" type="tns:ListItemFields"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипКонтейнер">
+        <xs:sequence maxOccurs="1" minOccurs="1">
+            <xs:element name="ОшибкаКонтейнера" type="xs:unsignedByte">
+                <xs:annotation>
+                    <xs:documentation>0 Нет ошибки</xs:documentation>
+                    <xs:documentation>1 Не удалось прочитать содержимое</xs:documentation>
+                    <xs:documentation>2 Нарушен формат или отсутствует описание</xs:documentation>
+                    <xs:documentation>3 Не удалось извлечь содержимое</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Размер" type="xs:unsignedInt"/>
+            <xs:element name="Вложения" type="tns:ТипВложенияКонтейнера"> </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипВложение">
+        <xs:sequence maxOccurs="1" minOccurs="1">
+            <xs:element name="ОшибкаВложения" type="xs:unsignedByte">
+                <xs:annotation>
+                    <xs:documentation>0 Нет ошибки</xs:documentation>
+                    <xs:documentation>1 Превышено ограничение по размеру в 5 Мб</xs:documentation>
+                </xs:annotation>
+            </xs:element>
+            <xs:element name="Размер" type="xs:unsignedInt"/>
+            <xs:element name="Представление" type="xs:string"/>
+            <xs:element name="ТранспортныеСертификаты" type="tns:ТипТранспортныеСертификаты">
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипТранспортныйСертификат">
+        <xs:sequence maxOccurs="1" minOccurs="1">
+            <xs:element name="СерийныйНомер" type="xs:string"/>
+            <xs:element name="Поставщик" type="xs:string"/>
+            <xs:element name="Найден" type="xs:boolean"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипКонтейнеры">
+        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="Контейнер" type="tns:ТипКонтейнер"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипВложенияКонтейнера">
+        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="Вложение" type="tns:ТипВложение"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="ТипТранспортныеСертификаты">
+        <xs:sequence maxOccurs="unbounded" minOccurs="0">
+            <xs:element name="ТранспортныйСертификат" type="tns:ТипТранспортныйСертификат"/>
+        </xs:sequence>
+    </xs:complexType>
+</xs:schema>

@@ -1,0 +1,277 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.1c.ru/EA/MobileEntrepreneur">
+	<import namespace="http://v8.1c.ru/8.1/data/core"/>
+	<import namespace="http://v8.1c.ru/8.3/data/ext"/>
+	<property xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="MobileEntrepreneur" type="d2p1:MobileEntrepreneur"/>
+	<valueType name="ВерсияСхемы" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">1.01</enumeration>
+		<enumeration xsi:type="xs:string">1.02</enumeration>
+		<enumeration xsi:type="xs:string">1.03</enumeration>
+	</valueType>
+	<objectType name="СправочникОбъект">
+		<property name="Наименование" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Код" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Ссылка" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ПометкаУдаления" type="xs:boolean" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ДокументОбъект">
+		<property name="Номер" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Дата" type="xs:dateTime" lowerBound="0" nillable="true"/>
+		<property name="Ссылка" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ВалютаДокументаСимвол" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ПометкаУдаления" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Проведен" type="xs:boolean" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="БанковскийСчет" base="d2p1:СправочникОбъект">
+		<property name="НомерСчета" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ТекстКорреспондента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Банк" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="БанкДляРасчетов" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Владелец" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="Банк" base="d2p1:СправочникОбъект">
+		<property name="КоррСчет" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Город" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="Организация" base="d2p1:СправочникОбъект">
+		<property name="ЮридическоеФизическоеЛицо" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ИНН" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="КПП" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="НаименованиеСокращенное" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ОсновнойБанковскийСчет" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ДополнительныеУсловияПоУмолчанию" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ОтветственноеЛицоБухгалтер" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ОтветственноеЛицоРуководитель" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ФайлЛоготип" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ФайлФаксимильнаяПечать" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Префикс" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="НалоговаяСистема" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="КонтактнаяИнформация" type="d2p1:СтрокаТЧКонтактнаяИнформация" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property name="ВариантНаименованияДляПечатныхФорм" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="Контрагент" base="d2p1:СправочникОбъект">
+		<property name="ЮридическоеФизическоеЛицо" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ИНН" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="КПП" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ОбособленноеПодразделение" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ГоловнойКонтрагент" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ЭтоГруппа" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Родитель" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="КонтактнаяИнформация" type="d2p1:СтрокаТЧКонтактнаяИнформация" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="Договор" base="d2p1:СправочникОбъект">
+		<property name="ВидДоговора" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ВалютаВзаиморасчетов" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ЭтоГруппа" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Родитель" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Владелец" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="ЕдиницаИзмерения" base="d2p1:СправочникОбъект"/>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="Номенклатура" base="d2p1:СправочникОбъект">
+		<property name="НаименованиеПолное" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ЕдиницаИзмерения" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СтавкаНДС" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Услуга" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ЭтоГруппа" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Родитель" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ВидНоменклатуры" type="xs:string" lowerBound="0" nillable="false"/>
+		<property name="НоменклатурнаяГруппа" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Артикул" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="Склад" base="d2p1:СправочникОбъект"/>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="ДополнительныеУсловия" base="d2p1:СправочникОбъект">
+		<property name="ТекстУсловий" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="Валюта" base="d2p1:СправочникОбъект">
+		<property name="ПараметрыПрописиНаРусском" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="СчетНаОплатуПокупателю" base="d2p1:ДокументОбъект">
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Контрагент" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ДоговорКонтрагента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="БанковскийСчет" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ДополнительныеУсловия" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СтатусОплаты" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СуммаДокумента" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="СуммаВключаетНДС" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ВалютаДокумента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ТоварыУслуги" type="d2p1:СтрокаТЧТоварыУслуги" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property name="Руководитель" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ГлавныйБухгалтер" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ПредставлениеСуммыВСписке" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ДокументБезНДС" type="xs:boolean" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="РеализацияТоваровУслуг" base="d2p1:ДокументОбъект">
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Контрагент" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ДоговорКонтрагента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="БанковскийСчет" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СуммаДокумента" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="СуммаВключаетНДС" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ВалютаДокумента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ТоварыУслуги" type="d2p1:СтрокаТЧТоварыУслуги" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property name="Руководитель" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ГлавныйБухгалтер" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ПредставлениеСуммыВСписке" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ДокументБезНДС" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ДокументПодписан" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Склад" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СчетНаОплатуПокупателю" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Накладная" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="Акт" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="СчетФактура" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="СуммаАгентскихУслуг" type="xs:double" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="ДвижениеДенег" base="d2p1:ДокументОбъект">
+		<property name="ВидДокумента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ВидОперации" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Контрагент" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ДоговорКонтрагента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СчетОрганизации" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СуммаДокумента" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="Содержание" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="РасшифровкаПлатежа" type="d2p1:СтрокаТЧРасшифровкаПлатежа" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property name="ВалютаДокумента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ВалютаДокументаСимвол" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="АктСверкиВзаиморасчетов" base="d2p1:ДокументОбъект">
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Контрагент" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ОстатокНаНачало" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="ДоговорКонтрагента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ВалютаДокумента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ДатаНачала" type="xs:date" lowerBound="0" nillable="true"/>
+		<property name="ДатаОкончания" type="xs:date" lowerBound="0" nillable="true"/>
+		<property name="СверкаСогласована" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ПоДаннымОрганизации" type="d2p1:СтрокаАктаСверки" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property name="ПоДаннымКонтрагента" type="d2p1:СтрокаАктаСверки" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ЗадолженностьКонтрагента">
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Контрагент" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СуммаДолга" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="ХарактерЗадолженности" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ОстатокНоменклатуры">
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Номенклатура" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Остаток" type="xs:double" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ОбщийПоказатель">
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Показатель" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Значение" type="xs:double" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="УдалениеОбъекта">
+		<property name="ТипОбъекта" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Ссылка" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ПрефиксМП">
+		<property name="ПрефиксЗначение" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ДополнительнаяКолонкаПечатныхФорм">
+		<property name="ЗначениеКонстанты" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="Файл" base="d2p1:СправочникОбъект">
+		<property name="ДвоичныеДанные" type="xs:base64Binary" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="ВидКонтактнойИнформации" base="d2p1:СправочникОбъект"/>
+	<objectType name="СтрокаТЧТоварыУслуги">
+		<property name="Номенклатура" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Количество" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="Цена" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="Сумма" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="СтавкаНДС" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СуммаНДС" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="Содержание" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ЭтоУслуга" type="xs:boolean" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="СтрокаТЧКонтактнаяИнформация">
+		<property name="Тип" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Вид" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Представление" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ВидПредопределенный" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ВидИмяПредопределенныхДанных" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="СтрокаТЧРасшифровкаПлатежа">
+		<property name="ДоговорКонтрагента" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СуммаПлатежа" type="xs:double" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="СтрокаАктаСверки">
+		<property name="Договор" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Дата" type="xs:date" lowerBound="0" nillable="true"/>
+		<property name="Представление" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Дебет" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="Кредит" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="ДокументТип" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ДокументСсылка" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="БазаСообщений">
+		<property name="АдресБазыСообщений" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="MobileEntrepreneur">
+		<property xmlns:d3p1="http://www.1c.ru/EA/MobileEntrepreneur" name="ВерсияФормата" type="d3p1:ВерсияСхемы"/>
+	</objectType>
+	<objectType name="СтрокаСпискаЗадач">
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Правило" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ПериодСобытия" type="xs:date" lowerBound="0" nillable="true"/>
+		<property name="РегистрацияВНалоговомОргане" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Наименование" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Срок" type="xs:date" lowerBound="0" nillable="true"/>
+		<property name="Выполнено" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ТипПравила" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="СтрокаЖурналаСостоянияОтчетов">
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Ссылка" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Статус" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="НаименованиеОтчета" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ПредставлениеКонтролирующегоОргана" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ФинансовыйПериод" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ВариантОтчета" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="СостояниеСдачиОтчетности" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="НеОтправляетсяВКонтролирующийОрган" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ЕстьКритическиеОшибкиОтправки" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ПометкаУдаления" type="xs:boolean" lowerBound="0" nillable="true"/>
+		<property name="ДатаНачала" type="xs:date" lowerBound="0" nillable="true"/>
+		<property name="ДатаОкончания" type="xs:date" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ОбщийПоказательСИсторией">
+		<property name="Организация" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Показатель" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Значение" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="ЗначениеМинусГод" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="ОписаниеПериода" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="ВидНоменклатуры" base="d2p1:СправочникОбъект">
+		<property name="Услуга" type="xs:boolean" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://www.1c.ru/EA/MobileEntrepreneur" name="НоменклатурнаяГруппа" base="d2p1:СправочникОбъект"/>
+	<objectType name="ИспользоватьНесколькоНоменклатурныхГрупп">
+		<property name="ЗначениеКонстанты" type="xs:boolean" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ОсновнойВидНоменклатуры">
+		<property name="ЗначениеКонстанты" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ОсновнойВидНоменклатурыУслуга">
+		<property name="ЗначениеКонстанты" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ОсновнаяНоменклатурнаяГруппа">
+		<property name="ЗначениеКонстанты" type="xs:string" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="НастройкиУведомлений">
+		<property name="ПолучаетPushУведомления" type="xs:boolean" lowerBound="0"/>
+		<property name="НомерПриложенияGoogleCloud" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.3/data/ext" name="ИдентификаторПодписчикаУведомлений" type="d3p1:DeliverableNotificationSubscriberID" lowerBound="0" nillable="true"/>
+	</objectType>
+	<objectType name="ЦеныНоменклатуры">
+		<property name="Номенклатура" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="Цена" type="xs:double" lowerBound="0" nillable="true"/>
+		<property name="Валюта" type="xs:string" lowerBound="0" nillable="true"/>
+		<property name="ЦенаВключаетНДС" type="xs:boolean" lowerBound="0" nillable="true"/>
+	</objectType>
+</package>

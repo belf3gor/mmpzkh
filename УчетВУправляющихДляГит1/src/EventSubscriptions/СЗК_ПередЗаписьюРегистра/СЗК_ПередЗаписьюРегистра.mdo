@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:EventSubscription xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="6cb8ec06-a78e-406c-8cd3-d5e7768f8881">
+  <name>СЗК_ПередЗаписьюРегистра</name>
+  <synonym>
+    <key>ru</key>
+    <value>Перед записью регистра</value>
+  </synonym>
+  <comment>Выполняется проверка наличия лицензионного ключа</comment>
+  <source>
+    <types>AccumulationRegisterRecordSet.УПЖКХ_НачисленияПоДобровольномуСтрахованию</types>
+    <types>AccumulationRegisterRecordSet.УПЖКХ_РасхожденияОбъемовПотребленийПоПУИНормативу</types>
+    <types>InformationRegisterRecordSet.КВП_УчетнаяПолитикаТСЖ</types>
+    <types>AccumulationRegisterRecordSet.УПЖКХ_РасчетПриборовУчета</types>
+    <types>AccumulationRegisterRecordSet.УПЖКХ_Начисления</types>
+  </source>
+  <event>BeforeWrite</event>
+  <handler>CommonModule.СЗК_МодульЗащитыКлиентСервер.СЗК_ПередЗаписьюРегистровПередЗаписью</handler>
+</mdclass:EventSubscription>

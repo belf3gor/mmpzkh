@@ -1,0 +1,65 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://api.vetrf.ru/schema/cdm/base" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/base" name="guid" type="d2p1:UUID"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/base" name="listOptions" type="d2p1:ListOptions"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/base" name="updateDateInterval" type="d2p1:DateInterval"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/base" name="uuid" type="d2p1:UUID"/>
+	<valueType name="Decimal" base="xs:decimal" variety="Atomic" fractionDigits="6"/>
+	<valueType name="Identifier" base="xs:token" variety="Atomic" maxLength="100"/>
+	<valueType name="NText" base="xs:token" variety="Atomic"/>
+	<valueType name="RegisterModificationType" base="xs:string" variety="Atomic">
+		<enumeration>CREATE</enumeration>
+		<enumeration>FIND_OR_CREATE</enumeration>
+		<enumeration>UPDATE</enumeration>
+		<enumeration>DELETE</enumeration>
+		<enumeration>MERGE</enumeration>
+		<enumeration>ATTACH</enumeration>
+		<enumeration>SPLIT</enumeration>
+		<enumeration>FORK</enumeration>
+	</valueType>
+	<valueType name="SequenceNumber" base="xs:positiveInteger" variety="Atomic"/>
+	<valueType name="String255" base="xs:string" variety="Atomic" maxLength="255"/>
+	<valueType name="String32" base="xs:string" variety="Atomic" maxLength="32"/>
+	<valueType name="Text" base="xs:string" variety="Atomic"/>
+	<valueType name="UUID" base="xs:string" variety="Atomic">
+		<pattern>[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}</pattern>
+	</valueType>
+	<valueType name="VersionStatus" base="xs:integer" variety="Atomic">
+		<pattern>[1-4][0-9][0-9]</pattern>
+	</valueType>
+	<objectType name="DateInterval">
+		<property name="beginDate" type="xs:dateTime" lowerBound="0"/>
+		<property name="endDate" type="xs:dateTime" lowerBound="0"/>
+	</objectType>
+	<objectType name="EntityList">
+		<property name="count" type="xs:int" lowerBound="0" form="Attribute"/>
+		<property name="total" type="xs:long" lowerBound="0" form="Attribute"/>
+		<property name="offset" type="xs:int" lowerBound="0" form="Attribute"/>
+		<property name="hasMore" type="xs:boolean" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="Error">
+		<property name="code" type="xs:NCName" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/base" name="qualifier" type="d3p1:Identifier" lowerBound="0" form="Attribute"/>
+		<property name="__content" type="xs:string" form="Text"/>
+	</objectType>
+	<objectType name="FaultInfo">
+		<property name="message" type="xs:string"/>
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/base" name="error" type="d3p1:Error" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="GenericEntity">
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/base" name="uuid" type="d3p1:UUID" lowerBound="0"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://api.vetrf.ru/schema/cdm/base" name="GenericVersioningEntity" base="d2p1:GenericEntity">
+		<property name="guid" type="d2p1:UUID" lowerBound="0"/>
+		<property name="active" type="xs:boolean" lowerBound="0"/>
+		<property name="last" type="xs:boolean" lowerBound="0"/>
+		<property name="status" type="d2p1:VersionStatus" lowerBound="0"/>
+		<property name="createDate" type="xs:dateTime" lowerBound="0"/>
+		<property name="updateDate" type="xs:dateTime" lowerBound="0"/>
+		<property name="previous" type="d2p1:UUID" lowerBound="0"/>
+		<property name="next" type="d2p1:UUID" lowerBound="0"/>
+	</objectType>
+	<objectType name="ListOptions">
+		<property name="count" type="xs:nonNegativeInteger" lowerBound="0"/>
+		<property name="offset" type="xs:nonNegativeInteger" lowerBound="0"/>
+	</objectType>
+</package>

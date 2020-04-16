@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html;charset=utf-8" http-equiv="content-type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 11.00.9600.18212"></meta></head><body>  
+<h1 class="western"><font size="4">Обработка «Формирование оплат на основании платежных документов»</font><br></h1>
+<p class="western" align="justify">Данная обработка предназначена для автоматического формирования документов <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font> на основе платежных банковских, кассовых документов и операций по платежным картам. </p>
+<p class="western" align="justify">Для выполнения обработки необходимо заполнить поля:</p>
+<dl><dd class="western" style="TEXT-ALIGN: justify">«<strong>Организация</strong>» - организация, производящая расчет коммунальных услуг; 
+</dd><dd class="western" style="TEXT-ALIGN: justify">«<strong>Источник оплаты</strong>» - ссылка на элемент справочника <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Catalog.КВП_ИсточникиОплат/Help">«Источники оплат»</a></u></span></font>; 
+</dd><dd class="western" style="MARGIN-BOTTOM: 0.5cm; TEXT-ALIGN: justify">«<strong>Период</strong>» - период, за который обрабатываются платежные документы. </dd></dl><p class="western" align="justify">В окне настройки (кнопка <strong>«Настройка»</strong>) можно указать виды обрабатываемых платежных документов и задать для каждого вида документов виды операций, которые необходимо обрабатывать. По умолчанию будут обрабатываться все виды операций.</p>
+<p class="western" align="justify">По кнопке <b>«Заполнить»</b>:</p>
+<ul><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">осуществляется поиск указанных в настройке платежных документов за указанный период, </p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">осуществляется поиск документов <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font>, в табличных частях которых имеются ссылки на найденные платежные документы,</p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">устанавливается соответствие лицевых счетов контрагентам и договорам платежных документов,</p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">выполняется заполнение табличных частей: «Документы к загрузке» и «Документы с ошибками».<br></p></li></ul><p class="western" style="MARGIN-LEFT: 1cm" align="justify">Соответствие лицевых счетов контрагентам и договорам платежных документов выполняется следующим образом:</p>
+<p class="western" style="MARGIN-LEFT: 1.5cm; TEXT-INDENT: 0.75cm" align="justify">Если по платежному документу найдены документы <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font>, каждому договору платежного документа ставятся в соответствие лицевые счета, по которым в найденных документах <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font> зарегистрирована оплата по данному платежному документу. При этом если какой-либо из лицевых счетов не соответствует контрагенту платежного документа (определяется по данным регистра сведений «Сведения для взаиморасчетов по лицевым счетам»), тогда дополнительно осуществляется поиск всех лицевых счетов, соответствующих контрагенту платежного документа.</p>
+<p class="western" style="MARGIN-LEFT: 1.5cm; TEXT-INDENT: 0.75cm" align="justify">Если по платежному документу не найден ни один документ <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font>, определение лицевого счета, по которому произведена оплата услуг, осуществляется на основе сведений для взаиморасчетов (контрагент и договор контрагента), указанных в лицевом счете. Если определение лицевого счета по контрагенту и договору не представляется возможным, то тогда поиск лицевого счета выполняется только по контрагенту.</p>
+<p class="western" style="MARGIN-LEFT: 1.5cm; TEXT-INDENT: 0.75cm" align="justify">При установленном значении переключателя <strong>«Учитывать оплаты только по привязанным к лицевым счетам договорам контрагентов» </strong>устанавливается отбор, при котором в табличную часть включаются оплаты только по договорам контрагентов, привязанным к текущему лицевому счету. В противном случае, при установленном значении переключателя <strong>«Учитывать все оплаты»</strong>, в табличную часть включаются все найденные оплаты.<strong> </strong> </p>
+<p class="western" style="MARGIN-LEFT: 1cm" align="justify">В табличную часть <strong>«Документы к загрузке»</strong> попадают банковские, кассовые документы и операции по платежным картам, на основании которых ранее уже были созданы документы оплаты или необходимо их создать. Табличная часть состоит из колонок: </p>
+<ul><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Контрагент</strong>» – контрагент, от которого поступили денежные средства; </p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Договор</strong>» – договор с контрагентом, от которого поступили денежные средства; </p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Поступило</strong>» – сумма поступивших денежных средств; </p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Дата</strong>» – дата платежного документа; </p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Номер</strong>» – номер платежного документа; </p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Назначение платежа</strong>» – назначение платежа, указанное в банковском документе или основание, указанное в кассовом документе;</p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Распределение на кап. ремонт</strong>» - выбирается вариант распределения оплат на капитальный ремонт; может принимать следующие значения: </p>
+<ul><li>«<strong>Услуги, кроме кап. ремонта</strong>»; 
+</li><li>«<strong>Услуги капитального ремонта</strong>». </li></ul><div class="Important" style="WIDTH: 88.23%">
+<p><strong>Примечание<br></strong></p>
+<p class="Usual">Выбор варианта распределения оплат на капитальный ремонт доступен только в том случае, если для указанной в обработке организации ведется раздельный учет по услугам капитального ремонта. Настройки ведения учета по услугам капитального ремонта задаются в соответствующем справочнике <a href="Catalog.УПЖКХ_НастройкиУчетаКапремонта/Help"><font color="#0066cc">«Настройки учета по услугам капитального ремонта»</font></a>. При этом для вида операции «Поступление на расчетный счет» отражение типовых документов оплаты возможно только для варианта распределения «Услуги, кап. ремонта», если банковский счет в документе оплаты совпадает со счетом услуг кап. ремонта.</p></div>
+</li><li>
+<p class="western" align="justify">«<strong>Документ</strong>» – входящий банковский или кассовый документ. </p></li></ul><p class="western" style="MARGIN-LEFT: 1cm" align="justify">Каждую строку в таблице можно развернуть и посмотреть лицевые счета, по которым сформированы или будут формироваться документы <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font>, а также суммы, даты, номера и наименования документов <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font>, если таковые уже сформированы. </p>
+<p class="western" style="MARGIN-BOTTOM: 0cm; MARGIN-LEFT: 1.25cm" align="justify">В табличную часть <strong>«Документы с ошибками»</strong> попадают документы в следующих случаях:</p>
+<p class="western" style="MARGIN-BOTTOM: 0cm; MARGIN-LEFT: 1.25cm" align="justify"> </p>
+<ul><li>
+<p class="western" style="MARGIN-LEFT: 1cm" align="justify">ранее документы <span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span> не создавались, при этом:</p></li></ul><ol><li>
+<p class="western" style="MARGIN-LEFT: 2cm" align="justify">не удалось определить, по какому лицевому счету зарегистрирована оплата,</p>
+</li><li>
+<p class="western" style="MARGIN-LEFT: 2cm" align="justify">найдено несколько лицевых счетов, удовлетворяющих условиям поиска, и однозначно не определить, по какому из найденных лицевых счетов отразить поступившую оплату; </p></li></ol><ul><li>
+<p class="western" style="MARGIN-LEFT: 1cm" align="justify">ранее были созданы документы <span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a>, </u></span>при этом:</p></li></ul><ol start="3"><li>
+<p class="western" style="MARGIN-LEFT: 2cm" align="justify">суммы оплат в найденных документах <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font> не совпадают с суммами соответствующих им договоров платежных документов, </p>
+</li><li>
+<p class="western" style="MARGIN-LEFT: 2cm" align="justify">невозможно установить соответствие между договором и/или контрагентом, указанным в платежном документе, и лицевым счетом, по которому отражена оплата в документе <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font>. </p></li></ol><p class="western" style="MARGIN-LEFT: 1cm" align="justify">Табличная часть состоит из колонок:</p>
+<ul><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Контрагент</strong>» – контрагент, от которого поступили денежные средства; </p></li></ul><ul><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Договор</strong>» – договор с контрагентом, от которого поступили денежные средства; </p></li></ul><ul><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Поступило</strong>» – сумма поступивших денежных средств; </p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Дата</strong>» – дата платежного документа; </p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Номер</strong>» – номер платежного документа; </p>
+</li><li>
+<p class="western" style="MARGIN-BOTTOM: 0cm" align="justify">«<strong>Назначение платежа</strong>» – назначение платежа, указанное в банковском документе или основание, указанное в кассовом документе; </p>
+</li><li>
+<p class="western" align="justify">«<strong>Описание ошибок</strong>» – ошибки, по которым документ не может быть принят к загрузке, и предупреждения, указывающие на возможные ошибки, но позволяющие принять документ к загрузке. </p></li></ul><p class="western" style="MARGIN-LEFT: 1cm" align="justify">Ошибки корректируются только в табличной части <strong>«Документы с ошибками»</strong>. </p>
+<p class="western" style="MARGIN-LEFT: 1cm" align="justify">Каждую строку в таблице можно развернуть, вручную исправить ошибки, например, указать лицевой счет или разбить сумму оплаты на несколько лицевых счетов, и подтвердить изменения кнопкой <strong>«Принять изменения»</strong>. </p>
+<p class="western" style="MARGIN-LEFT: 1cm" align="justify">Если требуется внести изменения в документ, уже принятый к загрузке, то необходимо выделить его и нажать кнопку «<strong>На корректировку</strong>».</p>
+<p class="western" style="MARGIN-LEFT: 1cm" align="justify">При нажатии на кнопку «<strong>Сформировать документы</strong>» происходит формирование новых и/или перезаполнение существующих документов <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font> на основании данных табличной части «<strong>Документы к загрузке</strong>».</p>
+<p class="western" style="MARGIN-LEFT: 1cm" align="justify"><b>ВАЖНО: </b>Если для организации применяется упрощенная система налогообложения (УСН), при этом на вкладке <strong>«УСН»</strong> Учетной политики ЖКХ не установлен флажок<strong> «Суммы доходов определять автоматически»</strong>, то при формировании новых документов <font color="#0066cc"><span lang="zxx"><u><a class="western" href="Document.КВП_РегистрацияОплаты/Help">«Регистрация оплаты»</a></u></span></font> для соответствующих им платежных документов произойдет перезаполнение записей в КУДиР в соответствии с настройками, выполненными на вкладке <strong>«УСН»</strong> Учетной политики ЖКХ.</p>
+<p class="western" style="MARGIN-LEFT: 1cm" align="justify"> </p></body></html>

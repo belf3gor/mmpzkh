@@ -1,0 +1,18 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.v8.1c.ru/NDS/ReestrSFRequest">
+	<valueType name="СуммаТип" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="2"/>
+	<valueType name="ИННТип" base="xs:string" variety="Atomic" minLength="10" maxLength="12"/>
+	<valueType name="КППТип" base="xs:string" variety="Atomic" maxLength="9"/>
+	<valueType name="ИдентификаторЗапросаТип" base="xs:string" variety="Atomic" minLength="36" maxLength="36"/>
+	<objectType name="Запрос">
+		<property xmlns:d3p1="http://www.v8.1c.ru/NDS/ReestrSFRequest" name="ИННПоставщика" type="d3p1:ИННТип"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/NDS/ReestrSFRequest" name="КПППоставщика" type="d3p1:КППТип"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/NDS/ReestrSFRequest" name="ИННПокупателя" type="d3p1:ИННТип"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/NDS/ReestrSFRequest" name="КПППокупателя" type="d3p1:КППТип"/>
+		<property name="НалоговыйПериод" type="xs:date"/>
+		<property name="ДатаЗапроса" type="xs:dateTime"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/NDS/ReestrSFRequest" name="ИдентификаторЗапроса" type="d3p1:ИдентификаторЗапросаТип" nillable="true"/>
+		<property name="АдресДляОтвета" type="xs:string" form="Element"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/NDS/ReestrSFRequest" name="Сумма" type="d3p1:СуммаТип"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/NDS/ReestrSFRequest" name="СуммаНДС" type="d3p1:СуммаТип"/>
+	</objectType>
+</package>

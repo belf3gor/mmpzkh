@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="01679d6f-e050-4dc0-942d-c0c031ee99a4">
+  <producedTypes>
+    <selectionType typeId="82145b19-9527-412e-9099-e4d3f056096d" valueTypeId="02883612-296b-42ba-ab91-01ff75dbeb39"/>
+    <listType typeId="1a458f5c-62a3-463b-bf97-49d192b39e81" valueTypeId="70f583db-414d-4733-b888-62543b5fc301"/>
+    <managerType typeId="0e00c19a-94ba-4ca1-bcc6-4c7e6b2ab9d5" valueTypeId="adbfb47f-4578-4bc3-8bb9-db578330e98b"/>
+    <recordSetType typeId="287ce07e-aa49-4cec-a3ad-dacb24ccbdd8" valueTypeId="89b0f96c-3a70-4a76-b628-e75c25aa32ab"/>
+    <recordKeyType typeId="fe60ad7e-6f56-41e1-ab85-c8caf731d63f" valueTypeId="2a63e427-82f3-41cb-9a67-e90da7369127"/>
+    <recordType typeId="480ce87c-e42b-4cf0-8072-d572c79c166b" valueTypeId="12eeb348-d217-4411-b22a-826b15923894"/>
+    <recordManagerType typeId="a6aa8006-49e7-48dd-82d8-b542c5649994" valueTypeId="bb027249-c396-4e3c-94d7-d8e86aa1481d"/>
+  </producedTypes>
+  <name>СтатьиЗатратПоЗарплате</name>
+  <synonym>
+    <key>ru</key>
+    <value>Статьи затрат по зарплате</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultRecordForm>InformationRegister.СтатьиЗатратПоЗарплате.Form.ФормаЗаписи</defaultRecordForm>
+  <defaultListForm>InformationRegister.СтатьиЗатратПоЗарплате.Form.ФормаСписка</defaultListForm>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <resources uuid="c38263fe-1743-4a4c-b0c3-aa5cd27edfa0">
+    <name>СтатьяЗатрат</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статья затрат</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ПрочиеДоходыИРасходы</types>
+      <types>CatalogRef.СтатьиЗатрат</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <linkByType>
+      <field>InformationRegister.СтатьиЗатратПоЗарплате.Dimension.СтатьяЗатратНачисления</field>
+    </linkByType>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="d9acc95d-fcd5-40a2-8f65-89e6bb61ee83">
+    <name>ВидСтатьиЗатрат</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид статьи затрат</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ВидыДополнительныхСтатейЗатрат</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:ReferenceValue">
+      <value>Enum.ВидыДополнительныхСтатейЗатрат.EnumValue.СтраховыеВзносы</value>
+    </fillValue>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="55457b99-0eaf-417c-9025-e878d46140c9">
+    <name>СтатьяЗатратНачисления</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статья затрат начисления</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ПрочиеДоходыИРасходы</types>
+      <types>CatalogRef.СтатьиЗатрат</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <forms uuid="b2c12e0a-7569-42f1-a26f-986aa025c204">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="614d650d-0baa-449e-81bf-9731b87fc95d">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:InformationRegister>

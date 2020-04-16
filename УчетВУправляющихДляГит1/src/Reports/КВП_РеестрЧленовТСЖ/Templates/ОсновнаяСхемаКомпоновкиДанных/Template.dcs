@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВступленияВТСЖ</dataPath>
+			<field>ДатаВступленияВТСЖ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата вступления в ТСЖ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЧленТСЖ</dataPath>
+			<field>ЧленТСЖ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаДоговора</dataPath>
+			<field>ДатаДоговора</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ДФ=dd.MM.yyyy</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Здание</dataPath>
+			<field>Здание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерДоговора</dataPath>
+			<field>НомерДоговора</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПлощадьПомещения</dataPath>
+			<field>ПлощадьПомещения</field>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>10</v8:Digits>
+					<v8:FractionDigits>2</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Помещение</dataPath>
+			<field>Помещение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Телефон</dataPath>
+			<field>Телефон</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоляЧислитель</dataPath>
+			<field>ДоляЧислитель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоляЗнаменатель</dataPath>
+			<field>ДоляЗнаменатель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УдалитьЗдание</dataPath>
+			<field>УдалитьЗдание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Собственник</dataPath>
+			<field>Собственник</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПлощади</dataPath>
+			<field>ВидПлощади</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛицевойСчет</dataPath>
+			<field>ЛицевойСчет</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КВП_ЧленыТСЖСрезПоследних.Период КАК ДатаВступленияВТСЖ,
+	КВП_ЧленыТСЖСрезПоследних.ЧленТСЖ КАК ЧленТСЖ
+ПОМЕСТИТЬ втДействующиеЧленыТСЖ
+ИЗ
+	РегистрСведений.КВП_ЧленыТСЖ.СрезПоследних(
+			&amp;ДатаОтчета,
+			Организация = &amp;Организация
+				И Период &lt;= &amp;ДатаОтчета) КАК КВП_ЧленыТСЖСрезПоследних
+ГДЕ
+	КВП_ЧленыТСЖСрезПоследних.Участие
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	УПЖКХ_СобственникиПомещенийСрезПоследних.Помещение.Владелец КАК Здание,
+	УПЖКХ_СобственникиПомещенийСрезПоследних.Помещение КАК Помещение,
+	УПЖКХ_СобственникиПомещенийСрезПоследних.Собственник КАК Собственник,
+	УПЖКХ_СобственникиПомещенийСрезПоследних.ДоляСобственникаЧислитель КАК ДоляЧислитель,
+	УПЖКХ_СобственникиПомещенийСрезПоследних.ДоляСобственникаЗнаменатель КАК ДоляЗнаменатель
+ПОМЕСТИТЬ втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений
+ИЗ
+	РегистрСведений.УПЖКХ_СобственникиПомещений.СрезПоследних(
+			&amp;ДатаОтчета,
+			Собственник В
+				(ВЫБРАТЬ
+					втДействующиеЧленыТСЖ.ЧленТСЖ КАК ЧленТСЖ
+				ИЗ
+					втДействующиеЧленыТСЖ КАК втДействующиеЧленыТСЖ)) КАК УПЖКХ_СобственникиПомещенийСрезПоследних
+ГДЕ
+	УПЖКХ_СобственникиПомещенийСрезПоследних.Действует
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	УПЖКХ_СобственностьНаПомещенияСрезПоследних.Помещение КАК Помещение,
+	УПЖКХ_СобственностьНаПомещенияСрезПоследних.ВидСобственности КАК ВидСобственности,
+	УПЖКХ_СобственностьНаПомещенияСрезПоследних.ПодвидЧастнойСобственности КАК ПодвидЧастнойСобственности
+ПОМЕСТИТЬ втСведенияОЧастнойСобственностиНаПомещения
+ИЗ
+	РегистрСведений.УПЖКХ_СобственностьНаПомещения.СрезПоследних(
+			&amp;ДатаОтчета,
+			Помещение В
+				(ВЫБРАТЬ
+					втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Помещение КАК Помещение
+				ИЗ
+					втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений КАК втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений)) КАК УПЖКХ_СобственностьНаПомещенияСрезПоследних
+ГДЕ
+	УПЖКХ_СобственностьНаПомещенияСрезПоследних.Действует
+	И УПЖКХ_СобственностьНаПомещенияСрезПоследних.ВидСобственности = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыСобственности.Частная)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Помещение КАК Помещение,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Собственник) КАК КоличествоСобственников
+ПОМЕСТИТЬ втСведенияОСобственникахССовместнымПодвидомСобственности
+ИЗ
+	втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений КАК втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений
+ГДЕ
+	втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Помещение В
+			(ВЫБРАТЬ
+				втСведенияОЧастнойСобственностиНаПомещения.Помещение КАК Помещение
+			ИЗ
+				втСведенияОЧастнойСобственностиНаПомещения КАК втСведенияОЧастнойСобственностиНаПомещения
+			ГДЕ
+				втСведенияОЧастнойСобственностиНаПомещения.ПодвидЧастнойСобственности = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыЧастнойСобственности.Совместная))
+
+СГРУППИРОВАТЬ ПО
+	втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Помещение
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Здание КАК Здание,
+	втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Помещение КАК Помещение,
+	втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Собственник КАК Собственник,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(втСведенияОЧастнойСобственностиНаПомещения.ПодвидЧастнойСобственности, ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыЧастнойСобственности.ПустаяСсылка)) = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыЧастнойСобственности.Индивидуальная)
+			ТОГДА 1
+		КОГДА ЕСТЬNULL(втСведенияОЧастнойСобственностиНаПомещения.ПодвидЧастнойСобственности, ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыЧастнойСобственности.ПустаяСсылка)) = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыЧастнойСобственности.Совместная)
+			ТОГДА 1
+		ИНАЧЕ втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.ДоляЧислитель
+	КОНЕЦ КАК ДоляЧислитель,
+	ВЫБОР
+		КОГДА ЕСТЬNULL(втСведенияОЧастнойСобственностиНаПомещения.ПодвидЧастнойСобственности, ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыЧастнойСобственности.ПустаяСсылка)) = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыЧастнойСобственности.Индивидуальная)
+			ТОГДА 1
+		КОГДА ЕСТЬNULL(втСведенияОЧастнойСобственностиНаПомещения.ПодвидЧастнойСобственности, ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыЧастнойСобственности.ПустаяСсылка)) = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ВидыЧастнойСобственности.Совместная)
+			ТОГДА ЕСТЬNULL(втСведенияОСобственникахССовместнымПодвидомСобственности.КоличествоСобственников, 1)
+		ИНАЧЕ втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.ДоляЗнаменатель
+	КОНЕЦ КАК ДоляЗнаменатель
+ПОМЕСТИТЬ втСведенияОЧленахТСЖБезНомеровТелефонов
+ИЗ
+	втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений КАК втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений
+		ЛЕВОЕ СОЕДИНЕНИЕ втСведенияОЧастнойСобственностиНаПомещения КАК втСведенияОЧастнойСобственностиНаПомещения
+		ПО втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Помещение = втСведенияОЧастнойСобственностиНаПомещения.Помещение
+		ЛЕВОЕ СОЕДИНЕНИЕ втСведенияОСобственникахССовместнымПодвидомСобственности КАК втСведенияОСобственникахССовместнымПодвидомСобственности
+		ПО втДействующиеЧленыТСЖКоторыеЯвляютсяСобственникамиПомещений.Помещение = втСведенияОСобственникахССовместнымПодвидомСобственности.Помещение
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ФизическиеЛицаКонтактнаяИнформация.Ссылка КАК ЧленТСЖ,
+	ФизическиеЛицаКонтактнаяИнформация.Представление КАК Телефон
+ПОМЕСТИТЬ втНомераТелефоновЧленовТСЖ
+ИЗ
+	Справочник.ФизическиеЛица.КонтактнаяИнформация КАК ФизическиеЛицаКонтактнаяИнформация
+ГДЕ
+	ФизическиеЛицаКонтактнаяИнформация.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Телефон)
+	И ФизическиеЛицаКонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.ТелефонДомашнийФизическиеЛица)
+	И ФизическиеЛицаКонтактнаяИнформация.Ссылка В
+			(ВЫБРАТЬ
+				втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник КАК Собственник
+			ИЗ
+				втСведенияОЧленахТСЖБезНомеровТелефонов КАК втСведенияОЧленахТСЖБезНомеровТелефонов
+			ГДЕ
+				втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник ССЫЛКА Справочник.ФизическиеЛица)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КонтрагентыКонтактнаяИнформация.Ссылка КАК ЧленТСЖ,
+	КонтрагентыКонтактнаяИнформация.Представление КАК Телефон
+ПОМЕСТИТЬ втНомераТелефоновЧленовТСЖКонтрагентов
+ИЗ
+	Справочник.Контрагенты.КонтактнаяИнформация КАК КонтрагентыКонтактнаяИнформация
+ГДЕ
+	КонтрагентыКонтактнаяИнформация.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Телефон)
+	И КонтрагентыКонтактнаяИнформация.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.ТелефонКонтрагента)
+	И КонтрагентыКонтактнаяИнформация.Ссылка В
+			(ВЫБРАТЬ
+				втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник КАК Собственник
+			ИЗ
+				втСведенияОЧленахТСЖБезНомеровТелефонов КАК втСведенияОЧленахТСЖБезНомеровТелефонов
+			ГДЕ
+				втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник ССЫЛКА Справочник.Контрагенты)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КВП_ПлощадьПомещенияСрезПоследних.Объект КАК Помещение,
+	КВП_ПлощадьПомещенияСрезПоследних.Площадь КАК ОбщаяПлощадь
+ПОМЕСТИТЬ втПлощадиПомещения
+ИЗ
+	РегистрСведений.КВП_ПлощадьПомещения.СрезПоследних(
+			&amp;ДатаОтчета,
+			Объект В
+					(ВЫБРАТЬ
+						втСведенияОЧленахТСЖБезНомеровТелефонов.Помещение КАК Помещение
+					ИЗ
+						втСведенияОЧленахТСЖБезНомеровТелефонов КАК втСведенияОЧленахТСЖБезНомеровТелефонов)
+				И ВидПлощади = ЗНАЧЕНИЕ(Справочник.УПЖКХ_ВидыПлощадей.ОбщаяПлощадь)) КАК КВП_ПлощадьПомещенияСрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	УПЖКХ_Жильцы.Владелец.Адрес КАК Помещение,
+	УПЖКХ_Жильцы.ФизЛицо КАК Собственник,
+	МАКСИМУМ(УПЖКХ_Жильцы.Владелец.НомерДоговораОПриватизации) КАК НомерДоговора,
+	МАКСИМУМ(УПЖКХ_Жильцы.Владелец.ДатаДоговораОПриватизации) КАК ДатаДоговора,
+	МАКСИМУМ(УПЖКХ_Жильцы.Владелец.Телефон) КАК Телефон
+ПОМЕСТИТЬ втСведенияОДоговорахОПриватизации
+ИЗ
+	Справочник.УПЖКХ_Жильцы КАК УПЖКХ_Жильцы
+ГДЕ
+	(УПЖКХ_Жильцы.Владелец.Адрес, УПЖКХ_Жильцы.ФизЛицо) В
+			(ВЫБРАТЬ
+				втСведенияОЧленахТСЖБезНомеровТелефонов.Помещение КАК Помещение,
+				втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник КАК Собственник
+			ИЗ
+				втСведенияОЧленахТСЖБезНомеровТелефонов КАК втСведенияОЧленахТСЖБезНомеровТелефонов
+			ГДЕ
+				втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник ССЫЛКА Справочник.ФизическиеЛица)
+
+СГРУППИРОВАТЬ ПО
+	УПЖКХ_Жильцы.Владелец.Адрес,
+	УПЖКХ_Жильцы.ФизЛицо
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	УПЖКХ_СведенияДляВзаиморасчетовПоЛССрезПоследних.ЛицевойСчет.Адрес КАК Помещение,
+	УПЖКХ_СведенияДляВзаиморасчетовПоЛССрезПоследних.Контрагент КАК Собственник,
+	МАКСИМУМ(УПЖКХ_СведенияДляВзаиморасчетовПоЛССрезПоследних.ЛицевойСчет.НомерДоговораОПриватизации) КАК НомерДоговораОПриватизации,
+	МАКСИМУМ(УПЖКХ_СведенияДляВзаиморасчетовПоЛССрезПоследних.ЛицевойСчет.ДатаДоговораОПриватизации) КАК ДатаДоговораОПриватизации,
+	МАКСИМУМ(УПЖКХ_СведенияДляВзаиморасчетовПоЛССрезПоследних.ЛицевойСчет.Телефон) КАК Телефон
+ПОМЕСТИТЬ втСведенияОДоговорахОПриватизацииКонтрагентов
+ИЗ
+	РегистрСведений.УПЖКХ_СведенияДляВзаиморасчетовПоЛС.СрезПоследних(
+			&amp;ДатаОтчета,
+			(ЛицевойСчет.Адрес, Контрагент) В
+					(ВЫБРАТЬ
+						втСведенияОЧленахТСЖБезНомеровТелефонов.Помещение КАК Помещение,
+						втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник КАК Собственник
+					ИЗ
+						втСведенияОЧленахТСЖБезНомеровТелефонов КАК втСведенияОЧленахТСЖБезНомеровТелефонов
+					ГДЕ
+						втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник ССЫЛКА Справочник.Контрагенты)
+				И Организация = &amp;Организация) КАК УПЖКХ_СведенияДляВзаиморасчетовПоЛССрезПоследних
+
+СГРУППИРОВАТЬ ПО
+	УПЖКХ_СведенияДляВзаиморасчетовПоЛССрезПоследних.ЛицевойСчет.Адрес,
+	УПЖКХ_СведенияДляВзаиморасчетовПоЛССрезПоследних.Контрагент
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втСведенияОЧленахТСЖБезНомеровТелефонов.Здание КАК Здание,
+	втСведенияОЧленахТСЖБезНомеровТелефонов.Помещение КАК Помещение,
+	втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник КАК ЧленТСЖ,
+	втСведенияОЧленахТСЖБезНомеровТелефонов.ДоляЧислитель КАК ДоляЧислитель,
+	втСведенияОЧленахТСЖБезНомеровТелефонов.ДоляЗнаменатель КАК ДоляЗнаменатель,
+	ЕСТЬNULL(втНомераТелефоновЧленовТСЖ.Телефон, ЕСТЬNULL(втНомераТелефоновЧленовТСЖКонтрагентов.Телефон, ЕСТЬNULL(втСведенияОДоговорахОПриватизации.Телефон, ЕСТЬNULL(втСведенияОДоговорахОПриватизацииКонтрагентов.Телефон, "")))) КАК Телефон,
+	ЕСТЬNULL(втПлощадиПомещения.ОбщаяПлощадь, 0) * (втСведенияОЧленахТСЖБезНомеровТелефонов.ДоляЧислитель / втСведенияОЧленахТСЖБезНомеровТелефонов.ДоляЗнаменатель) КАК ПлощадьПомещения,
+	ЕСТЬNULL(втСведенияОДоговорахОПриватизации.НомерДоговора, ЕСТЬNULL(втСведенияОДоговорахОПриватизацииКонтрагентов.НомерДоговораОПриватизации, "")) КАК НомерДоговора,
+	ЕСТЬNULL(втСведенияОДоговорахОПриватизации.ДатаДоговора, ЕСТЬNULL(втСведенияОДоговорахОПриватизацииКонтрагентов.ДатаДоговораОПриватизации, ДАТАВРЕМЯ(1, 1, 1))) КАК ДатаДоговора,
+	ЕСТЬNULL(втДействующиеЧленыТСЖ.ДатаВступленияВТСЖ, ДАТАВРЕМЯ(1, 1, 1)) КАК ДатаВступленияВТСЖ
+ИЗ
+	втСведенияОЧленахТСЖБезНомеровТелефонов КАК втСведенияОЧленахТСЖБезНомеровТелефонов
+		ЛЕВОЕ СОЕДИНЕНИЕ втНомераТелефоновЧленовТСЖ КАК втНомераТелефоновЧленовТСЖ
+		ПО втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник = втНомераТелефоновЧленовТСЖ.ЧленТСЖ
+		ЛЕВОЕ СОЕДИНЕНИЕ втПлощадиПомещения КАК втПлощадиПомещения
+		ПО втСведенияОЧленахТСЖБезНомеровТелефонов.Помещение = втПлощадиПомещения.Помещение
+		ЛЕВОЕ СОЕДИНЕНИЕ втСведенияОДоговорахОПриватизации КАК втСведенияОДоговорахОПриватизации
+		ПО втСведенияОЧленахТСЖБезНомеровТелефонов.Помещение = втСведенияОДоговорахОПриватизации.Помещение
+			И втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник = втСведенияОДоговорахОПриватизации.Собственник
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ втДействующиеЧленыТСЖ КАК втДействующиеЧленыТСЖ
+		ПО втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник = втДействующиеЧленыТСЖ.ЧленТСЖ
+		ЛЕВОЕ СОЕДИНЕНИЕ втНомераТелефоновЧленовТСЖКонтрагентов КАК втНомераТелефоновЧленовТСЖКонтрагентов
+		ПО втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник = втНомераТелефоновЧленовТСЖКонтрагентов.ЧленТСЖ
+		ЛЕВОЕ СОЕДИНЕНИЕ втСведенияОДоговорахОПриватизацииКонтрагентов КАК втСведенияОДоговорахОПриватизацииКонтрагентов
+		ПО втСведенияОЧленахТСЖБезНомеровТелефонов.Помещение = втСведенияОДоговорахОПриватизацииКонтрагентов.Помещение
+			И втСведенияОЧленахТСЖБезНомеровТелефонов.Собственник = втСведенияОДоговорахОПриватизацииКонтрагентов.Собственник
+
+УПОРЯДОЧИТЬ ПО
+	Здание,
+	Помещение,
+	ЧленТСЖ</query>
+	</dataSet>
+	<totalField>
+		<dataPath>ПлощадьПомещения</dataPath>
+		<expression>Сумма(ПлощадьПомещения)</expression>
+		<group>ОбщийИтог</group>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ДатаОтчета</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата отчета</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<template>
+		<name>Макет1</name>
+		<template xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:AreaTemplate">
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Утверждено решением
+заседания правления
+от </v8:content>
+							</v8:item>
+						</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ДатаОтчета</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Right</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">105.125</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">105.125</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">105.125</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">105.125</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+			<dcsat:item xsi:type="dcsat:TableRow">
+				<dcsat:tableCell>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>РЕЕСТР
+членов "</v8:content>
+							</v8:item>
+						</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">Организация</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="v8:LocalStringType">
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>"
+по состоянию на </v8:content>
+							</v8:item>
+						</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:item xsi:type="dcsat:Field">
+						<dcsat:value xsi:type="dcscor:Parameter">ДатаОтчета</dcsat:value>
+						<dcsat:appearance>
+							<dcscor:item>
+								<dcscor:parameter>Формат</dcscor:parameter>
+								<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+							</dcscor:item>
+						</dcsat:appearance>
+					</dcsat:item>
+					<dcsat:appearance>
+						<dcscor:item>
+							<dcscor:parameter>Шрифт</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:Font" faceName="Arial" height="10" bold="true" italic="false" underline="false" strikeout="false" kind="Absolute" scale="100"/>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ГоризонтальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:HorizontalAlign">Center</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>ВертикальноеПоложение</dcscor:parameter>
+							<dcscor:value xsi:type="v8ui:VerticalAlign">Bottom</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">105.125</dcscor:value>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">105.125</dcscor:value>
+						</dcscor:item>
+					</dcsat:appearance>
+				</dcsat:tableCell>
+			</dcsat:item>
+		</template>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>ДатаОтчета</dcsat:name>
+			<dcsat:expression>ПараметрыДанных.ДатаОтчета</dcsat:expression>
+		</parameter>
+		<parameter xmlns:dcsat="http://v8.1c.ru/8.1/data-composition-system/area-template" xsi:type="dcsat:ExpressionAreaTemplateParameter">
+			<dcsat:name>Организация</dcsat:name>
+			<dcsat:expression>Представление(ПараметрыДанных.Организация)</dcsat:expression>
+		</parameter>
+	</template>
+	<groupTemplate>
+		<groupName>Заголовок отчета</groupName>
+		<templateType>Header</templateType>
+		<template>Макет1</template>
+	</groupTemplate>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Здание</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СистемныеПоля.НомерПоПорядку</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЧленТСЖ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Помещение</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерДоговора</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаВступленияВТСЖ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПлощадьПомещения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Телефон</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:viewMode>Normal</dcsset:viewMode>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Организация</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Здание</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Помещение.ВидПомещения</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Помещение.Код</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Помещение.Суффикс</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ЧленТСЖ</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ФиксацияСлева</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionFixation">DontUse</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:use>false</dcsset:use>
+				<dcsset:name>Заголовок отчета</dcsset:name>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto">
+						<dcsset:use>false</dcsset:use>
+					</dcsset:item>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+						<dcsset:use>false</dcsset:use>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>МакетОформления</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">БезОформления</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemTable">
+				<dcsset:row>
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Здание</dcsset:field>
+							<dcsset:groupType>Hierarchy</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:row>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

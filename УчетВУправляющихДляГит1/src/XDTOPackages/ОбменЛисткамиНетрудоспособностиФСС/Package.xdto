@@ -1,0 +1,232 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="DATA" type="d2p1:DATA"/>
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="INFO" type="d2p1:INFO"/>
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="OUT_ROWSET" type="d2p1:OUT_ROWSET"/>
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="ROWSET" type="d2p1:ROWSET"/>
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="ROWSET_WRAPPER" type="d2p1:ROWSET_WRAPPER"/>
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="SOAPException" type="d2p1:SOAPException"/>
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="getPrivateLNData" type="d2p1:getPrivateLNData"/>
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="getPrivateLNDataResponse" type="d2p1:getPrivateLNDataResponse"/>
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="prParseReestrFile" type="d2p1:prParseReestrFile"/>
+	<property xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="prParseReestrFileResponse" type="d2p1:prParseReestrFileResponse"/>
+	<property name="author" type="xs:string" form="Attribute"/>
+	<property name="email" type="xs:string" form="Attribute"/>
+	<property name="phone" type="xs:string" form="Attribute"/>
+	<property name="software" type="xs:string" form="Attribute"/>
+	<property name="version" type="xs:string" form="Attribute"/>
+	<property name="version_software" type="xs:string" form="Attribute"/>
+	<objectType name="DATA">
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="OUT_ROWSET" type="d3p1:OUT_ROWSET" nillable="true"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="FileOperationsLnUser_disableLn_Out" base="d2p1:WSResult">
+		<property name="DATA" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="OUT_ROWSET" type="d2p1:OUT_ROWSET" lowerBound="0" nillable="true"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType xmlns:d2p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="FileOperationsLnUser_getLNData_Out" base="d2p1:WSResult">
+		<property name="DATA" type="d2p1:DATA" lowerBound="0"/>
+	</objectType>
+	<objectType name="INFO">
+		<property name="ROWSET" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="ROW" upperBound="-1">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="ROW_NO" type="xs:integer" nillable="true"/>
+						<property name="LN_CODE" type="xs:string"/>
+						<property name="LN_HASH" type="xs:string" lowerBound="0"/>
+						<property name="LN_STATE" type="xs:string" lowerBound="0"/>
+						<property name="STATUS" type="xs:int"/>
+						<property name="ERRORS" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="ERROR" upperBound="-1">
+									<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+										<property name="ERR_CODE" type="xs:string"/>
+										<property name="ERR_MESS" type="xs:string"/>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="OUT_ROWSET">
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="ROW" type="d3p1:ROW" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ROW" ordered="false" sequenced="true">
+		<property name="SNILS" type="xs:string"/>
+		<property name="SURNAME" type="xs:string"/>
+		<property name="NAME" type="xs:string"/>
+		<property name="PATRONIMIC" type="xs:string" lowerBound="0"/>
+		<property name="BOZ_FLAG" type="xs:int"/>
+		<property name="LPU_EMPLOYER" type="xs:string" lowerBound="0"/>
+		<property name="LPU_EMPL_FLAG" type="xs:int"/>
+		<property name="LN_CODE" type="xs:string"/>
+		<property name="PREV_LN_CODE" type="xs:string" lowerBound="0"/>
+		<property name="PRIMARY_FLAG" type="xs:int"/>
+		<property name="DUPLICATE_FLAG" type="xs:int"/>
+		<property name="LN_DATE" type="xs:date"/>
+		<property name="LPU_NAME" type="xs:string"/>
+		<property name="LPU_ADDRESS" type="xs:string" lowerBound="0"/>
+		<property name="LPU_OGRN" type="xs:string"/>
+		<property name="BIRTHDAY" type="xs:date"/>
+		<property name="GENDER" type="xs:int"/>
+		<property name="REASON1" type="xs:string"/>
+		<property name="REASON2" type="xs:string" lowerBound="0"/>
+		<property name="REASON3" type="xs:string" lowerBound="0"/>
+		<property name="PARENT_CODE" type="xs:string" lowerBound="0"/>
+		<property name="DATE1" type="xs:date" nillable="true"/>
+		<property name="DATE2" type="xs:date" nillable="true"/>
+		<property name="VOUCHER_NO" type="xs:string" lowerBound="0"/>
+		<property name="VOUCHER_OGRN" type="xs:string" lowerBound="0"/>
+		<property name="SERV1_AGE" type="xs:int" nillable="true"/>
+		<property name="SERV1_MM" type="xs:int" nillable="true"/>
+		<property name="SERV1_RELATION_CODE" type="xs:string" lowerBound="0"/>
+		<property name="SERV1_FIO" type="xs:string" lowerBound="0"/>
+		<property name="SERV2_AGE" type="xs:int" nillable="true"/>
+		<property name="SERV2_MM" type="xs:int" nillable="true"/>
+		<property name="SERV2_RELATION_CODE" type="xs:string" lowerBound="0"/>
+		<property name="SERV2_FIO" type="xs:string" lowerBound="0"/>
+		<property name="PREGN12W_FLAG" type="xs:int" nillable="true"/>
+		<property name="HOSPITAL_DT1" type="xs:date" nillable="true"/>
+		<property name="HOSPITAL_DT2" type="xs:date" nillable="true"/>
+		<property name="HOSPITAL_BREACH" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="HOSPITAL_BREACH_CODE" type="xs:string"/>
+				<property name="HOSPITAL_BREACH_DT" type="xs:date"/>
+			</typeDef>
+		</property>
+		<property name="MSE_DT1" type="xs:date" nillable="true"/>
+		<property name="MSE_DT2" type="xs:date" nillable="true"/>
+		<property name="MSE_DT3" type="xs:date" nillable="true"/>
+		<property name="MSE_INVALID_GROUP" type="xs:int" nillable="true"/>
+		<property name="TREAT_PERIODS">
+			<typeDef xsi:type="ObjectType">
+				<property xmlns:d5p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="TREAT_FULL_PERIOD" type="d5p1:TREAT_FULL_PERIOD" upperBound="-1"/>
+			</typeDef>
+		</property>
+		<property name="LN_RESULT" lowerBound="0">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property name="RETURN_DATE_LPU" type="xs:date" nillable="true"/>
+				<property name="MSE_RESULT" type="xs:string" lowerBound="0"/>
+				<property name="OTHER_STATE_DT" type="xs:date" nillable="true"/>
+				<property name="NEXT_LN_CODE" type="xs:string" lowerBound="0"/>
+			</typeDef>
+		</property>
+		<property name="LN_STATE" type="xs:string"/>
+		<property name="INN_PERSON" type="xs:string" lowerBound="0"/>
+		<property name="EMPLOYER" type="xs:string"/>
+		<property name="EMPL_FLAG" type="xs:int" nillable="true"/>
+		<property name="EMPL_REG_NO" type="xs:string" lowerBound="0"/>
+		<property name="EMPL_PARENT_NO" type="xs:string" lowerBound="0"/>
+		<property name="EMPL_REG_NO2" type="xs:string" lowerBound="0"/>
+		<property name="APPROVE1" type="xs:string" lowerBound="0"/>
+		<property name="APPROVE2" type="xs:string" lowerBound="0"/>
+		<property name="BASE_AVG_SAL" type="xs:double" lowerBound="0"/>
+		<property name="BASE_AVG_DAILY_SAL" type="xs:double" lowerBound="0"/>
+		<property name="INSUR_YY" type="xs:int" nillable="true"/>
+		<property name="INSUR_MM" type="xs:int" nillable="true"/>
+		<property name="NOT_INSUR_YY" type="xs:int" nillable="true"/>
+		<property name="NOT_INSUR_MM" type="xs:int" nillable="true"/>
+		<property name="CALC_CONDITION1" type="xs:string" lowerBound="0"/>
+		<property name="CALC_CONDITION2" type="xs:string" lowerBound="0"/>
+		<property name="CALC_CONDITION3" type="xs:string" lowerBound="0"/>
+		<property name="CALC_CONDITION4" type="xs:string" lowerBound="0"/>
+		<property name="FORM1_DT" type="xs:date" nillable="true"/>
+		<property name="RETURN_DATE_EMPL" type="xs:date" nillable="true"/>
+		<property name="DT1_LN" type="xs:date" nillable="true"/>
+		<property name="DT2_LN" type="xs:date" nillable="true"/>
+		<property name="EMPL_PAYMENT" type="xs:double" lowerBound="0"/>
+		<property name="FSS_PAYMENT" type="xs:double" lowerBound="0"/>
+		<property name="PAYMENT" type="xs:double" lowerBound="0"/>
+		<property name="CORRECTION_REASON" type="xs:string" lowerBound="0"/>
+		<property name="CORRECTION_NOTE" type="xs:string" lowerBound="0"/>
+		<property name="LN_HASH" type="xs:string"/>
+	</objectType>
+	<objectType name="ROWSET">
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" ref="d3p1:version" lowerBound="1"/>
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" ref="d3p1:software" lowerBound="1"/>
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" ref="d3p1:version_software" lowerBound="1"/>
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" ref="d3p1:author" lowerBound="1"/>
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" ref="d3p1:phone" lowerBound="1"/>
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" ref="d3p1:email" lowerBound="1"/>
+		<property name="ROW" upperBound="-1">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property name="LN_CODE" type="xs:string"/>
+				<property name="SNILS" type="xs:string"/>
+				<property name="INN_PERSON" type="xs:string" lowerBound="0"/>
+				<property name="EMPLOYER" type="xs:string"/>
+				<property name="EMPL_FLAG" type="xs:int"/>
+				<property name="EMPL_REG_NO" type="xs:string" lowerBound="0"/>
+				<property name="EMPL_PARENT_NO" type="xs:string"/>
+				<property name="EMPL_REG_NO2" type="xs:string" lowerBound="0"/>
+				<property name="APPROVE1" type="xs:string"/>
+				<property name="APPROVE2" type="xs:string" lowerBound="0"/>
+				<property name="BASE_AVG_SAL" type="xs:double" lowerBound="0"/>
+				<property name="BASE_AVG_DAILY_SAL" type="xs:double" lowerBound="0"/>
+				<property name="INSUR_YY" type="xs:int" nillable="true"/>
+				<property name="INSUR_MM" type="xs:int" nillable="true"/>
+				<property name="NOT_INSUR_YY" type="xs:int" nillable="true"/>
+				<property name="NOT_INSUR_MM" type="xs:int" nillable="true"/>
+				<property name="CALC_CONDITION1" type="xs:string" lowerBound="0"/>
+				<property name="CALC_CONDITION2" type="xs:string" lowerBound="0"/>
+				<property name="CALC_CONDITION3" type="xs:string" lowerBound="0"/>
+				<property name="CALC_CONDITION4" type="xs:string" lowerBound="0"/>
+				<property name="FORM1_DT" type="xs:date" nillable="true"/>
+				<property name="RETURN_DATE_EMPL" type="xs:date" nillable="true"/>
+				<property name="DT1_LN" type="xs:date" nillable="true"/>
+				<property name="DT2_LN" type="xs:date" nillable="true"/>
+				<property name="EMPL_PAYMENT" type="xs:double" lowerBound="0"/>
+				<property name="FSS_PAYMENT" type="xs:double" lowerBound="0"/>
+				<property name="PAYMENT" type="xs:double" lowerBound="0"/>
+				<property name="CORRECTION_REASON" type="xs:string" lowerBound="0"/>
+				<property name="CORRECTION_NOTE" type="xs:string" lowerBound="0"/>
+				<property name="LN_HASH" type="xs:string"/>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="ROWSET_WRAPPER">
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="ROWSET" type="d3p1:ROWSET"/>
+	</objectType>
+	<objectType name="SOAPException">
+		<d3p1:property xmlns:d3p1="http://v8.1c.ru/8.1/xdto" name="message" type="xs:string" lowerBound="0" d3p1:qualified="false"/>
+	</objectType>
+	<objectType name="TREAT_FULL_PERIOD" ordered="false" sequenced="true">
+		<property name="TREAT_CHAIRMAN_ROLE" type="xs:string" lowerBound="0"/>
+		<property name="TREAT_CHAIRMAN" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="TREAT_PERIOD" type="d3p1:TREAT_PERIOD"/>
+	</objectType>
+	<objectType name="TREAT_PERIOD" ordered="false" sequenced="true">
+		<property name="TREAT_DT1" type="xs:date"/>
+		<property name="TREAT_DT2" type="xs:date"/>
+		<property name="TREAT_DOCTOR_ROLE" type="xs:string"/>
+		<property name="TREAT_DOCTOR" type="xs:string"/>
+	</objectType>
+	<objectType name="WSResult">
+		<property name="REQUEST_ID" type="xs:string"/>
+		<property name="STATUS" type="xs:int"/>
+		<property name="MESS" type="xs:string" lowerBound="0"/>
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="INFO" type="d3p1:INFO" lowerBound="0"/>
+	</objectType>
+	<objectType name="getPrivateLNData">
+		<property name="regNum" type="xs:string" lowerBound="0"/>
+		<property name="lnCode" type="xs:string" lowerBound="0"/>
+		<property name="snils" type="xs:string" lowerBound="0"/>
+	</objectType>
+	<objectType name="getPrivateLNDataResponse">
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="FileOperationsLnUserGetPrivateLNDataOut" type="d3p1:FileOperationsLnUser_getLNData_Out" lowerBound="0"/>
+	</objectType>
+	<objectType name="prParseReestrFile">
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="request" type="d3p1:prParseReestrFileType" lowerBound="0"/>
+	</objectType>
+	<objectType name="prParseReestrFileResponse">
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="WSResult" type="d3p1:WSResult" lowerBound="0"/>
+	</objectType>
+	<objectType name="prParseReestrFileType">
+		<property name="regNum" type="xs:string" nillable="true"/>
+		<property xmlns:d3p1="http://ru/ibs/fss/ln/ws/FileOperationsLn.wsdl" name="pXmlFile" type="d3p1:ROWSET_WRAPPER" nillable="true"/>
+	</objectType>
+</package>

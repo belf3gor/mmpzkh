@@ -1,0 +1,484 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d614f06c-5de8-47ef-880e-5f62a83bf354">
+  <producedTypes>
+    <objectType typeId="e90dba24-fc6d-45cb-8b8f-f6e4cd7e9e7f" valueTypeId="29d14a6b-e6f0-4322-9d5f-9bc1063de01b"/>
+    <managerType typeId="0035fc17-93d8-4aa6-9c26-a2ea5fecbdea" valueTypeId="ed0a4511-f750-4cf4-99bd-658facde3b87"/>
+  </producedTypes>
+  <name>УПЖКХ_РаботаСДолжниками</name>
+  <synonym>
+    <key>ru</key>
+    <value>Работа с должниками</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.УПЖКХ_РаботаСДолжниками.Form.Форма</defaultForm>
+  <auxiliaryForm>DataProcessor.УПЖКХ_РаботаСДолжниками.Form.Форма</auxiliaryForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="4b16c614-1251-402a-8941-cfc644c34957">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация, по которой формируются должники</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="87cae9a0-e781-4253-989e-1ffa3c2eef0b">
+    <name>Дата</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Дата работы с должниками</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="2a7734e1-2b6d-4596-927c-4b5572f99d2a">
+    <name>МинимальнаяСуммаЗадолженности</name>
+    <synonym>
+      <key>ru</key>
+      <value>Минимальная сумма задолженности</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Минимальная сумма долга</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="661e51b5-e1ec-4b23-b08c-2a8e3bd19d52">
+    <name>МинимальныйСрокЗадолженности</name>
+    <synonym>
+      <key>ru</key>
+      <value>Минимальный срок задолженности</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>3</precision>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Минимальный срок долга</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="48408e42-81c5-4c08-bf24-b011fc35195d">
+    <name>Услуга</name>
+    <synonym>
+      <key>ru</key>
+      <value>Услуга</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КВП_Услуги</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Услуга, по которой формируется задолженность</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="6e5e1d80-351f-4037-9d16-a2e49aca2c5e">
+    <name>Объект</name>
+    <synonym>
+      <key>ru</key>
+      <value>Объект</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КВП_Здания</types>
+      <types>CatalogRef.УПЖКХ_Помещения</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Объект (здание или помещение), по которому формируются должники</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="132484bc-acd1-4e0a-86b7-3714dce33f75">
+    <producedTypes>
+      <objectType typeId="465322e3-e8d6-4c08-b01e-7ac174ba073c" valueTypeId="3e449f9c-2012-4fa0-a440-bc6096ac23e0"/>
+      <rowType typeId="8ec81d47-2754-4e3d-a921-c131ad1f643d" valueTypeId="4b78b3cf-66af-4045-98c3-7128e64d81cf"/>
+    </producedTypes>
+    <name>Должники</name>
+    <synonym>
+      <key>ru</key>
+      <value>Должники</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Должники</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="aaf7625c-835d-4d5a-a21e-502b3d741216">
+      <name>Флаг</name>
+      <synonym>
+        <key>ru</key>
+        <value>Флаг</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Признак наличия задолженности</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="04724256-f1a2-4db9-a64d-1eb8d7c570f7">
+      <name>Здание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Здание</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Здания</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Здание, в котором проживает должник</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="5b1fa14d-3bf5-4259-9aca-b7e9fccc37c4">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет, на котором зарегистрирован должник</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2af15486-9ad8-4eed-add5-2a4c5891ae38">
+      <name>Адрес</name>
+      <synonym>
+        <key>ru</key>
+        <value>Адрес</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.УПЖКХ_Помещения</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Помещение, в котором проживает должник</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="cb42f72f-c86d-4675-ad6f-9ed87db4eb4d">
+      <name>СуммаДолга</name>
+      <synonym>
+        <key>ru</key>
+        <value>Просроченная задолженность по начислениям</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Просроченная задолженность по начислениям</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="628d4483-83db-4cdd-806b-2a6b7f616329">
+      <name>СуммаПени</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма пени</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма начисленных пени</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3f557c5e-5b80-41cc-b4be-503c11aac992">
+      <name>СуммаШтрафа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма штрафа</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма накопленных штрафов</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="32fdacb8-65a8-4abd-b278-79cec03428cb">
+      <name>ОбщаяСумма</name>
+      <synonym>
+        <key>ru</key>
+        <value>Общая просроченная задолженность</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Общая просроченная задолженность</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="8fe24a32-c4aa-4eba-a002-bed031aafd21">
+      <name>ОбщаяСуммаЗадолженности</name>
+      <synonym>
+        <key>ru</key>
+        <value>Общая сумма задолженности</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Общая сумма задолженности</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="cb3b8c67-984c-476f-a812-280ac8c3e574">
+      <name>КоличествоПредупреждений</name>
+      <synonym>
+        <key>ru</key>
+        <value>Количество предупреждений</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Количество сформированных предупреждений</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ab4e6f0b-87b6-4af5-9458-caf31b1f7446">
+      <name>КоличествоИсковыхЗаявлений</name>
+      <synonym>
+        <key>ru</key>
+        <value>Количество исковых заявлений</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Количество сформированных исковых заявлений</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="6d46799c-675c-42a4-8086-c7a4d839d0af">
+      <name>КоличествоСудебныхСоглашений</name>
+      <synonym>
+        <key>ru</key>
+        <value>Количество судебных соглашений</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Количество сформированных судебных соглашений</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ff090140-56fb-40fe-a06d-fa2dea8e2f61">
+      <name>МесяцевЗадолженности</name>
+      <synonym>
+        <key>ru</key>
+        <value>Месяцев задолженности</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>3</precision>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Количество месяцев задолженности</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="6e4e56c0-f385-4944-9cca-1f4ae10aa5c0">
+      <name>ВладелецОбъекта</name>
+      <synonym>
+        <key>ru</key>
+        <value>Владелец объекта</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Контрагенты</types>
+        <types>CatalogRef.УПЖКХ_Жильцы</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Ответственный собственник (наниматель)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="24eba6d6-448a-463e-a16d-82a502b157ad">
+      <name>МесяцНачисления</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата возникновения задолженности</value>
+      </synonym>
+      <comment>Дата возникновения задолженности</comment>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <format>
+        <key>ru</key>
+        <value>ДФ=dd.MM.yyyy</value>
+      </format>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="0cfa6717-217e-4576-ae4f-e9c6445121f3">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="83f169f7-cc3f-4336-8121-83d7337cec93">
+    <name>ФормаВыбораДаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма выбора даты</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="9b194a10-8e3a-40e4-acb9-e86d672ec01d">
+    <name>ПФ_MXL_СписокДолжников</name>
+    <synonym>
+      <key>ru</key>
+      <value>Cписок должников</value>
+    </synonym>
+  </templates>
+  <commands uuid="bdc43341-a37e-4408-8d53-63bf0d84f2be">
+    <name>КомандаОткрытьОбработку</name>
+    <synonym>
+      <key>ru</key>
+      <value>Работа с должниками</value>
+    </synonym>
+    <group>NavigationPanelImportant</group>
+    <commandParameterType/>
+    <representation>Auto</representation>
+    <toolTip>
+      <key>ru</key>
+      <value>Работа с должниками</value>
+    </toolTip>
+    <shortcut></shortcut>
+  </commands>
+</mdclass:DataProcessor>

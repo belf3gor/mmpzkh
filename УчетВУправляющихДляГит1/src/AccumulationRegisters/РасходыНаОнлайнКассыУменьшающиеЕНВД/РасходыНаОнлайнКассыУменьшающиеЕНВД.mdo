@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="bee52446-9019-4810-9818-50c1ab61b312">
+  <producedTypes>
+    <selectionType typeId="dff1f2fb-bce0-4ac7-8c66-b9dff858c5b3" valueTypeId="41b536bf-3e17-4118-8804-b986eeb8ec1d"/>
+    <listType typeId="c123a105-fea7-4c81-8ab6-3ee6186e5078" valueTypeId="51e03df8-b9f7-4a92-9a6b-9f6025f01aa6"/>
+    <managerType typeId="6c3f5b48-8138-48ea-a7e8-cd4c6f4e7990" valueTypeId="a6bce53b-a53c-4343-95b0-00ddbae2f6ca"/>
+    <recordSetType typeId="c960e574-5170-4043-ba48-2241949b8095" valueTypeId="9b5f1b47-cb1e-4db3-a9d1-0be033210d7e"/>
+    <recordKeyType typeId="22308c18-9e7c-478f-8731-1b07db11ead6" valueTypeId="64f7c7cc-8cdb-460e-a1e5-5ac4571a889b"/>
+    <recordType typeId="be0d37c2-83e8-4a7b-a4a7-d7cdff442fe3" valueTypeId="76dc5f79-a833-43a0-a899-0efb5206133f"/>
+  </producedTypes>
+  <name>РасходыНаОнлайнКассыУменьшающиеЕНВД</name>
+  <synonym>
+    <key>ru</key>
+    <value>Расходы на онлайн кассы, уменьшающие ЕНВД</value>
+  </synonym>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>RecordType</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="39d73694-0262-400e-ab0e-fdb2aa2353b2">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <dimensions uuid="254c7f5b-05f1-4eff-91c0-c698578a44fa">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameters>
+      <name>Отбор.ЮридическоеФизическоеЛицо</name>
+      <value xsi:type="core:ReferenceValue">
+        <value>Enum.ЮридическоеФизическоеЛицо.EnumValue.ФизическоеЛицо</value>
+      </value>
+    </choiceParameters>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="377f0a0b-cf35-4789-b97e-6093acb96c3a">
+    <name>РегистрацияВНалоговомОргане</name>
+    <synonym>
+      <key>ru</key>
+      <value>Регистрация в налоговом органе</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.РегистрацииВНалоговомОргане</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>AccumulationRegister.РасходыНаОнлайнКассыУменьшающиеЕНВД.Dimension.Организация</field>
+    </choiceParameterLinks>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="9c893444-fde7-48bd-95cb-60963aa9168c">
+    <name>ДокументРасхода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ расхода</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.РасходыНаОнлайнКассыУменьшающиеНалоги</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameterLinks>
+      <name>Отбор.Организация</name>
+      <field>AccumulationRegister.РасходыНаОнлайнКассыУменьшающиеЕНВД.Dimension.Организация</field>
+    </choiceParameterLinks>
+    <choiceParameterLinks>
+      <name>Отбор.РегистрацияВНалоговомОргане</name>
+      <field>AccumulationRegister.РасходыНаОнлайнКассыУменьшающиеЕНВД.Dimension.РегистрацияВНалоговомОргане</field>
+    </choiceParameterLinks>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

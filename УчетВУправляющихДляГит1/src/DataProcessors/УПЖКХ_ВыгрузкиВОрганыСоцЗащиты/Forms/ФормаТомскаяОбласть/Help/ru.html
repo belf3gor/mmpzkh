@@ -1,0 +1,172 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html;charset=utf-8" http-equiv="content-type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 11.00.9600.19377"></meta></head><body>
+<h1><font size="5">Томская область</font></h1>
+<div>
+<div><font size="3">Обработка предназначена для выгрузки данных в отдел социальной защиты населения Томской области за указанный период.</font></div>
+<div><font size="3"></font> </div></div>
+<div>
+<div><font size="3">Перед началом выгрузки данных в обработке необходимо заполнить следующие параметры:</font></div>
+<ul><li><font size="3">«<strong>Организация</strong>» - ссылка на элемент справочника </font><a href="Catalog.Организации/Help"><font size="3">«Организации»</font></a><font size="3">, по которой будут браться необходимые данные за указанный период; </font>
+</li><li><font size="3">«<strong>Период</strong>» - месяц, за который необходимо предоставить данные; </font>
+</li><li><font size="3">«<strong>Код организации</strong>» - указывается код Организации, согласно файлу <strong>organiza.dbf</strong>, либо вводится вручную; </font>
+</li><li><font size="3">«<strong>Каталог выгрузки</strong>» - указывается каталог для выгружаемого файла;</font></li></ul></div>
+<div><font size="3"></font> </div>
+<div><font size="3">Перед началом выгрузки для корректного заполнения табличных частей обработки необходимо произвести предварительную настройку. Для вызова диалогового окна настройки необходимо нажать на кнопку «<strong>Настройка</strong>». </font>
+<p><font size="3">Перед началом установки настроек на самой форме настроек необходимо заполнить поле </font><font size="3">«<strong>Каталог загрузки</strong>» (указывается каталог загружаемых словарей <strong>area.dbf</strong>, <strong>place.dbf</strong>, <strong>streets.dbf</strong>, <strong>usluga.dbf).</strong></font></p>
+<p><font size="3">Словари должны иметь следующую структуру: </font></p>
+<ul><li><font size="3"><strong>area.dbf</strong></font> 
+<table style="HEIGHT: 77px; WIDTH: 348px" bordercolor="#000000" width="348" border="1"><tbody><tr><td width="100">
+<p align="center"><strong><font size="3">Наименование поля</font></strong></p></td>
+<td>
+<p align="center"><strong><font size="3">Значение поля</font></strong></p></td></tr><tr><td><font size="3">code_area</font></td>
+<td><font size="3">Код района (подрайона)</font></td></tr><tr><td><font size="3">area_name</font></td>
+<td><font size="3">Наименование района (подрайона)</font></td></tr><tr><td><font size="3">owner</font></td>
+<td><font size="3">Код района для подрайона</font></td></tr></tbody></table></li><li><font size="3"><strong>place.dbf</strong> </font>
+<table style="HEIGHT: 72px; WIDTH: 348px" bordercolor="#000000" width="348" border="1"><tbody><tr><td width="100">
+<p align="center"><strong><font size="3">Наименование поля</font></strong></p></td>
+<td>
+<p align="center"><strong><font size="3">Значение поля</font></strong></p></td></tr><tr><td><font size="3">code_area</font></td>
+<td><font size="3">Код района</font></td></tr><tr><td><font size="3">code_place</font></td>
+<td><font size="3">Код населенного пункта</font></td></tr><tr><td><font size="3">place_name</font></td>
+<td><font size="3">Наименование населенного пункта</font></td></tr></tbody></table></li><li><font size="3"><strong>streets.dbf</strong> </font>
+<table style="HEIGHT: 58px; WIDTH: 348px" bordercolor="#000000" width="348" border="1"><tbody><tr><td width="100">
+<p align="center"><strong><font size="3">Наименование поля</font></strong></p></td>
+<td>
+<p align="center"><strong><font size="3">Значение поля</font></strong></p></td></tr><tr><td><font size="3">code_area</font></td>
+<td><font size="3">Код района</font></td></tr><tr><td><font size="3">code_place</font></td>
+<td><font size="3">Код населенного пункта</font></td></tr><tr><td><font size="3">code_stree</font></td>
+<td><font size="3">Код улицы</font></td></tr><tr><td><font size="3">street_nam</font></td>
+<td><font size="3">Наименование улицы</font></td></tr></tbody></table></li><li><font size="3"><strong>usluga.dbf</strong> </font>
+<table style="HEIGHT: 35px; WIDTH: 348px" bordercolor="#000000" width="348" border="1"><tbody><tr><td width="100">
+<p align="center"><strong><font size="3">Наименование поля</font></strong></p></td>
+<td>
+<p align="center"><strong><font size="3">Значение поля</font></strong></p></td></tr><tr><td><font size="3">code</font></td>
+<td><font size="3">Код жилищно-коммунальной услуги</font></td></tr><tr><td><font size="3">name</font></td>
+<td><font size="3">Наименование жилищно-коммунальной услуги</font></td></tr></tbody></table></li></ul><p><font size="3">Если структура файлов не будет соответствовать структуре описанной в таблицах, то выгрузка данных будет невозможна. <strong><em>Примечание</em></strong>: Словари <strong>organiza.dbf</strong>, <strong>urblag.dbf</strong> и <strong>dom.dbf</strong> при работе выгрузки не задействуются; коды элементов из этих словарей должны соответствовать кодам элементов базы данных.</font></p>
+<p><font size="3">На каждой из вкладок панели необходимо нажать кнопку «<strong>Загрузить из файла</strong>», в результате чего заполняться соответствующие таблицы данными из БД, либо нужно ввести данные вручную. <strong><em>Внимание!</em></strong> Вводимые в ручную данные имеют не ссылочный, а строковый (числовой для кодов) тип, поэтому следует иметь в виду что, например, записи "г.Томск", "Томск г." и "Томск г" будут считаться разными объектами.<br>На панели "<strong>Благоустройство объектов</strong>" имеется несколько групп: "<strong>Виды благоустройств</strong>" и "<strong>Свойство в базе</strong>". В группе "<strong>Виды благоустройств</strong>" определяется соответствие видов благоустройств "<em>Наличие электрического нагревателя для отопления</em>" и "<em>Наличие газового котла</em>" видам благоустройств из справочника "Виды благоустройства объектов". В группе "<strong>Свойство в базе</strong>" определяется дополнительный реквизит здания "<em>Категория благоустройства</em>" (этот реквизит должен быть добавлен на вкладке "Дополнительная информация" элемента справочника "<strong>Здания</strong>"), согласно которому будет определяться категория благоустройства здания.<br>На панели "<strong>Настройка соответствия услуг</strong>" необходимо установить соответствие ЖКУ, загруженных из файла, услугам из справочника "Услуги" в таблице "<em>Услуги в базе</em>". <em>Примечание</em>. Услуга из справочника "<strong>Услуги</strong>" не может соответствовать более чем одной услуге из файла .dbf. </font><font size="3">На панели "У<strong>слуги "Отопление"</strong>" необходимо указать услуги из справочника "Услуги", которые соответствуют услуге "Отопление" в ОСЗН.</font></p>
+<p><font size="3">Для осуществления выгрузки данных из табличной части необходимо нажать на кнопку «<strong>Выгрузить</strong>». Выгрузка данных в обработке происходит в файл <strong>gcusl.dbf</strong> со следующей структурой: </font></p>
+<p><font size="3"></font></p>
+<table style="HEIGHT: 1185px; WIDTH: 755px" bordercolor="#000000" width="755" border="1"><tbody><tr><td width="100">
+<p align="center"><strong><font size="3">Наименование поля</font></strong></p></td>
+<td>
+<p align="center"><strong><font size="3">Значение поля</font></strong></p></td>
+<td>
+<p align="center"><strong><font size="3">Примечание</font></strong></p></td></tr><tr><td><font size="3">type_zap</font></td>
+<td><font size="3">Тип записи (1-субсидии)</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">date_form</font></td>
+<td><font size="3">Дата формирования начислений</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">ls</font></td>
+<td><font size="3">Лицевой счет</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">kod_o</font></td>
+<td><font size="3">Код организации, предъявляющей счёт</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">kod_zeu</font></td>
+<td><font size="3">Код ЖЭУ</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">kod_r</font></td>
+<td><font size="3">Код района</font></td>
+<td><font size="3"></font></td></tr><tr><td>
+<p><font size="3">kod_pr</font></p></td>
+<td><font size="3">Код подрайона</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">kod_np</font></td>
+<td><font size="3">Код населенного пункта</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">st</font></td>
+<td><font size="3">Код улицы</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">dom</font></td>
+<td><font size="3">№ дома</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">doml</font></td>
+<td><font size="3">Литера дома (если буква, то русская)</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">domkor</font></td>
+<td><font size="3">Корпус</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">domstr</font></td>
+<td><font size="3">Строение</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">koddom</font></td>
+<td><font size="3">Уникальный номер адресообразующего элемента</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">kv</font></td>
+<td><font size="3">№ квартиры</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">kvl</font></td>
+<td><font size="3">Литера квартиры (если буква, то русская)</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">fm</font></td>
+<td><font size="3">Фамилия</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">im</font></td>
+<td><font size="3">Имя</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">ot</font></td>
+<td><font size="3">Отчество</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">dtr</font></td>
+<td><font size="3">Дата рождения</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">kodl</font></td>
+<td><font size="3">Код льготной категории</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">doc1</font></td>
+<td><font size="3">Документ 1, подтверждающий право на льготы</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">doc2</font></td>
+<td><font size="3">Документ 2, подтверждающий право на льготы</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">date_beg</font></td>
+<td><font size="3">Дата регистрации льготы</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">date_end</font></td>
+<td><font size="3">Дата отмены льготы</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">Tip_z</font></td>
+<td><font size="3">Жилищный фонд помещения</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">urblag</font></td>
+<td><font size="3">Код категории благоустройства жилого помещения</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">Tip_dom</font></td>
+<td><font size="3">Тип дома</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">etag_dom</font></td>
+<td><font size="3">Этажность дома</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">lift</font></td>
+<td><font size="3">Наличие лифта</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">so</font></td>
+<td><font size="3">Общая площадь квартиры</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">ssn</font></td>
+<td><font size="3">Площадь жилья по соц.норме на квартиру</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">el_nagr</font></td>
+<td><font size="3">Наличие электрического нагревателя для отопления</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">kol_kom</font></td>
+<td><font size="3">Количество комнат</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">kol</font></td>
+<td><font size="3">Общее количество граждан, зарегистрированных по адресу</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">koll</font></td>
+<td><font size="3">Количество льготников и совместно проживающих, на которых распространяется льгота</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">plita</font></td>
+<td><font size="3">Тип плиты</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">gaz_nagr</font></td>
+<td><font size="3">Наличие газового нагревателя</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">gaz_kotel</font></td>
+<td><font size="3">Наличие газового котла</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">usluga</font></td>
+<td><font size="3">Код услуги</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">kod_p</font></td>
+<td><font size="3">Код поставщика услуги</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">pruch_ob</font></td>
+<td><font size="3">Признак наличия общего прибора учета количества потребленной услуги</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">pruch_ind</font></td>
+<td><font size="3">Признак наличия индивидуального прибора учета количества потребленной услуги</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">dolgmes</font></td>
+<td><font size="3">Количество месяцев неоплаты по задолженности</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">dolgsum</font></td>
+<td><font size="3">Сумма долга</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">dolgs</font></td>
+<td><font size="3">Признак исполнения обязательств по соглашению о погашении задолженности</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">stoeu_nd</font></td>
+<td><font size="3">Стоимость единицы услуги для населения (отопление-1/12)</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">stoeu_nf</font></td>
+<td><font size="3">Стоимость единицы услуги для населения (отопление-факт)</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">tarif</font></td>
+<td><font size="3">Тариф</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">kodei</font></td>
+<td><font size="3">Код единицы измерения услуги</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">norm</font></td>
+<td><font size="3">Норма-объем потребления услуги за месяц</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">norm_otop</font></td>
+<td><font size="3">Норма-объем потребления услуги "отопление" за месяц (из расчета 1/12)</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">fact</font></td>
+<td><font size="3">Фактическое количество потребленной услуги за месяц</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">sumvf</font></td>
+<td><font size="3">Стоимость фактического количества потребленной услуги за месяц</font></td>
+<td><font size="3">не заполняется</font></td></tr><tr><td><font size="3">sump</font></td>
+<td><font size="3">Начислено за месяц с учетом перерасчетов</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">sumn</font></td>
+<td><font size="3">Начислено за месяц с учетом перерасчетов за минусом льготной скидки</font></td>
+<td><font size="3"></font></td></tr><tr><td><font size="3">suml</font></td>
+<td><font size="3">Сумма льготной скидки</font></td>
+<td>
+<p align="left"><font size="3">заполняется в случае наличия льготной скидки, установленной решением Думы г.Томск</font></p></td></tr><tr><td><font size="3">sumns</font></td>
+<td><font size="3">Начислено в пределах соц.нормы с учетом льгот и перерасчетов</font></td>
+<td><font size="3">не заполняется</font></td></tr></tbody></table><p><font size="3"></font></p>
+<p><font size="3"><strong><em>Примечание</em></strong>: «<strong>Код единицы измерения услуги</strong>» выводится согласно коду единицы измерения справочника «<strong>Виды услуг</strong>».</font></p></div></body></html>

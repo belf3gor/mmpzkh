@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1b03a54c-5391-4996-ad8f-b4d5cb63c01f">
+  <producedTypes>
+    <objectType typeId="956ed94b-0113-43ad-aa83-7f9a20d38d50" valueTypeId="ac0f3952-160a-4b6d-8d7c-d7ad7fe93a40"/>
+    <managerType typeId="134448aa-d296-48be-85f7-8ca4e50054ed" valueTypeId="336d3d96-d957-484d-be03-176b881252dd"/>
+  </producedTypes>
+  <name>КВП_ВыгрузкаЛицевыхСчетовXML</name>
+  <synonym>
+    <key>ru</key>
+    <value>Выгрузка лицевых счетов для сайта</value>
+  </synonym>
+  <comment>Выгрузка лицевых счетов в XML-файл для сайта ЖКХ</comment>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.КВП_ВыгрузкаЛицевыхСчетовXML.Form.Форма</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="b7f87ec0-29df-4cce-9f3d-95f46807f5fe">
+    <name>ПериодПросмотра</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период просмотра</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Период, за который выгружаются начисления</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="723bb108-981b-4e76-8021-7ac5fa56aeeb">
+    <name>ИмяФайлаДанных</name>
+    <synonym>
+      <key>ru</key>
+      <value>Имя файла данных</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>255</length>
+      </stringQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Имя файла данных выгрузки</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="3ba454b3-0301-42dd-8883-351968010ca3">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация, по которой осуществляется выгрузка</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="8658431b-8452-46be-9ce0-e224d487e63b">
+    <name>УчитыватьТекущуюДатуВНаименовании</name>
+    <synonym>
+      <key>ru</key>
+      <value>Учитывать текущую дату в наименовании</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Учитывать текущую дату в наименовании файла обмена</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="a5aa9a77-6229-46a8-9209-a9eb43e65d35">
+    <producedTypes>
+      <objectType typeId="1678151c-959b-49a9-aead-2f282445c98b" valueTypeId="23f423b5-b08f-46ca-bad4-a0b4025fc243"/>
+      <rowType typeId="afdc64a7-da31-4f29-a752-c9a449c7c29a" valueTypeId="93c807a9-6cfb-40a7-9982-c6e18668e548"/>
+    </producedTypes>
+    <name>ЛицевыеСчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Лицевые счета</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Лицевые счета</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="01fa0629-a6b9-493c-8897-62a0f817b65a">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет для выгрузки</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="9d84966b-d654-4b84-9a7f-877424c07a52">
+      <name>Владелец</name>
+      <synonym>
+        <key>ru</key>
+        <value>Владелец</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Владелец л/с</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="480cbd8c-2f4a-42a0-be9e-c3a144b01f4a">
+      <name>Адрес</name>
+      <synonym>
+        <key>ru</key>
+        <value>Адрес</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Адрес здания</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="479f8bbb-0f6a-4305-9da2-050768d89b4f">
+    <producedTypes>
+      <objectType typeId="72559913-aa9f-4c45-b7a5-8643b08d5122" valueTypeId="a8c98caf-1f4e-4abd-b883-dd0e856f4ee3"/>
+      <rowType typeId="934a31f0-f975-4665-bd78-1b315a0f0fa1" valueTypeId="33b554cd-002b-4e27-9502-8daa3712a176"/>
+    </producedTypes>
+    <name>Организации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организации</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="257d2bb3-9312-4e9a-9ca9-4c742a8c8fec">
+      <name>Организация</name>
+      <synonym>
+        <key>ru</key>
+        <value>Организация</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Организации</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Организация, по которой осуществляется выгрузка</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="9bd24050-6d56-490e-a5d6-2c3c9176cbc2">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="2ab2a9df-d19a-400b-b4cc-2ac66ef97ac1">
+    <name>ФормаНастройки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма настройки</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

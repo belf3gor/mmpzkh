@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачисленнаяЗаработнаяПлата</dataPath>
+			<field>НачисленнаяЗаработнаяПлата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начисленная заработная плата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудник</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачисленнаяЗаработнаяПлатаСовместители</dataPath>
+			<field>НачисленнаяЗаработнаяПлатаСовместители</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начисленная заработная плата совместители</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачисленнаяЗаработнаяПлатаСотрудники</dataPath>
+			<field>НачисленнаяЗаработнаяПлатаСотрудники</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начисленная заработная плата сотрудники</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПерсоналомПоОплатеТруда))
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_СчетаУчетаВыплатЗаСчетФСС
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ФСС))
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.Организация КАК Организация,
+	ХозрасчетныйОбороты.Субконто1 КАК ФизическоеЛицо,
+	ХозрасчетныйОбороты.СуммаОборотКт КАК НачисленнаяЗаработнаяПлата
+ПОМЕСТИТЬ ВТ_НачислениеЗарплаты
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			Период,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета),
+			,
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Сотрудник},
+			НЕ КорСчет В
+					(ВЫБРАТЬ
+						ВТ_СчетаУчетаВыплатЗаСчетФСС.Счет
+					ИЗ
+						ВТ_СчетаУчетаВыплатЗаСчетФСС),
+			) КАК ХозрасчетныйОбороты
+
+ИНДЕКСИРОВАТЬ ПО
+	Организация,
+	ФизическоеЛицо
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТекущиеКадровыеДанныеСотрудников.ТекущаяОрганизация КАК Организация,
+	ТекущиеКадровыеДанныеСотрудников.ФизическоеЛицо КАК ФизическоеЛицо,
+	МАКСИМУМ(ТекущиеКадровыеДанныеСотрудников.ТекущийВидЗанятости) КАК ТекущийВидЗанятости
+ПОМЕСТИТЬ ВТ_КадровыеДанные
+ИЗ
+	РегистрСведений.ТекущиеКадровыеДанныеСотрудников КАК ТекущиеКадровыеДанныеСотрудников
+ГДЕ
+	ТекущиеКадровыеДанныеСотрудников.ФизическоеЛицо В
+			(ВЫБРАТЬ
+				ВТ_НачислениеЗарплаты.ФизическоеЛицо
+			ИЗ
+				ВТ_НачислениеЗарплаты)
+{ГДЕ
+	(ТекущиеКадровыеДанныеСотрудников.ТекущаяОрганизация В (&amp;Организация))}
+
+СГРУППИРОВАТЬ ПО
+	ТекущиеКадровыеДанныеСотрудников.ТекущаяОрганизация,
+	ТекущиеКадровыеДанныеСотрудников.ФизическоеЛицо
+
+ИНДЕКСИРОВАТЬ ПО
+	Организация,
+	ФизическоеЛицо
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	НачислениеЗарплаты.ФизическоеЛицо КАК Сотрудник,
+	НачислениеЗарплаты.НачисленнаяЗаработнаяПлата КАК НачисленнаяЗаработнаяПлата,
+	ВЫБОР
+		КОГДА КадровыеДанные.ТекущийВидЗанятости = ЗНАЧЕНИЕ(Перечисление.ВидыЗанятости.ОсновноеМестоРаботы)
+			ТОГДА НачислениеЗарплаты.НачисленнаяЗаработнаяПлата
+		ИНАЧЕ 0
+	КОНЕЦ КАК НачисленнаяЗаработнаяПлатаСотрудники,
+	ВЫБОР
+		КОГДА КадровыеДанные.ТекущийВидЗанятости = ЗНАЧЕНИЕ(Перечисление.ВидыЗанятости.Совместительство)
+			ТОГДА НачислениеЗарплаты.НачисленнаяЗаработнаяПлата
+		ИНАЧЕ 0
+	КОНЕЦ КАК НачисленнаяЗаработнаяПлатаСовместители
+{ВЫБРАТЬ
+	Сотрудник.*,
+	НачисленнаяЗаработнаяПлата,
+	НачисленнаяЗаработнаяПлатаСотрудники,
+	НачисленнаяЗаработнаяПлатаСовместители}
+ИЗ
+	ВТ_НачислениеЗарплаты КАК НачислениеЗарплаты
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_КадровыеДанные КАК КадровыеДанные
+		ПО НачислениеЗарплаты.Организация = КадровыеДанные.Организация
+			И НачислениеЗарплаты.ФизическоеЛицо = КадровыеДанные.ФизическоеЛицо</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<totalField>
+		<dataPath>НачисленнаяЗаработнаяПлата</dataPath>
+		<expression>Сумма(НачисленнаяЗаработнаяПлата)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НачисленнаяЗаработнаяПлатаСовместители</dataPath>
+		<expression>Сумма(НачисленнаяЗаработнаяПлатаСовместители)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НачисленнаяЗаработнаяПлатаСотрудники</dataPath>
+		<expression>Сумма(НачисленнаяЗаработнаяПлатаСотрудники)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<useRestriction>false</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Расшифровка</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Расшифровка</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Сотрудник</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

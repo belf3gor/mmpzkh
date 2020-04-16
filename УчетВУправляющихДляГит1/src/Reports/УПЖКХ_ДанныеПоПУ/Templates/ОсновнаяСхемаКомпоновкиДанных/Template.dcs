@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ДанныеПоПриборамУчета</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОбъекта</dataPath>
+			<field>ВидОбъекта</field>
+			<useRestriction>
+				<condition>true</condition>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидУслуги</dataPath>
+			<field>ВидУслуги</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КВП_Услуги</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Здание</dataPath>
+			<field>Здание</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КВП_Здания</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Квартира</dataPath>
+			<field>Квартира</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Помещение</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.УПЖКХ_Помещения</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КодКвартиры</dataPath>
+			<field>КодКвартиры</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код помещения</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомСчетчика</dataPath>
+			<field>НомСчетчика</field>
+			<useRestriction>
+				<condition>true</condition>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Паркинг</dataPath>
+			<field>Паркинг</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.УПЖКХ_Помещения</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счетчик</dataPath>
+			<field>Счетчик</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КВП_Счетчики</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УровеньИерархии</dataPath>
+			<field>УровеньИерархии</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредставлениеОбъекта</dataPath>
+			<field>ПредставлениеОбъекта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+				<order>true</order>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подъезд</dataPath>
+			<field>Подъезд</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаводскойНомер</dataPath>
+			<field>ЗаводскойНомер</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Идентификатор</dataPath>
+			<field>Идентификатор</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Коэффициент</dataPath>
+			<field>Коэффициент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Коэффициент трансформации</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Модель</dataPath>
+			<field>Модель</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Разрядность</dataPath>
+			<field>Разрядность</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СпособРегистрацииПоказаний</dataPath>
+			<field>СпособРегистрацииПоказаний</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Тарифность</dataPath>
+			<field>Тарифность</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоИПУ</dataPath>
+			<field>КоличествоИПУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество индивидуальных счетчиков</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоКПУ</dataPath>
+			<field>КоличествоКПУ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Количество коллективных счетчиков</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоверки</dataPath>
+			<field>ДатаПоверки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛицевойСчет</dataPath>
+			<field>ЛицевойСчет</field>
+			<useRestriction>
+				<field>true</field>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КВП_ЛицевыеСчета</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НомерПломбы</dataPath>
+			<field>НомерПломбы</field>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА "ЛицевойСчет"
+		ИНАЧЕ ВЫБОР
+				КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Подъезды
+					ТОГДА "Подъезд"
+				ИНАЧЕ ВЫБОР
+						КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Здания
+								И ЗакрепленныеСчетчикиСрезПоследних.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Здание)
+							ТОГДА "Здание"
+						ИНАЧЕ ВЫБОР
+								КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+										И ЗакрепленныеСчетчикиСрезПоследних.Объект.ВидПомещения.ТипПомещения &lt;&gt; ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+									ТОГДА "Помещение"
+								ИНАЧЕ ВЫБОР
+										КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Здания
+												И ЗакрепленныеСчетчикиСрезПоследних.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Паркинг)
+											ТОГДА "Паркинг"
+										ИНАЧЕ ВЫБОР
+												КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+														И ЗакрепленныеСчетчикиСрезПоследних.Объект.ВидПомещения.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+													ТОГДА "ПарковочноеМесто"
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК ВидОбъекта,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА 3
+		ИНАЧЕ ВЫБОР
+				КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Подъезды
+					ТОГДА 2
+				ИНАЧЕ ВЫБОР
+						КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Здания
+								И ЗакрепленныеСчетчикиСрезПоследних.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Здание)
+							ТОГДА 1
+						ИНАЧЕ ВЫБОР
+								КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+										И ЗакрепленныеСчетчикиСрезПоследних.Объект.ВидПомещения.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+									ТОГДА 3
+								ИНАЧЕ ВЫБОР
+										КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Здания
+												И ЗакрепленныеСчетчикиСрезПоследних.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Паркинг)
+											ТОГДА 1
+										ИНАЧЕ ВЫБОР
+												КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+														И ЗакрепленныеСчетчикиСрезПоследних.Объект.ВидПомещения.ТипПомещения &lt;&gt; ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+													ТОГДА 3
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК УровеньИерархии,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес.Владелец
+		ИНАЧЕ ВЫБОР
+				КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+					ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Владелец
+				ИНАЧЕ ВЫБОР
+						КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Подъезды
+							ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Владелец
+						ИНАЧЕ ВЫБОР
+								КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Здания
+									ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК Здание,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+				И ЗакрепленныеСчетчикиСрезПоследних.Объект.ВидПомещения.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Владелец
+		ИНАЧЕ ВЫБОР
+				КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Здания
+						И ЗакрепленныеСчетчикиСрезПоследних.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Паркинг)
+					ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект
+			КОНЕЦ
+	КОНЕЦ КАК Паркинг,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА КВП_Подъезды.Ссылка
+		ИНАЧЕ ВЫБОР
+				КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+						И ЗакрепленныеСчетчикиСрезПоследних.Объект.ВидПомещения.ТипПомещения &lt;&gt; ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+					ТОГДА КВП_Подъезды.Ссылка
+				ИНАЧЕ ВЫБОР
+						КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Подъезды
+							ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ КАК Подъезд,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес.Наименование + ", " + ЗакрепленныеСчетчикиСрезПоследних.Объект.Наименование
+		ИНАЧЕ ЗакрепленныеСчетчикиСрезПоследних.Объект
+	КОНЕЦ КАК ПредставлениеОбъекта,
+	ЗакрепленныеСчетчикиСрезПоследних.Объект КАК Объект,
+	ЗакрепленныеСчетчикиСрезПоследних.Счетчик.Представление КАК НомСчетчика,
+	ЗакрепленныеСчетчикиСрезПоследних.Счетчик КАК Счетчик,
+	ЗакрепленныеСчетчикиСрезПоследних.Счетчик.ВидУслуги КАК ВидУслуги,
+	ЕСТЬNULL(ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес.Код, ВЫБОР
+			КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+				ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Код
+			ИНАЧЕ 0
+		КОНЕЦ) КАК КодКвартиры,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект
+	КОНЕЦ КАК Квартира,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект
+	КОНЕЦ КАК ЛицевойСчет,
+	ЗакрепленныеСчетчикиСрезПоследних.Счетчик КАК КоличествоПУ,
+	ЗакрепленныеСчетчикиСрезПоследних.НомерПломбы КАК НомерПломбы
+ПОМЕСТИТЬ врПУ
+ИЗ
+	РегистрСведений.КВП_ЗакрепленныеСчетчики.СрезПоследних(&amp;НачалоПериода, ДатаИзменения &lt;= &amp;НачалоПериода {(Счетчик).* КАК Счетчик, (Счетчик.ВидУслуги).* КАК ВидУслуги}) КАК ЗакрепленныеСчетчикиСрезПоследних
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.КВП_Подъезды КАК КВП_Подъезды
+		ПО (ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес.Владелец = КВП_Подъезды.Владелец
+					И (ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес.Код МЕЖДУ КВП_Подъезды.НомерПервойКвартиры И КВП_Подъезды.НомерПоследнейКвартиры)
+				ИЛИ ЗакрепленныеСчетчикиСрезПоследних.Объект.Владелец = КВП_Подъезды.Владелец
+					И (ЗакрепленныеСчетчикиСрезПоследних.Объект.Код МЕЖДУ КВП_Подъезды.НомерПервойКвартиры И КВП_Подъезды.НомерПоследнейКвартиры))
+ГДЕ
+	ЗакрепленныеСчетчикиСрезПоследних.Действует
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ВЫБОР
+		КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА "ЛицевойСчет"
+		ИНАЧЕ ВЫБОР
+				КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Подъезды
+					ТОГДА "Подъезд"
+				ИНАЧЕ ВЫБОР
+						КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Здания
+								И КВП_ЗакрепленныеСчетчики.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Здание)
+							ТОГДА "Здание"
+						ИНАЧЕ ВЫБОР
+								КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+										И КВП_ЗакрепленныеСчетчики.Объект.ВидПомещения.ТипПомещения &lt;&gt; ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+									ТОГДА "Помещение"
+								ИНАЧЕ ВЫБОР
+										КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Здания
+												И КВП_ЗакрепленныеСчетчики.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Паркинг)
+											ТОГДА "Паркинг"
+										ИНАЧЕ ВЫБОР
+												КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+														И КВП_ЗакрепленныеСчетчики.Объект.ВидПомещения.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+													ТОГДА "ПарковочноеМесто"
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА 3
+		ИНАЧЕ ВЫБОР
+				КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Подъезды
+					ТОГДА 2
+				ИНАЧЕ ВЫБОР
+						КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Здания
+								И КВП_ЗакрепленныеСчетчики.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Здание)
+							ТОГДА 1
+						ИНАЧЕ ВЫБОР
+								КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+										И КВП_ЗакрепленныеСчетчики.Объект.ВидПомещения.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+									ТОГДА 3
+								ИНАЧЕ ВЫБОР
+										КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Здания
+												И КВП_ЗакрепленныеСчетчики.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Паркинг)
+											ТОГДА 1
+										ИНАЧЕ ВЫБОР
+												КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+														И КВП_ЗакрепленныеСчетчики.Объект.ВидПомещения.ТипПомещения &lt;&gt; ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+													ТОГДА 3
+											КОНЕЦ
+									КОНЕЦ
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА КВП_ЗакрепленныеСчетчики.Объект.Адрес.Владелец
+		ИНАЧЕ ВЫБОР
+				КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+					ТОГДА КВП_ЗакрепленныеСчетчики.Объект.Владелец
+				ИНАЧЕ ВЫБОР
+						КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Подъезды
+							ТОГДА КВП_ЗакрепленныеСчетчики.Объект.Владелец
+						ИНАЧЕ ВЫБОР
+								КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Здания
+									ТОГДА КВП_ЗакрепленныеСчетчики.Объект
+							КОНЕЦ
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+				И КВП_ЗакрепленныеСчетчики.Объект.ВидПомещения.ТипПомещения = ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+			ТОГДА КВП_ЗакрепленныеСчетчики.Объект.Владелец
+		ИНАЧЕ ВЫБОР
+				КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Здания
+						И КВП_ЗакрепленныеСчетчики.Объект.ТипСооружения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ТипСооружения.Паркинг)
+					ТОГДА КВП_ЗакрепленныеСчетчики.Объект
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА КВП_Подъезды.Ссылка
+		ИНАЧЕ ВЫБОР
+				КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+						И КВП_ЗакрепленныеСчетчики.Объект.ВидПомещения.ТипПомещения &lt;&gt; ЗНАЧЕНИЕ(Перечисление.КВП_ТипыПомещений.Автоместо)
+					ТОГДА КВП_Подъезды.Ссылка
+				ИНАЧЕ ВЫБОР
+						КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_Подъезды
+							ТОГДА КВП_ЗакрепленныеСчетчики.Объект
+					КОНЕЦ
+			КОНЕЦ
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА КВП_ЗакрепленныеСчетчики.Объект.Адрес.Наименование + ", " + КВП_ЗакрепленныеСчетчики.Объект.Наименование
+		ИНАЧЕ КВП_ЗакрепленныеСчетчики.Объект
+	КОНЕЦ,
+	КВП_ЗакрепленныеСчетчики.Объект,
+	КВП_ЗакрепленныеСчетчики.Счетчик.Представление,
+	КВП_ЗакрепленныеСчетчики.Счетчик,
+	КВП_ЗакрепленныеСчетчики.Счетчик.ВидУслуги,
+	ЕСТЬNULL(КВП_ЗакрепленныеСчетчики.Объект.Адрес.Код, ВЫБОР
+			КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+				ТОГДА КВП_ЗакрепленныеСчетчики.Объект.Код
+			ИНАЧЕ 0
+		КОНЕЦ),
+	ВЫБОР
+		КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА КВП_ЗакрепленныеСчетчики.Объект.Адрес
+		КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+			ТОГДА КВП_ЗакрепленныеСчетчики.Объект
+	КОНЕЦ,
+	ВЫБОР
+		КОГДА КВП_ЗакрепленныеСчетчики.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА КВП_ЗакрепленныеСчетчики.Объект
+	КОНЕЦ,
+	КВП_ЗакрепленныеСчетчики.Счетчик,
+	КВП_ЗакрепленныеСчетчики.НомерПломбы
+ИЗ
+	РегистрСведений.КВП_ЗакрепленныеСчетчики КАК КВП_ЗакрепленныеСчетчики
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.КВП_Подъезды КАК КВП_Подъезды
+		ПО (КВП_ЗакрепленныеСчетчики.Объект.Адрес.Владелец = КВП_Подъезды.Владелец
+					И (КВП_ЗакрепленныеСчетчики.Объект.Адрес.Код МЕЖДУ КВП_Подъезды.НомерПервойКвартиры И КВП_Подъезды.НомерПоследнейКвартиры)
+				ИЛИ КВП_ЗакрепленныеСчетчики.Объект.Владелец = КВП_Подъезды.Владелец
+					И (КВП_ЗакрепленныеСчетчики.Объект.Код МЕЖДУ КВП_Подъезды.НомерПервойКвартиры И КВП_Подъезды.НомерПоследнейКвартиры))
+ГДЕ
+	КВП_ЗакрепленныеСчетчики.Действует
+	И КВП_ЗакрепленныеСчетчики.ДатаИзменения МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	врПУ.ВидОбъекта КАК ВидОбъекта,
+	врПУ.УровеньИерархии КАК УровеньИерархии,
+	врПУ.Здание КАК Здание,
+	врПУ.Паркинг КАК Паркинг,
+	врПУ.Подъезд КАК Подъезд,
+	врПУ.ПредставлениеОбъекта КАК ПредставлениеОбъекта,
+	врПУ.Объект КАК Объект,
+	врПУ.НомСчетчика КАК НомСчетчика,
+	врПУ.ВидУслуги КАК ВидУслуги,
+	врПУ.КодКвартиры КАК КодКвартиры,
+	врПУ.Квартира КАК Квартира,
+	врПУ.Счетчик КАК Счетчик,
+	ВЫБОР
+		КОГДА врПУ.ВидОбъекта = "Здание"
+				ИЛИ врПУ.ВидОбъекта = "Подъезд"
+				ИЛИ врПУ.ВидОбъекта = "Паркинг"
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК КоличествоКПУ,
+	врПУ.Счетчик.Разрядность КАК Разрядность,
+	врПУ.Счетчик.Коэффициент КАК Коэффициент,
+	врПУ.Счетчик.Модель КАК Модель,
+	врПУ.Счетчик.Идентификатор КАК Идентификатор,
+	врПУ.Счетчик.ЗаводскойНомер КАК ЗаводскойНомер,
+	врПУ.Счетчик.СпособРегистрацииПоказаний КАК СпособРегистрацииПоказаний,
+	врПУ.Счетчик.Тарифность КАК Тарифность,
+	ВЫБОР
+		КОГДА врПУ.ВидОбъекта = "ЛицевойСчет"
+				ИЛИ врПУ.ВидОбъекта = "Помещение"
+				ИЛИ врПУ.ВидОбъекта = "ПарковочноеМесто"
+			ТОГДА 1
+		ИНАЧЕ 0
+	КОНЕЦ КАК КоличествоИПУ,
+	ЕСТЬNULL(КВП_ЗакрепленныеСчетчики.Период, "НЕТ") КАК ДатаПоверки,
+	врПУ.ЛицевойСчет КАК ЛицевойСчет,
+	врПУ.НомерПломбы КАК НомерПломбы
+ИЗ
+	врПУ КАК врПУ
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			КВП_ЗакрепленныеСчетчикиСрезПоследних.Счетчик КАК Счетчик,
+			КВП_ЗакрепленныеСчетчикиСрезПоследних.Объект КАК Объект,
+			КВП_ЗакрепленныеСчетчикиСрезПоследних.ДатаИзменения КАК Период
+		ИЗ
+			РегистрСведений.КВП_ЗакрепленныеСчетчики.СрезПоследних(
+					,
+					ПричинаОтключения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ПричиныОтключенияПриборовУчета.Поверка)
+						И ДатаИзменения &gt;= &amp;НачалоПериода) КАК КВП_ЗакрепленныеСчетчикиСрезПоследних) КАК КВП_ЗакрепленныеСчетчики
+		ПО врПУ.Счетчик = КВП_ЗакрепленныеСчетчики.Счетчик
+			И врПУ.Объект = КВП_ЗакрепленныеСчетчики.Объект</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ТекущиеПоказанияПУ</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счетчик</dataPath>
+			<field>Счетчик</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НочноеПоказание</dataPath>
+			<field>НочноеПоказание</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧН=-; ЧГ=0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧН=-</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДневноеПоказание</dataPath>
+			<field>ДневноеПоказание</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧН=-; ЧГ=0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧН=-</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПиковоеПоказание</dataPath>
+			<field>ПиковоеПоказание</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧН=-; ЧГ=0</dcscor:value>
+				</dcscor:item>
+			</appearance>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ФорматРедактирования</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧН=-</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоказания</dataPath>
+			<field>ДатаПоказания</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата показания</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных</dataSource>
+		<query>ВЫБРАТЬ
+	КВП_ПоказанияСчетчиковСрезПоследних.Период КАК ДатаПоказания,
+	КВП_ПоказанияСчетчиковСрезПоследних.Счетчик,
+	КВП_ПоказанияСчетчиковСрезПоследних.ДневноеПоказание,
+	КВП_ПоказанияСчетчиковСрезПоследних.НочноеПоказание,
+	КВП_ПоказанияСчетчиковСрезПоследних.ПиковоеПоказание
+ИЗ
+	РегистрСведений.КВП_ПоказанияСчетчиков.СрезПоследних(&amp;КонецПериода, ) КАК КВП_ПоказанияСчетчиковСрезПоследних</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>ДанныеПоПриборамУчета</sourceDataSet>
+		<destinationDataSet>ТекущиеПоказанияПУ</destinationDataSet>
+		<sourceExpression>Счетчик</sourceExpression>
+		<destinationExpression>Счетчик</destinationExpression>
+	</dataSetLink>
+	<totalField>
+		<dataPath>ЗаводскойНомер</dataPath>
+		<expression>Максимум(ЗаводскойНомер)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Идентификатор</dataPath>
+		<expression>Максимум(Идентификатор)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Коэффициент</dataPath>
+		<expression>Максимум(Коэффициент)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Модель</dataPath>
+		<expression>Максимум(Модель)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Разрядность</dataPath>
+		<expression>Максимум(Разрядность)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СпособРегистрацииПоказаний</dataPath>
+		<expression>Максимум(СпособРегистрацииПоказаний)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Тарифность</dataPath>
+		<expression>Максимум(Тарифность)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоИПУ</dataPath>
+		<expression>Сумма(КоличествоИПУ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоКПУ</dataPath>
+		<expression>Сумма(КоличествоКПУ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДатаПоверки</dataPath>
+		<expression>Максимум(ДатаПоверки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДатаПоказания</dataPath>
+		<expression>Максимум(ДатаПоказания)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ДневноеПоказание</dataPath>
+		<expression>Максимум(ДневноеПоказание)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НочноеПоказание</dataPath>
+		<expression>Максимум(НочноеПоказание)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПиковоеПоказание</dataPath>
+		<expression>Максимум(ПиковоеПоказание)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>НомерПломбы</dataPath>
+		<expression>Максимум(НомерПломбы)</expression>
+	</totalField>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоИПУ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>КоличествоКПУ</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Характеристики</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СпособРегистрацииПоказаний</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Тарифность</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Коэффициент</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Разрядность</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Together</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Модель</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Идентификатор</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЗаводскойНомер</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаПоверки</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>НомерПломбы</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Текущие показания</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДатаПоказания</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ДневноеПоказание</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НочноеПоказание</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПиковоеПоказание</dcsset:field>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">Auto</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ГоризонтальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВертикальноеРасположениеОбщихИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ТипДиаграммы</dcscor:parameter>
+					<dcscor:value xsi:type="v8ui:ChartType">Column3D</dcscor:value>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>ТипДиаграммы.Окантовка</dcscor:parameter>
+						<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+					</dcscor:item>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьЗаголовок</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Потребление по приборам учета</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Здание</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+						<dcsset:use>false</dcsset:use>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Здание</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоИПУ</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>КоличествоКПУ</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>УровеньИерархии</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ПредставлениеОбъекта</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>КодКвартиры</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto">
+							<dcsset:use>false</dcsset:use>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>УровеньИерархии</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>КодКвартиры</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:OrderItemField">
+							<dcsset:field>ПредставлениеОбъекта</dcsset:field>
+							<dcsset:orderType>Asc</dcsset:orderType>
+						</dcsset:item>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto">
+							<dcsset:use>false</dcsset:use>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПредставлениеОбъекта</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КоличествоИПУ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>КоличествоКПУ</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Счетчик</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

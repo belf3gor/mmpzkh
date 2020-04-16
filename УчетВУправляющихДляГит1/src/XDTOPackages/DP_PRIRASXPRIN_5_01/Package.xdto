@@ -1,0 +1,659 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="DP_PRIRASXPRIN_5_01">
+	<property xmlns:d2p1="DP_PRIRASXPRIN_5_01" name="Файл" type="d2p1:Файл"/>
+	<valueType name="КНДТип" base="xs:string" variety="Atomic" length="7">
+		<pattern>[0-9]{7}</pattern>
+	</valueType>
+	<valueType name="ДатаТип" base="xs:string" variety="Atomic" length="10">
+		<pattern>((((0[1-9]{1}|1[0-9]{1}|2[0-8]{1})\.(0[1-9]{1}|1[0-2]{1}))|((29|30)\.(01|0[3-9]{1}|1[0-2]{1}))|(31\.(01|03|05|07|08|10|12)))\.((19|20)[0-9]{2}))|(29\.02\.((19|20)(((0|2|4|6|8)(0|4|8))|((1|3|5|7|9)(2|6)))))</pattern>
+	</valueType>
+	<valueType name="ВремяТип" base="xs:string" variety="Atomic" length="8">
+		<pattern>([0-1]{1}[0-9]{1}|2[0-3]{1})\.([0-5]{1}[0-9]{1})\.([0-5]{1}[0-9]{1})</pattern>
+	</valueType>
+	<valueType name="ДатаВремяТип" base="xs:string" length="19"/>
+	<valueType name="ИННФЛТип" base="xs:string" variety="Atomic" length="12">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{10}</pattern>
+	</valueType>
+	<valueType name="ИННЮЛТип" base="xs:string" variety="Atomic" length="10">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})[0-9]{8}</pattern>
+	</valueType>
+	<valueType name="КППТип" base="xs:string" variety="Atomic" length="9">
+		<pattern>([0-9]{1}[1-9]{1}|[1-9]{1}[0-9]{1})([0-9]{2})([0-9A-Z]{2})([0-9]{3})</pattern>
+	</valueType>
+	<valueType name="CCРФТип" base="xs:string" variety="Atomic" length="2">
+		<pattern>[0-9]{2}</pattern>
+	</valueType>
+	<valueType name="ОКСМТип" base="xs:string" variety="Atomic" length="3">
+		<pattern>[0-9]{3}</pattern>
+	</valueType>
+	<valueType name="string-36" base="xs:string" variety="Atomic" minLength="1" maxLength="36"/>
+	<valueType name="БИКТип" base="xs:string" variety="Atomic" length="9">
+		<pattern>[0-9]{9}</pattern>
+	</valueType>
+	<valueType name="ОКЕИТип" base="xs:string" variety="Atomic" minLength="3" maxLength="4">
+		<pattern>[0-9]{3}</pattern>
+		<pattern>[0-9]{4}</pattern>
+	</valueType>
+	<valueType name="Строка" base="xs:string" variety="Atomic" length="1" minLength="1" maxLength="255"/>
+	<objectType name="ФИОТип">
+		<property name="Фамилия" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="60"/>
+		</property>
+		<property name="Имя" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="60"/>
+		</property>
+		<property name="Отчество" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="60"/>
+		</property>
+	</objectType>
+	<objectType name="СвФлТип">
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="ИННФЛ" type="d3p1:ИННФЛТип" lowerBound="0" form="Attribute"/>
+		<property name="ИныеСвед" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="ФИО" type="d3p1:ФИОТип"/>
+	</objectType>
+	<objectType name="СвИПТип">
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="ИННФЛ" type="d3p1:ИННФЛТип" form="Attribute"/>
+		<property name="СвГосРегИП" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+		</property>
+		<property name="ИныеСвед" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="ФИО" type="d3p1:ФИОТип"/>
+	</objectType>
+	<objectType name="АдрРФТип">
+		<property name="Индекс" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="6">
+				<pattern>[0-9]{6}</pattern>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="КодРегион" type="d3p1:CCРФТип" form="Attribute"/>
+		<property name="Район" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="Город" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="НаселПункт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="Улица" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="Дом" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+		</property>
+		<property name="Корпус" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+		</property>
+		<property name="Кварт" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+		</property>
+	</objectType>
+	<objectType name="АдрИнфТип">
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="КодСтр" type="d3p1:ОКСМТип" form="Attribute"/>
+		<property name="АдрТекст" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="АдресТип">
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="АдрРФ" type="d3p1:АдрРФТип" lowerBound="0"/>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="АдрИнф" type="d3p1:АдрИнфТип" lowerBound="0"/>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="КодГар" type="d3p1:string-36" lowerBound="0"/>
+	</objectType>
+	<objectType name="КонтактТип">
+		<property name="Тлф" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ЭлПочта" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="УчастникТип">
+		<property name="ОКПО" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="10"/>
+		</property>
+		<property name="СтруктПодр" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+		</property>
+		<property name="ИнфДляУчаст" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ИдСв">
+			<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+				<property xmlns:d5p1="DP_PRIRASXPRIN_5_01" name="СвФЛ" type="d5p1:СвФлТип" lowerBound="0"/>
+				<property xmlns:d5p1="DP_PRIRASXPRIN_5_01" name="СвИП" type="d5p1:СвИПТип" lowerBound="0"/>
+				<property name="СвОрг" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="СвЮЛ" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="НаимОрг" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+								</property>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ИННЮЛ" type="d9p1:ИННЮЛТип" form="Attribute"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="КПП" type="d9p1:КППТип" lowerBound="0" form="Attribute"/>
+							</typeDef>
+						</property>
+						<property name="ИнОрг" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="НаимОрг" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+								</property>
+								<property name="Страна" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="250"/>
+								</property>
+								<property name="ИныеСвед" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+								</property>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="Адрес" type="d3p1:АдресТип" lowerBound="0"/>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="Контакт" type="d3p1:КонтактТип" lowerBound="0"/>
+		<property name="БанкРекв" lowerBound="0">
+			<typeDef xsi:type="ObjectType">
+				<property name="НомерСчета" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+				</property>
+				<property name="СвБанк" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="НаимБанк" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+						</property>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="БИК" type="d7p1:БИКТип" lowerBound="0" form="Attribute"/>
+						<property name="КорСчет" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+	<objectType name="СопрДокТип">
+		<property name="НаимСопрДок" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="200"/>
+		</property>
+		<property name="НомСопрДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="ДатаСопрДок" type="d3p1:ДатаТип" lowerBound="0" form="Attribute"/>
+		<property name="ДопИдСопрДок" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="ТекстИнфТип">
+		<property name="Идентиф" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+		</property>
+		<property name="Значен" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2000"/>
+		</property>
+	</objectType>
+	<objectType name="ИнфПолТип">
+		<property name="ИдФайлИнфПол" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="36"/>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="ТекстИнф" type="d3p1:ТекстИнфТип" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="МасГрузТип">
+		<property name="МассаБр" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="12" fractionDigits="3"/>
+		</property>
+		<property name="МассаНет" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="12" fractionDigits="3"/>
+		</property>
+	</objectType>
+	<objectType name="НомСредИдентТовТип">
+		<property name="ИдентТрансУпак" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="КИЗ" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="НомУпак" lowerBound="0" upperBound="-1">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="ПринТовТип">
+		<property name="КолТовПрин" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="ЦенаПрин" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="СтавНДСПрин" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="35">
+				<enumeration xsi:type="xs:string">0%</enumeration>
+				<enumeration xsi:type="xs:string">10%</enumeration>
+				<enumeration xsi:type="xs:string">18%</enumeration>
+				<enumeration xsi:type="xs:string">20%</enumeration>
+				<enumeration xsi:type="xs:string">10/110</enumeration>
+				<enumeration xsi:type="xs:string">18/118</enumeration>
+				<enumeration xsi:type="xs:string">20/120</enumeration>
+				<enumeration xsi:type="xs:string">без НДС</enumeration>
+				<enumeration xsi:type="xs:string">НДС исчисляется налоговым агентом</enumeration>
+			</typeDef>
+		</property>
+		<property name="СтоимТовНДСПрин" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="СумНДСПрин" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="НомТовПрослеж" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="29"/>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="ЕдИзмПрослеж" type="d3p1:ОКЕИТип" lowerBound="0" form="Attribute"/>
+		<property name="НаимЕдИзмПрослеж" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="КолВЕдПрослеж" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="ДопПрослеж" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="НомСредИдентТов" type="d3p1:НомСредИдентТовТип" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="РасхТип">
+		<property name="КолТовРасх" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="СтоимТовНДСРасх" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="СумНДСРасх" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="ПоясненияРасх" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="НомТовПрослеж" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="29"/>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="ЕдИзмПрослеж" type="d3p1:ОКЕИТип" lowerBound="0" form="Attribute"/>
+		<property name="НаимЕдИзмПрослеж" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="КолВЕдПрослеж" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" totalDigits="26" fractionDigits="11"/>
+		</property>
+		<property name="ДопПрослеж" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property xmlns:d3p1="DP_PRIRASXPRIN_5_01" name="НомСредИдентТов" type="d3p1:НомСредИдентТовТип" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ДельтаТип">
+		<property name="ДельтаЦена" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="ДельтаСтоимНДС" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="ДельтаСумНДС" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:decimal" minInclusive="0" totalDigits="19" fractionDigits="2"/>
+		</property>
+		<property name="ПояснДельта" lowerBound="0" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+	</objectType>
+	<objectType name="Файл">
+		<property name="ИдФайл" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+		</property>
+		<property name="ВерсФорм" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="5">
+				<enumeration xsi:type="xs:string">5.01</enumeration>
+			</typeDef>
+		</property>
+		<property name="ВерсПрог" form="Attribute">
+			<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="40"/>
+		</property>
+		<property name="СвУчДокОбор">
+			<typeDef xsi:type="ObjectType">
+				<property name="ИдОтпр" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="4" maxLength="46"/>
+				</property>
+				<property name="ИдПол" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="4" maxLength="46"/>
+				</property>
+				<property name="СвОЭДОтпрСФ" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="НаимОрг" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+						</property>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="ИННЮЛ" type="d7p1:ИННЮЛТип" form="Attribute"/>
+						<property name="ИдЭДОСФ" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="3"/>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+		<property name="Документ">
+			<typeDef xsi:type="ObjectType">
+				<property name="КНД" form="Attribute">
+					<typeDef xmlns:d6p1="DP_PRIRASXPRIN_5_01" xsi:type="ValueType" base="d6p1:КНДТип" variety="Atomic">
+						<enumeration xsi:type="xs:string">1175014</enumeration>
+					</typeDef>
+				</property>
+				<property xmlns:d5p1="DP_PRIRASXPRIN_5_01" name="ДатаИнфПок" type="d5p1:ДатаТип" form="Attribute"/>
+				<property xmlns:d5p1="DP_PRIRASXPRIN_5_01" name="ВремИнфПок" type="d5p1:ВремяТип" form="Attribute"/>
+				<property name="ПоФактХЖ" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+				<property name="НаимДокОпр" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+				</property>
+				<property name="НаимЭконСубСост" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+				</property>
+				<property name="ОснДоверОргСост" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="120"/>
+				</property>
+				<property name="ОбстСостДок" lowerBound="0" form="Attribute">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+						<enumeration xsi:type="xs:string">1</enumeration>
+						<enumeration xsi:type="xs:string">2</enumeration>
+					</typeDef>
+				</property>
+				<property name="ИдентДокПР">
+					<typeDef xsi:type="ObjectType">
+						<property name="НомДокПР" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="ДатаДокПР" type="d7p1:ДатаТип" form="Attribute"/>
+					</typeDef>
+				</property>
+				<property name="ИспрДокПР" lowerBound="0">
+					<typeDef xsi:type="ObjectType">
+						<property name="НомИспрДокПР" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minInclusive="1" totalDigits="3"/>
+						</property>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="ДатаИспрДокПР" type="d7p1:ДатаТип" form="Attribute"/>
+					</typeDef>
+				</property>
+				<property name="СодФХЖ1">
+					<typeDef xsi:type="ObjectType">
+						<property name="ОбстИсп" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="4"/>
+						</property>
+						<property name="ИдГосКон" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+						</property>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="Продавец" type="d7p1:УчастникТип"/>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="Покупатель" type="d7p1:УчастникТип"/>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="Грузоотправитель" type="d7p1:УчастникТип" lowerBound="0"/>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="Грузополучатель" type="d7p1:УчастникТип" lowerBound="0"/>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="СтрахКом" type="d7p1:УчастникТип" lowerBound="0"/>
+						<property name="Приказ" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ДатаПрик" type="d9p1:ДатаТип" form="Attribute"/>
+								<property name="НомПрик" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+								</property>
+							</typeDef>
+						</property>
+						<property name="СвОсмГруз" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ДатаОсм" type="d9p1:ДатаТип" lowerBound="0" form="Attribute"/>
+								<property name="МестоСост" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+								</property>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ВремяНач" type="d9p1:ВремяТип" lowerBound="0" form="Attribute"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ВремяОконч" type="d9p1:ВремяТип" lowerBound="0" form="Attribute"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ДатаОтпр" type="d9p1:ДатаТип" lowerBound="0" form="Attribute"/>
+								<property name="СертСоотв" lowerBound="0" upperBound="-1">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+								</property>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="СопрДок" type="d9p1:СопрДокТип"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ИнфПолСвОсм" type="d9p1:ИнфПолТип" lowerBound="0" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="СвСопрДок" lowerBound="0" upperBound="-1">
+							<typeDef xsi:type="ObjectType">
+								<property name="ОтмПломб" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="20"/>
+								</property>
+								<property name="ВидУпак" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+								</property>
+								<property name="КолМест" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:integer" variety="Atomic" minInclusive="0" totalDigits="12"/>
+								</property>
+								<property name="НаимГруз" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+								</property>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ОКЕИ_Тов" type="d9p1:ОКЕИТип" lowerBound="0" form="Attribute"/>
+								<property name="НаимЕдИзм" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+								</property>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="МассаДок" type="d9p1:МасГрузТип" lowerBound="0"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="МассаФакт" type="d9p1:МасГрузТип" lowerBound="0"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ИнфПолСопрДок" type="d9p1:ТекстИнфТип" lowerBound="0"/>
+							</typeDef>
+						</property>
+						<property name="СвВремПрием" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ПрибГруз" type="d9p1:ДатаВремяТип" lowerBound="0" form="Attribute"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ВыдачГруз" type="d9p1:ДатаВремяТип" lowerBound="0" form="Attribute"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ВскрытГруз" type="d9p1:ДатаВремяТип" lowerBound="0" form="Attribute"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ДостГруз" type="d9p1:ДатаВремяТип" lowerBound="0" form="Attribute"/>
+							</typeDef>
+						</property>
+						<property name="ДрОбстПрием" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="УсловХран" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+								</property>
+								<property name="СостТара" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+								</property>
+								<property name="ОпредНедост" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="200"/>
+								</property>
+								<property name="ДопСв" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+								</property>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="Перевозчик" type="d9p1:УчастникТип" lowerBound="0"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="СопрТрансДок" type="d9p1:СопрДокТип" lowerBound="0"/>
+							</typeDef>
+						</property>
+						<property name="СвЛицПрин" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property name="РабОргПок" lowerBound="0">
+									<typeDef xsi:type="ObjectType">
+										<property name="Должность" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="128"/>
+										</property>
+										<property name="ИныеСвед" lowerBound="0" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+										</property>
+										<property name="ОснПолн" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="120"/>
+										</property>
+										<property xmlns:d11p1="DP_PRIRASXPRIN_5_01" name="ФИО" type="d11p1:ФИОТип"/>
+									</typeDef>
+								</property>
+								<property name="ИнЛицо" lowerBound="0">
+									<typeDef xsi:type="ObjectType">
+										<property name="ПредОргПрин" lowerBound="0">
+											<typeDef xsi:type="ObjectType">
+												<property name="Должность" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="128"/>
+												</property>
+												<property name="ИныеСвед" lowerBound="0" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+												</property>
+												<property name="НаимОргПрин" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="128"/>
+												</property>
+												<property name="ОснДоверОргПрин" lowerBound="0" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="120"/>
+												</property>
+												<property name="ОснПолнПредПрин" lowerBound="0" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="120"/>
+												</property>
+												<property xmlns:d13p1="DP_PRIRASXPRIN_5_01" name="ФИО" type="d13p1:ФИОТип"/>
+											</typeDef>
+										</property>
+										<property name="ФЛПрин" lowerBound="0">
+											<typeDef xsi:type="ObjectType">
+												<property name="ОснДоверФЛ" lowerBound="0" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="120"/>
+												</property>
+												<property name="ИныеСвед" lowerBound="0" form="Attribute">
+													<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+												</property>
+												<property xmlns:d13p1="DP_PRIRASXPRIN_5_01" name="ФИО" type="d13p1:ФИОТип"/>
+											</typeDef>
+										</property>
+									</typeDef>
+								</property>
+							</typeDef>
+						</property>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="ИнфПолФХЖ1" type="d7p1:ИнфПолТип" lowerBound="0"/>
+					</typeDef>
+				</property>
+				<property name="СодФХЖ2">
+					<typeDef xsi:type="ObjectType">
+						<property name="СодСоб" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+						</property>
+						<property name="Заключение" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+						</property>
+						<property name="РезПрием" upperBound="-1">
+							<typeDef xsi:type="ObjectType">
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ОКЕИ_Тов" type="d9p1:ОКЕИТип" lowerBound="0" form="Attribute"/>
+								<property name="НаимЕдИзм" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+								</property>
+								<property name="Ценности">
+									<typeDef xsi:type="ObjectType">
+										<property name="НомСтрСопрДок" lowerBound="0" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:integer" totalDigits="6"/>
+										</property>
+										<property name="НаимТов" lowerBound="0" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+										</property>
+										<property name="ХарактТов" lowerBound="0" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+										</property>
+										<property name="СортТов" lowerBound="0" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+										</property>
+										<property name="АртикулТов" lowerBound="0" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="50"/>
+										</property>
+										<property name="КодТов" lowerBound="0" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+										</property>
+										<property name="Паспорт" lowerBound="0" form="Attribute">
+											<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="100"/>
+										</property>
+									</typeDef>
+								</property>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ПоДокум" type="d9p1:ПринТовТип" lowerBound="0"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ПоФакту" type="d9p1:ПринТовТип" lowerBound="0"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="Брак" type="d9p1:РасхТип" lowerBound="0"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="Бой" type="d9p1:РасхТип" lowerBound="0"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="Недостача" type="d9p1:РасхТип" lowerBound="0"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="Излишки" type="d9p1:РасхТип" lowerBound="0"/>
+								<property name="ЦенОтклон" lowerBound="0">
+									<typeDef xsi:type="ObjectType">
+										<property xmlns:d11p1="DP_PRIRASXPRIN_5_01" name="ПолДельта" type="d11p1:ДельтаТип" lowerBound="0"/>
+										<property xmlns:d11p1="DP_PRIRASXPRIN_5_01" name="ОтрицатДельта" type="d11p1:ДельтаТип" lowerBound="0"/>
+									</typeDef>
+								</property>
+								<property name="РасхРабУслПрав" lowerBound="0" form="Attribute"/>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ИнфПолРезПрием" type="d9p1:ТекстИнфТип" lowerBound="0" upperBound="-1"/>
+							</typeDef>
+						</property>
+						<property name="ПрилДок" lowerBound="0" upperBound="-1">
+							<typeDef xsi:type="ObjectType">
+								<property name="ВидПрилДок" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+								</property>
+								<property name="НомерПрилДок" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="40"/>
+								</property>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ДатаПрилДок" type="d9p1:ДатаТип" form="Attribute"/>
+							</typeDef>
+						</property>
+						<property name="ВидОперации" lowerBound="0">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="ИнфПолФХЖ2" type="d7p1:ТекстИнфТип" lowerBound="0" upperBound="-1"/>
+					</typeDef>
+				</property>
+				<property name="СвДоп" upperBound="-1">
+					<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2">
+						<enumeration xsi:type="xs:string">1</enumeration>
+						<enumeration>2</enumeration>
+						<enumeration>3</enumeration>
+						<enumeration>4</enumeration>
+						<enumeration>5</enumeration>
+						<enumeration>6</enumeration>
+						<enumeration>7</enumeration>
+						<enumeration>8</enumeration>
+					</typeDef>
+				</property>
+				<property name="НазнДопИнф" lowerBound="0"/>
+				<property name="Подписант" upperBound="-1">
+					<typeDef xsi:type="ObjectType" ordered="false" sequenced="true">
+						<property name="ОблПолн" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2">
+								<enumeration>1</enumeration>
+								<enumeration>2</enumeration>
+								<enumeration>3</enumeration>
+								<enumeration xsi:type="xs:string">7</enumeration>
+								<enumeration xsi:type="xs:string">8</enumeration>
+							</typeDef>
+						</property>
+						<property name="Статус" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="2">
+								<enumeration xsi:type="xs:string">4</enumeration>
+								<enumeration xsi:type="xs:string">3</enumeration>
+								<enumeration xsi:type="xs:string">5</enumeration>
+								<enumeration xsi:type="xs:string">6</enumeration>
+							</typeDef>
+						</property>
+						<property name="ОснПолн" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property name="ОснПолнОрг" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+						</property>
+						<property name="ПризнОзнак" lowerBound="0" form="Attribute">
+							<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" length="1">
+								<enumeration xsi:type="xs:string">1</enumeration>
+							</typeDef>
+						</property>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="ФЛ" type="d7p1:СвФлТип" lowerBound="0"/>
+						<property xmlns:d7p1="DP_PRIRASXPRIN_5_01" name="ИП" type="d7p1:СвИПТип" lowerBound="0"/>
+						<property name="ЮЛ" lowerBound="0">
+							<typeDef xsi:type="ObjectType">
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ИННЮЛ" type="d9p1:ИННЮЛТип" form="Attribute"/>
+								<property name="НаимОрг" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="1000"/>
+								</property>
+								<property name="Должн" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="0" maxLength="128"/>
+								</property>
+								<property name="ИныеСвед" lowerBound="0" form="Attribute">
+									<typeDef xsi:type="ValueType" base="xs:string" variety="Atomic" minLength="1" maxLength="255"/>
+								</property>
+								<property xmlns:d9p1="DP_PRIRASXPRIN_5_01" name="ФИО" type="d9p1:ФИОТип"/>
+							</typeDef>
+						</property>
+					</typeDef>
+				</property>
+			</typeDef>
+		</property>
+	</objectType>
+</package>

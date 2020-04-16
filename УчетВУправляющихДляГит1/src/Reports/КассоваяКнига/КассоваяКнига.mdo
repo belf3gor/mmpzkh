@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="efdc0e35-cb40-4e08-82c9-d34db51f56d4">
+  <producedTypes>
+    <objectType typeId="df67d873-d1b2-4fa2-ae73-9b3030f6233b" valueTypeId="9bad8c60-7957-48ae-add3-c9dbe99df7b2"/>
+    <managerType typeId="1b71a07d-e318-4ea8-b26c-c8e63796b5a0" valueTypeId="f844c26f-042e-4fa0-a712-26d2b98d2bb4"/>
+  </producedTypes>
+  <name>КассоваяКнига</name>
+  <synonym>
+    <key>ru</key>
+    <value>Кассовая книга (КО-4)</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>Report.КассоваяКнига.Form.ФормаОтчета</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="be0f74d0-3e66-4790-a24b-2137b8560c71">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="3b480faa-5f4c-436d-aae0-ca7bc7fbe0a9">
+    <name>НачалоПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начало периода</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="01ad6961-52f9-4466-b80e-6991f59df8a3">
+    <name>КонецПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Конец периода</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="8daa86ca-808d-48a6-861c-8a5a2a2115cd">
+    <name>ВыводитьОснования</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выводить основания кассовых ордеров</value>
+    </synonym>
+    <comment>При установке этого флажка в графе кассовой книги¶&quot;От кого получено или кому выдано&quot; будет ¶выводиться содержание полей &quot;Принято от&quot; и¶&quot;Основание&quot; приходного кассового ордера или¶&quot;Выдано&quot; и &quot;Основание&quot; расходного кассового ордера</comment>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="e7c5277a-ab3d-4ddb-85a0-7fe2f10c3837">
+    <name>ПоследнийЛист</name>
+    <synonym>
+      <key>ru</key>
+      <value>Последний лист</value>
+    </synonym>
+    <comment>Внешний вид последнего листа</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="4a2d4b3d-a378-4669-a196-861cc016a0e6">
+    <name>ПодразделениеОрганизации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подразделение</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ПодразделенияОрганизаций</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>Report.КассоваяКнига.Attribute.Организация</field>
+    </choiceParameterLinks>
+  </attributes>
+  <attributes uuid="3561b827-73a1-4ce6-b472-6c0cccf4f06c">
+    <name>ПлатежныйАгент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Книга формируется</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <format>
+      <key>ru</key>
+      <value>БЛ='По основной деятельности'; БИ='По деятельности платежного агента'</value>
+    </format>
+    <editFormat>
+      <key>ru</key>
+      <value>БЛ='По основной деятельности'; БИ='По деятельности платежного агента'</value>
+    </editFormat>
+    <toolTip>
+      <key>ru</key>
+      <value>По основной деятельности
+или по деятельности платежного агента</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="1fd6b873-6227-4170-9f31-ad7db8a9ab86">
+    <name>РежимРасшифровки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Режим расшифровки</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="a562dfa7-4e13-47cf-9b98-f50a1dbab93a">
+    <name>СформироватьОбложку</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сформировать обложку</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <forms uuid="6013ffef-9e26-435a-89c4-69aa24ee0ff4">
+    <name>ФормаОтчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма отчета</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="a37be9fa-9223-4076-b029-59cd29e8781c">
+    <name>КассоваяКнига</name>
+    <synonym>
+      <key>ru</key>
+      <value>КассоваяКнига</value>
+    </synonym>
+  </templates>
+  <templates uuid="790e38db-af9a-4040-aa5b-cc8c2554fb5b">
+    <name>Обложка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Обложка</value>
+    </synonym>
+  </templates>
+  <templates uuid="308d8d73-0e56-4309-915b-51e69ceb6c8f">
+    <name>ОповеститьОПроблеме</name>
+    <synonym>
+      <key>ru</key>
+      <value>Оповестить о проблеме</value>
+    </synonym>
+  </templates>
+</mdclass:Report>

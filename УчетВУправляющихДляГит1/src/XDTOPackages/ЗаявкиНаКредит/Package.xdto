@@ -1,0 +1,97 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.v8.1c.ru/banks/CreditApplication" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="http://www.v8.1c.ru/banks/CreditApplication" name="УсловияКредитования" type="d2p1:УсловияКредитования"/>
+	<valueType name="ТипКоличествоЛет" base="xs:int" variety="Atomic"/>
+	<valueType name="ТипКоличествоМесяцев" base="xs:int" variety="Atomic"/>
+	<valueType name="ТипСумма" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="2"/>
+	<valueType name="ТипПроцент" base="xs:decimal" variety="Atomic" totalDigits="15" fractionDigits="2"/>
+	<valueType name="ЮридическоеФизическоеЛицо" base="xs:string" variety="Atomic">
+		<enumeration>ЮридическоеЛицо</enumeration>
+		<enumeration>ФизическоеЛицо</enumeration>
+	</valueType>
+	<valueType name="ПериодыОтчетности" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">ПредыдущийГод</enumeration>
+		<enumeration xsi:type="xs:string">СНачалаТекущегоГода</enumeration>
+		<enumeration xsi:type="xs:string">ПредыдущийКвартал</enumeration>
+		<enumeration xsi:type="xs:string">ПредыдущийМесяц</enumeration>
+	</valueType>
+	<valueType name="ВидыОтчетовЗаемщика" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">КарточкаСчета</enumeration>
+		<enumeration xsi:type="xs:string">АнализСчета</enumeration>
+		<enumeration xsi:type="xs:string">ОборотноСальдоваяВедомость</enumeration>
+		<enumeration xsi:type="xs:string">БухгалтерскаяОтчетность</enumeration>
+		<enumeration xsi:type="xs:string">ДекларацияПрибыль</enumeration>
+		<enumeration xsi:type="xs:string">ДекларацияНДС</enumeration>
+		<enumeration xsi:type="xs:string">ДекларацияУСН</enumeration>
+		<enumeration xsi:type="xs:string">ДекларацияЕНВД</enumeration>
+		<enumeration xsi:type="xs:string">Декларация3НДФЛ</enumeration>
+	</valueType>
+	<valueType name="Периодичность" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">Месяц</enumeration>
+		<enumeration xsi:type="xs:string">Квартал</enumeration>
+	</valueType>
+	<valueType name="ГраницыПериодов" base="xs:string" variety="Atomic">
+		<enumeration xsi:type="xs:string">ЗакрытыйМесяц</enumeration>
+		<enumeration xsi:type="xs:string">КалендарныйМесяцДоДатыЗаявки</enumeration>
+	</valueType>
+	<objectType name="УсловияКредитования" open="true" ordered="false" sequenced="true">
+		<property name="Версия" type="xs:string" lowerBound="0" form="Attribute"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="КредитныйПродукт" type="d3p1:КредитныйПродукт" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="НекредитуемыеВидыДеятельности" type="d3p1:НекредитуемыеВидыДеятельности" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="НекредитуемыеРегионы" type="d3p1:НекредитуемыеРегионы" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="НекредитуемыеОрганизационноПравовыеФормы" type="d3p1:НекредитуемыеОрганизационноПравовыеФормы" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="СогласиеНаОбработкуДанных" type="d3p1:СогласиеНаОбработкуДанных" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="ОтчетностьЗаемщика" type="d3p1:ОтчетностьЗаемщика" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="КредитныйПродукт" open="true" ordered="false" sequenced="true">
+		<property name="ДатаНачала" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ДатаОкончания" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ПорядокСортировки" type="xs:int" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МинСуммаКредита" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МаксСуммаКредита" type="d3p1:ТипСумма" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МинСрокКредита" type="d3p1:ТипКоличествоМесяцев" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МаксСрокКредита" type="d3p1:ТипКоличествоМесяцев" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МинСтавка" type="d3p1:ТипПроцент" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МаксСтавка" type="d3p1:ТипПроцент" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МинСрокВеденияУчетаВПрограмме" type="d3p1:ТипКоличествоМесяцев" lowerBound="0"/>
+		<property name="ВозможноКредитованиеНерезидентов" type="xs:boolean" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МинСрокОтДатыРегистрации" type="d3p1:ТипКоличествоМесяцев" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МинСрокФактическойДеятельности" type="d3p1:ТипКоличествоМесяцев" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МинВозрастИП" type="d3p1:ТипКоличествоЛет" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МаксВозрастИП" type="d3p1:ТипКоличествоЛет" lowerBound="0"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="МинСреднемесячноеПоступлениеНаСчет" type="d3p1:ТипСумма" lowerBound="0"/>
+	</objectType>
+	<objectType name="НекредитуемыеВидыДеятельности" open="true" ordered="false" sequenced="true">
+		<property name="ДатаНачала" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ДатаОкончания" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="КодОКВЭД2" type="xs:string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="НекредитуемыеОрганизационноПравовыеФормы" open="true" ordered="false" sequenced="true">
+		<property name="ДатаНачала" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ДатаОкончания" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="КодОКОПФ" type="xs:string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="НекредитуемыеРегионы" open="true" ordered="false" sequenced="true">
+		<property name="ДатаНачала" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ДатаОкончания" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="КодРегиона" type="xs:string" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СогласиеНаОбработкуДанных" open="true" ordered="false" sequenced="true">
+		<property name="ДатаНачала" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ДатаОкончания" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="ЮридическоеФизическоеЛицо" type="d3p1:ЮридическоеФизическоеЛицо" lowerBound="1" form="Attribute"/>
+		<property name="ТекстМакета" type="xs:string"/>
+	</objectType>
+	<objectType name="ОтчетностьЗаемщика" open="true" ordered="false" sequenced="true">
+		<property name="ДатаНачала" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property name="ДатаОкончания" type="xs:date" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="ОтчетЗаемщика" type="d3p1:ОтчетЗаемщика" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="ОтчетЗаемщика" open="true" ordered="false" sequenced="true">
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="ВидОтчета" type="d3p1:ВидыОтчетовЗаемщика"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="ПериодОтчета" type="d3p1:ПериодыОтчетности"/>
+		<property name="КоличествоПериодов" type="xs:int" lowerBound="0" nillable="true"/>
+		<property name="Счет" type="xs:string" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="Периодичность" type="d3p1:Периодичность" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://www.v8.1c.ru/banks/CreditApplication" name="ПраваяГраницаПериода" type="d3p1:ГраницыПериодов" lowerBound="0" nillable="true"/>
+	</objectType>
+</package>

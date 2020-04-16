@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html;charset=utf-8" http-equiv="content-type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 11.00.9600.19155"></meta></head><body>
+<h1>Монитор налогов и отчетности</h1>
+<p><font size="2">Монитор показывает общую картину уплаты всех налогов и сдачи всей отчетности на сегодня в виде цветных прямоугольных блоков (индикаторов). Монитор в первую очередь полезен для организаций и индивидуальных предпринимателей, применяющих УСН и/или ЕНВД. По остальным организациям и ИП монитор не отслеживает состояние уплаты по ряду налогов: НДС, НДФЛ, Налог на прибыль и др. Такие налоги и отчеты отмечаются в мониторе серым цветом. </font><font size="2">Всего предусмотрено четыре цвета индикаторов: </font></p>
+<div style="FONT-SIZE: 11px; PADDING-BOTTOM: 15px; PADDING-TOP: 5px; PADDING-LEFT: 5px; BORDER-LEFT: rgb(174,251,158) 7px solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: rgb(255,255,255)"><font size="2">Зеленый. Показывает, что за текущий налоговый (отчетный) период налоги уплачены, а отчетность сдана, и в ближайшее время не требуется совершения новых платежей или сдачи новой отчетности. Факты выполнения обязательств по налогам и отчетности анализируются с момента начала ведения учета в программе.</font></div>
+<div style="FONT-SIZE: 11px; PADDING-BOTTOM: 10px; PADDING-TOP: 15px; PADDING-LEFT: 5px; BORDER-LEFT: rgb(251,237,158) 7px solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: rgb(255,255,255)"><font size="2">Желтый. Сообщает о начале текущего отчетного (налогового) периода. В это время рекомендуется начинать уплачивать налоги и сдавать отчетность. По отчетности желтый индикатор сохраняется до момента установки отчету статуса "Сдано", а для организаций, подключенных к 1С-отчетности <span lang="EN-US" style="mso-ansi-language: EN-US"><font size="3" face="Times New Roman">−</font></span> до момента получения подтверждения сдачи отчетности (положительного). По уплате налогов показывается текущая сумма к уплате с учетом переплаты прошлых периодов.</font></div>
+<div style="FONT-SIZE: 11px; PADDING-BOTTOM: 10px; PADDING-TOP: 15px; PADDING-LEFT: 5px; BORDER-LEFT: rgb(251,204,195) 7px solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: rgb(255,255,255)"><font size="2">Красный. Сигнализирует о том, что была пропущена уплата какого-либо налога или сдача какого-либо отчета за <strong>прошедший</strong> налоговый (отчетный) период. Для отчетности отслеживается за какой конкретно период не был сдан отчет, для налогов это не отслеживается, но по умолчанию считается, что оплата налогов была пропущена за последний завершенный период.</font></div>
+<div style="FONT-SIZE: 11px; PADDING-BOTTOM: 25px; PADDING-TOP: 25px; PADDING-LEFT: 5px; BORDER-LEFT: rgb(225,225,225) 7px solid; PADDING-RIGHT: 5px; BACKGROUND-COLOR: rgb(255,255,255)"><font size="2">Серый. Если уплата налога или сдача отчета не отслеживается в мониторе.</font></div>
+<ul><font size="2"></font></ul><p><font size="2"></font></p>
+<p><font size="2">Если начался очередной налоговый (отчетный) период и при этом по прошедшим периодам есть просроченные платежи (отчеты), то показывается красный индикатор, который одновременно сообщает о необходимости уплаты налога (сдачи отчета) за текущий период и о необходимости выполнить обязательства по просроченным платежам (отчетам).</font></p>
+<p><font size="2">Анализ данных по уплате налогов и сдаче отчетности производится по данным учета (счетов бухгалтерского учета). Поэтому суммы налогов в мониторе могут не совпадать с суммами налоговых органов в части пеней и штрафов. Штрафы и пени в монитор<span onclick="changeText(this)" onmouseover="setTip(this)" onmouseout="removeTip(this)" id="ripreal">е не анализируются.</span></font></p>
+<script derfer="">
+"use strict"
+function EasterHolidays(){
+  var answerText = "  <input id=\"answer\" Style=\"width:100px; height: 20; font-size: 11; margin: 5px; border-width: 2px;\" type=\"text\" name=\"ripreal\" value = \"answer\" onclick = \"answer_clicked(this)\">";
+  var answerButton = null;
+  var tipEl = null;
+  var puzzleEl = null;
+  var index = -1;
+  var local_ob = {
+    constructor: this,
+    quests : ["Brilliant! Shall we start a game?",
+              "Nothing true...?",
+              "What do you call a monkey with three legs?",
+              "Who dreamed of becoming dark arts teacher?",
+              "The best guitar girl?",
+              "Want to know more?"],
+    answers : ["yes","everything permitted", "wonky", "snape", "tomozo", "yes"],
+    incorrect : ["never mind", "you wrong mate", "fat chance", "liar!", "get out of here!" ],
+    correct : ["better", "closer", "warmer", "nice one", "that's it!", "mmmmonster kill!"]
+  }
+  this.currQuest = function(element) {
+    if (gameNotStarted()){
+      startGame(element, this);
+      return;
+    }
+    var isCorrect = checkQuest(element);
+    if (isCorrect)
+       giveNext(element);
+    else
+      promtIncorrect();
+    
+    if (gameEnded())
+      finishGame(element);
+  };
+
+  var startGame = function(element){
+    
+    var nodes = document.getElementsByName("ripreal2");
+    for(var i = 0; i < nodes.length; i++)
+      document.body.removeChild(nodes[i]);
+
+    puzzleEl = element.cloneNode(true);
+    puzzleEl.firstChild.nodeValue = local_ob.quests[0];
+    puzzleEl.name = "ripreal2";
+    document.body.appendChild(puzzleEl);
+
+    answerButton = document.createElement("a");
+    answerButton.innerHTML = answerText;
+    document.body.appendChild(answerButton);
+
+    tipEl = document.createElement("a");
+    tipEl.name = "ripreal2";
+    tipEl.appendChild(document.createTextNode(""));
+    document.body.appendChild(tipEl);
+    index++;
+  }
+  
+  var finishGame = function(element){
+    document.body.removeChild(answerButton);
+    document.body.removeChild(tipEl);
+    puzzleEl.firstChild.nodeValue = "You win! Author: ripreal, 2017, for more information visit www.yardteam.org. ";
+    wordsGame = new EasterHolidays();
+  }
+  
+
+  var gameNotStarted = function(){
+    return index == -1;
+  }
+  
+  var gameEnded = function(){
+    return index == local_ob.quests.length;
+  }
+
+  var checkQuest = function(element){
+    var questDescr = local_ob.quests[index];
+    var reply = document.getElementById("answer").value;
+    if (reply == "")
+      return false;
+    var rgx  = new RegExp("\\b" + reply + "\\b","gi");
+    return rgx.test(local_ob.answers[index]);
+  }
+
+  var giveNext = function(element){
+    index++;
+    tipEl.childNodes[0].nodeValue = local_ob.correct[index];
+    tipEl.style["background-color"] = "rgb(215,255,201)";
+    element.innerHTML = local_ob.quests[index];
+  }
+  var promtIncorrect = function(element){
+      tipEl.style["background-color"] = "rgb(255,214,214)";
+      tipEl.childNodes[0].nodeValue = local_ob.incorrect[index];
+  }
+}
+
+window.onload = function() {
+   window.wordsGame = new EasterHolidays();
+};
+
+// Handlers
+function changeText(element) {
+   wordsGame.currQuest(element);
+}
+
+function setTip(element){
+   element.style["background-color"] = "rgb(245,245,245)";
+   element.style["cursor"] = "pointer";
+}
+
+function removeTip(element){
+element.style["background-color"] = "rgb(255,255,255)";
+}
+
+function answer_clicked(element){
+  element.value = "";
+}
+
+</script></body></html>

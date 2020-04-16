@@ -1,0 +1,1361 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Начисления</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подразделение</dataPath>
+			<field>Подразделение</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+			<orderExpression>
+				<dcscom:expression>Подразделение.РеквизитДопУпорядочивания</dcscom:expression>
+				<dcscom:orderType>Asc</dcscom:orderType>
+				<dcscom:autoOrder>false</dcscom:autoOrder>
+			</orderExpression>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сотрудник</dataPath>
+			<field>Сотрудник</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:parameter>СвязиПараметровВыбора</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:ChoiceParameterLinks">
+						<dcscor:item>
+							<dcscor:choiceParameter>Отбор.ТекущаяОрганизация</dcscor:choiceParameter>
+							<dcscor:value>Организация</dcscor:value>
+							<dcscor:mode xmlns:d8p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d8p1:LinkedValueChangeMode">Clear</dcscor:mode>
+						</dcscor:item>
+						<dcscor:item>
+							<dcscor:choiceParameter>Отбор.ТекущееПодразделение</dcscor:choiceParameter>
+							<dcscor:value>Подразделение</dcscor:value>
+							<dcscor:mode xmlns:d8p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d8p1:LinkedValueChangeMode">Clear</dcscor:mode>
+						</dcscor:item>
+					</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФизическоеЛицо</dataPath>
+			<field>ФизическоеЛицо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сотрудник</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:parameter>СвязиПараметровВыбора</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:ChoiceParameterLinks">
+						<dcscor:item>
+							<dcscor:choiceParameter>Отбор.Организация</dcscor:choiceParameter>
+							<dcscor:value>Организация</dcscor:value>
+							<dcscor:mode xmlns:d8p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d8p1:LinkedValueChangeMode">Clear</dcscor:mode>
+						</dcscor:item>
+					</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРНаДоплатуЛетчикам</dataPath>
+			<field>ПФРНаДоплатуЛетчикам</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>на доплату членам летных экипажей</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРНаДоплатуШахтерам</dataPath>
+			<field>ПФРНаДоплатуШахтерам</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>на доплату к пенсии шахтерам</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРНакопительная</dataPath>
+			<field>ПФРНакопительная</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Накопительная часть</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРСтраховая</dataPath>
+			<field>ПФРСтраховая</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Страховая часть</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ТФОМС</dataPath>
+			<field>ТФОМС</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФОМС</dataPath>
+			<field>ФОМС</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФСС</dataPath>
+			<field>ФСС</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФССНесчастныеСлучаи</dataPath>
+			<field>ФССНесчастныеСлучаи</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ФСС НС</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Сумма</dataPath>
+			<field>Сумма</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начислено</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНДФЛ</dataPath>
+			<field>СуммаНДФЛ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>НДФЛ</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ГоловнаяОрганизация</dataPath>
+			<field>ГоловнаяОрганизация</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачислениеУдержание</dataPath>
+			<field>НачислениеУдержание</field>
+			<useRestriction>
+				<condition>true</condition>
+			</useRestriction>
+			<attributeUseRestriction>
+				<condition>true</condition>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот</dataPath>
+			<field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>За занятых на вредных работах</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот</dataPath>
+			<field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>За занятых на тяжелых работах</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяРасходов</dataPath>
+			<field>СтатьяРасходов</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтатьяФинансирования</dataPath>
+			<field>СтатьяФинансирования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРПоСуммарномуТарифу</dataPath>
+			<field>ПФРПоСуммарномуТарифу</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>На ОПС, по суммарному тарифу</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот</dataPath>
+			<field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с вредными условиями труда, класс вредный 3.2</v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот</dataPath>
+			<field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с вредными условиями труда, класс вредный 3.3 </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот</dataPath>
+			<field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с вредными условиями труда, класс вредный 3.4 </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот</dataPath>
+			<field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с тяжелыми условиями труда, класс вредный 3.1 </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот</dataPath>
+			<field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с тяжелыми условиями труда, класс вредный 3.2 </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот</dataPath>
+			<field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с тяжелыми условиями труда, класс вредный 3.3 </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот</dataPath>
+			<field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с тяжелыми условиями труда, класс вредный 3.4 </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот</dataPath>
+			<field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с тяжелыми условиями труда, класс опасный </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот</dataPath>
+			<field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с вредными условиями труда, класс вредный 3.1 </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот</dataPath>
+			<field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>ПФР, за занятых на работах с вредными условиями труда, класс опасный </v8:content>
+				</v8:item>
+			</title>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ЧДЦ=2</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыделятьОтрицательные</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">true</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Организации.Ссылка КАК Организация,
+	Организации.ПометкаУдаления
+ПОМЕСТИТЬ ВТРазрешенныеОрганизации
+ИЗ
+	Справочник.Организации КАК Организации
+{ГДЕ
+	Организации.Ссылка КАК Организация}
+
+ИНДЕКСИРОВАТЬ ПО
+	Организация
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ РАЗЛИЧНЫЕ
+	НачисленияОбороты.ФизическоеЛицо КАК ФизическоеЛицо,
+	НачисленияОбороты.Организация КАК Организация
+ПОМЕСТИТЬ ВТФизическиеЛица
+ИЗ
+	РегистрНакопления.НачисленияУдержанияПоСотрудникам.Обороты(&amp;НачалоПериода, &amp;КонецПериода, , {(Организация) КАК Организация}) КАК НачисленияОбороты
+
+ОБЪЕДИНИТЬ
+
+ВЫБРАТЬ РАЗЛИЧНЫЕ
+	ИсчисленныеСтраховыеВзносы.ФизическоеЛицо,
+	ИсчисленныеСтраховыеВзносы.Организация
+ИЗ
+	РегистрНакопления.ИсчисленныеСтраховыеВзносы.Обороты(&amp;НачалоПериода, &amp;КонецПериода, , {(Организация) КАК Организация}) КАК ИсчисленныеСтраховыеВзносы
+
+ИНДЕКСИРОВАТЬ ПО
+	Организация,
+	ФизическоеЛицо
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НачисленияОбороты.ФизическоеЛицо КАК ФизическоеЛицо,
+	НачисленияОбороты.НачислениеУдержание,
+	НачисленияОбороты.СуммаОборот КАК Сумма,
+	НачисленияОбороты.Организация КАК Организация
+ПОМЕСТИТЬ ВТНачисления
+ИЗ
+	РегистрНакопления.НачисленияУдержанияПоСотрудникам.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			НачислениеУдержание ССЫЛКА ПланВидовРасчета.Начисления
+					И (НачислениеУдержание.КодДоходаНДФЛ &lt;&gt; ЗНАЧЕНИЕ(Справочник.ВидыДоходовНДФЛ.ПустаяСсылка)
+						ИЛИ НЕ НачислениеУдержание.КодДоходаСтраховыеВзносы В (ЗНАЧЕНИЕ(Справочник.ВидыДоходовПоСтраховымВзносам.НеЯвляетсяОбъектом), ЗНАЧЕНИЕ(Справочник.ВидыДоходовПоСтраховымВзносам.НеОблагаетсяЦеликом)))
+				ИЛИ НачислениеУдержание В (ЗНАЧЕНИЕ(Перечисление.ВидыОсобыхНачисленийИУдержаний.КомпенсацияЗаЗадержкуЗарплаты), ЗНАЧЕНИЕ(Перечисление.ВидыОсобыхНачисленийИУдержаний.ДоговорАвторскогоЗаказа), ЗНАЧЕНИЕ(Перечисление.ВидыОсобыхНачисленийИУдержаний.ДоговорРаботыУслуги)) {(Организация) КАК Организация, (Сотрудник) КАК Сотрудник, (Подразделение) КАК Подразделение}) КАК НачисленияОбороты
+
+ИНДЕКСИРОВАТЬ ПО
+	Организация,
+	ФизическоеЛицо
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	НачисленияОбороты.ФизическоеЛицо КАК ФизическоеЛицо,
+	НачисленияОбороты.СуммаОборот КАК Сумма,
+	НачисленияОбороты.Организация КАК Организация
+ПОМЕСТИТЬ ВТНДФЛ
+ИЗ
+	РегистрНакопления.НачисленияУдержанияПоСотрудникам.Обороты(&amp;НачалоПериода, &amp;КонецПериода, , НачислениеУдержание = ЗНАЧЕНИЕ(Перечисление.ВидыОсобыхНачисленийИУдержаний.НДФЛ) {(Организация) КАК Организация, (Сотрудник) КАК Сотрудник, (Подразделение) КАК Подразделение}) КАК НачисленияОбороты
+
+ИНДЕКСИРОВАТЬ ПО
+	Организация,
+	ФизическоеЛицо
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	СтраховыеВзносы.ФизическоеЛицо КАК ФизическоеЛицо,
+	СтраховыеВзносы.Организация КАК Организация,
+	СУММА(СтраховыеВзносы.ПФРПоСуммарномуТарифуОборот + СтраховыеВзносы.ПФРПоСуммарномуТарифуЕНВДОборот + СтраховыеВзносы.ПФРДоПредельнойВеличиныОборот + СтраховыеВзносы.ПФРДоПредельнойВеличиныЕНВДОборот + СтраховыеВзносы.ПФРСПревышенияОборот + СтраховыеВзносы.ПФРСПревышенияЕНВДОборот) КАК ПФРПоСуммарномуТарифу,
+	СУММА(СтраховыеВзносы.ПФРСтраховаяОборот + СтраховыеВзносы.ПФРСтраховаяЕНВДОборот) КАК ПФРСтраховая,
+	СУММА(СтраховыеВзносы.ПФРНакопительнаяОборот + СтраховыеВзносы.ПФРНакопительнаяЕНВДОборот) КАК ПФРНакопительная,
+	СУММА(СтраховыеВзносы.ФССОборот + СтраховыеВзносы.ФССЕНВДОборот) КАК ФСС,
+	СУММА(СтраховыеВзносы.ФФОМСОборот + СтраховыеВзносы.ФФОМСЕНВДОборот) КАК ФОМС,
+	СУММА(СтраховыеВзносы.ТФОМСОборот + СтраховыеВзносы.ТФОМСЕНВДОборот) КАК ТФОМС,
+	СУММА(СтраховыеВзносы.ФССНесчастныеСлучаиОборот) КАК ФССНесчастныеСлучаи,
+	СУММА(СтраховыеВзносы.ПФРНаДоплатуЛетчикамОборот) КАК ПФРНаДоплатуЛетчикам,
+	СУММА(СтраховыеВзносы.ПФРНаДоплатуШахтерамОборот) КАК ПФРНаДоплатуШахтерам,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот) КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот) КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот) КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот) КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот) КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот) КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот) КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот) КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот) КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот) КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот) КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот,
+	СУММА(СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот) КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот
+ПОМЕСТИТЬ ВТСтраховыеВзносы
+{ВЫБРАТЬ
+	ФизическоеЛицо.*,
+	Организация.*,
+	ПФРПоСуммарномуТарифу,
+	ПФРСтраховая,
+	ПФРНакопительная,
+	ФСС,
+	ФОМС,
+	ТФОМС,
+	ФССНесчастныеСлучаи,
+	ПФРНаДоплатуЛетчикам,
+	ПФРНаДоплатуШахтерам,
+	ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот,
+	ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот}
+ИЗ
+	РегистрНакопления.ИсчисленныеСтраховыеВзносы.Обороты(&amp;НачалоПериода, &amp;КонецПериода, , {(Организация) КАК Организация}) КАК СтраховыеВзносы
+
+СГРУППИРОВАТЬ ПО
+	СтраховыеВзносы.ФизическоеЛицо,
+	СтраховыеВзносы.Организация
+
+ИНДЕКСИРОВАТЬ ПО
+	Организация,
+	ФизическоеЛицо
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ФизическиеЛица.Организация КАК Организация,
+	ФизическиеЛица.ФизическоеЛицо КАК ФизическоеЛицо,
+	Начисления.Сумма КАК Сумма,
+	НДФЛ.Сумма КАК СуммаНДФЛ,
+	СтраховыеВзносы.ПФРПоСуммарномуТарифу КАК ПФРПоСуммарномуТарифу,
+	СтраховыеВзносы.ПФРСтраховая КАК ПФРСтраховая,
+	СтраховыеВзносы.ПФРНакопительная КАК ПФРНакопительная,
+	СтраховыеВзносы.ФСС КАК ФСС,
+	СтраховыеВзносы.ФОМС КАК ФОМС,
+	СтраховыеВзносы.ТФОМС КАК ТФОМС,
+	СтраховыеВзносы.ФССНесчастныеСлучаи КАК ФССНесчастныеСлучаи,
+	СтраховыеВзносы.ПФРНаДоплатуЛетчикам КАК ПФРНаДоплатуЛетчикам,
+	СтраховыеВзносы.ПФРНаДоплатуШахтерам КАК ПФРНаДоплатуШахтерам,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот КАК ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот,
+	СтраховыеВзносы.ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот КАК ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот
+{ВЫБРАТЬ
+	Организация.*,
+	ФизическоеЛицо.*,
+	Сумма,
+	СуммаНДФЛ,
+	ПФРПоСуммарномуТарифу,
+	ПФРСтраховая,
+	ПФРНакопительная,
+	ФСС,
+	ФОМС,
+	ТФОМС,
+	ФССНесчастныеСлучаи,
+	ПФРНаДоплатуЛетчикам,
+	ПФРНаДоплатуШахтерам,
+	ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот,
+	ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот,
+	ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот,
+	ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот,
+	ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот,
+	ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот,
+	ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот,
+	ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот,
+	ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот,
+	ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот,
+	ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот,
+	ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот}
+ИЗ
+	ВТФизическиеЛица КАК ФизическиеЛица
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТНачисления КАК Начисления
+		ПО ФизическиеЛица.ФизическоеЛицо = Начисления.ФизическоеЛицо
+			И ФизическиеЛица.Организация = Начисления.Организация
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТНДФЛ КАК НДФЛ
+		ПО ФизическиеЛица.ФизическоеЛицо = НДФЛ.ФизическоеЛицо
+			И ФизическиеЛица.Организация = НДФЛ.Организация
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТСтраховыеВзносы КАК СтраховыеВзносы
+		ПО ФизическиеЛица.ФизическоеЛицо = СтраховыеВзносы.ФизическоеЛицо
+			И ФизическиеЛица.Организация = СтраховыеВзносы.Организация</query>
+	</dataSet>
+	<calculatedField>
+		<dataPath>ПериодФормированияОтчета</dataPath>
+		<expression>Выбор
+    Когда НачалоПериода(&amp;Период.ДатаНачала, "МЕСЯЦ") = НачалоПериода(&amp;Период.ДатаОкончания, "МЕСЯЦ")
+        Тогда Формат(&amp;Период.ДатаНачала, "ДФ='ММММ гггг'")
+    Иначе Формат(&amp;Период.ДатаНачала, "ДФ='ММММ гггг'") + " - " + Формат(&amp;Период.ДатаОкончания, "ДФ='ММММ гггг'")
+Конец</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период формирования отчета</v8:content>
+			</v8:item>
+		</title>
+	</calculatedField>
+	<totalField>
+		<dataPath>ПФРНаДоплатуЛетчикам</dataPath>
+		<expression>Сумма(ПФРНаДоплатуЛетчикам)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРНаДоплатуШахтерам</dataPath>
+		<expression>Сумма(ПФРНаДоплатуШахтерам)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРНакопительная</dataPath>
+		<expression>Сумма(ПФРНакопительная)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРСтраховая</dataPath>
+		<expression>Сумма(ПФРСтраховая)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Сумма</dataPath>
+		<expression>Сумма(Сумма)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНДФЛ</dataPath>
+		<expression>Сумма(СуммаНДФЛ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ТФОМС</dataPath>
+		<expression>Сумма(ТФОМС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФОМС</dataPath>
+		<expression>Сумма(ФОМС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФСС</dataPath>
+		<expression>Сумма(ФСС)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ФССНесчастныеСлучаи</dataPath>
+		<expression>Сумма(ФССНесчастныеСлучаи)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРПоСуммарномуТарифу</dataPath>
+		<expression>Сумма(ПФРПоСуммарномуТарифу)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот</dataPath>
+		<expression>Сумма(ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаНачала</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<expression>&amp;Период.ДатаОкончания</expression>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>v8:StandardPeriod</v8:Type>
+		</valueType>
+		<value xsi:type="v8:StandardPeriod">
+			<v8:variant xsi:type="v8:StandardPeriodVariant">LastMonth</v8:variant>
+		</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>НалогиИВзносыКратко</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Налоги и взносы (кратко)</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Организация</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФизическоеЛицо</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Сумма</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНДФЛ</dcsset:field>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПФРПоСуммарномуТарифу</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПФР. Обязат. страхование</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПФР. До 2014 г</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРСтраховая</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Страх. часть</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРНакопительная</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Накоп. часть</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПФРНаДоплатуЛетчикам</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПФР. Доплата летчикам</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ПФРНаДоплатуШахтерам</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПФР. Доплата шахтерам</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФСС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФССНесчастныеСлучаи</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ФСС, несч. случаи</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФОМС</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПФР. Подземные и вредные работы</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Без спецоценки</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс В3.1</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс В3.2</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс В3.3</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс В3.4</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс О4</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+					<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>ПФР. Тяжелые работы</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Без спецоценки</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс В3.1</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс В3.2</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс В3.3</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс В3.4</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот</dcsset:field>
+						<dcsset:lwsTitle>
+							<v8:item>
+								<v8:lang>ru</v8:lang>
+								<v8:content>Класс О4</v8:content>
+							</v8:item>
+						</dcsset:lwsTitle>
+						<dcsset:viewMode>Inaccessible</dcsset:viewMode>
+					</dcsset:item>
+					<dcsset:placement>Auto</dcsset:placement>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ТФОМС</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Организация</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.Организации.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>759d666b-82c6-4b92-969f-effb91ce2857</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardPeriod">
+						<v8:variant xsi:type="v8:StandardPeriodVariant">LastMonth</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>4a496267-2495-45f7-906e-4a5b5a6ce52a</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:order>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>Организация.Наименование</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:OrderItemField">
+					<dcsset:field>ФизическоеЛицо.Наименование</dcsset:field>
+					<dcsset:orderType>Asc</dcsset:orderType>
+				</dcsset:item>
+			</dcsset:order>
+			<dcsset:conditionalAppearance>
+				<dcsset:item>
+					<dcsset:selection>
+						<dcsset:item>
+							<dcsset:field>ПФРНаДоплатуШахтерам</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРНаДоплатуЛетчикам</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>Сумма</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>СуммаНДФЛ</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРНакопительная</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРСтраховая</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ТФОМС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ФОМС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ФСС</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ФССНесчастныеСлучаи</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРПоСуммарномуТарифу</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный1Оборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный2Оборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный3Оборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахВредный4Оборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаПодземныхИВредныхРаботахОпасныйОборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный1Оборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный2Оборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный3Оборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахВредный4Оборот</dcsset:field>
+						</dcsset:item>
+						<dcsset:item>
+							<dcsset:field>ПФРЗаЗанятыхНаТяжелыхИПрочихРаботахОпасныйОборот</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:filter/>
+					<dcsset:appearance>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+						</dcscor:item>
+						<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+							<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+							<dcscor:value xsi:type="xs:decimal">15</dcscor:value>
+						</dcscor:item>
+					</dcsset:appearance>
+				</dcsset:item>
+			</dcsset:conditionalAppearance>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МакетОформления</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">Основной</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Заголовок</dcscor:parameter>
+					<dcscor:value xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Налоги и взносы (кратко)</v8:content>
+						</v8:item>
+					</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьПараметрыДанных</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ПериодФормированияОтчета</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ПериодФормированияОтчета</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:conditionalAppearance>
+					<dcsset:item>
+						<dcsset:selection>
+							<dcsset:item>
+								<dcsset:field>ПериодФормированияОтчета</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:filter/>
+						<dcsset:appearance>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>Шрифт</dcscor:parameter>
+								<dcscor:value xsi:type="v8ui:Font" ref="sys:DefaultGUIFont" height="12" bold="true" italic="false" underline="false" strikeout="false" kind="WindowsFont"/>
+							</dcscor:item>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+								<dcscor:value xsi:type="xs:decimal">40</dcscor:value>
+							</dcscor:item>
+						</dcsset:appearance>
+						<dcsset:useInGroup>DontUse</dcsset:useInGroup>
+						<dcsset:useInHierarchicalGroup>DontUse</dcsset:useInHierarchicalGroup>
+						<dcsset:useInOverall>DontUse</dcsset:useInOverall>
+						<dcsset:useInHeader>DontUse</dcsset:useInHeader>
+						<dcsset:useInParameters>DontUse</dcsset:useInParameters>
+						<dcsset:useInFilter>DontUse</dcsset:useInFilter>
+					</dcsset:item>
+				</dcsset:conditionalAppearance>
+				<dcsset:outputParameters>
+					<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+						<dcscor:parameter>МакетОформления</dcscor:parameter>
+						<dcscor:value xsi:type="xs:string">БезОформления</dcscor:value>
+					</dcscor:item>
+				</dcsset:outputParameters>
+			</dcsset:item>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ФизическоеЛицо</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

@@ -1,0 +1,823 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" elementFormQualified="true" attributeFormQualified="false">
+	<property xmlns:d2p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Document" type="d2p1:Document"/>
+	<valueType name="ActiveOrHistoricCurrencyAndAmount_SimpleType" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="18" fractionDigits="5"/>
+	<valueType name="ActiveOrHistoricCurrencyCode" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{3,3}</pattern>
+	</valueType>
+	<valueType name="AddressType2Code" base="xs:string" variety="Atomic">
+		<enumeration>ADDR</enumeration>
+		<enumeration>PBOX</enumeration>
+		<enumeration>HOME</enumeration>
+		<enumeration>BIZZ</enumeration>
+		<enumeration>MLTO</enumeration>
+		<enumeration>DLVY</enumeration>
+	</valueType>
+	<valueType name="AnyBICIdentifier" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}</pattern>
+	</valueType>
+	<valueType name="BICIdentifier" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{6,6}[A-Z2-9][A-NP-Z0-9]([A-Z0-9]{3,3}){0,1}</pattern>
+	</valueType>
+	<valueType name="BalanceType12Code" base="xs:string" variety="Atomic">
+		<enumeration>XPCD</enumeration>
+		<enumeration>OPAV</enumeration>
+		<enumeration>ITAV</enumeration>
+		<enumeration>CLAV</enumeration>
+		<enumeration>FWAV</enumeration>
+		<enumeration>CLBD</enumeration>
+		<enumeration>ITBD</enumeration>
+		<enumeration>OPBD</enumeration>
+		<enumeration>PRCD</enumeration>
+		<enumeration>INFO</enumeration>
+	</valueType>
+	<valueType name="BaseOneRate" base="xs:decimal" variety="Atomic" totalDigits="11" fractionDigits="10"/>
+	<valueType name="CashAccountType4Code" base="xs:string" variety="Atomic">
+		<enumeration>CASH</enumeration>
+		<enumeration>CHAR</enumeration>
+		<enumeration>COMM</enumeration>
+		<enumeration>TAXE</enumeration>
+		<enumeration>CISH</enumeration>
+		<enumeration>TRAS</enumeration>
+		<enumeration>SACC</enumeration>
+		<enumeration>CACC</enumeration>
+		<enumeration>SVGS</enumeration>
+		<enumeration>ONDP</enumeration>
+		<enumeration>MGLD</enumeration>
+		<enumeration>NREX</enumeration>
+		<enumeration>MOMA</enumeration>
+		<enumeration>LOAN</enumeration>
+		<enumeration>SLRY</enumeration>
+		<enumeration>ODFT</enumeration>
+	</valueType>
+	<valueType name="ChargeBearerType1Code" base="xs:string" variety="Atomic">
+		<enumeration>DEBT</enumeration>
+		<enumeration>CRED</enumeration>
+		<enumeration>SHAR</enumeration>
+		<enumeration>SLEV</enumeration>
+	</valueType>
+	<valueType name="ChargeType1Code" base="xs:string" variety="Atomic">
+		<enumeration>BRKF</enumeration>
+		<enumeration>COMM</enumeration>
+	</valueType>
+	<valueType name="CopyDuplicate1Code" base="xs:string" variety="Atomic">
+		<enumeration>CODU</enumeration>
+		<enumeration>COPY</enumeration>
+		<enumeration>DUPL</enumeration>
+	</valueType>
+	<valueType name="CountryCode" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{2,2}</pattern>
+	</valueType>
+	<valueType name="CreditDebitCode" base="xs:string" variety="Atomic">
+		<enumeration>CRDT</enumeration>
+		<enumeration>DBIT</enumeration>
+	</valueType>
+	<valueType name="DecimalNumber" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="17"/>
+	<valueType name="DocumentType3Code" base="xs:string" variety="Atomic">
+		<enumeration>RADM</enumeration>
+		<enumeration>RPIN</enumeration>
+		<enumeration>FXDR</enumeration>
+		<enumeration>DISP</enumeration>
+		<enumeration>PUOR</enumeration>
+		<enumeration>SCOR</enumeration>
+	</valueType>
+	<valueType name="DocumentType5Code" base="xs:string" variety="Atomic">
+		<enumeration>MSIN</enumeration>
+		<enumeration>CNFA</enumeration>
+		<enumeration>DNFA</enumeration>
+		<enumeration>CINV</enumeration>
+		<enumeration>CREN</enumeration>
+		<enumeration>DEBN</enumeration>
+		<enumeration>HIRI</enumeration>
+		<enumeration>SBIN</enumeration>
+		<enumeration>CMCN</enumeration>
+		<enumeration>SOAC</enumeration>
+		<enumeration>DISP</enumeration>
+		<enumeration>BOLD</enumeration>
+		<enumeration>VCHR</enumeration>
+		<enumeration>AROI</enumeration>
+		<enumeration>TSUT</enumeration>
+	</valueType>
+	<valueType name="EntryStatus2Code" base="xs:string" variety="Atomic">
+		<enumeration>BOOK</enumeration>
+		<enumeration>PDNG</enumeration>
+		<enumeration>INFO</enumeration>
+	</valueType>
+	<valueType name="ExternalAccountIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalBalanceSubType1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalBankTransactionDomain1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalBankTransactionFamily1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalBankTransactionSubFamily1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalClearingSystemIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="5"/>
+	<valueType name="ExternalFinancialInstitutionIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalOrganisationIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalPersonIdentification1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalPurpose1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalReportingSource1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalReturnReason1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="ExternalTechnicalInputChannel1Code" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="IBAN2007Identifier" base="xs:string" variety="Atomic">
+		<pattern>[A-Z]{2,2}[0-9]{2,2}[a-zA-Z0-9]{1,30}</pattern>
+	</valueType>
+	<valueType name="ISINIdentifier" base="xs:string" variety="Atomic">
+		<pattern>[A-Z0-9]{12,12}</pattern>
+	</valueType>
+	<valueType name="ISODate" base="xs:date" variety="Atomic"/>
+	<valueType name="ISODateTime" base="xs:dateTime" variety="Atomic"/>
+	<valueType name="ImpliedCurrencyAndAmount" base="xs:decimal" variety="Atomic" minInclusive="0" totalDigits="18" fractionDigits="5"/>
+	<valueType name="InterestType1Code" base="xs:string" variety="Atomic">
+		<enumeration>INDY</enumeration>
+		<enumeration>OVRN</enumeration>
+	</valueType>
+	<valueType name="Max105Text" base="xs:string" variety="Atomic" minLength="1" maxLength="105"/>
+	<valueType name="Max140Text" base="xs:string" variety="Atomic" minLength="1" maxLength="140"/>
+	<valueType name="Max15NumericText" base="xs:string" variety="Atomic">
+		<pattern>[0-9]{1,15}</pattern>
+	</valueType>
+	<valueType name="Max15PlusSignedNumericText" base="xs:string" variety="Atomic">
+		<pattern>[+]{0,1}[0-9]{1,15}</pattern>
+	</valueType>
+	<valueType name="Max16Text" base="xs:string" variety="Atomic" minLength="1" maxLength="16"/>
+	<valueType name="Max2048Text" base="xs:string" variety="Atomic" minLength="1" maxLength="2048"/>
+	<valueType name="Max34Text" base="xs:string" variety="Atomic" minLength="1" maxLength="34"/>
+	<valueType name="Max35Text" base="xs:string" variety="Atomic" minLength="1" maxLength="35"/>
+	<valueType name="Max4Text" base="xs:string" variety="Atomic" minLength="1" maxLength="4"/>
+	<valueType name="Max500Text" base="xs:string" variety="Atomic" minLength="1" maxLength="500"/>
+	<valueType name="Max5NumericText" base="xs:string" variety="Atomic">
+		<pattern>[0-9]{1,5}</pattern>
+	</valueType>
+	<valueType name="Max70Text" base="xs:string" variety="Atomic" minLength="1" maxLength="70"/>
+	<valueType name="NamePrefix1Code" base="xs:string" variety="Atomic">
+		<enumeration>DOCT</enumeration>
+		<enumeration>MIST</enumeration>
+		<enumeration>MISS</enumeration>
+		<enumeration>MADM</enumeration>
+	</valueType>
+	<valueType name="Number" base="xs:decimal" variety="Atomic" totalDigits="18" fractionDigits="0"/>
+	<valueType name="PercentageRate" base="xs:decimal" variety="Atomic" totalDigits="11" fractionDigits="10"/>
+	<valueType name="PhoneNumber" base="xs:string" variety="Atomic">
+		<pattern>\+[0-9]{1,3}-[0-9()+\-]{1,30}</pattern>
+	</valueType>
+	<valueType name="RemittanceLocationMethod2Code" base="xs:string" variety="Atomic">
+		<enumeration>FAXI</enumeration>
+		<enumeration>EDIC</enumeration>
+		<enumeration>URID</enumeration>
+		<enumeration>EMAL</enumeration>
+		<enumeration>POST</enumeration>
+		<enumeration>SMSM</enumeration>
+	</valueType>
+	<valueType name="TaxRecordPeriod1Code" base="xs:string" variety="Atomic">
+		<enumeration>MM01</enumeration>
+		<enumeration>MM02</enumeration>
+		<enumeration>MM03</enumeration>
+		<enumeration>MM04</enumeration>
+		<enumeration>MM05</enumeration>
+		<enumeration>MM06</enumeration>
+		<enumeration>MM07</enumeration>
+		<enumeration>MM08</enumeration>
+		<enumeration>MM09</enumeration>
+		<enumeration>MM10</enumeration>
+		<enumeration>MM11</enumeration>
+		<enumeration>MM12</enumeration>
+		<enumeration>QTR1</enumeration>
+		<enumeration>QTR2</enumeration>
+		<enumeration>QTR3</enumeration>
+		<enumeration>QTR4</enumeration>
+		<enumeration>HLF1</enumeration>
+		<enumeration>HLF2</enumeration>
+	</valueType>
+	<valueType name="TrueFalseIndicator" base="xs:boolean" variety="Atomic"/>
+	<valueType name="YesNoIndicator" base="xs:boolean" variety="Atomic"/>
+	<objectType name="AccountIdentification4Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="IBAN" type="d3p1:IBAN2007Identifier" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Othr" type="d3p1:GenericAccountIdentification1" lowerBound="0"/>
+	</objectType>
+	<objectType name="AccountInterest2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:InterestType1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rate" type="d3p1:Rate3" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrToDt" type="d3p1:DateTimePeriodDetails" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rsn" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="AccountSchemeName1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalAccountIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="AccountStatement2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ElctrncSeqNb" type="d3p1:Number" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="LglSeqNb" type="d3p1:Number" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CreDtTm" type="d3p1:ISODateTime"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrToDt" type="d3p1:DateTimePeriodDetails" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CpyDplctInd" type="d3p1:CopyDuplicate1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RptgSrc" type="d3p1:ReportingSource1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Acct" type="d3p1:CashAccount20"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RltdAcct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Intrst" type="d3p1:AccountInterest2" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Bal" type="d3p1:CashBalance3" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TxsSummry" type="d3p1:TotalTransactions2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ntry" type="d3p1:ReportEntry2" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AddtlStmtInf" type="d3p1:Max500Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ActiveOrHistoricCurrencyAndAmount">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ccy" type="d3p1:ActiveOrHistoricCurrencyCode" lowerBound="1" form="Attribute"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="__content" type="d3p1:ActiveOrHistoricCurrencyAndAmount_SimpleType" form="Text"/>
+	</objectType>
+	<objectType name="AlternateSecurityIdentification2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Max35Text"/>
+	</objectType>
+	<objectType name="AmountAndCurrencyExchange3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="InstdAmt" type="d3p1:AmountAndCurrencyExchangeDetails3" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TxAmt" type="d3p1:AmountAndCurrencyExchangeDetails3" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CntrValAmt" type="d3p1:AmountAndCurrencyExchangeDetails3" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AnncdPstngAmt" type="d3p1:AmountAndCurrencyExchangeDetails3" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PrtryAmt" type="d3p1:AmountAndCurrencyExchangeDetails4" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="AmountAndCurrencyExchangeDetails3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CcyXchg" type="d3p1:CurrencyExchange5" lowerBound="0"/>
+	</objectType>
+	<objectType name="AmountAndCurrencyExchangeDetails4">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CcyXchg" type="d3p1:CurrencyExchange5" lowerBound="0"/>
+	</objectType>
+	<objectType name="AmountRangeBoundary1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BdryAmt" type="d3p1:ImpliedCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Incl" type="d3p1:YesNoIndicator"/>
+	</objectType>
+	<objectType name="BalanceSubType1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalBalanceSubType1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="BalanceType12">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdOrPrtry" type="d3p1:BalanceType5Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SubTp" type="d3p1:BalanceSubType1Choice" lowerBound="0"/>
+	</objectType>
+	<objectType name="BalanceType5Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:BalanceType12Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="BankToCustomerStatementV02">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="GrpHdr" type="d3p1:GroupHeader42"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Stmt" type="d3p1:AccountStatement2" upperBound="-1"/>
+	</objectType>
+	<objectType name="BankTransactionCodeStructure4">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Domn" type="d3p1:BankTransactionCodeStructure5" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:ProprietaryBankTransactionCodeStructure1" lowerBound="0"/>
+	</objectType>
+	<objectType name="BankTransactionCodeStructure5">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalBankTransactionDomain1Code"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Fmly" type="d3p1:BankTransactionCodeStructure6"/>
+	</objectType>
+	<objectType name="BankTransactionCodeStructure6">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalBankTransactionFamily1Code"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SubFmlyCd" type="d3p1:ExternalBankTransactionSubFamily1Code"/>
+	</objectType>
+	<objectType name="BatchInformation2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MsgId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PmtInfId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="NbOfTxs" type="d3p1:Max15NumericText" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode" lowerBound="0"/>
+	</objectType>
+	<objectType name="BranchAndFinancialInstitutionIdentification4">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FinInstnId" type="d3p1:FinancialInstitutionIdentification7"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BrnchId" type="d3p1:BranchData2" lowerBound="0"/>
+	</objectType>
+	<objectType name="BranchData2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PstlAdr" type="d3p1:PostalAddress6" lowerBound="0"/>
+	</objectType>
+	<objectType name="CashAccount16">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:AccountIdentification4Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:CashAccountType2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ccy" type="d3p1:ActiveOrHistoricCurrencyCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nm" type="d3p1:Max70Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CashAccount20">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:AccountIdentification4Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:CashAccountType2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ccy" type="d3p1:ActiveOrHistoricCurrencyCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nm" type="d3p1:Max70Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ownr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Svcr" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+	</objectType>
+	<objectType name="CashAccountType2" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:CashAccountType4Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CashBalance3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:BalanceType12"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtLine" type="d3p1:CreditLine2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Dt" type="d3p1:DateAndDateTimeChoice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Avlbty" type="d3p1:CashBalanceAvailability2" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="CashBalanceAvailability2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Dt" type="d3p1:CashBalanceAvailabilityDate1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode"/>
+	</objectType>
+	<objectType name="CashBalanceAvailabilityDate1" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="NbOfDays" type="d3p1:Max15PlusSignedNumericText" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ActlDt" type="d3p1:ISODate" lowerBound="0"/>
+	</objectType>
+	<objectType name="ChargeType2Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ChargeType1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:GenericIdentification3" lowerBound="0"/>
+	</objectType>
+	<objectType name="ChargesInformation6">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlChrgsAndTaxAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:ChargeType2Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rate" type="d3p1:PercentageRate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Br" type="d3p1:ChargeBearerType1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Pty" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tax" type="d3p1:TaxCharges2" lowerBound="0"/>
+	</objectType>
+	<objectType name="ClearingSystemIdentification2Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalClearingSystemIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ClearingSystemMemberIdentification2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ClrSysId" type="d3p1:ClearingSystemIdentification2Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MmbId" type="d3p1:Max35Text"/>
+	</objectType>
+	<objectType name="ContactDetails2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="NmPrfx" type="d3p1:NamePrefix1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PhneNb" type="d3p1:PhoneNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MobNb" type="d3p1:PhoneNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FaxNb" type="d3p1:PhoneNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="EmailAdr" type="d3p1:Max2048Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Othr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CorporateAction1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nb" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreditLine2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Incl" type="d3p1:TrueFalseIndicator"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreditorReferenceInformation2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:CreditorReferenceType2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ref" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreditorReferenceType1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:DocumentType3Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CreditorReferenceType2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdOrPrtry" type="d3p1:CreditorReferenceType1Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="CurrencyAndAmountRange2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ImpliedCurrencyAmountRangeChoice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ccy" type="d3p1:ActiveOrHistoricCurrencyCode"/>
+	</objectType>
+	<objectType name="CurrencyExchange5">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SrcCcy" type="d3p1:ActiveOrHistoricCurrencyCode"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TrgtCcy" type="d3p1:ActiveOrHistoricCurrencyCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="UnitCcy" type="d3p1:ActiveOrHistoricCurrencyCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="XchgRate" type="d3p1:BaseOneRate"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CtrctId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="QtnDt" type="d3p1:ISODateTime" lowerBound="0"/>
+	</objectType>
+	<objectType name="DateAndDateTimeChoice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Dt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="DtTm" type="d3p1:ISODateTime" lowerBound="0"/>
+	</objectType>
+	<objectType name="DateAndPlaceOfBirth">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BirthDt" type="d3p1:ISODate"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PrvcOfBirth" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CityOfBirth" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CtryOfBirth" type="d3p1:CountryCode"/>
+	</objectType>
+	<objectType name="DatePeriodDetails">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrDt" type="d3p1:ISODate"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ToDt" type="d3p1:ISODate"/>
+	</objectType>
+	<objectType name="DateTimePeriodDetails">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrDtTm" type="d3p1:ISODateTime"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ToDtTm" type="d3p1:ISODateTime"/>
+	</objectType>
+	<objectType name="Document">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BkToCstmrStmt" type="d3p1:BankToCustomerStatementV02"/>
+	</objectType>
+	<objectType name="DocumentAdjustment1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rsn" type="d3p1:Max4Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AddtlInf" type="d3p1:Max140Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="EntryDetails1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Btch" type="d3p1:BatchInformation2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TxDtls" type="d3p1:EntryTransaction2" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="EntryTransaction2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Refs" type="d3p1:TransactionReferences2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AmtDtls" type="d3p1:AmountAndCurrencyExchange3" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Avlbty" type="d3p1:CashBalanceAvailability2" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BkTxCd" type="d3p1:BankTransactionCodeStructure4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Chrgs" type="d3p1:ChargesInformation6" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Intrst" type="d3p1:TransactionInterest2" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RltdPties" type="d3p1:TransactionParty2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RltdAgts" type="d3p1:TransactionAgents2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Purp" type="d3p1:Purpose2Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RltdRmtInf" type="d3p1:RemittanceLocation2" lowerBound="0" upperBound="10"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RmtInf" type="d3p1:RemittanceInformation5" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RltdDts" type="d3p1:TransactionDates2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RltdPric" type="d3p1:TransactionPrice2Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RltdQties" type="d3p1:TransactionQuantities1Choice" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FinInstrmId" type="d3p1:SecurityIdentification4Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tax" type="d3p1:TaxInformation3" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RtrInf" type="d3p1:ReturnReasonInformation10" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CorpActn" type="d3p1:CorporateAction1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SfkpgAcct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AddtlTxInf" type="d3p1:Max500Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="FinancialIdentificationSchemeName1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalFinancialInstitutionIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="FinancialInstitutionIdentification7">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BIC" type="d3p1:BICIdentifier" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ClrSysMmbId" type="d3p1:ClearingSystemMemberIdentification2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PstlAdr" type="d3p1:PostalAddress6" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Othr" type="d3p1:GenericFinancialIdentification1" lowerBound="0"/>
+	</objectType>
+	<objectType name="FinancialInstrumentQuantityChoice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Unit" type="d3p1:DecimalNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FaceAmt" type="d3p1:ImpliedCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AmtsdVal" type="d3p1:ImpliedCurrencyAndAmount" lowerBound="0"/>
+	</objectType>
+	<objectType name="FromToAmountRange">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrAmt" type="d3p1:AmountRangeBoundary1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ToAmt" type="d3p1:AmountRangeBoundary1"/>
+	</objectType>
+	<objectType name="GenericAccountIdentification1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Max34Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SchmeNm" type="d3p1:AccountSchemeName1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="GenericFinancialIdentification1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SchmeNm" type="d3p1:FinancialIdentificationSchemeName1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="GenericIdentification3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="GenericOrganisationIdentification1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SchmeNm" type="d3p1:OrganisationIdentificationSchemeName1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="GenericPersonIdentification1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SchmeNm" type="d3p1:PersonIdentificationSchemeName1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="GroupHeader42">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MsgId" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CreDtTm" type="d3p1:ISODateTime"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MsgRcpt" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MsgPgntn" type="d3p1:Pagination" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AddtlInf" type="d3p1:Max500Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ImpliedCurrencyAmountRangeChoice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrAmt" type="d3p1:AmountRangeBoundary1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ToAmt" type="d3p1:AmountRangeBoundary1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrToAmt" type="d3p1:FromToAmountRange" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="EQAmt" type="d3p1:ImpliedCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="NEQAmt" type="d3p1:ImpliedCurrencyAndAmount" lowerBound="0"/>
+	</objectType>
+	<objectType name="InterestType1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:InterestType1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="MessageIdentification2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MsgNmId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MsgId" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="NameAndAddress10">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nm" type="d3p1:Max140Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Adr" type="d3p1:PostalAddress6"/>
+	</objectType>
+	<objectType name="NumberAndSumOfTransactions1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="NbOfNtries" type="d3p1:Max15NumericText" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Sum" type="d3p1:DecimalNumber" lowerBound="0"/>
+	</objectType>
+	<objectType name="NumberAndSumOfTransactions2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="NbOfNtries" type="d3p1:Max15NumericText" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Sum" type="d3p1:DecimalNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlNetNtryAmt" type="d3p1:DecimalNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode" lowerBound="0"/>
+	</objectType>
+	<objectType name="OrganisationIdentification4">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BICOrBEI" type="d3p1:AnyBICIdentifier" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Othr" type="d3p1:GenericOrganisationIdentification1" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="OrganisationIdentificationSchemeName1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalOrganisationIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="Pagination">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PgNb" type="d3p1:Max5NumericText"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="LastPgInd" type="d3p1:YesNoIndicator"/>
+	</objectType>
+	<objectType name="Party6Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="OrgId" type="d3p1:OrganisationIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PrvtId" type="d3p1:PersonIdentification5" lowerBound="0"/>
+	</objectType>
+	<objectType name="PartyIdentification32">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PstlAdr" type="d3p1:PostalAddress6" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Party6Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CtryOfRes" type="d3p1:CountryCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CtctDtls" type="d3p1:ContactDetails2" lowerBound="0"/>
+	</objectType>
+	<objectType name="PersonIdentification5">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="DtAndPlcOfBirth" type="d3p1:DateAndPlaceOfBirth" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Othr" type="d3p1:GenericPersonIdentification1" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="PersonIdentificationSchemeName1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalPersonIdentification1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="PostalAddress6">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AdrTp" type="d3p1:AddressType2Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Dept" type="d3p1:Max70Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SubDept" type="d3p1:Max70Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="StrtNm" type="d3p1:Max70Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BldgNb" type="d3p1:Max16Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PstCd" type="d3p1:Max16Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TwnNm" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CtrySubDvsn" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ctry" type="d3p1:CountryCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AdrLine" type="d3p1:Max70Text" lowerBound="0" upperBound="7"/>
+	</objectType>
+	<objectType name="ProprietaryAgent2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Agt" type="d3p1:BranchAndFinancialInstitutionIdentification4"/>
+	</objectType>
+	<objectType name="ProprietaryBankTransactionCodeStructure1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ProprietaryDate2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Dt" type="d3p1:DateAndDateTimeChoice"/>
+	</objectType>
+	<objectType name="ProprietaryParty2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Pty" type="d3p1:PartyIdentification32"/>
+	</objectType>
+	<objectType name="ProprietaryPrice2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Pric" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+	</objectType>
+	<objectType name="ProprietaryQuantity1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Qty" type="d3p1:Max35Text"/>
+	</objectType>
+	<objectType name="ProprietaryReference1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:Max35Text"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ref" type="d3p1:Max35Text"/>
+	</objectType>
+	<objectType name="Purpose2Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalPurpose1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="Rate3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:RateType4Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="VldtyRg" type="d3p1:CurrencyAndAmountRange2" lowerBound="0"/>
+	</objectType>
+	<objectType name="RateType4Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Pctg" type="d3p1:PercentageRate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Othr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReferredDocumentInformation3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:ReferredDocumentType2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nb" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RltdDt" type="d3p1:ISODate" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReferredDocumentType1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:DocumentType5Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReferredDocumentType2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdOrPrtry" type="d3p1:ReferredDocumentType1Choice"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Issr" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="RemittanceAmount1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="DuePyblAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="DscntApldAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtNoteAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TaxAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AdjstmntAmtAndRsn" type="d3p1:DocumentAdjustment1" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RmtdAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+	</objectType>
+	<objectType name="RemittanceInformation5">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ustrd" type="d3p1:Max140Text" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Strd" type="d3p1:StructuredRemittanceInformation7" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="RemittanceLocation2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RmtId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RmtLctnMtd" type="d3p1:RemittanceLocationMethod2Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RmtLctnElctrncAdr" type="d3p1:Max2048Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RmtLctnPstlAdr" type="d3p1:NameAndAddress10" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReportEntry2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="NtryRef" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RvslInd" type="d3p1:TrueFalseIndicator" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Sts" type="d3p1:EntryStatus2Code"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BookgDt" type="d3p1:DateAndDateTimeChoice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ValDt" type="d3p1:DateAndDateTimeChoice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AcctSvcrRef" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Avlbty" type="d3p1:CashBalanceAvailability2" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BkTxCd" type="d3p1:BankTransactionCodeStructure4"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ComssnWvrInd" type="d3p1:YesNoIndicator" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AddtlInfInd" type="d3p1:MessageIdentification2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AmtDtls" type="d3p1:AmountAndCurrencyExchange3" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Chrgs" type="d3p1:ChargesInformation6" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TechInptChanl" type="d3p1:TechnicalInputChannel1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Intrst" type="d3p1:TransactionInterest2" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="NtryDtls" type="d3p1:EntryDetails1" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AddtlNtryInf" type="d3p1:Max500Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReportingSource1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalReportingSource1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReturnReason5Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalReturnReason1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="ReturnReasonInformation10">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="OrgnlBkTxCd" type="d3p1:BankTransactionCodeStructure4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Orgtr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rsn" type="d3p1:ReturnReason5Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AddtlInf" type="d3p1:Max105Text" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="SecurityIdentification4Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ISIN" type="d3p1:ISINIdentifier" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:AlternateSecurityIdentification2" lowerBound="0"/>
+	</objectType>
+	<objectType name="StructuredRemittanceInformation7">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RfrdDocInf" type="d3p1:ReferredDocumentInformation3" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RfrdDocAmt" type="d3p1:RemittanceAmount1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtrRefInf" type="d3p1:CreditorReferenceInformation2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Invcr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Invcee" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AddtlRmtInf" type="d3p1:Max140Text" lowerBound="0" upperBound="3"/>
+	</objectType>
+	<objectType name="TaxAmount1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rate" type="d3p1:PercentageRate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TaxblBaseAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Dtls" type="d3p1:TaxRecordDetails1" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TaxAuthorisation1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Titl" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Nm" type="d3p1:Max140Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxCharges2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Id" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rate" type="d3p1:PercentageRate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxInformation3">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cdtr" type="d3p1:TaxParty1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Dbtr" type="d3p1:TaxParty2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AdmstnZn" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RefNb" type="d3p1:Max140Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Mtd" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlTaxblBaseAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlTaxAmt" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Dt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SeqNb" type="d3p1:Number" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rcrd" type="d3p1:TaxRecord1" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TaxParty1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TaxId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RegnId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TaxTp" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxParty2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TaxId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RegnId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TaxTp" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Authstn" type="d3p1:TaxAuthorisation1" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxPeriod1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Yr" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:TaxRecordPeriod1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrToDt" type="d3p1:DatePeriodDetails" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxRecord1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Ctgy" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CtgyDtls" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="DbtrSts" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CertId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrmsCd" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prd" type="d3p1:TaxPeriod1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TaxAmt" type="d3p1:TaxAmount1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AddtlInf" type="d3p1:Max140Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="TaxRecordDetails1">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prd" type="d3p1:TaxPeriod1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+	</objectType>
+	<objectType name="TechnicalInputChannel1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cd" type="d3p1:ExternalTechnicalInputChannel1Code" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="TotalTransactions2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlNtries" type="d3p1:NumberAndSumOfTransactions2" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlCdtNtries" type="d3p1:NumberAndSumOfTransactions1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlDbtNtries" type="d3p1:NumberAndSumOfTransactions1" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlNtriesPerBkTxCd" type="d3p1:TotalsPerBankTransactionCode2" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TotalsPerBankTransactionCode2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="NbOfNtries" type="d3p1:Max15NumericText" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Sum" type="d3p1:DecimalNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TtlNetNtryAmt" type="d3p1:DecimalNumber" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FcstInd" type="d3p1:TrueFalseIndicator" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="BkTxCd" type="d3p1:BankTransactionCodeStructure4"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Avlbty" type="d3p1:CashBalanceAvailability2" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TransactionAgents2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="DbtrAgt" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtrAgt" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="IntrmyAgt1" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="IntrmyAgt2" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="IntrmyAgt3" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="RcvgAgt" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="DlvrgAgt" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="IssgAgt" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="SttlmPlc" type="d3p1:BranchAndFinancialInstitutionIdentification4" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:ProprietaryAgent2" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TransactionDates2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AccptncDtTm" type="d3p1:ISODateTime" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TradActvtyCtrctlSttlmDt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TradDt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="IntrBkSttlmDt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="StartDt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="EndDt" type="d3p1:ISODate" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TxDtTm" type="d3p1:ISODateTime" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:ProprietaryDate2" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TransactionInterest2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Amt" type="d3p1:ActiveOrHistoricCurrencyAndAmount"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtDbtInd" type="d3p1:CreditDebitCode"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Tp" type="d3p1:InterestType1Choice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rate" type="d3p1:Rate3" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="FrToDt" type="d3p1:DateTimePeriodDetails" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Rsn" type="d3p1:Max35Text" lowerBound="0"/>
+	</objectType>
+	<objectType name="TransactionParty2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="InitgPty" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Dbtr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="DbtrAcct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="UltmtDbtr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Cdtr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="CdtrAcct" type="d3p1:CashAccount16" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="UltmtCdtr" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TradgPty" type="d3p1:PartyIdentification32" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:ProprietaryParty2" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TransactionPrice2Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="DealPric" type="d3p1:ActiveOrHistoricCurrencyAndAmount" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:ProprietaryPrice2" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="TransactionQuantities1Choice" ordered="false" sequenced="true">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Qty" type="d3p1:FinancialInstrumentQuantityChoice" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:ProprietaryQuantity1" lowerBound="0"/>
+	</objectType>
+	<objectType name="TransactionReferences2">
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MsgId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="AcctSvcrRef" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="PmtInfId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="InstrId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="EndToEndId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="TxId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="MndtId" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ChqNb" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="ClrSysRef" type="d3p1:Max35Text" lowerBound="0"/>
+		<property xmlns:d3p1="urn:iso:std:iso:20022:tech:xsd:camt.053.001.02" name="Prtry" type="d3p1:ProprietaryReference1" lowerBound="0"/>
+	</objectType>
+</package>

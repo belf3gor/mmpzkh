@@ -1,0 +1,1114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="3bf61938-63b1-43ab-b546-f6e379de5263">
+  <producedTypes>
+    <objectType typeId="7f7feefa-de41-46b9-a20a-aebf81faf542" valueTypeId="9b046190-be0b-4a7c-a5d2-5f6b8020f20b"/>
+    <managerType typeId="f38ee27b-8c3e-4461-b4c3-f599145bf33c" valueTypeId="8f42dfba-b700-4e7a-a993-7c62f7c74115"/>
+  </producedTypes>
+  <name>УПЖКХ_ОбменДаннымиСГИСЖКХ</name>
+  <synonym>
+    <key>ru</key>
+    <value>Обмен данными с ГИС ЖКХ</value>
+  </synonym>
+  <comment>Обмен с ГИС ЖКХ сведениями посредством промежуточных файлов</comment>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.УПЖКХ_ОбменДаннымиСГИСЖКХ.Form.Форма</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="adb6341a-0881-4d8f-85a5-90567a56f204">
+    <name>ПериодВыгрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период выгрузки</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <format>
+      <key>ru</key>
+      <value>ДФ=dd.MM.yyyy</value>
+    </format>
+    <editFormat>
+      <key>ru</key>
+      <value>ДФ=dd.MM.yyyy</value>
+    </editFormat>
+    <toolTip>
+      <key>ru</key>
+      <value>Период выгрузки данных</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="4f651c71-4ef2-4edd-adb6-4c873d08f7bb">
+    <name>ПериодВыгрузкиОкончание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период выгрузки окончание</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <format>
+      <key>ru</key>
+      <value>ДФ=dd.MM.yyyy</value>
+    </format>
+    <editFormat>
+      <key>ru</key>
+      <value>ДФ=dd.MM.yyyy</value>
+    </editFormat>
+    <toolTip>
+      <key>ru</key>
+      <value>Окончание периода выгрузки данных</value>
+    </toolTip>
+    <minValue xsi:type="core:StringValue">
+      <value>1</value>
+    </minValue>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="756afd0e-2591-40a4-94bc-bb1828f743bd">
+    <name>КаталогВыгрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Каталог выгрузки</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Каталог сохранения выгруженных файлов</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="56b64952-9530-4358-9ba1-dad0c3242e40">
+    <name>ВидВыгрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид выгрузки</value>
+    </synonym>
+    <type>
+      <types>EnumRef.УПЖКХ_ВидыВыгрузкиВГИСЖКХ</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Вид операции выгрузки</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="920cf21e-097e-4bd7-a87d-d39630def6f7">
+    <name>КаталогЗагрузкиПД</name>
+    <synonym>
+      <key>ru</key>
+      <value>Каталог загрузки идентификаторов платежных документов</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Каталог, в котором выполняется поиск ПД с присвоенными идентификаторами</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="ab978adf-48bb-4e29-9b1b-5f26284f59b1">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация, по которой выгружаются сведения</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="53e79526-665d-4edc-8d9f-1a4889b46307">
+    <name>ПутьКФайлуШаблонаПД</name>
+    <synonym>
+      <key>ru</key>
+      <value>Путь к файлу шаблона ПД</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Путь к шаблону для выгрузки сведений о платежных документах</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="e1185f5e-8b24-4a94-84e4-20a304ea2020">
+    <name>ВидОбменаПУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид обмена ПУ</value>
+    </synonym>
+    <type>
+      <types>EnumRef.УПЖКХ_ВидыОбменаПриборамиУчетаСГИСЖКХ</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Вид обмена данными о приборах учета</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="172751f1-0fa7-4771-839c-0bb16b01289f">
+    <name>КаталогЗагрузкиIDПомещенийЗданий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Каталог загрузки идентификаторов помещений и зданий</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Каталог, в котором находятся сведения об идентификаторах</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="263f67ea-51b1-43f2-8d8e-5016a3ded8bb">
+    <name>КаталогЗагрузкиIDЛС</name>
+    <synonym>
+      <key>ru</key>
+      <value>Каталог загрузки идентификаторов лицевых счетов</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Каталог, в котором находятся сведения об идентификаторах</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="aa36e017-8517-42b6-829b-d23eb70d3c43">
+    <name>КаталогЗагрузкиНомеровПУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Каталог загрузки номеров ПУ</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Каталог, в котором находятся сведения о номерах приборов учета</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="7e3d3b7c-3c75-43e5-9f83-883590ad1315">
+    <name>ПутьКФайлуШаблонаВыгрузкиРаботИУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Путь к файлу шаблона выгрузки работ и услуг</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Путь к файлу шаблона выгрузки сведений о работах и услугах организации</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="64d9dfc1-9069-4e8c-8d50-bf2d9b740c44">
+    <name>ПереченьРаботИУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Перечень работ и услуг</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.УПЖКХ_ПеречниРаботИУслуг</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Перечень работ и услуг организации, который необходимо выгрузить</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="da686fc8-ade5-4680-8a49-0c1d476f0c7f">
+    <name>ВидОбменаРаботамиИУслугами</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид обмена работами и услугами</value>
+    </synonym>
+    <type>
+      <types>EnumRef.УПЖКХ_ВидыОбменаРаботамиИУслугамиСГИСЖКХ</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="bb5945f8-e936-48f3-a3ec-c85706155f05">
+    <name>МесяцВыгрузкиФактовРаботИУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Месяц выгрузки фактов работ и услуг</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Месяц, за который выгружаем факты работ и услуг</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="14d5f403-8bbe-464b-a1b8-f55e8984f44d">
+    <name>НастройкаСбораДанныхДляПД</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка сбора данных для ПД</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.УПЖКХ_НастройкиСбораДанныхДляКвитанцийИОбменов</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка сбора данных, в соответствии с которой выполняется формирование платежных документов</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="f9100cc3-882a-4b40-8eb1-447d4172bf84">
+    <name>ВыгружатьЛицевыеСчетаКР</name>
+    <synonym>
+      <key>ru</key>
+      <value>Лицевые счета КР</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="83121adc-0eb7-41f8-987e-610197ff9eb4">
+    <name>ВидОбменаТСЖ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид обмена ТСЖ</value>
+    </synonym>
+    <type>
+      <types>EnumRef.УПЖКХ_ВидыОбменаСведениямиОТСЖСГИСЖКХ</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Вид обмена сведениями о ТСЖ</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="a4af6411-d406-4fe6-b2b2-10c2b16440a0">
+    <name>ОтображатьВсеДоступныеВидыОбмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отображать все доступные виды обмена</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Отвечает за виды обмена, которые будут доступны для текущей организации.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="dde2ee28-e4fb-4dc2-8c33-a4e7dedab303">
+    <name>НачалоПроизвольногоПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начало произвольного периода</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Начальная дата выбранного периода</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="72cc9d29-af48-412f-9f9a-2d765eeaaeb0">
+    <name>КонецПроизвольногоПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Конец произвольного периода</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Конечная дата выбранного периода</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="19360685-4357-48b6-a063-3bcc8b570ce5">
+    <name>ВидПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вид периода</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ДоступныеПериодыОтчета</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Вид периода выгрузки</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="21db9df7-7954-4c74-9e13-3663ba7a2965">
+    <name>НеВыгружатьСведенияОКомнатахДляЖилыхДомов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Не выгружать сведения о комнатах для жилых домов</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Определяет: надо ли выгружать сведения о комнатах для жилых домов</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="4d9e0357-0c35-40cb-be8c-81148fdd3f37">
+    <producedTypes>
+      <objectType typeId="683c3fa8-c9ca-4c6d-90a7-657eba20c290" valueTypeId="2ad52d49-8a01-4185-a9b9-84def0f43f72"/>
+      <rowType typeId="e36d1482-e553-45b3-9623-7dcec795a5d0" valueTypeId="c32c66f0-1b64-4728-bc1c-8f7532b1cf29"/>
+    </producedTypes>
+    <name>Здания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Здания</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Здания для выгрузки</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="1eebf212-f6eb-4125-821d-942c888f9762">
+      <name>Здание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Здание</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Здания</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Здание, по которому выгружаются данные</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <choiceFoldersAndItems>FoldersAndItems</choiceFoldersAndItems>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="343faff0-b4a7-4b15-b089-b31a916baaba">
+    <producedTypes>
+      <objectType typeId="34876839-3280-44e9-b73a-fddfd2bd35c8" valueTypeId="4ef4d901-45f2-49e4-a4c0-2eac0a7469f8"/>
+      <rowType typeId="84993192-f70b-4895-960f-619b67768805" valueTypeId="5f6e0c50-716b-4eac-a9e4-38ee0e5fbd7c"/>
+    </producedTypes>
+    <name>ЛицевыеСчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Лицевые счета</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Лицевые счета для выгрузки</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="41670098-690f-4356-839c-fdc2b8f0eb6e">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет для выгрузки</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="4f9d261a-61c4-405e-901e-c57bb296265d">
+    <producedTypes>
+      <objectType typeId="550e05f3-258c-4600-b83f-94fc8b71c7e2" valueTypeId="e5e149ae-27fc-42e6-9b05-e55c3af43c36"/>
+      <rowType typeId="4cdd04f4-1f2b-4ceb-ba71-050920a81052" valueTypeId="65d1c34d-42f5-4647-9cb1-98b09f01f398"/>
+    </producedTypes>
+    <name>ЛицевыеСчетаПлатежныхДокументов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Лицевые счета платежных документов</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Лицевые счета для выгрузки</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="358b9e68-c092-4ae8-b91f-c7a3e7459a32">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет для выгрузки</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="8479b8b7-6376-43a2-b961-830cbacfa5d5">
+    <producedTypes>
+      <objectType typeId="fc3351c7-f69e-4eb8-b7ae-f97620203c05" valueTypeId="5b362e2e-8669-459e-a2b3-25f15cddce15"/>
+      <rowType typeId="31874b34-f27f-4ccb-8e8a-f5461758fe6a" valueTypeId="4c1b6063-757c-4ba7-9966-dae575ebcfa7"/>
+    </producedTypes>
+    <name>ПриборыУчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Приборы учета</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Приборы учета для выгрузки</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="fcaa9f13-1160-42ec-b25d-18810256257c">
+      <name>Счетчик</name>
+      <synonym>
+        <key>ru</key>
+        <value>Счетчик</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Счетчики</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Счетчик, по которому вводятся показания</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="a738f6a3-8150-47e1-a3f2-72ef65324e58">
+      <name>Услуга</name>
+      <synonym>
+        <key>ru</key>
+        <value>Услуга</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Услуги</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Услуга, по которой вводятся показания счетчика</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="94464075-8a1a-4495-abf3-923ab3763e29">
+      <name>Объект</name>
+      <synonym>
+        <key>ru</key>
+        <value>Объект</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Подъезды</types>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+        <types>CatalogRef.КВП_Здания</types>
+        <types>CatalogRef.УПЖКХ_Помещения</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Объект ввода показаний счетчика</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="bcc9cded-d518-4dcd-87a8-312944a69538">
+      <name>Здание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Здание</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Здания</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Здание, к которому относится объект установки счетчика.
+Если счетчик установлен на здание, данная колонка не заполняется</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2cfb546b-6e24-430f-b1f8-d82a36f7c473">
+      <name>ДатаПоказания</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата показания</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Дата показания счетчика</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="0b290ec2-901a-405e-a612-b14e7481aa04">
+      <name>ДневноеПоказание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дневное показание</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>18</precision>
+          <scale>6</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Дневное показание счетчика</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="b7e6651c-8dbb-488b-9059-fb2136dcf849">
+      <name>НочноеПоказание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Ночное показание</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>18</precision>
+          <scale>6</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Ночное показание счетчика</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="9715d2e6-a6bf-4e76-9907-d4a7b73deb4d">
+      <name>ПиковоеПоказание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Пиковое показание</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>18</precision>
+          <scale>6</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Пиковое показание счетчика</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="df1c201e-74b0-4516-9876-3d190b516518">
+      <name>НомерВГИСЖКХ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер ВГИСЖКХ</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>30</length>
+        </stringQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="4a777410-c8ed-400b-a1c0-acb2360dbc1c">
+      <name>ЗданиеДляСбораДанных</name>
+      <synonym>
+        <key>ru</key>
+        <value>Здание для сбора данных (невидимая для пользователей колонка)</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Здания</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Здание, к которому относится объект установки счетчика.
+Колонка должна быть всегда заполнена</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="d1f594e1-4155-4a9c-a978-37c891485adb">
+    <producedTypes>
+      <objectType typeId="3664dc1b-b81b-4a88-8e4d-7b2c62963ab5" valueTypeId="f82363c6-3def-44d4-be4c-aa63666ec12d"/>
+      <rowType typeId="6ff48141-a530-4a1a-a547-e73d4b38dd51" valueTypeId="5ed0e720-09b4-47a2-a732-004399d1aadb"/>
+    </producedTypes>
+    <name>РасчетыРСО</name>
+    <synonym>
+      <key>ru</key>
+      <value>Расчеты с РСО</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Таблица договоров РСО для выгрузки сведений о расчетах УО-РСО</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="41b73240-23dc-4a07-8278-2db2f35410f4">
+      <name>ДоговорСРСО</name>
+      <synonym>
+        <key>ru</key>
+        <value>Договор с РСО</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.УПЖКХ_УправлениеДоговорамиСПоставщикамиУслуг</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="cfe0f875-5d00-450a-b2c2-3de47dd42e58">
+    <producedTypes>
+      <objectType typeId="52c07439-d407-42b5-9a47-504675007395" valueTypeId="fb3e9c8a-33a8-48ab-b152-d14684dee4f3"/>
+      <rowType typeId="40447efe-1298-4724-854a-49f28f723c83" valueTypeId="2c83cc9d-f1ac-4be8-a79d-6527d2219de9"/>
+    </producedTypes>
+    <name>ДоговорыДПОИ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Договоры ДПОИ</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Договоры аренды общего имущества</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="c47c53c2-26e1-4625-863f-fca574f5a0de">
+      <name>ДоговорДПОИ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Договор ДПОИ</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.УПЖКХ_ДоговорыДПОИ</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Договор аренды, который необходимо выгрузить</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="11077190-fdfd-4260-b84a-30bc2dcfd55b">
+    <producedTypes>
+      <objectType typeId="597ad2d7-d44a-4b88-b7f6-b74a3d6d7adc" valueTypeId="a58801bb-6edc-444a-82fe-ea942926418d"/>
+      <rowType typeId="47f62289-115f-4992-8faf-9ce8b63c6bb1" valueTypeId="7517ee85-a094-48ea-93cc-31ffc8785cf4"/>
+    </producedTypes>
+    <name>ОтчетыТСЖ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отчеты ТСЖ</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Отчеты ТСЖ, кооператива для выгрузки</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="2f9913d1-a21d-4542-9fda-a47a76aad54b">
+      <name>ОтчетТСЖ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Отчет ТСЖ</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.КВП_СметаТСЖ</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="7502f39d-c38e-42ff-bb12-4c91c242a549">
+    <producedTypes>
+      <objectType typeId="7dc60faa-5a1d-4579-83b8-891d9d3bb713" valueTypeId="c67015bd-4d52-4028-ba29-6075321f2f73"/>
+      <rowType typeId="74c049e8-947b-4349-82fc-3cf649a823d2" valueTypeId="7acf0337-de2b-43e8-b6ca-70ad264db98c"/>
+    </producedTypes>
+    <name>ЛицевыеСчетаДляОтборов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Лицевые счета для отборов</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="3ea9b336-ce84-4f39-87e5-9eeae3e5e33d">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="aa56d023-9788-41b6-8d61-4e8d352444e9">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="9399af0d-414e-4cd3-83d9-a3559aedd554">
+    <name>ФормаНастройки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма настройки</value>
+    </synonym>
+    <includeHelpInContents>true</includeHelpInContents>
+    <help>
+      <pages>
+        <lang>ru</lang>
+      </pages>
+    </help>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="f8b809df-e97a-4e58-9d6c-7e6e802aafb0">
+    <name>ФормаОтчетаОНезаполненныхДанных</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма отчета о незаполненных данных</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="396df2cf-aa29-4016-9ae3-06828bd90687">
+    <name>ШаблонФайлаВыгрузкиСведенийОЖД</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки сведений о ЖД</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="9f42f69f-dd3c-4f84-9ac2-c6c278b2c175">
+    <name>ШаблонФайлаВыгрузкиСведенийОМКД</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки сведений ОМКД</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="487257ad-8881-43e9-b044-bac7255ac4e1">
+    <name>ШаблонФайлаВыгрузкиДоговоровУправления</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки договоров управления</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="1dec32c1-269b-4e95-9106-a871afc251eb">
+    <name>ШаблонФайлаВыгрузкиЛицевыхСчетов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки лицевых счетов</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="f7cb4bbb-d0fd-4406-aaa8-8abe6550dd3e">
+    <name>ШаблонФайлаОтзываПлатежныхДокументов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла отзыва платежных документов</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="6b98f016-0c99-4096-b027-52cf2525d2bb">
+    <name>ШаблонФайлаСпособФормированияФондаКР</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла способ формирования фонда КР</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="d376ad8f-bf6b-40bf-8fab-37a364e1741e">
+    <name>ШаблонФайлаИмпортаЗаявокНаДобавлениеВременныхАдресов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла импорта заявок на добавление временных адресов-10.0.0.3</value>
+    </synonym>
+    <comment>11.1.0.3</comment>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="aeafb9c3-e0d4-410f-a4e3-0dd48dd4b2d4">
+    <name>ШаблонФайлаВыгрузкиПоказанийИПУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки показаний ИПУ</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="e8d95025-ad7f-4447-8ad9-fdb9a49670d0">
+    <name>ШаблонФайлаВыгрузкиПоказанийОДПУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки показаний ОДПУ</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="693ed7c2-0fd6-4427-9edb-bf0cf9096f71">
+    <name>ШаблонФайлаВыгрузкиСведенийОПУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки сведений о ПУ</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="1a55873d-6a67-40c9-897e-dcb58f3563eb">
+    <name>ШаблонФайлаВыгрузкиСостоянияРасчетовРСО</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки состояния расчетов с РСО</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="7afa1eb6-133a-423f-92d9-cc5592f1ffd3">
+    <name>ШаблонФайлаВыгрузкиДоговоровДПОИ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки договоров ДПОИ</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="7fbd9818-622c-46d1-8dc6-a5e8d08a66a9">
+    <name>ШаблонФайлаВыгрузкиОтчетовТСЖ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки отчетов ТСЖ</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="75deb53e-5d4b-4167-b96b-3255c6adbbd5">
+    <name>ШаблонФайлаВыгрузкиЧленовТСЖ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки членов ТСЖ</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="748a50f9-ce14-4124-a715-eac08e713a84">
+    <name>ШаблонФайлаВыгрузкиОплат</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки оплат</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="c1d112c5-a487-4037-aaa8-f0f50514d37f">
+    <name>РСО_ШаблонФайлаВыгрузкиСведенийОМКД</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки сведений о МКД для РСО</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="4ccd55a2-6fa0-4f42-85ae-851d74f1802c">
+    <name>РСО_ШаблонФайлаВыгрузкиСведенийОЖД</name>
+    <synonym>
+      <key>ru</key>
+      <value>Шаблон файла выгрузки сведений о ЖД для РСО</value>
+    </synonym>
+    <templateType>BinaryData</templateType>
+  </templates>
+  <templates uuid="305471d6-4981-4261-b8c7-ce60ab3711dc">
+    <name>ДоступныеВидыОбмена</name>
+    <synonym>
+      <key>ru</key>
+      <value>Доступные виды обмена</value>
+    </synonym>
+  </templates>
+  <templates uuid="16451fe3-210b-419d-8966-c9ca8d675cb7">
+    <name>СведенияОбОбменах</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сведения об обменах</value>
+    </synonym>
+  </templates>
+  <templates uuid="ee4d1130-9cd5-4e2d-9dd5-fbd5b3b8e6d8">
+    <name>ОтчетОНезаполненныхОбъектах</name>
+    <synonym>
+      <key>ru</key>
+      <value>Отчет о незаполненных объектах</value>
+    </synonym>
+  </templates>
+  <commands uuid="4f60fc41-b13f-4689-9dec-fce5f6317aa7">
+    <name>КомандаОткрытьОбработку</name>
+    <synonym>
+      <key>ru</key>
+      <value>Обмен данными с ГИС ЖКХ</value>
+    </synonym>
+    <group>NavigationPanelImportant</group>
+    <commandParameterType/>
+    <representation>Auto</representation>
+    <toolTip>
+      <key>ru</key>
+      <value>Выгрузка в ГИС ЖКХ сведений о зданиях</value>
+    </toolTip>
+    <shortcut></shortcut>
+  </commands>
+</mdclass:DataProcessor>

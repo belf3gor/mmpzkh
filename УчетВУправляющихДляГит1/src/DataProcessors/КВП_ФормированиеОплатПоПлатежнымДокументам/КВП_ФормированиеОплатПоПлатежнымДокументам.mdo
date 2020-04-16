@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="fc81d20e-a46b-4d07-9240-d164cb175582">
+  <producedTypes>
+    <objectType typeId="d3382a27-9f39-4ee2-bc54-811358c892d5" valueTypeId="232e3661-2e63-429b-af1a-ce1177a7966e"/>
+    <managerType typeId="6bd56bb2-5f39-48e6-b9bd-0de8b6189b52" valueTypeId="4c04a82d-2ab5-4c62-bd52-65ffc8313a47"/>
+  </producedTypes>
+  <name>КВП_ФормированиеОплатПоПлатежнымДокументам</name>
+  <synonym>
+    <key>ru</key>
+    <value>Формирование оплат на основании платежных документов</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.КВП_ФормированиеОплатПоПлатежнымДокументам.Form.Форма</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="ef1bc014-0c36-4b32-9e46-777f7a1ef606">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <comment>Организация</comment>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация, по которой формируются оплаты</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="53a9fe89-06c6-40ae-9187-c6f0450b84d7">
+    <name>НачалоПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начало периода</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Начало периода формирования оплат</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="1a25aae6-1f62-4be1-b78d-f7bc912c8140">
+    <name>КонецПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Конец периода</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Конец периода формирования оплат</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="bbbaea9a-4992-4811-aa27-e2751f254aa0">
+    <name>ИсточникОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Источник оплаты</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КВП_ИсточникиОплат</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Источник формирования оплаты</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="21f93dab-04ef-4f92-b308-f7704b2d0209">
+    <name>УчитыватьВсеОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Учитывать все оплаты</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Признак учета всех оплат</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="83d6e366-4a1f-44e2-bff1-5f9895137941">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="dd92a49d-a9c4-4b8c-81ed-15a012b1c465">
+    <producedTypes>
+      <objectType typeId="2b33fd4c-2519-4964-bdd2-5027a0d94813" valueTypeId="adf337a0-2614-46da-bde1-65e780d5628e"/>
+      <rowType typeId="3f200dba-d199-4dfb-a323-a64c908ac5b7" valueTypeId="abdec49d-ab24-4bdc-b584-f362f0d9ee72"/>
+    </producedTypes>
+    <name>НастройкаЗаполнения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка заполнения</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка заполнения</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="67881096-d282-4eea-a72d-512deb4ddbe0">
+      <name>Пометка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Пометка</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Признак пометки настройки заполнения</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="9747719c-f23d-470d-b277-58c556619d56">
+      <name>Документ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Документ</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Документ настройки заполнения</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="0cb75002-789d-4a39-8ed3-7f78c9148a60">
+    <producedTypes>
+      <objectType typeId="6fa3fedf-fd8c-46f1-ba4c-baa309ede483" valueTypeId="cfd3b006-09bc-436a-9dce-b9ab80c1c119"/>
+      <rowType typeId="9f460f2a-e4a3-4301-916f-6b4f887be3c6" valueTypeId="25921dde-f077-41e7-abb5-1237a2fa9bc0"/>
+    </producedTypes>
+    <name>НастройкаЗаполненияВидовОпераций</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка заполнения видов операций</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка заполнения видов операций</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="c76cedd4-92dc-41d3-bdf8-cf66833b61de">
+      <name>Пометка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Пометка</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Признак пометки настройки заполнения видов операций</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="75125bf3-eee3-457a-a062-cd35f1e8a97f">
+      <name>Документ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Документ</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Документ настройки заполнения видов операций</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="125b5206-9afd-4162-9d4c-40a95a2cb1b2">
+      <name>ВидОперации</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид операции</value>
+      </synonym>
+      <type>
+        <types>EnumRef.ВидыОперацийОплатаПлатежнойКартой</types>
+        <types>EnumRef.ВидыОперацийПоступлениеДенежныхСредств</types>
+        <types>EnumRef.ВидыОперацийПКО</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Вид операции настройки заполнения</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="b60499db-ca11-4439-9fc5-38f53a74307c">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="5d66d151-3a16-40e5-8b44-b7903180f52c">
+    <name>ФормаНастройкиЗаполнения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="84cf4e94-63ed-4e9d-be05-80d239da9ec8">
+    <name>ФормаНастройкиВидовОпераций</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка видов операций</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

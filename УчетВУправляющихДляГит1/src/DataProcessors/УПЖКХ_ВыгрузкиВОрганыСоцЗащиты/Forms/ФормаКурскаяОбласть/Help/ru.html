@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html;charset=utf-8" http-equiv="content-type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 11.00.9600.18052"></meta></head><body>
+<h1>Курская область</h1>
+<div>Обработка предназначена для выгрузки данных в отдел социальной защиты населения Курской области. Данная выгрузка разработана в соответствии с постановлением Правительства Курской области от 24.04.2009 года №58 "О предоставлении отдельным категориям граждан компенсационных выплат в связи с расходами по оплате жилых помещений и коммунальных услуг".</div>
+<div> </div>
+<div>Перед началом загрузки данных в обработке необходимо заполнить следующие параметры: </div>
+<ul><li>«<strong>Период</strong>» - месяц, за который необходимо предоставить данные; 
+</li><li>«<strong>Организация</strong>» - ссылка на элемент справочника <a href="Catalog.Организации/Help"><font color="#0066cc">«Организации»</font></a>, по которой будут браться необходимые данные за указанный период; 
+</li><li>«<strong>Файл загрузки</strong>» - путь к файлу (далее - <em>Файл загрузки</em>), в который будут загружены сведения о начислениях из информационной базы (файлы формата *.DBF); </li></ul><p><br>Перед началом использования данной выгрузки, необходимо выполнить её настройку. Для этого необходимо нажать кнопку "<strong>Настройка</strong>", расположенную в верхней части основной формы.<br>Далее откроется форма настройки состоящая из следующих страниц:<br><strong>1. </strong>«<strong>Настройка соответствия услуг</strong>».<br>    На данной странице устанавливаются соответствия услуг из <em>Файла загрузки</em> с услугами из базы. В левой части страницы содержится таблица (далее - <em>Таблица услуг в ОСЗН</em>), в которой необходимо указать все услуги из <em>Файла загрузки</em> с их кодами. <br>    Для удобства предусмотрено автоматическое заполнение <em>Таблицы услуг в ОСЗН</em> на основе данных из <em>Файла загрузки</em>. Для этого необходимо нажать кнопку «<strong>Загрузить из файла</strong>».<br><strong>2. </strong>«<strong>Прочие настройки</strong>».<br>    На данной странице в поле «<strong>Кодировка файла загрузки DBF</strong>» необходимо указать кодировку <em>Файла загрузки. </em>Доступны два значения: «<strong>Windows</strong>» и «<strong>DOS</strong>».</p>
+<p>Функционально обработка разделена на три части: </p>
+<ul><li>Загрузка из <em>Файла загрузки</em> данных о льготниках, производится при помощи нажатия кнопки «<strong>Загрузить из файла</strong>». Предварительно в поле «<strong>Файл загрузки</strong>» необходимо указать DBF-файл, формат которой аналогичен с форматом файла «<strong>IN_FILE.DBF</strong>», структура которого представлена ниже. <br></li><li>Заполение данных о начислениях и оплатах за указанный период, производится при помощи нажатия кнопки «<strong>Заполнить</strong>». Если ни один льготник не идентифицирован, то будет выведено соответствующее информационное сообщение. <br></li><li>Выгрузка данных в файл о начислениях и оплатах за указанный период, производится при помощи нажатия кнопки «<strong>Выгрузить в файл</strong>». При этом выгружаемые данные будут записаны в <em>Файл загрузки,</em> а исходный вариант <em>Файла загрузки </em>будет записан в новый файл, наименование которого формируется следующим образом: [<strong>Наименование <em>Файла загрузки</em></strong>] + "<strong>_Исходный</strong>". При выгрузке данных в Файле загрузки предусмотрено заполнение только тех полей, которые в структуре формата файла «<strong>IN_FILE.DBF</strong>» выделены <font style="BACKGROUND-COLOR: #00ff00">зеленым цветом</font>.<br></li></ul><div><strong>Формат файла IN_FILE.DBF:</strong></div>
+<div>
+<table bordercolor="#000000" width="500" border="1"><tbody><tr><td width="100">
+<p align="center"><strong>Наименование поля</strong></p></td>
+<td width="500">
+<p align="center"><strong>Значение поля</strong></p></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">ID</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">ID заявителя</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">PKU</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Персональный №КУ</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">FAMIL</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Фамилия</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">IMJA</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Имя</font></td></tr><tr><td>
+<p><font style="BACKGROUND-COLOR: #fcfaeb">OTCH</font></p></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Отчество</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">DROG</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Дата рождения</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">POLX</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Пол</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">SNILS</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">СНИЛС</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">FRA_REG_ID</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">ID адрес</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">POSEL</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Поселение</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">NASP</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Район</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">YLIC</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Улица</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">NDOM</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Дом</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">NKORP</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Корпус</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">NKW</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Квартира</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">NKOMN</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Комната</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">DATN</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Дата начисления</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">PRED</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Организация</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #fcfaeb">ILCHET</font></td>
+<td><font style="BACKGROUND-COLOR: #fcfaeb">Лицевой счет в организации</font></td></tr><tr><td>KGKYSL_[N]</td>
+<td>Код услуги</td></tr><tr><td>GKYSL_[N]</td>
+<td>Наименование услуги в ОСЗН</td></tr><tr><td>NGKYSL1_[N]</td>
+<td>Наименование услуги</td></tr><tr><td>NGNYSL2_[N]</td>
+<td>Наименование услуги</td></tr><tr><td>LCHET_[N]</td>
+<td>Лицевой счет</td></tr><tr><td><font style="BACKGROUND-COLOR: #00ff00">TARIF1_[N]</font></td>
+<td><font style="BACKGROUND-COLOR: #00ff00">Тарифы №1 по базе ЦСВ</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #00ff00">TARIF2_[N]</font></td>
+<td><font style="BACKGROUND-COLOR: #00ff00">Тарифы №2 по базе ЦСВ</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #00ff00">FAKT_[N]</font></td>
+<td><font style="BACKGROUND-COLOR: #00ff00">Фактическое потребление</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #00ff00">SUMTAR_[N]</font></td>
+<td><font style="BACKGROUND-COLOR: #00ff00">Сумма начисленная</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #00ff00">SUMOPL_[N]</font></td>
+<td><font style="BACKGROUND-COLOR: #00ff00">Сумма оплаты</font></td></tr><tr><td><font style="BACKGROUND-COLOR: #00ff00">SUMLGT_[N]</font></td>
+<td><font style="BACKGROUND-COLOR: #00ff00">Сумма начисленных льгот</font></td></tr><tr><td>SUMDOLG_[N]</td>
+<td>Сумма долга</td></tr><tr><td>OPLDOLG_[N]</td>
+<td>Сумма оплаты долга</td></tr><tr><td>DATDOLG_[N]</td>
+<td>Дата образования задолженности</td></tr><tr><td>KOLDOLG_[N]</td>
+<td>Коллективный долг</td></tr><tr><td><font style="BACKGROUND-COLOR: #00ff00">PRIZN_[N]</font></td>
+<td><font style="BACKGROUND-COLOR: #00ff00">Признак проведения корректировки начислений</font></td></tr><tr><td>KOLLGTP_[N]</td>
+<td>Количество получателей льгот</td></tr><tr><td>KOLLGT_[N]</td>
+<td>Количество льготников</td></tr><tr><td>KOLZR_[N]</td>
+<td>Количество зарегистрированных</td></tr></tbody></table></div></body></html>

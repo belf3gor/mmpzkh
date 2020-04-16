@@ -1,0 +1,558 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="227ad9d2-a7e0-48f7-89ee-fc67d59abba5">
+  <producedTypes>
+    <objectType typeId="772ee485-321c-421c-98b9-b5a7fac8c91e" valueTypeId="6239eb15-f900-4d80-9377-61b74ac83c20"/>
+    <managerType typeId="b8f56f56-660a-4eef-b596-b4292d3affe9" valueTypeId="86386a1a-1cf7-4249-ba5d-ea5a591cd160"/>
+  </producedTypes>
+  <name>КВП_ЗагрузкаРеестраПлатежей</name>
+  <synonym>
+    <key>ru</key>
+    <value>Загрузка реестра платежей</value>
+  </synonym>
+  <comment>Загрузка реестра платежей</comment>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.КВП_ЗагрузкаРеестраПлатежей.Form.Форма</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="b7da3c6f-0567-4c9f-b6a3-e385a2adc681">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <comment>Организация</comment>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация, по которой загружается реестр</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="996fe71f-0c92-45d1-8d6b-11b7ce3f69e7">
+    <name>ФорматФайлаЗагрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Формат файла загрузки</value>
+    </synonym>
+    <comment>Формат файла загрузки</comment>
+    <type>
+      <types>CatalogRef.КВП_НастройкиЗагрузкиВыгрузки</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка загрузки реестра</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameters>
+      <name>Отбор.ВидЗагрузки</name>
+      <value xsi:type="core:ReferenceValue">
+        <value>Enum.КВП_ВидыНастроекЗагрузкиИзАС.EnumValue.ЗагрузкаИзСистемПриемаПлатежей</value>
+      </value>
+    </choiceParameters>
+  </attributes>
+  <attributes uuid="bd4ce2a5-d95d-4567-9f7a-100d1c7fabdd">
+    <name>ИмяФайлаЗагрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Имя файла загрузки</value>
+    </synonym>
+    <comment>Имя файла загрузки</comment>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>255</length>
+      </stringQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Путь к файлу загрузки</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="41a7fd8b-5c83-481d-8640-2345b1432078">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Контрагент для документа &quot;Регистрация оплаты&quot;</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="74462514-5d83-46fa-9c89-9ea6433895b5">
+    <name>КорректировкаДолга</name>
+    <synonym>
+      <key>ru</key>
+      <value>Корректировка долга</value>
+    </synonym>
+    <comment>Корректировка долга</comment>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка корректировки долга при загрузке реестра</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="29d2fdc9-b5d6-4df9-8bd8-9e422dc31b75">
+    <name>ЗагружатьИзКаталога</name>
+    <synonym>
+      <key>ru</key>
+      <value>Загружать из каталога</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка загрузки всех файлов из указанного каталога</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="c9feb84d-bb35-4f03-8b04-dd61710f505e">
+    <name>СпособГруппировки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Способ группировки</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка группировки оплат</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="3b735fa6-105f-4773-9871-00f4f1cb2f2d">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>500</length>
+      </stringQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Комментарий для документа &quot;Регистрация оплаты&quot;</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="104dee89-5d8b-4563-b84b-34406a1d054d">
+    <name>ДокументРасчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ расчета</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ПоступлениеНаРасчетныйСчет</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Документ расчета для документа &quot;Регистрация оплаты&quot;</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="3dc82381-4500-48a8-b21f-18978d598b46">
+    <name>ДоговорКонтрагента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Договор контрагента</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ДоговорыКонтрагентов</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Договор контрагента для документа &quot;Регистрация оплаты&quot;</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="da3e0c1b-fa2f-4a62-a912-833b81b0d326">
+    <producedTypes>
+      <objectType typeId="76ec503b-ddec-4e23-b297-f96b457a7e15" valueTypeId="df24151f-c927-43a6-a2b2-f64fb5636af2"/>
+      <rowType typeId="25c48a51-d749-4ed4-b851-9a563d04b7cb" valueTypeId="3e347f98-ad0b-4b4d-bf81-ef27758ae4d1"/>
+    </producedTypes>
+    <name>ТаблицаРеестра</name>
+    <synonym>
+      <key>ru</key>
+      <value>Таблица реестра</value>
+    </synonym>
+    <comment>Таблица реестра</comment>
+    <toolTip>
+      <key>ru</key>
+      <value>Таблица реестра</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="a9f793f6-5961-43b5-b452-940b66caeef3">
+      <name>Использовать</name>
+      <synonym>
+        <key>ru</key>
+        <value>Использовать</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Настройка загрузки текущей строки реестра</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="7ebc8cb0-7e63-47f5-a890-467bb9413c8f">
+      <name>ДокРегистрацияОплаты</name>
+      <synonym>
+        <key>ru</key>
+        <value>Регистрация оплаты</value>
+      </synonym>
+      <type>
+        <types>DocumentRef.КВП_РегистрацияОплаты</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Ссылка на созданный документ &quot;Регистрация оплаты&quot;</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3d376797-c504-4e36-9a0f-04fc9e4d667b">
+      <name>ДокПоступлениеНаРС</name>
+      <synonym>
+        <key>ru</key>
+        <value>Поступление на расчетный счет</value>
+      </synonym>
+      <comment>Поступление на расчетный счет</comment>
+      <type>
+        <types>DocumentRef.ПоступлениеНаРасчетныйСчет</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Ссылка на созданный документ &quot;Поступление на расчетный счет&quot;</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="e35e31ab-3c7b-4a9d-af62-0e1f19fd30a5">
+      <name>Дата</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Дата загрузки</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="465099ec-57da-4628-9ed3-a7a0ccf03a0e">
+      <name>ВариантРаспределенияОплатКапРемонт</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вариант распределения оплат</value>
+      </synonym>
+      <type>
+        <types>EnumRef.УПЖКХ_ВариантыРаспределенияОплатыПриРаздельномУчетеКР</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Настройка распределения оплаты</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="26f19991-5e32-4c7e-a44f-2915d668f785">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет, по которому загружается оплата</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="c2ea6196-4878-4947-afe9-9099b0a5892b">
+      <name>Услуга</name>
+      <synonym>
+        <key>ru</key>
+        <value>Услуга</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Услуги</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Услуга, по которой загружается оплата</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3d228b7a-2deb-4f5b-b078-035c7440c517">
+      <name>Сумма</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма оплаты</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="a762a5c6-c3a1-45ba-b176-853509156588">
+      <name>ПериодОплаты</name>
+      <synonym>
+        <key>ru</key>
+        <value>Период оплаты</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Период текущей оплаты</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="ca66c212-f7c2-4fd9-be5a-be0a352bdf15">
+      <name>ВидУслуги</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид услуги</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ВидыУслуг</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Вид услуги, по которой загружается оплата</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="38257982-8296-4b1b-a80c-699ce89dfb50">
+      <name>НоменклатураУслуги</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номенклатура услуги</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.Номенклатура</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Номенклатура услуги, по которой загружается оплата</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="faf6a622-1f6b-411b-af5e-a0d9e03f76bb">
+      <name>Штрихкод</name>
+      <synonym>
+        <key>ru</key>
+        <value>Штрихкод</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Текст штрихкода, указанного в реестре</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="1f23df93-ec62-469f-a432-ece6497de67c">
+      <name>НеРаспределятьОплатуНаДобровольноеСтрахование</name>
+      <synonym>
+        <key>ru</key>
+        <value>Не распределять оплату на добровольное страхование</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Настройка распределения оплаты на добровольное страхование</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="5a48ca4d-dcac-4a55-98f0-fd4694bfc53b">
+    <producedTypes>
+      <objectType typeId="402477ee-75bd-4cba-9885-9dafb09f863d" valueTypeId="5468681d-6911-403c-95e4-ed559d8a5564"/>
+      <rowType typeId="f9ec7e9c-bced-46b5-adff-78501b3a2644" valueTypeId="df28e1e9-367d-418d-b4d1-fafc02dc6b82"/>
+    </producedTypes>
+    <name>НастройкаЗаполнения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка заполнения</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка заполнения</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="fbc6ba44-99c0-4374-b427-3219b55c761e">
+      <name>Пометка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Пометка</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Настройка использования текущей схемы заполнения</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="f35a9c93-0a48-4a3b-9a4a-a12bc1cfaf7f">
+      <name>Документ</name>
+      <synonym>
+        <key>ru</key>
+        <value>Документ</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Вид документа</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="6bf8aac6-00a8-4649-a76e-719c3d2ae58e">
+      <name>Статья</name>
+      <synonym>
+        <key>ru</key>
+        <value>Статья для новых документов</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ИсточникиОплат</types>
+        <types>CatalogRef.СтатьиДвиженияДенежныхСредств</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Статья, которая будет указываться в созданных документах</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="b63f34ba-bf52-400d-86ea-14426ef9432d">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="b758da2a-a5b9-46ee-8043-64199c791de1">
+    <name>ФормаНастройкиЗаполнения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма настройки заполнения</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

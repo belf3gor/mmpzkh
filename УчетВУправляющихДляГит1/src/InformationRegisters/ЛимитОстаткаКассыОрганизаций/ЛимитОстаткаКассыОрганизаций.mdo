@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="51ba9147-e0c0-4927-bfe3-70b61afb3e1c">
+  <producedTypes>
+    <selectionType typeId="4a783876-bced-4735-930e-e1fbc7b52df1" valueTypeId="70881e11-982d-431b-9b33-06d314fcb623"/>
+    <listType typeId="46018900-8c21-40fe-9f16-ccdf114e9a73" valueTypeId="3b68e9ee-f8e4-4a24-a62b-68b27bf8f570"/>
+    <managerType typeId="82c8f705-eae9-488c-9f45-c9744ac30917" valueTypeId="03298b7d-0060-4643-9669-9279084f63de"/>
+    <recordSetType typeId="b87c43dd-95e8-42b3-b7d0-650e90d27c0c" valueTypeId="5f4f3042-9186-4f8d-92da-9620358e520a"/>
+    <recordKeyType typeId="34dae0ec-15f0-41d2-ac9f-6e598d54d052" valueTypeId="0419b326-8c4f-4403-bde0-41721399b015"/>
+    <recordType typeId="28c25805-eb90-45ca-8ebb-89bee33941bc" valueTypeId="3bef5fde-7ba1-46d7-8f19-b7a5a61379c1"/>
+    <recordManagerType typeId="62c97f5b-f9a2-4cae-b7b5-11da2f6179cf" valueTypeId="392fef9f-97ea-46d2-807b-60cc2b7b70b9"/>
+  </producedTypes>
+  <name>ЛимитОстаткаКассыОрганизаций</name>
+  <synonym>
+    <key>ru</key>
+    <value>Лимит остатка кассы</value>
+  </synonym>
+  <editType>InDialog</editType>
+  <defaultRecordForm>InformationRegister.ЛимитОстаткаКассыОрганизаций.Form.ФормаЗаписи</defaultRecordForm>
+  <defaultListForm>InformationRegister.ЛимитОстаткаКассыОрганизаций.Form.ФормаСписка</defaultListForm>
+  <auxiliaryRecordForm>InformationRegister.ЛимитОстаткаКассыОрганизаций.Form.ФормаЗаписи</auxiliaryRecordForm>
+  <auxiliaryListForm>InformationRegister.ЛимитОстаткаКассыОрганизаций.Form.ФормаСписка</auxiliaryListForm>
+  <informationRegisterPeriodicity>Day</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <dataLockControlMode>Managed</dataLockControlMode>
+  <recordPresentation>
+    <key>ru</key>
+    <value>Лимит остатка кассы</value>
+  </recordPresentation>
+  <extendedRecordPresentation>
+    <key>ru</key>
+    <value>Лимит остатка кассы</value>
+  </extendedRecordPresentation>
+  <listPresentation>
+    <key>ru</key>
+    <value>Лимиты остатка кассы</value>
+  </listPresentation>
+  <extendedListPresentation>
+    <key>ru</key>
+    <value>Лимиты остатка кассы</value>
+  </extendedListPresentation>
+  <explanation>
+    <key>ru</key>
+    <value>Лимиты остатка денежных средств в кассе, установленные банком</value>
+  </explanation>
+  <resources uuid="3dbd5da8-1544-4abb-b8de-1d0ed4c6cf6f">
+    <name>Лимит</name>
+    <synonym>
+      <key>ru</key>
+      <value>Лимит остатка кассы</value>
+    </synonym>
+    <comment>Лимит остатка кассы, утвержденный банком</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="7d4e2ac7-2ea5-4cff-ab5a-540616c7a2ef">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <dimensions uuid="7cebbc27-4f01-48cd-bcd4-f740f3ea0b92">
+    <name>ПодразделениеОрганизации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Подразделение</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ПодразделенияОрганизаций</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>InformationRegister.ЛимитОстаткаКассыОрганизаций.Dimension.Организация</field>
+    </choiceParameterLinks>
+    <choiceParameters>
+      <name>Отбор.ОбособленноеПодразделение</name>
+      <value xsi:type="core:BooleanValue">
+        <value>true</value>
+      </value>
+    </choiceParameters>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <forms uuid="be1bfa18-bbf2-430f-8555-0c66997350a1">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="970fa8c3-6420-48d2-ba71-8a82be29d420">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:InformationRegister>

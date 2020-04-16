@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="e7aa383f-4dcd-48e4-b9fc-970b3ffedb67">
+  <producedTypes>
+    <objectType typeId="d627b791-de37-4189-bbf5-93692353c655" valueTypeId="194c5831-f276-4566-99a1-38b43d6b4418"/>
+    <managerType typeId="37bb0e5a-014d-48bc-81e8-7b1763595259" valueTypeId="b60a542d-08c6-4e13-9b98-b0b9a399fab0"/>
+  </producedTypes>
+  <name>КВП_УстановкаДолей</name>
+  <synonym>
+    <key>ru</key>
+    <value>Установка долей собственности л/с</value>
+  </synonym>
+  <defaultForm>DataProcessor.КВП_УстановкаДолей.Form.Форма</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="b477647c-adf2-476a-a3f7-c615bdaeb8fc">
+    <name>Здание</name>
+    <synonym>
+      <key>ru</key>
+      <value>Здание</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КВП_Здания</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Здание, сооружение</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="fe7708f1-34cd-4385-8312-b2468cd60262">
+    <name>Помещение</name>
+    <synonym>
+      <key>ru</key>
+      <value>Помещение</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.УПЖКХ_Помещения</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Помещение, в котором открыт лицевой счет</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="9cf96db5-076f-437a-8fef-991c9f4e5801">
+    <name>ЛицевойСчет</name>
+    <synonym>
+      <key>ru</key>
+      <value>Лицевой счет</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КВП_ЛицевыеСчета</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Лицевой счет, для которого выполняется установка долей</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="50295454-7856-4c52-88fd-d39e336eb081">
+    <name>Дата</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Дата установки</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="81ad63af-4151-41f2-a56a-7f1ab07cdbdb">
+    <name>ДоляЗнаменатель</name>
+    <synonym>
+      <key>ru</key>
+      <value>Делитель для расчета доли л/с</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Делитель для расчета доли лицевого счета</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="e3bb523d-05e7-405b-b2d7-2328a3a8fae3">
+    <name>ДокументРегистратор</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ регистратор</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.КВП_ЗакрытиеЛицевогоСчета</types>
+      <types>DocumentRef.КВП_ОткрытиеЛицевогоСчета</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Ссылка на документ, производящий установку долей</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="94aafb45-7987-41b2-8692-46093ac5ae60">
+    <producedTypes>
+      <objectType typeId="f51068d4-aca9-4bd1-b232-4ce93baa8902" valueTypeId="eb28484b-e9a3-4f5a-8f62-8bc7e20ea7fb"/>
+      <rowType typeId="75f4b676-0af2-4d27-bdcc-8cba6e47fd7e" valueTypeId="81ef6fa2-23c9-43ee-a0ce-26172f352eef"/>
+    </producedTypes>
+    <name>Доли</name>
+    <synonym>
+      <key>ru</key>
+      <value>Доли</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Доли</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="b89133f2-0644-4e15-9a73-61dcca68bf00">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет, для которого выполняется установка долей</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="8b3655b1-8a52-408a-90f6-f063df91b441">
+      <name>ДоляЧислитель</name>
+      <synonym>
+        <key>ru</key>
+        <value>Делимое для расчета доли л/с</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Делимое для расчета доли лицевого счета</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="494af52b-0311-4ca5-9fa4-958860220837">
+      <name>Помещение</name>
+      <synonym>
+        <key>ru</key>
+        <value>Помещение</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.УПЖКХ_Помещения</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Помещение, в котором открыт лицевой счет</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="e0477149-2189-449f-b684-e1aa3e6bf3cf">
+      <name>ДоляЗнаменатель</name>
+      <synonym>
+        <key>ru</key>
+        <value>Делитель для расчета доли л/с</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Делитель для расчета доли лицевого счета</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="e0a158ed-b334-4cc4-ba08-00d8f5198185">
+    <producedTypes>
+      <objectType typeId="641f5e0e-7817-4d92-bd77-cc2d013d8865" valueTypeId="47b5c36e-696e-4b31-bddd-51ed18602a67"/>
+      <rowType typeId="ca2830a4-d7b9-43a2-8049-b6b09dd2b49c" valueTypeId="4798bf10-7c8f-449d-bd2b-f3324e7f2e93"/>
+    </producedTypes>
+    <name>ЛицевыеСчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Лицевые счета</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Лицевые счета</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="65a928b4-4390-4930-9477-7ee53a938d9f">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+        <types>String</types>
+        <stringQualifiers>
+          <length>20</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет, для которого выполняется установка долей</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="a30380fd-830a-4e58-87fb-951adbae6273">
+    <producedTypes>
+      <objectType typeId="738bb732-2d10-4d6f-9e6e-893305fa47ce" valueTypeId="8af0b816-2e1b-428c-bab8-4b30dd30cabe"/>
+      <rowType typeId="b345edf6-26b4-4e0e-9fc5-bab91cfbbcca" valueTypeId="eadf1094-48d9-4f96-acb6-ddbaa34206b2"/>
+    </producedTypes>
+    <name>Комнаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комнаты</value>
+    </synonym>
+    <toolTip>
+      <key>ru</key>
+      <value>Комнаты</value>
+    </toolTip>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="2c21c244-2263-4a22-a641-5da78d700abb">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+        <types>String</types>
+        <stringQualifiers>
+          <length>20</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет, для которого выполняется установка долей</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="9bf67495-fb68-4779-b93b-0ef153776541">
+      <name>Комната</name>
+      <synonym>
+        <key>ru</key>
+        <value>Комната</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.УПЖКХ_Помещения</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Помещение вида &quot;Комната&quot;</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="1585b607-bb6e-4db2-bc9d-4e1a04b55529">
+      <name>Площадь</name>
+      <synonym>
+        <key>ru</key>
+        <value>Площадь комнаты</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Площадь комнаты, на которую устанавливается доля</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="1def8e7e-cdd2-42c5-9b2e-14e2f66f983a">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

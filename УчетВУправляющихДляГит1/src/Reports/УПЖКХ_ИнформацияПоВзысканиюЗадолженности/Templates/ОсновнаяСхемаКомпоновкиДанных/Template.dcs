@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ИнформацияПоВзысканиюЗадолженности</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Договор</dataPath>
+			<field>Договор</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛицевойСчет</dataPath>
+			<field>ЛицевойСчет</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Период подачи исковых заявлений</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='MMMM yyyy "г."'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПоданоВСуд</dataPath>
+			<field>ПоданоВСуд</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во исков</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПредъявленоВССП</dataPath>
+			<field>ПредъявленоВССП</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во исков</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УдовлетвореноСудом</dataPath>
+			<field>УдовлетвореноСудом</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Кол-во исков</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВзысканнаяСумма</dataPath>
+			<field>ВзысканнаяСумма</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Госпошлина</dataPath>
+			<field>Госпошлина</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПогашеноДоСуда</dataPath>
+			<field>ПогашеноДоСуда</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаЗадолженности</dataPath>
+			<field>СуммаЗадолженности</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаИскаПоРешениюСуда</dataPath>
+			<field>СуммаИскаПоРешениюСуда</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаПени</dataPath>
+			<field>СуммаПени</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПередачиПриставам</dataPath>
+			<field>ДатаПередачиПриставам</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаСуда</dataPath>
+			<field>ДатаСуда</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Окончание</dataPath>
+			<field>Окончание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РешениеСуда</dataPath>
+			<field>РешениеСуда</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.Организация,
+	УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.ЛицевойСчет,
+	УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.Договор,
+	СУММА(УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.СуммаЗадолженностиОборот) КАК СуммаЗадолженности,
+	СУММА(УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.СуммаПениОборот) КАК СуммаПени,
+	СУММА(УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.ГоспошлинаОборот) КАК Госпошлина,
+	СУММА(УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.ПогашеноДоСудаОборот) КАК ПогашеноДоСуда,
+	СУММА(УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.СуммаИскаПоРешениюСудаОборот) КАК СуммаИскаПоРешениюСуда,
+	СУММА(УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.ВзысканнаяСуммаОборот) КАК ВзысканнаяСумма,
+	СУММА(ВЫБОР
+			КОГДА УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.РешениеСуда В ("ВзыскатьПолностью", "ВзыскатьЧастично")
+				ТОГДА 1
+			ИНАЧЕ 0
+		КОНЕЦ) КАК УдовлетвореноСудом,
+	СУММА(ВЫБОР
+			КОГДА УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.ДатаСуда = &amp;ПустаяДата
+				ТОГДА 0
+			ИНАЧЕ 1
+		КОНЕЦ) КАК ПоданоВСуд,
+	СУММА(ВЫБОР
+			КОГДА УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.ДатаПередачиПриставам = &amp;ПустаяДата
+				ТОГДА 0
+			ИНАЧЕ 1
+		КОНЕЦ) КАК ПредъявленоВССП,
+	УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.Период
+ИЗ
+	РегистрНакопления.УПЖКХ_ВзаиморасчетыСДолжниками.Обороты(, , Месяц, ) КАК УПЖКХ_ВзаиморасчетыСДолжникамиОбороты
+
+СГРУППИРОВАТЬ ПО
+	УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.Организация,
+	УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.ЛицевойСчет,
+	УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.Договор,
+	УПЖКХ_ВзаиморасчетыСДолжникамиОбороты.Период</query>
+	</dataSet>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ПустаяДата</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Пустая дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеИтогов</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DataCompositionTotalPlacement">None</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Организация</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>Период</dcsset:field>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:title>Исковые требования, предъявленные в суд</dcsset:title>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПоданоВСуд</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаЗадолженности</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаПени</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Госпошлина</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Удовлетворено судом</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>УдовлетвореноСудом</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>СуммаИскаПоРешениюСуда</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:lwsTitle>
+								<v8:item>
+									<v8:lang>ru</v8:lang>
+									<v8:content>Предъявлено в ССП</v8:content>
+								</v8:item>
+							</dcsset:lwsTitle>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ПредъявленоВССП</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ВзысканнаяСумма</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Auto</dcsset:placement>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:SelectedItemField">
+							<dcsset:field>ПогашеноДоСуда</dcsset:field>
+						</dcsset:item>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

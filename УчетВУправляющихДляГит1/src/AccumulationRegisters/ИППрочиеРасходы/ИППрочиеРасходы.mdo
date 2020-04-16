@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="6db319f7-4baa-4d0c-83a5-7cffe36f26cd">
+  <producedTypes>
+    <selectionType typeId="8a1553c3-d835-469f-aec4-ed96298f4457" valueTypeId="050877d4-d491-4473-9b16-4c2705844fd6"/>
+    <listType typeId="dc881a70-92f8-4651-a06e-9d18369a5932" valueTypeId="f33fb9a3-83eb-4096-83ac-05e7e2fd5fdd"/>
+    <managerType typeId="c88b7b73-e03f-4b85-a6f2-170d27ddcd15" valueTypeId="5f264ea3-46c3-42cf-adee-3e78bdf09eb2"/>
+    <recordSetType typeId="cac220e0-c197-44d6-ab75-1380ed2e6f28" valueTypeId="14576d42-066b-4105-ad71-723c903bc091"/>
+    <recordKeyType typeId="c11c0a17-3909-4337-bdd2-dab90631a08d" valueTypeId="6a502e26-c172-4b7e-9db0-6d20b1d70122"/>
+    <recordType typeId="4e3b6e51-6465-4bbe-9d12-0d06641e0355" valueTypeId="e07a9b2f-4f3d-467e-b564-024e1ee48332"/>
+  </producedTypes>
+  <name>ИППрочиеРасходы</name>
+  <synonym>
+    <key>ru</key>
+    <value>ИП Прочие расходы</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <registerType>Turnovers</registerType>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="f2b0f017-7517-4970-8365-ed993ff75e4a">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма без НДС</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <resources uuid="e3141556-e8f9-4e67-a455-00fc1ae3a7f9">
+    <name>НДС</name>
+    <synonym>
+      <key>ru</key>
+      <value>НДС</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <attributes uuid="f0d05831-682e-4a27-b69c-51a966ba216c">
+    <name>Корректировка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Корректировка</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <dimensions uuid="d6ab6cb6-f62a-451a-8685-f7131a96a2d6">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="5beb393c-7a25-4421-8e70-960716df39b8">
+    <name>НоменклатурнаяГруппа</name>
+    <synonym>
+      <key>ru</key>
+      <value>Номенклатурная группа</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.НоменклатурныеГруппы</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="5ecc4c48-f6a3-4981-9a0a-a7dfa8b03010">
+    <name>ХарактерДеятельности</name>
+    <synonym>
+      <key>ru</key>
+      <value>Характер деятельности</value>
+    </synonym>
+    <type>
+      <types>EnumRef.ХарактерДеятельности</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="0ac3b5f5-e644-4403-b6e1-e0b5927366b7">
+    <name>СтатьяЗатрат</name>
+    <synonym>
+      <key>ru</key>
+      <value>Статья затрат</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ОсновныеСредства</types>
+      <types>CatalogRef.НематериальныеАктивы</types>
+      <types>CatalogRef.ПрочиеДоходыИРасходы</types>
+      <types>CatalogRef.РасходыБудущихПериодов</types>
+      <types>CatalogRef.СтатьиЗатрат</types>
+      <types>CatalogRef.Номенклатура</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="4fc5e4e4-0023-4bac-b248-6bbf3868ac86">
+    <name>РасчетныйДокумент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Расчетный документ</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ОтчетПроизводстваЗаСмену</types>
+      <types>DocumentRef.СписаниеОС</types>
+      <types>DocumentRef.ОтражениеЗарплатыВБухучете</types>
+      <types>DocumentRef.СписаниеСРасчетногоСчета</types>
+      <types>DocumentRef.ПередачаОС</types>
+      <types>DocumentRef.СписаниеТоваров</types>
+      <types>DocumentRef.АвансовыйОтчет</types>
+      <types>DocumentRef.ГТДИмпорт</types>
+      <types>DocumentRef.ВыкупПредметовЛизинга</types>
+      <types>DocumentRef.ОприходованиеТоваров</types>
+      <types>DocumentRef.ВыдачаДенежныхДокументов</types>
+      <types>DocumentRef.РегистрацияОплатыОсновныхСредствДляУСН</types>
+      <types>DocumentRef.ДокументРасчетовСКонтрагентом</types>
+      <types>DocumentRef.ПринятиеКУчетуОС</types>
+      <types>DocumentRef.ПоступлениеНаРасчетныйСчет</types>
+      <types>DocumentRef.РасходныйКассовыйОрдер</types>
+      <types>DocumentRef.ОперацияБух</types>
+      <types>DocumentRef.УдалитьНачислениеЗарплатыРаботникамОрганизаций</types>
+      <types>DocumentRef.ПерерасчетСтраховыхВзносов</types>
+      <types>DocumentRef.АктОбОказанииПроизводственныхУслуг</types>
+      <types>DocumentRef.ПоступлениеНМА</types>
+      <types>DocumentRef.ОтражениеЗарплатыВУчете</types>
+      <types>DocumentRef.ПоступлениеТоваровУслуг</types>
+      <types>DocumentRef.ОказаниеУслуг</types>
+      <types>DocumentRef.ВозвратТоваровОтПокупателя</types>
+      <types>DocumentRef.Отпуск</types>
+      <types>DocumentRef.ТребованиеНакладная</types>
+      <types>DocumentRef.БольничныйЛист</types>
+      <types>DocumentRef.ОтчетКомиссионераОПродажах</types>
+      <types>DocumentRef.ОтчетКомитентуОПродажах</types>
+      <types>DocumentRef.ПодготовкаКПередачеОС</types>
+      <types>DocumentRef.АктПроверкиСтраховыхВзносов</types>
+      <types>DocumentRef.ВводНачальныхОстатков</types>
+      <types>DocumentRef.ПередачаОборудованияВМонтаж</types>
+      <types>DocumentRef.ПередачаНМА</types>
+      <types>DocumentRef.ОтчетОРозничныхПродажах</types>
+      <types>DocumentRef.ПриходныйКассовыйОрдер</types>
+      <types>DocumentRef.РасходыПредпринимателя</types>
+      <types>DocumentRef.ПоступлениеИзПереработки</types>
+      <types>DocumentRef.НачислениеЗарплаты</types>
+      <types>DocumentRef.РегистрацияОплатыОсновныхСредствДляИП</types>
+      <types>DocumentRef.УдалитьОтражениеЗарплатыВУчете</types>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>DocumentRef.ВозвратТоваровПоставщику</types>
+      <types>DocumentRef.ИнвентаризацияНЗП</types>
+      <types>DocumentRef.ПартияМатериаловВЭксплуатации</types>
+      <types>DocumentRef.ИнвентаризацияТоваровНаСкладе</types>
+      <types>DocumentRef.УдалитьРасчетЕСН</types>
+      <types>DocumentRef.ВозвратМатериаловИзЭксплуатации</types>
+      <types>DocumentRef.ПеремещениеОС</types>
+      <types>DocumentRef.Партия</types>
+      <types>DocumentRef.ПоступлениеДопРасходов</types>
+      <types>DocumentRef.ПринятиеКУчетуНМА</types>
+      <types>DocumentRef.СписаниеНМА</types>
+      <types>DocumentRef.ПеремещениеТоваров</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="4360770d-2aa7-4d69-a22f-0066e920e1e9">
+    <name>ДокументОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ оплаты</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.СписаниеСРасчетногоСчета</types>
+      <types>DocumentRef.АвансовыйОтчет</types>
+      <types>DocumentRef.ВыдачаДенежныхДокументов</types>
+      <types>DocumentRef.РегистрацияОплатыОсновныхСредствДляУСН</types>
+      <types>DocumentRef.ДокументРасчетовСКонтрагентом</types>
+      <types>DocumentRef.ПринятиеКУчетуОС</types>
+      <types>DocumentRef.ПоступлениеНаРасчетныйСчет</types>
+      <types>DocumentRef.РасходныйКассовыйОрдер</types>
+      <types>DocumentRef.ОперацияБух</types>
+      <types>DocumentRef.КорректировкаДолга</types>
+      <types>DocumentRef.МодернизацияОС</types>
+      <types>DocumentRef.БольничныйЛист</types>
+      <types>DocumentRef.ВводНачальныхОстатков</types>
+      <types>DocumentRef.ПриходныйКассовыйОрдер</types>
+      <types>DocumentRef.РасходыПредпринимателя</types>
+      <types>DocumentRef.НачислениеЗарплаты</types>
+      <types>DocumentRef.РегистрацияОплатыОсновныхСредствДляИП</types>
+      <types>DocumentRef.Партия</types>
+      <types>DocumentRef.ПринятиеКУчетуНМА</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="a69b40ba-91f3-4dc6-8e8e-5080d44e1e9f">
+    <name>СчетУчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Счет учета</value>
+    </synonym>
+    <type>
+      <types>ChartOfAccountsRef.Хозрасчетный</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

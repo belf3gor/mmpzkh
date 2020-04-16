@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СведенияОбАлкогольнойПродукции</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъемАлкогольнойПродукции</dataPath>
+			<field>ОбъемАлкогольнойПродукции</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объем алкогольной продукции</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидАлкогольнойПродукции</dataPath>
+			<field>ВидАлкогольнойПродукции</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Вид алкогольной продукции</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НоменклатураСсылка</dataPath>
+			<field>НоменклатураСсылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	СведенияОбАлкогольнойПродукции.Номенклатура КАК НоменклатураСсылка,
+	ЕСТЬNULL(СведенияОбАлкогольнойПродукции.КоэффПересчетаДал * 10, 0) КАК ОбъемАлкогольнойПродукции,
+	ЕСТЬNULL(СведенияОбАлкогольнойПродукции.НаименованиеВида169, "") КАК ВидАлкогольнойПродукции
+ИЗ
+	РегистрСведений.СведенияОбАлкогольнойПродукции КАК СведенияОбАлкогольнойПродукции
+ГДЕ
+	СведенияОбАлкогольнойПродукции.Номенклатура В(&amp;СписокНоменклатуры)</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ШтрихкодыНоменклатуры</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Штрихкод</dataPath>
+			<field>Штрихкод</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НоменклатураСсылка</dataPath>
+			<field>НоменклатураСсылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура (штрихкод)</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ШтрихкодыНоменклатуры.Номенклатура КАК НоменклатураСсылка,
+	МАКСИМУМ(ШтрихкодыНоменклатуры.Штрихкод) КАК Штрихкод
+ИЗ
+	РегистрСведений.ШтрихкодыНоменклатуры КАК ШтрихкодыНоменклатуры
+ГДЕ
+	ШтрихкодыНоменклатуры.Номенклатура В(&amp;СписокНоменклатуры)
+
+СГРУППИРОВАТЬ ПО
+	ШтрихкодыНоменклатуры.Номенклатура</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetObject">
+		<name>ТаблицаНоменклатура</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НоменклатураСсылка</dataPath>
+			<field>НоменклатураСсылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Номенклатура</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПолученияДанных</dataPath>
+			<field>ДатаПолученияДанных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата получения данных</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<valueType>
+				<v8:Type>xs:dateTime</v8:Type>
+				<v8:DateQualifiers>
+					<v8:DateFractions>DateTime</v8:DateFractions>
+				</v8:DateQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОрганизацияСсылка</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Организации</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Валюты</v8:Type>
+			</valueType>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>ТаблицаНоменклатура</objectName>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СведенияОНоменклатуре</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СведенияОНоменклатуре</dataPath>
+			<field>СведенияОНоменклатуре</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Сведения о номенклатуре</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	Номенклатура.Ссылка КАК СведенияОНоменклатуре
+{ВЫБРАТЬ
+	СведенияОНоменклатуре.*}
+ИЗ
+	Справочник.Номенклатура КАК Номенклатура
+ГДЕ
+	Номенклатура.Ссылка В(&amp;СписокНоменклатуры)</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>ЦеныНоменклатуры</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НоменклатураСсылка</dataPath>
+			<field>НоменклатураСсылка</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Номенклатура</v8:content>
+				</v8:item>
+			</title>
+			<attributeUseRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</attributeUseRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаЦены</dataPath>
+			<field>ДатаЦены</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата цены</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПолученияДанных</dataPath>
+			<field>ДатаПолученияДанных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата получения данных</v8:content>
+				</v8:item>
+			</title>
+			<useRestriction>
+				<field>true</field>
+				<condition>true</condition>
+				<group>true</group>
+				<order>true</order>
+			</useRestriction>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Цена</dataPath>
+			<field>Цена</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Цена</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Валюта</dataPath>
+			<field>Валюта</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Валюта</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	ЦеныНоменклатуры.Номенклатура КАК Номенклатура,
+	ЦеныНоменклатуры.Цена КАК Цена,
+	ЦеныНоменклатуры.Период КАК Период
+ПОМЕСТИТЬ ВТ_ЦеныПоДатам
+ИЗ
+	РегистрСведений.ЦеныНоменклатуры КАК ЦеныНоменклатуры
+ГДЕ
+	ЦеныНоменклатуры.Номенклатура В(&amp;СписокНоменклатуры)
+	И ЦеныНоменклатуры.Период &lt;= &amp;ДатаПолученияДанных
+	И ЦеныНоменклатуры.ТипЦен = &amp;ТипЦен
+	И ЦеныНоменклатуры.Валюта = &amp;Валюта
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ТаблицаЦен.Номенклатура КАК Номенклатура,
+	МАКСИМУМ(ВТ_ТаблицаЦен.Период) КАК Период
+ПОМЕСТИТЬ ВТ_ПоследниеЦены
+ИЗ
+	ВТ_ЦеныПоДатам КАК ВТ_ТаблицаЦен
+
+СГРУППИРОВАТЬ ПО
+	ВТ_ТаблицаЦен.Номенклатура
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВТ_ТаблицаЦен.Номенклатура КАК Номенклатура,
+	ВТ_ТаблицаЦен.Цена КАК Цена,
+	ВТ_Даты.Период КАК Период
+ПОМЕСТИТЬ ВТ_ЦеныНоменклатуры
+ИЗ
+	ВТ_ЦеныПоДатам КАК ВТ_ТаблицаЦен
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ ВТ_ПоследниеЦены КАК ВТ_Даты
+		ПО ВТ_ТаблицаЦен.Номенклатура = ВТ_Даты.Номенклатура
+			И ВТ_ТаблицаЦен.Период = ВТ_Даты.Период
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЦеныНоменклатурыДокументов.Номенклатура КАК Номенклатура,
+	ЦеныНоменклатурыДокументов.Цена КАК Цена
+ПОМЕСТИТЬ ВТ_ЦеныНоменклатурыДокументов
+ИЗ
+	РегистрСведений.ЦеныНоменклатурыДокументов КАК ЦеныНоменклатурыДокументов
+ГДЕ
+	ЦеныНоменклатурыДокументов.Валюта = &amp;Валюта
+	И ЦеныНоменклатурыДокументов.ЦенаВключаетНДС
+	И ЦеныНоменклатурыДокументов.СпособЗаполненияЦены = ЗНАЧЕНИЕ(Перечисление.СпособыЗаполненияЦен.ПоПродажнымЦенам)
+	И ЦеныНоменклатурыДокументов.Номенклатура В(&amp;СписокНоменклатуры)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	СправочникНоменклатура.Ссылка КАК НоменклатураСсылка,
+	ЕСТЬNULL(ЦеныНоменклатурыСрезПоследних.Период, &amp;ДатаПолученияДанных) КАК ДатаЦены,
+	&amp;ДатаПолученияДанных КАК ДатаПолученияДанных,
+	&amp;Валюта КАК Валюта,
+	ЕСТЬNULL(ЕСТЬNULL(ЦеныНоменклатурыСрезПоследних.Цена, ЦеныНоменклатурыДокументов.Цена), 0) КАК Цена
+ИЗ
+	Справочник.Номенклатура КАК СправочникНоменклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ЦеныНоменклатуры КАК ЦеныНоменклатурыСрезПоследних
+		ПО СправочникНоменклатура.Ссылка = ЦеныНоменклатурыСрезПоследних.Номенклатура
+		ЛЕВОЕ СОЕДИНЕНИЕ ВТ_ЦеныНоменклатурыДокументов КАК ЦеныНоменклатурыДокументов
+		ПО СправочникНоменклатура.Ссылка = ЦеныНоменклатурыДокументов.Номенклатура
+ГДЕ
+	СправочникНоменклатура.Ссылка В(&amp;СписокНоменклатуры)</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetObject">
+		<name>ТаблицаОрганизации</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПолученияДанных</dataPath>
+			<field>ДатаПолученияДанных</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Дата получения данных</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОрганизацияСсылка</dataPath>
+			<field>Организация</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация (ссылка)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОрганизацияСокращенноеНаименование</dataPath>
+			<field>СокращенноеНаименование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация (наименование сокращенное)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОрганизацияПолноеНаименование</dataPath>
+			<field>ПолноеНаименование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация (наименование полное)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОрганизацияНаименованиеДляПечатныхФорм</dataPath>
+			<field>НаименованиеДляПечатныхФорм</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Организация (наименование для печатных форм)</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>ТаблицаОрганизации</objectName>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>ТаблицаНоменклатура</sourceDataSet>
+		<destinationDataSet>СведенияОбАлкогольнойПродукции</destinationDataSet>
+		<sourceExpression>НоменклатураСсылка</sourceExpression>
+		<destinationExpression>НоменклатураСсылка</destinationExpression>
+		<parameter>СписокНоменклатуры</parameter>
+		<parameterListAllowed>true</parameterListAllowed>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ТаблицаНоменклатура</sourceDataSet>
+		<destinationDataSet>ШтрихкодыНоменклатуры</destinationDataSet>
+		<sourceExpression>НоменклатураСсылка</sourceExpression>
+		<destinationExpression>НоменклатураСсылка</destinationExpression>
+		<parameter>СписокНоменклатуры</parameter>
+		<parameterListAllowed>true</parameterListAllowed>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ТаблицаНоменклатура</sourceDataSet>
+		<destinationDataSet>СведенияОНоменклатуре</destinationDataSet>
+		<sourceExpression>НоменклатураСсылка</sourceExpression>
+		<destinationExpression>СведенияОНоменклатуре</destinationExpression>
+		<parameter>СписокНоменклатуры</parameter>
+		<parameterListAllowed>true</parameterListAllowed>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ТаблицаНоменклатура</sourceDataSet>
+		<destinationDataSet>ЦеныНоменклатуры</destinationDataSet>
+		<sourceExpression>НоменклатураСсылка</sourceExpression>
+		<destinationExpression>НоменклатураСсылка</destinationExpression>
+		<parameter>СписокНоменклатуры</parameter>
+		<parameterListAllowed>true</parameterListAllowed>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ТаблицаНоменклатура</sourceDataSet>
+		<destinationDataSet>ЦеныНоменклатуры</destinationDataSet>
+		<sourceExpression>ДатаПолученияДанных</sourceExpression>
+		<destinationExpression>ДатаПолученияДанных</destinationExpression>
+		<parameter>ДатаПолученияДанных</parameter>
+		<parameterListAllowed>false</parameterListAllowed>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ТаблицаНоменклатура</sourceDataSet>
+		<destinationDataSet>ЦеныНоменклатуры</destinationDataSet>
+		<sourceExpression>Валюта</sourceExpression>
+		<destinationExpression>Валюта</destinationExpression>
+		<parameter>Валюта</parameter>
+		<parameterListAllowed>false</parameterListAllowed>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ТаблицаНоменклатура</sourceDataSet>
+		<destinationDataSet>ТаблицаОрганизации</destinationDataSet>
+		<sourceExpression>ОрганизацияСсылка</sourceExpression>
+		<destinationExpression>ОрганизацияСсылка</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ТаблицаНоменклатура</sourceDataSet>
+		<destinationDataSet>ТаблицаОрганизации</destinationDataSet>
+		<sourceExpression>ДатаПолученияДанных</sourceExpression>
+		<destinationExpression>ДатаПолученияДанных</destinationExpression>
+	</dataSetLink>
+	<parameter>
+		<name>СписокНоменклатуры</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Список номенклатуры</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Номенклатура</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+	</parameter>
+	<parameter>
+		<name>ДатаПолученияДанных</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата получения данных</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Валюта</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Валюта</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Валюты</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<parameter>
+		<name>ТипЦен</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Тип цен</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.ТипыЦенНоменклатуры</v8:Type>
+		</valueType>
+		<value xsi:nil="true"/>
+		<useRestriction>true</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НоменклатураСсылка</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

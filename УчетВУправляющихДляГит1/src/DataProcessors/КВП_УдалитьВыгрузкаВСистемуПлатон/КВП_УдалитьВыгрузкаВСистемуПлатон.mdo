@@ -1,0 +1,1091 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="cb3533f0-11ad-42c0-8bdf-c34656701d60">
+  <producedTypes>
+    <objectType typeId="b0b3e0b7-75f2-49a3-ab6b-d80bb738b434" valueTypeId="147fc9c9-d8d6-43e4-b554-4807ea6bffdb"/>
+    <managerType typeId="d2cf3254-f0d4-4ea0-8d63-dab4868efd6b" valueTypeId="3bcd649e-4292-4aa9-80c8-fb0028636d35"/>
+  </producedTypes>
+  <name>КВП_УдалитьВыгрузкаВСистемуПлатон</name>
+  <synonym>
+    <key>ru</key>
+    <value>(не используется с версии 3.0.50.1) Выгрузка в платежную систему &quot;ПлатОН&quot;</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.КВП_УдалитьВыгрузкаВСистемуПлатон.Form.Форма</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="7fd46797-ac51-47e2-9dc4-bc4a3b265102">
+    <name>Период</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Период выгрузки</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="2862cdc0-52aa-4376-9e1c-37b1670ce3c3">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация, по которой выполняется выгрузка данных</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="9c6cdebb-452e-4397-9347-f975005a9e49">
+    <name>КаталогВыгрузки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Каталог выгрузки</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Каталог выгрузки данных</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="ea6088d9-8460-4494-9eda-7da6509f8179">
+    <producedTypes>
+      <objectType typeId="c8461643-c609-4b1e-9afb-f67aeaebbfe2" valueTypeId="e8ae2ebd-83da-4b1c-aa8f-44ff4190ab1e"/>
+      <rowType typeId="ea738c36-a182-4ac2-8046-9d4f86f30201" valueTypeId="87674f66-fa60-4366-aa25-1e605f9f978b"/>
+    </producedTypes>
+    <name>Таблица_ФайлСчетов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Таблица файл счетов</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="eff0a30d-7cb2-425e-a38b-a9632c3bc0c5">
+      <name>ЛицевойСчет</name>
+      <synonym>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Текущий лицевой счет</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="e13b0475-40fb-4c5b-ad9d-1c6bd1537b7e">
+      <name>НомерЛицевогоСчета</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер лицевого счета</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="9c445df0-11dd-4705-af15-c4d34418dfff">
+      <name>ТипНаселенногоПункта</name>
+      <synonym>
+        <key>ru</key>
+        <value>Тип населенного пункта</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Тип текущего населенного пункта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="c6b3a58e-12a5-4dd7-afd1-11b08c44cd22">
+      <name>НаименованиеНаселенногоПункта</name>
+      <synonym>
+        <key>ru</key>
+        <value>Наименование населенного пункта</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Населенный пункт</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="68caa634-27a6-4fc2-a3f3-361b7ddc6d16">
+      <name>ТипУлицы</name>
+      <synonym>
+        <key>ru</key>
+        <value>Тип улицы</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Тип текущей улицы</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="30cb87bf-ef0e-430d-a881-981f494ada09">
+      <name>НаименованиеУлицы</name>
+      <synonym>
+        <key>ru</key>
+        <value>Наименование улицы</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Улица</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="91e8271f-9758-4fe5-8c34-fa2f2eb62d54">
+      <name>НомерДома</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер дома</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Дом</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="90ea6dd9-bbc1-4100-95ff-08e52857d8b1">
+      <name>НомерКорпуса</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер корпуса</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Корпус</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="29d727bf-fe63-41c6-81bc-4999650ead8a">
+      <name>НомерКвартиры</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер квартиры</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Квартира</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="c6a492ac-499b-474f-8ab5-4694193a81f8">
+      <name>ФИООтветственногоСобственника</name>
+      <synonym>
+        <key>ru</key>
+        <value>ФИО Ответственного собственника</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Фамилия, имя, отчество ответственного собственника</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="d1f6f719-97e2-4a89-b47c-80c36d46304b">
+      <name>ОбщаяПлощадь</name>
+      <synonym>
+        <key>ru</key>
+        <value>Общая площадь помещения, приходящаяся на лицевой счет</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Общая площадь</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="6315baa3-ce1f-4567-afb7-0c9a5624bf4e">
+      <name>ЖилаяПлощадь</name>
+      <synonym>
+        <key>ru</key>
+        <value>Жилая площадь помещения, приходящаяся на лицевой счет</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Жилая площадь</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="8f9d2d82-d7fb-4e86-82ce-4b18442c5b50">
+      <name>КоличествоПроживающих</name>
+      <synonym>
+        <key>ru</key>
+        <value>Число постоянно проживающих (чел.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>4</precision>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Число постоянно проживающих</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="533da0ff-26f5-4941-b8ee-54cac6ed29d9">
+      <name>КоличествоВременноПроживающих</name>
+      <synonym>
+        <key>ru</key>
+        <value>Число временно проживающих (чел.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>4</precision>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Число временно проживающих</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="f7cf966b-2ed6-4907-a509-2afa64fda811">
+      <name>КоличествоВременноОтсутствующих</name>
+      <synonym>
+        <key>ru</key>
+        <value>Число временно отсутствующих (чел.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>4</precision>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Число временно отсутствующих</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="9906c66d-c594-41af-8477-e2a61238cc15">
+    <producedTypes>
+      <objectType typeId="ef22cea5-49d6-4349-9977-ae8be1ea3296" valueTypeId="b6ef4c11-2680-402f-9905-60471a53bd7d"/>
+      <rowType typeId="b506a9e7-250c-48bc-bf8a-3f9c59f7efcc" valueTypeId="38fea769-0623-4561-9132-b4225ca7af6e"/>
+    </producedTypes>
+    <name>Таблица_ФайлНачислений</name>
+    <synonym>
+      <key>ru</key>
+      <value>Таблица файл начислений</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="80f3b354-6ad5-4200-a3f6-8c58047d29ee">
+      <name>РасчетныйПериод</name>
+      <synonym>
+        <key>ru</key>
+        <value>Расчетный период</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>30</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Текущий расчетный период</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2b05b5f1-68fb-4f25-b8f6-fce6c57cd233">
+      <name>НомерЛицевогоСчета</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер лицевого счета</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Номер текущего лицевого счета</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="195656f0-4e8e-455e-8af8-ab5945480a8b">
+      <name>ФИОПлательщика</name>
+      <synonym>
+        <key>ru</key>
+        <value>ФИО Плательщика</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers/>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Фамилия, имя, отчество плательщика</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="d76fc2aa-dce0-4f71-8810-11a9553a61b3">
+      <name>КодУслуги</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код услуги</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>6</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Код текущей услуги</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="ada5a9da-a8db-42d3-bf0c-a338a7871088">
+      <name>НаименованиеУслуги</name>
+      <synonym>
+        <key>ru</key>
+        <value>Наименование услуги</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>150</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Наименование текущей услуги</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="d76f68d4-5f38-4bf1-ac4b-8cf39f54d962">
+      <name>ФактическаяСуммаНачисленийПоУслуге</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма, начисленная  по услуге, с учетом всех льгот и перерасчетов (руб.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма, начисленная  по услуге, с учетом всех льгот и перерасчетов (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="cee785f3-a3e9-4796-936f-140471b6f432">
+      <name>ВходящееСальдоПоУслуге</name>
+      <synonym>
+        <key>ru</key>
+        <value>Входящее сальдо по услуге (руб. )</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Входящее сальдо по услуге (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="bd474f05-dc2d-4e2c-ac60-3ddbdad46075">
+      <name>ФактическаяСуммаПлатежейПоУслуге</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма платежей по услуге (руб.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма платежей по услуге (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="561eb9a7-b3b4-42f9-9a9a-005b376f9d0b">
+      <name>СуммаНачисленийПоСчету</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма начислений по счету в целом (руб.) </value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма начислений по счету в целом (в рублях) </value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="d9fdf07d-1cbe-4915-a5bb-b99e84372238">
+      <name>ИсходящееСальдоПоУслуге</name>
+      <synonym>
+        <key>ru</key>
+        <value>Исходящее сальдо по услуге (руб.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Исходящее сальдо по услуге (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="23f7ead3-d7b9-4fb7-9edd-2bcbeba9d435">
+      <name>ВходящееСальдоПениПоСчету</name>
+      <synonym>
+        <key>ru</key>
+        <value>Входящее сальдо по пени по счету в целом (руб.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Входящее сальдо по пени по счету в целом (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="429494a3-01dc-4ef1-9d39-ba23a64feb07">
+      <name>СуммаПениПоСчету</name>
+      <synonym>
+        <key>ru</key>
+        <value>Начисленная сумма пени по счету в целом с учетом возможных перерасчетов (руб.)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Начисленная сумма пени по счету в целом с учетом возможных перерасчетов (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="fd8b41b6-b813-41be-ad2f-144b5f6559f5">
+      <name>ИсходящееСальдоПениПоСчету</name>
+      <synonym>
+        <key>ru</key>
+        <value>Исходящее сальдо по пени по счету в целом (руб.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Исходящее сальдо по пени по счету в целом (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="f9a58d40-7e81-4fbb-b94b-4ac7ec0482d0">
+      <name>СуммаЛьготПоУслуге</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма льгот по услуге (руб.) </value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма льгот по услуге (в рублях) </value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="d136cd6f-90d2-4799-87aa-f56d1d3affe5">
+      <name>СуммаПерерасчетовПоУслуге</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма перерасчетов по услуге (руб.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма перерасчетов по услуге (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="af240a74-570f-49c6-a3ce-e8c8c04f385b">
+      <name>СуммаСубсидийПоУслуге</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма субсидий по услуге (руб.)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма субсидий по услуге (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="b7345959-37c6-4110-b76c-8431e5d573b2">
+      <name>ОбъемПотребления</name>
+      <synonym>
+        <key>ru</key>
+        <value>Объем потребленного ресурса по услуге</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Объем потребления</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="0e578acd-e541-40d4-ab09-eeda20562e73">
+      <name>СпособОпределенияРасхода</name>
+      <synonym>
+        <key>ru</key>
+        <value>Способ определения расхода (по счетчику, по норме расхода)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Способ определения расхода</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="46497b61-fa78-4c88-a364-8dac29f7172c">
+      <name>ЕдиницаИзмерения</name>
+      <synonym>
+        <key>ru</key>
+        <value>Единица измерения объема потребленного ресурса по услуге</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Единица измерения</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="838dbad6-18ec-41d0-9f66-8a0b96ffbf24">
+      <name>РазмерТарифа</name>
+      <synonym>
+        <key>ru</key>
+        <value>Размер текущего тарифа по услуге (руб.)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Размер тарифа</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="93874d5b-c4da-44ac-8aa2-e7295bf2ba6a">
+      <name>СуммаНачислений</name>
+      <synonym>
+        <key>ru</key>
+        <value>Начисленная сумма по услуге (руб.)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Начисленная сумма по услуге (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="f8a3c1d9-9063-444d-bb70-afc7ab8b8e36">
+      <name>СуммаПерерасчетаВходящегоСальдо</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма перерасчета входящего сальдо по услуге (руб.)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма перерасчета входящего сальдо по услуге (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="a0bcc6e0-c28d-400f-ab57-4a844a85303d">
+      <name>СуммаЛьготПоСчету</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма льгот по счету в целом (руб.)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма льгот по счету в целом (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="49a3a90f-593c-465a-990b-cfa2c30137c8">
+      <name>СуммаПерерасчетовПоСчету</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма перерасчетов по счету в целом (руб.)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма перерасчетов по счету в целом (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="c288619d-a6ed-4f2e-8a71-899f66a9428b">
+      <name>СуммаСубсидийПоСчету</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма субсидий по счету в целом (руб.)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма субсидий по счету в целом (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="cf792eda-a880-48a9-966c-33e3cb0c2349">
+      <name>СуммаПерерасчетаПени</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма перерасчета пени (руб.)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма перерасчета пени (в рублях)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="391c42d3-27a3-49e4-94d7-cd99984a05d9">
+    <producedTypes>
+      <objectType typeId="c19430db-9063-4f94-ba92-a0806ee425b6" valueTypeId="5a120fd4-d6f3-4dfc-9958-6fb0bb4679f2"/>
+      <rowType typeId="99cd0d77-708d-4e38-8f98-01b432673223" valueTypeId="8c6d4872-10cc-4d98-8783-07792bc933a4"/>
+    </producedTypes>
+    <name>Таблица_ФайлСчетчиков</name>
+    <synonym>
+      <key>ru</key>
+      <value>Таблица файл счетчиков</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="b237bef9-ffab-4749-a0b2-5626cd8fb31d">
+      <name>НомерЛицевогоСчета</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер лицевого счета</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Лицевой счет</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="ecbd5b84-399b-47c3-b7f6-6f08d1ccf098">
+      <name>КодУслуги</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код услуги</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>6</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Код текущей услуги</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="1408e329-d8a6-4260-bc7f-9d29cbefe864">
+      <name>Счетчик</name>
+      <synonym>
+        <key>ru</key>
+        <value>Счетчик</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Счетчики</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Текущий счетчик</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="4d8a014c-3245-4b29-89c3-41e5b52d4dcd">
+      <name>ИдентификаторСчетчика</name>
+      <synonym>
+        <key>ru</key>
+        <value>Идентификатор счетчика</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Идентификатор текущего счетчика</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+  </tabularSections>
+  <forms uuid="ff34243b-807d-46f9-972f-23bf871311de">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

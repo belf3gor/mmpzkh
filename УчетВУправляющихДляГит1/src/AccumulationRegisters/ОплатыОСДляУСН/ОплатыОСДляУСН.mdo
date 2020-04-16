@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="0b8ec966-631d-4ed1-8f0b-c6f8ccce2cd1">
+  <producedTypes>
+    <selectionType typeId="2fd0254d-2b34-4fe7-a37a-5a9bf8891448" valueTypeId="39d14857-0ac0-4d40-84e9-ff3d3b372339"/>
+    <listType typeId="b4f22105-bc09-4cbc-abf3-fe07b2dc19c3" valueTypeId="25ef07e2-dcfa-42e0-9f85-334323cfe810"/>
+    <managerType typeId="ad61789e-8cbb-41f6-924d-490ff096ca02" valueTypeId="81845474-2c4a-4fb2-877b-b17a84862893"/>
+    <recordSetType typeId="825fafaf-4e37-4323-8d47-2ab1bdf53e57" valueTypeId="4c585175-aad0-40aa-8154-aa83c7ded9c5"/>
+    <recordKeyType typeId="cf34a817-deba-49eb-bef5-0149119f8e1e" valueTypeId="677c69ff-8d25-4aba-8367-06911bb6f400"/>
+    <recordType typeId="33cd263a-69ce-4e1e-99a7-132d666aec5a" valueTypeId="789b806a-7e91-4790-9453-580c99c7b016"/>
+  </producedTypes>
+  <name>ОплатыОСДляУСН</name>
+  <synonym>
+    <key>ru</key>
+    <value>Зарегистрированные оплаты основных средств (УСН)</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <registerType>Turnovers</registerType>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="47bdd306-bf37-4f94-907a-a0a691bdd339">
+    <name>СуммаОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма оплаты</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <dimensions uuid="46b157c3-f473-455c-ab25-b2b9a36ea089">
+    <name>ОсновноеСредство</name>
+    <synonym>
+      <key>ru</key>
+      <value>Основное средство</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ОсновныеСредства</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="1a11d4ca-ece8-4580-a816-3b35b7fdfb88">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="767b83d2-2697-4067-a19a-6f5194e49dab">
+    <name>ДатаОплаты</name>
+    <synonym>
+      <key>ru</key>
+      <value>Дата оплаты</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="40523a24-a5fa-42f9-b629-b3759060fe0b">
+    <name>ДокументМодернизации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Документ модернизации</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.МодернизацияОС</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <commands uuid="2da59475-7f53-46fc-84cc-c7a80c7ee6f9">
+    <name>ЗарегистрированныеОплатыОСУСН</name>
+    <synonym>
+      <key>ru</key>
+      <value>Зарегистрированные оплаты ОС (УСН)</value>
+    </synonym>
+    <group>FormNavigationPanelGoTo</group>
+    <commandParameterType>
+      <types>CatalogRef.ОсновныеСредства</types>
+    </commandParameterType>
+    <representation>Auto</representation>
+    <shortcut></shortcut>
+  </commands>
+</mdclass:AccumulationRegister>

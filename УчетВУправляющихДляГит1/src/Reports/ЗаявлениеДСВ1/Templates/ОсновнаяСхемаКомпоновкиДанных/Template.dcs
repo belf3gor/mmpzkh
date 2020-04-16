@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИнформационнаяБаза</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>Данные</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресДляИнформирования</dataPath>
+			<field>АдресДляИнформирования</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Имя</dataPath>
+			<field>Имя</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НаименованиеПФР</dataPath>
+			<field>НаименованиеПФР</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Отчество</dataPath>
+			<field>Отчество</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтраховойНомерПФР</dataPath>
+			<field>СтраховойНомерПФР</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Фамилия</dataPath>
+			<field>Фамилия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФизическоеЛицо</dataPath>
+			<field>ФизическоеЛицо</field>
+			<inputParameters>
+				<dcscor:item>
+					<dcscor:parameter>СвязиПараметровВыбора</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:ChoiceParameterLinks">
+						<dcscor:item>
+							<dcscor:choiceParameter>Отбор.Организация</dcscor:choiceParameter>
+							<dcscor:value>Организация</dcscor:value>
+							<dcscor:mode xmlns:d8p1="http://v8.1c.ru/8.1/data/enterprise" xsi:type="d8p1:LinkedValueChangeMode">Clear</dcscor:mode>
+						</dcscor:item>
+					</dcscor:value>
+				</dcscor:item>
+			</inputParameters>
+		</field>
+		<dataSource>ИнформационнаяБаза</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Сотрудники.ФизическоеЛицо.СтраховойНомерПФР КАК СтраховойНомерПФР,
+	Сотрудники.ФизическоеЛицо КАК ФизическоеЛицо,
+	ТекущиеКадровыеДанныеСотрудников.ТекущаяОрганизация КАК Организация,
+	ТекущиеКадровыеДанныеСотрудников.ТекущаяОрганизация.НаименованиеТерриториальногоОрганаПФР КАК НаименованиеПФР
+ПОМЕСТИТЬ ВТСотрудники
+ИЗ
+	Справочник.Сотрудники КАК Сотрудники
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ТекущиеКадровыеДанныеСотрудников КАК ТекущиеКадровыеДанныеСотрудников
+		ПО Сотрудники.Ссылка = ТекущиеКадровыеДанныеСотрудников.Сотрудник
+			И Сотрудники.ФизическоеЛицо = ТекущиеКадровыеДанныеСотрудников.ФизическоеЛицо
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ВидыЗанятостиСотрудниковИнтервальный КАК ВидыЗанятостиСотрудников
+		ПО Сотрудники.Ссылка = ВидыЗанятостиСотрудников.Сотрудник
+			И (ДАТАВРЕМЯ(3999, 12, 31, 23, 59, 59) МЕЖДУ ВидыЗанятостиСотрудников.ДатаНачала И ВидыЗанятостиСотрудников.ДатаОкончания)
+ГДЕ
+	ТекущиеКадровыеДанныеСотрудников.ДатаПриема &lt;= &amp;Период
+	И ВидыЗанятостиСотрудников.ВидЗанятости &lt;&gt; ЗНАЧЕНИЕ(Перечисление.ВидыЗанятости.ВнутреннееСовместительство)
+{ГДЕ
+	Сотрудники.ФизическоеЛицо.* КАК ФизическоеЛицо,
+	ТекущиеКадровыеДанныеСотрудников.ТекущаяОрганизация.* КАК Организация}
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	Сотрудники.СтраховойНомерПФР КАК ФизлицоСтраховойНомерПФР,
+	Сотрудники.ФизическоеЛицо КАК ФизическоеЛицо,
+	ЕСТЬNULL(ФИОФизическихЛицСрезПоследних.Фамилия, Сотрудники.ФизическоеЛицо.Фамилия) КАК Фамилия,
+	ЕСТЬNULL(ФИОФизическихЛицСрезПоследних.Имя, Сотрудники.ФизическоеЛицо.Имя) КАК Имя,
+	ЕСТЬNULL(ФИОФизическихЛицСрезПоследних.Отчество, Сотрудники.ФизическоеЛицо.Отчество) КАК Отчество,
+	ВЫРАЗИТЬ(ВЫБОР
+			КОГДА АдресаДляИнформирования.Представление ЕСТЬ НЕ NULL 
+				ТОГДА АдресаДляИнформирования.Представление
+			КОГДА АдресаФактические.Представление ЕСТЬ НЕ NULL 
+				ТОГДА АдресаФактические.Представление
+			КОГДА АдресаРегистрации.Представление ЕСТЬ НЕ NULL 
+				ТОГДА АдресаРегистрации.Представление
+			ИНАЧЕ """"
+		КОНЕЦ КАК СТРОКА(300)) КАК АдресДляИнформирования,
+	Сотрудники.Организация КАК Организация,
+	Сотрудники.НаименованиеПФР КАК НаименованиеПФР
+{ВЫБРАТЬ
+	ФизлицоСтраховойНомерПФР КАК СтраховойНомерПФР,
+	Фамилия,
+	Имя,
+	Отчество,
+	АдресДляИнформирования,
+	ФизическоеЛицо.*,
+	Организация.*,
+	НаименованиеПФР}
+ИЗ
+	ВТСотрудники КАК Сотрудники
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ФизическиеЛица.КонтактнаяИнформация КАК АдресаФактические
+		ПО Сотрудники.ФизическоеЛицо = АдресаФактические.Ссылка
+			И (АдресаФактические.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресМестаПроживанияФизическиеЛица))
+			И (АдресаФактические.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Адрес))
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ФизическиеЛица.КонтактнаяИнформация КАК АдресаРегистрации
+		ПО Сотрудники.ФизическоеЛицо = АдресаРегистрации.Ссылка
+			И (АдресаРегистрации.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Адрес))
+			И (АдресаРегистрации.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресПоПропискеФизическиеЛица))
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ФизическиеЛица.КонтактнаяИнформация КАК АдресаДляИнформирования
+		ПО Сотрудники.ФизическоеЛицо = АдресаДляИнформирования.Ссылка
+			И (АдресаДляИнформирования.Вид = ЗНАЧЕНИЕ(Справочник.ВидыКонтактнойИнформации.АдресДляИнформированияФизическиеЛица))
+			И (АдресаДляИнформирования.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Адрес))
+		ЛЕВОЕ СОЕДИНЕНИЕ РегистрСведений.ФИОФизическихЛиц.СрезПоследних(
+				&amp;Период,
+				ФизическоеЛицо В
+					(ВЫБРАТЬ
+						Сотрудники.ФизическоеЛицо
+					ИЗ
+						ВТСотрудники КАК Сотрудники)) КАК ФИОФизическихЛицСрезПоследних
+		ПО Сотрудники.ФизическоеЛицо = ФИОФизическихЛицСрезПоследних.ФизическоеЛицо
+{ГДЕ
+	Сотрудники.Организация.*,
+	Сотрудники.ФизическоеЛицо.*}</query>
+		<autoFillFields>false</autoFillFields>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Дата</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<use>Always</use>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>ЗаявлениеДСВ1</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Заявление ДСВ-1</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">ФизическоеЛицо</dcsset:left>
+					<dcsset:comparisonType>InList</dcsset:comparisonType>
+					<dcsset:right xsi:type="dcscor:DesignTimeValue">Справочник.ФизическиеЛица.ПустаяСсылка</dcsset:right>
+					<dcsset:userSettingID>f0bf113f-384f-4824-8cf4-ea3137790bdb</dcsset:userSettingID>
+					<dcsset:userSettingPresentation xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Сотрудники</v8:content>
+						</v8:item>
+					</dcsset:userSettingPresentation>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Период</dcscor:parameter>
+					<dcscor:value xsi:type="v8:StandardBeginningDate">
+						<v8:variant xsi:type="v8:StandardBeginningDateVariant">BeginningOfThisDay</v8:variant>
+					</dcscor:value>
+					<dcsset:userSettingID>b0c0ed64-988c-43d4-a863-b799a83e3206</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemField">
+						<dcsset:field>ФизическоеЛицо.ФИО</dcsset:field>
+						<dcsset:orderType>Asc</dcsset:orderType>
+					</dcsset:item>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>ФизическоеЛицо</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Фамилия</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Имя</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Отчество</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>СтраховойНомерПФР</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>НаименованиеПФР</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>АдресДляИнформирования</dcsset:field>
+					</dcsset:item>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Организация</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

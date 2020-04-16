@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="43a30ac5-cc1f-4fdf-b0b7-1e640388a56d">
+  <producedTypes>
+    <objectType typeId="84a96e56-075f-4669-8cca-7ad8d7633153" valueTypeId="09521d22-e8c8-4bc5-9ef2-5834908e4a94"/>
+    <managerType typeId="b0631a0f-5f16-4b9a-9346-7a61f515fd6f" valueTypeId="aeca9153-6439-4c20-a973-d780ba38a6aa"/>
+  </producedTypes>
+  <name>КнигаУчетаДоходовПатент</name>
+  <synonym>
+    <key>ru</key>
+    <value>Книга доходов по патенту</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>Report.КнигаУчетаДоходовПатент.Form.ФормаОтчета</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="5bcb0c9a-e035-42c7-92f0-dbb4bd21175b">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <choiceParameters>
+      <name>Отбор.ЮридическоеФизическоеЛицо</name>
+      <value xsi:type="core:ReferenceValue">
+        <value>Enum.ЮридическоеФизическоеЛицо.EnumValue.ФизическоеЛицо</value>
+      </value>
+    </choiceParameters>
+  </attributes>
+  <attributes uuid="0a6603fd-493b-4b6a-90d6-0a5520846b3a">
+    <name>НачалоПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начало периода</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="20766404-2232-45b9-a8fd-00396340f97a">
+    <name>КонецПериода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Конец периода</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="de9bc1de-ad48-4c74-99f5-c0e98856f20a">
+    <name>Патент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Патент</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Патенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>Report.КнигаУчетаДоходовПатент.Attribute.Организация</field>
+    </choiceParameterLinks>
+  </attributes>
+  <attributes uuid="89920901-3699-40ac-9702-5410499ef065">
+    <name>СписокСформированныхЛистов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Список листов</value>
+    </synonym>
+    <type>
+      <types>ValueList</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <forms uuid="2829d8f6-f177-4460-aebc-f508afb56510">
+    <name>ФормаОтчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма отчета</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="2d7cb157-23e1-45a7-a097-2bdf8e01992f">
+    <name>ТитульныйЛист_патент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Титульный лист (патент)</value>
+    </synonym>
+  </templates>
+  <templates uuid="e6d5d2d7-fd48-4c2f-8a88-23bf44059ff0">
+    <name>Раздел1_патент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Раздел I. Доходы</value>
+    </synonym>
+  </templates>
+  <templates uuid="1a2beee3-80e0-43aa-966a-57b2e8bc54a9">
+    <name>ТитульныйЛист_154н</name>
+    <synonym>
+      <key>ru</key>
+      <value>Титульный лист 154н</value>
+    </synonym>
+  </templates>
+  <templates uuid="00a1cb51-7863-49c1-8490-dd86a97c0bf3">
+    <name>Раздел1_154н</name>
+    <synonym>
+      <key>ru</key>
+      <value>Раздел I. Доходы</value>
+    </synonym>
+  </templates>
+  <commands uuid="13b0e04a-3118-49ad-87dc-01d740b473b3">
+    <name>КнигаУчетаДоходовПатентПростойИнтерфейс</name>
+    <synonym>
+      <key>ru</key>
+      <value>Книга доходов по патенту</value>
+    </synonym>
+    <group>FormNavigationPanelGoTo</group>
+    <commandParameterType/>
+    <representation>Auto</representation>
+    <shortcut></shortcut>
+  </commands>
+</mdclass:Report>

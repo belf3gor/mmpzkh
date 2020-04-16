@@ -1,0 +1,129 @@
+<xs:schema xmlns:ns1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+		xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/"
+		xmlns:tns="http://schemas.datacontract.org/2004/07/Croc.Rosstat.Websbor.WebIntegration"
+		xmlns:xs="http://www.w3.org/2001/XMLSchema"
+		elementFormDefault="qualified"
+		targetNamespace="http://schemas.datacontract.org/2004/07/Croc.Rosstat.Websbor.WebIntegration">
+	<xs:import schemaLocation="file://3.xsd"
+			namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+	<xs:import schemaLocation="file://4.xsd"
+			namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+	<xs:complexType name="GetActualVersionRequest">
+		<xs:sequence/>
+	</xs:complexType>
+	<xs:element name="GetActualVersionRequest"
+			nillable="true"
+			type="tns:GetActualVersionRequest"/>
+	<xs:complexType name="GetActualVersionResponse">
+		<xs:sequence>
+			<xs:element minOccurs="0"
+					name="RelativeDownloadPath"
+					nillable="true"
+					type="xs:string"/>
+			<xs:element minOccurs="0"
+					name="Version"
+					nillable="true"
+					type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GetActualVersionResponse"
+			nillable="true"
+			type="tns:GetActualVersionResponse"/>
+	<xs:complexType name="GetTemplatesInfoRequest">
+		<xs:sequence>
+			<xs:element minOccurs="0"
+					name="State"
+					type="tns:GetTemplateState"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GetTemplatesInfoRequest"
+			nillable="true"
+			type="tns:GetTemplatesInfoRequest"/>
+	<xs:simpleType name="GetTemplateState">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="All"/>
+			<xs:enumeration value="Actual"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:element name="GetTemplateState"
+			nillable="true"
+			type="tns:GetTemplateState"/>
+	<xs:complexType name="ArrayOfTemplateInfo">
+		<xs:sequence>
+			<xs:element minOccurs="0"
+					maxOccurs="unbounded"
+					name="TemplateInfo"
+					nillable="true"
+					type="tns:TemplateInfo"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="ArrayOfTemplateInfo"
+			nillable="true"
+			type="tns:ArrayOfTemplateInfo"/>
+	<xs:complexType name="TemplateInfo">
+		<xs:sequence>
+			<xs:element name="Code"
+					nillable="true"
+					type="xs:string"/>
+			<xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+					minOccurs="0"
+					name="ExtraKeys"
+					nillable="true"
+					type="q1:ArrayOfstring"/>
+			<xs:element minOccurs="0"
+					name="Hash"
+					nillable="true"
+					type="xs:string"/>
+			<xs:element minOccurs="0"
+					name="Idf"
+					type="xs:int"/>
+			<xs:element minOccurs="0"
+					name="IsArchive"
+					type="xs:boolean"/>
+			<xs:element name="Name"
+					nillable="true"
+					type="xs:string"/>
+			<xs:element name="ObjectId"
+					type="ser:guid"/>
+			<xs:element name="Okud"
+					nillable="true"
+					type="xs:string"/>
+			<xs:element name="PeriodType"
+					type="xs:int"/>
+			<xs:element minOccurs="0"
+					name="Shifr"
+					nillable="true"
+					type="xs:string"/>
+			<xs:element minOccurs="0"
+					name="UpdateTime"
+					type="xs:dateTime"/>
+			<xs:element name="Version"
+					nillable="true"
+					type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="TemplateInfo"
+			nillable="true"
+			type="tns:TemplateInfo"/>
+	<xs:complexType name="GetTemplateBodyRequest">
+		<xs:sequence>
+			<xs:element minOccurs="0"
+					name="Id"
+					type="ser:guid"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GetTemplateBodyRequest"
+			nillable="true"
+			type="tns:GetTemplateBodyRequest"/>
+	<xs:complexType name="GetTemplateBodyResponse">
+		<xs:sequence>
+			<xs:element minOccurs="0"
+					name="Body"
+					nillable="true"
+					type="xs:base64Binary"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:element name="GetTemplateBodyResponse"
+			nillable="true"
+			type="tns:GetTemplateBodyResponse"/>
+</xs:schema>

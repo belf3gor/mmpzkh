@@ -1,0 +1,29 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://api.vetrf.ru/schema/cdm/application/ws-definitions" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://api.vetrf.ru/schema/cdm/base"/>
+	<import namespace="http://api.vetrf.ru/schema/cdm/application"/>
+	<property name="receiveApplicationResultRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/application" name="apiKey" type="d4p1:APIKey"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" name="issuerId" type="d4p1:UUID"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" name="applicationId" type="d4p1:UUID"/>
+		</typeDef>
+	</property>
+	<property name="receiveApplicationResultResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/application" ref="d4p1:application"/>
+		</typeDef>
+	</property>
+	<property name="submitApplicationRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/application" name="apiKey" type="d4p1:APIKey"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/application" ref="d4p1:application"/>
+		</typeDef>
+	</property>
+	<property name="submitApplicationResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/application" ref="d4p1:application"/>
+		</typeDef>
+	</property>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/base" name="unknownServiceIdFault" type="d2p1:FaultInfo"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/base" name="unsupportedApplicationDataTypeFault" type="d2p1:FaultInfo"/>
+</package>

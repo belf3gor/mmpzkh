@@ -1,0 +1,374 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="77a6fc98-236a-453e-be87-88d1b0ce7548">
+  <producedTypes>
+    <objectType typeId="16cde5d6-edf5-4644-bd36-014e1b9a5e60" valueTypeId="f991696f-0fc7-4361-8e90-81099f1c4557"/>
+    <managerType typeId="57ce56a8-68c2-4839-8e4e-e643fb9caf90" valueTypeId="2525e058-6809-4586-8a91-35812fc8efab"/>
+  </producedTypes>
+  <name>УПЖКХ_МастерНачислений</name>
+  <synonym>
+    <key>ru</key>
+    <value>Мастер начислений</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.УПЖКХ_МастерНачислений.Form.ФормаСпискаЗадач</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="a4618ebb-1c27-4b2a-8748-32c4ef4f9390">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация, по которой формируются начисления</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="f4243086-ff3c-436b-afcf-ec038dbd25df">
+    <name>МесяцНачисления</name>
+    <synonym>
+      <key>ru</key>
+      <value>Месяц начисления</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Месяц, за который формируются начисления</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="2eb717ab-3569-4e79-a7e8-ec17e69e2375">
+    <name>ДеньРегистрацииДокументов</name>
+    <synonym>
+      <key>ru</key>
+      <value>День регистрации документов</value>
+    </synonym>
+    <comment>День в месяце начисления, от которого будут зарегистрированы документы.</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>2</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>День в месяце начисления, от которого будут зарегистрированы все документы.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="082593ce-6547-4446-930d-37e28a030a65">
+    <name>ИспользоватьМногопоточность</name>
+    <synonym>
+      <key>ru</key>
+      <value>Использовать многопоточность</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Признак использования многопоточности</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="1718a508-d8cc-40fc-8a5d-48adf99b88e9">
+    <name>КоличествоПотоков</name>
+    <synonym>
+      <key>ru</key>
+      <value>Количество потоков</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>2</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Общее количество используемых потоков</value>
+    </toolTip>
+    <minValue xsi:type="core:StringValue">
+      <value>1</value>
+    </minValue>
+    <maxValue xsi:type="core:StringValue">
+      <value>99</value>
+    </maxValue>
+  </attributes>
+  <attributes uuid="4c7e98ba-9868-4bc7-875a-374cdebb91c1">
+    <name>НачислятьУслуги</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начислять услуги</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Признак начисления услуг</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="4eee7961-0667-4d15-b62f-939953dc60ff">
+    <name>НачислятьЛьготы</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начислять льготы</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Признак начисления льгот</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="d6e6821f-0716-4909-b7d8-bf68d14ba05d">
+    <name>НачислятьПени</name>
+    <synonym>
+      <key>ru</key>
+      <value>Начислять пени</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Признак начисления пени</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="51ae676a-5b08-4b47-b557-557b9a776c2e">
+    <name>ЗакрытьПериодПоНачислениямЖКХ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Закрыть период по начислениям ЖКХ</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Признак закрытия периода по начислениям</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="d4703192-fd0f-4d82-88b1-d3fb38d558bd">
+    <name>Ответственный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ответственный</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Ответственный за начисления услуг</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="3f84353a-08f6-42d9-9528-dc5972dc2754">
+    <name>ФормироватьНачисленияИРассчитыватьЛьготыТолькоПоНазначеннымУслугам</name>
+    <synonym>
+      <key>ru</key>
+      <value>Формировать документы начисления услуг и расчета льгот только по услугам, действующим в периоде начисления</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Если настройка включена, документы создаются только по действующим в периоде начисления услугам отдельно для каждого здания. Это дает возможность сократить количество документов. Независимо от настройки пустые документы не сохраняются в инф. базе.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="5ff39d86-b28d-4001-9d68-15ebd820b2d8">
+    <producedTypes>
+      <objectType typeId="27e2d3bf-6c94-4845-ae6c-c428c2573476" valueTypeId="bc1f9e4b-4f24-45f3-814e-2b0d67479e3f"/>
+      <rowType typeId="14f0b9e7-b923-4815-943b-c07c6eac93b4" valueTypeId="956ce8b2-0b97-4667-b46a-1ff32b0f3800"/>
+    </producedTypes>
+    <name>Здания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Здания</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="1075732c-81ac-49c1-a2a4-57f638f4ab0e">
+      <name>Объект</name>
+      <synonym>
+        <key>ru</key>
+        <value>Объект</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Здания</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Здание</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillChecking>ShowError</fillChecking>
+      <choiceFoldersAndItems>FoldersAndItems</choiceFoldersAndItems>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="5a506dc4-b0c3-42b3-b7be-287b60b777e1">
+    <producedTypes>
+      <objectType typeId="b1df9f38-79ff-456a-b1f2-c25a124457c7" valueTypeId="1ee17591-a4d4-43ad-b5f1-339331232d1c"/>
+      <rowType typeId="52a3f8b7-0f9b-4c86-a2d4-7180731b55d1" valueTypeId="ea018a56-c8f8-4ad0-80dd-5a9838d2263b"/>
+    </producedTypes>
+    <name>Услуги</name>
+    <synonym>
+      <key>ru</key>
+      <value>Услуги</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="96dcfc9c-f7f3-4868-af7b-dc22c0bbae8e">
+      <name>Услуга</name>
+      <synonym>
+        <key>ru</key>
+        <value>Услуга</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Услуги</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Услуга начисления</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="172f5043-9275-4cd6-8ab2-2b6ed870776a">
+      <name>ФормироватьНачисления</name>
+      <synonym>
+        <key>ru</key>
+        <value>Формировать начисления</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Признак формирования начислений</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="2e28b093-ebfc-47d6-a680-51bd6327977c">
+      <name>ФормироватьЛьготы</name>
+      <synonym>
+        <key>ru</key>
+        <value>Формировать льготы</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Признак формирования начисления льгот</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="85eaef44-75ef-410c-bf7b-1019359a467b">
+      <name>ЭтоУслугаЛС</name>
+      <synonym>
+        <key>ru</key>
+        <value>Это услуга лицевого счета</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Признак услуги, назначенной на лицевой счет</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="c4977d20-4e88-4d5d-b943-b0346757da25">
+      <name>ЭтоДобровольноеСтрахование</name>
+      <synonym>
+        <key>ru</key>
+        <value>Это добровольное страхование</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Признак того, что текущая услуга является добровольным страхованием</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="f843f3b5-29b0-428e-8ffb-e9655c96e5ce">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="ec71ba54-47d4-47ae-903e-2ff21085d664">
+    <name>ФормаСпискаЗадач</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка задач</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

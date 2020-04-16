@@ -1,0 +1,683 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://api.vetrf.ru/schema/cdm/registry/ws-definitions/v2" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://api.vetrf.ru/schema/cdm/base"/>
+	<import namespace="http://api.vetrf.ru/schema/cdm/dictionary/v2"/>
+	<property name="findLocalityListByNameRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:regionGuid"/>
+			<property name="pattern" type="xs:string"/>
+		</typeDef>
+	</property>
+	<property name="findLocalityListByNameResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:localityList"/>
+		</typeDef>
+	</property>
+	<property name="findStreetListByNameRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:localityGuid"/>
+			<property name="pattern" type="xs:string"/>
+		</typeDef>
+	</property>
+	<property name="findStreetListByNameResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:streetList"/>
+		</typeDef>
+	</property>
+	<property name="getActivityLocationListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:businessEntity"/>
+		</typeDef>
+	</property>
+	<property name="getActivityLocationListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:activityLocationList"/>
+		</typeDef>
+	</property>
+	<property name="getActualR13nRegionStatusListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:disease"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:r13nZone" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getActualR13nRegionStatusListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:r13nRegionStatusList"/>
+		</typeDef>
+	</property>
+	<property name="getActualR13nShippingRuleListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:disease"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productType" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:product" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:subProduct" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getActualR13nShippingRuleListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:r13nShippingRuleList"/>
+		</typeDef>
+	</property>
+	<property name="getAllCountryListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getAllCountryListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:countryList"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessEntityByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessEntityByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:businessEntity"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessEntityByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessEntityByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:businessEntity"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessEntityChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessEntityChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:businessEntityList"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessEntityListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:businessEntity" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessEntityListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:businessEntityList"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessMemberByGLNRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:globalID"/>
+		</typeDef>
+	</property>
+	<property name="getBusinessMemberByGLNResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:businessMember"/>
+		</typeDef>
+	</property>
+	<property name="getCountryByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getCountryByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:country"/>
+		</typeDef>
+	</property>
+	<property name="getCountryByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getCountryByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:country"/>
+		</typeDef>
+	</property>
+	<property name="getCountryChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getCountryChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:countryList"/>
+		</typeDef>
+	</property>
+	<property name="getDiseaseByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getDiseaseByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:disease"/>
+		</typeDef>
+	</property>
+	<property name="getDiseaseByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getDiseaseByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:disease"/>
+		</typeDef>
+	</property>
+	<property name="getDiseaseChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getDiseaseChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:diseaseList"/>
+		</typeDef>
+	</property>
+	<property name="getDiseaseListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getDiseaseListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:diseaseList"/>
+		</typeDef>
+	</property>
+	<property name="getDistrictByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getDistrictByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:district"/>
+		</typeDef>
+	</property>
+	<property name="getDistrictByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getDistrictByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:district"/>
+		</typeDef>
+	</property>
+	<property name="getDistrictChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getDistrictChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:districtList"/>
+		</typeDef>
+	</property>
+	<property name="getDistrictListByRegionRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:regionGuid"/>
+		</typeDef>
+	</property>
+	<property name="getDistrictListByRegionResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:districtList"/>
+		</typeDef>
+	</property>
+	<property name="getEnterpriseByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getEnterpriseByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterprise"/>
+		</typeDef>
+	</property>
+	<property name="getEnterpriseByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getEnterpriseByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterprise"/>
+		</typeDef>
+	</property>
+	<property name="getForeignEnterpriseChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getForeignEnterpriseChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterpriseList"/>
+		</typeDef>
+	</property>
+	<property name="getForeignEnterpriseListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterpriseGroup" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterprise" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getForeignEnterpriseListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterpriseList"/>
+		</typeDef>
+	</property>
+	<property name="getLocalityChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getLocalityChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:localityList"/>
+		</typeDef>
+	</property>
+	<property name="getLocalityListByDistrictRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:districtGuid"/>
+		</typeDef>
+	</property>
+	<property name="getLocalityListByDistrictResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:localityList"/>
+		</typeDef>
+	</property>
+	<property name="getLocalityListByLocalityRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:localityGuid"/>
+		</typeDef>
+	</property>
+	<property name="getLocalityListByLocalityResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:localityList"/>
+		</typeDef>
+	</property>
+	<property name="getLocalityListByRegionRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:regionGuid"/>
+		</typeDef>
+	</property>
+	<property name="getLocalityListByRegionResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:localityList"/>
+		</typeDef>
+	</property>
+	<property name="getProductByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getProductByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:product"/>
+		</typeDef>
+	</property>
+	<property name="getProductByTypeListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productType"/>
+		</typeDef>
+	</property>
+	<property name="getProductByTypeListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productList"/>
+		</typeDef>
+	</property>
+	<property name="getProductByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getProductByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:product"/>
+		</typeDef>
+	</property>
+	<property name="getProductChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getProductChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productList"/>
+		</typeDef>
+	</property>
+	<property name="getProductItemByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getProductItemByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productItem" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getProductItemByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getProductItemByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productItem" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getProductItemChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:businessEntity" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterprise" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:producer" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getProductItemChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productItemList" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getProductItemListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productType" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:product" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:subProduct" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:businessEntity" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterprise" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:producer" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:globalID" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getProductItemListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productItemList" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getPurposeByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getPurposeByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:purpose"/>
+		</typeDef>
+	</property>
+	<property name="getPurposeByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getPurposeByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:purpose"/>
+		</typeDef>
+	</property>
+	<property name="getPurposeChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getPurposeChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:purposeList"/>
+		</typeDef>
+	</property>
+	<property name="getPurposeListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getPurposeListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:purposeList"/>
+		</typeDef>
+	</property>
+	<property name="getR13nConditionListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:disease" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getR13nConditionListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:r13nConditionList"/>
+		</typeDef>
+	</property>
+	<property name="getRegionByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getRegionByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:region"/>
+		</typeDef>
+	</property>
+	<property name="getRegionByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getRegionByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:region"/>
+		</typeDef>
+	</property>
+	<property name="getRegionChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getRegionChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:regionList"/>
+		</typeDef>
+	</property>
+	<property name="getRegionListByCountryRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:countryGuid"/>
+		</typeDef>
+	</property>
+	<property name="getRegionListByCountryResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:regionList"/>
+		</typeDef>
+	</property>
+	<property name="getResearchMethodByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getResearchMethodByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:researchMethod"/>
+		</typeDef>
+	</property>
+	<property name="getResearchMethodByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getResearchMethodByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:researchMethod"/>
+		</typeDef>
+	</property>
+	<property name="getResearchMethodChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getResearchMethodChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:researchMethodList"/>
+		</typeDef>
+	</property>
+	<property name="getResearchMethodListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getResearchMethodListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:researchMethodList"/>
+		</typeDef>
+	</property>
+	<property name="getRussianEnterpriseChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getRussianEnterpriseChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterpriseList"/>
+		</typeDef>
+	</property>
+	<property name="getRussianEnterpriseListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterprise" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getRussianEnterpriseListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:enterpriseList"/>
+		</typeDef>
+	</property>
+	<property name="getStreetChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getStreetChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:streetList"/>
+		</typeDef>
+	</property>
+	<property name="getStreetListByLocalityRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:localityGuid"/>
+		</typeDef>
+	</property>
+	<property name="getStreetListByLocalityResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:streetList"/>
+		</typeDef>
+	</property>
+	<property name="getSubProductByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getSubProductByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:subProduct"/>
+		</typeDef>
+	</property>
+	<property name="getSubProductByProductListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:productGuid"/>
+		</typeDef>
+	</property>
+	<property name="getSubProductByProductListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:subProductList"/>
+		</typeDef>
+	</property>
+	<property name="getSubProductByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getSubProductByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:subProduct"/>
+		</typeDef>
+	</property>
+	<property name="getSubProductChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getSubProductChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:subProductList"/>
+		</typeDef>
+	</property>
+	<property name="getUnitByGuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:guid"/>
+		</typeDef>
+	</property>
+	<property name="getUnitByGuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:unit"/>
+		</typeDef>
+	</property>
+	<property name="getUnitByUuidRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:uuid"/>
+		</typeDef>
+	</property>
+	<property name="getUnitByUuidResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:unit"/>
+		</typeDef>
+	</property>
+	<property name="getUnitChangesListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:updateDateInterval"/>
+		</typeDef>
+	</property>
+	<property name="getUnitChangesListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:unitList"/>
+		</typeDef>
+	</property>
+	<property name="getUnitListRequest">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/base" ref="d4p1:listOptions" lowerBound="0"/>
+		</typeDef>
+	</property>
+	<property name="getUnitListResponse">
+		<typeDef xsi:type="ObjectType">
+			<property xmlns:d4p1="http://api.vetrf.ru/schema/cdm/dictionary/v2" ref="d4p1:unitList"/>
+		</typeDef>
+	</property>
+</package>

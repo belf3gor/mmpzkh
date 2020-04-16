@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Document xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="d1821c67-66a6-4b00-a152-b18d61405c90">
+  <producedTypes>
+    <objectType typeId="57df4c0c-e0be-4ac8-be4a-688d47a4b2e9" valueTypeId="452309e4-e53d-4908-9117-9255dad2b259"/>
+    <refType typeId="056dd064-e360-4661-a369-1a853dbb0d85" valueTypeId="c3bcec2f-74c5-47ac-8404-12b4595ba365"/>
+    <selectionType typeId="cde66edd-2f26-471a-b32b-3ce5884962cc" valueTypeId="abc13c0d-6389-4467-ad3e-ea6be8720011"/>
+    <listType typeId="6da6846a-0348-4b25-ae2e-76adb025c739" valueTypeId="bc169d70-8388-4a41-8103-f83c2737ce73"/>
+    <managerType typeId="3d358048-e1c5-4331-ba9b-f79aa950e2cf" valueTypeId="db49c2e8-842b-4066-8c2b-e3650d2eaa64"/>
+  </producedTypes>
+  <name>УдалитьНДФЛПерерасчет</name>
+  <synonym>
+    <key>ru</key>
+    <value>(Не используется) Перерасчет НДФЛ</value>
+  </synonym>
+  <inputByString>Document.УдалитьНДФЛПерерасчет.StandardAttribute.Number</inputByString>
+  <fullTextSearchOnInputByString>DontUse</fullTextSearchOnInputByString>
+  <createOnInput>Use</createOnInput>
+  <includeHelpInContents>true</includeHelpInContents>
+  <fullTextSearch>Use</fullTextSearch>
+  <numberType>String</numberType>
+  <numberLength>11</numberLength>
+  <numberPeriodicity>Year</numberPeriodicity>
+  <checkUnique>true</checkUnique>
+  <autonumbering>true</autonumbering>
+  <realTimePosting>Deny</realTimePosting>
+  <registerRecordsDeletion>AutoDelete</registerRecordsDeletion>
+  <registerRecordsWritingOnPost>WriteModified</registerRecordsWritingOnPost>
+  <sequenceFilling>AutoFillOff</sequenceFilling>
+  <registerRecords>AccumulationRegister.УдалитьВзаиморасчетыСРаботникамиОрганизаций</registerRecords>
+  <registerRecords>AccumulationRegister.УдалитьНДФЛКЗачету</registerRecords>
+  <registerRecords>AccumulationRegister.РасчетыНалоговыхАгентовСБюджетомПоНДФЛ</registerRecords>
+  <registerRecords>AccumulationRegister.УдалитьНДФЛИмущественныеВычетыФизлиц</registerRecords>
+  <registerRecords>AccumulationRegister.УдалитьАвансовыеПлатежиИностранцевПоНДФЛ</registerRecords>
+  <registerRecords>AccumulationRegister.УдалитьНДФЛРасчетыСБюджетом</registerRecords>
+  <registerRecords>AccumulationRegister.УдалитьНДФЛПредоставленныеСтандартныеВычетыФизЛиц</registerRecords>
+  <attributes uuid="5ab22623-8b5b-40c8-8333-501dd0601195">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="63356cff-87eb-4d19-b61f-ab294bbe6b76">
+    <name>НалоговыйПериод</name>
+    <synonym>
+      <key>ru</key>
+      <value>Налоговый период</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>4</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="7ac7c4f1-9b65-49cd-9d39-82eb1ebaa708">
+    <name>ПериодВзаиморасчетов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период взаиморасчетов</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="b0087b7c-465c-49e6-84ff-25ce2a846848">
+    <name>Ответственный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ответственный</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Пользователи</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="501ba038-7dc9-4d74-b847-ce777e55a817">
+    <name>Комментарий</name>
+    <synonym>
+      <key>ru</key>
+      <value>Комментарий</value>
+    </synonym>
+    <comment>Любая дополнительная информация</comment>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <attributes uuid="e536f8bf-e65c-417e-8c0a-2bbc8ad60333">
+    <name>КраткийСоставДокумента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Краткий состав документа</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>100</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+  </attributes>
+  <tabularSections uuid="f75d5049-4ee6-472f-b0d3-338e6468a648">
+    <producedTypes>
+      <objectType typeId="85145727-d2e1-4165-877b-d9b9be84cc5c" valueTypeId="d1118eed-de53-4bfb-80f0-ed3d96c95a2c"/>
+      <rowType typeId="d006d24d-03be-4fae-9622-e9cd2db4595f" valueTypeId="098758b7-edce-471a-8fc7-591b1c84b95c"/>
+    </producedTypes>
+    <name>РаботникиОрганизации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сотрудники организации</value>
+    </synonym>
+    <attributes uuid="672ead00-d642-4b9c-98bb-118cffa00c88">
+      <name>ФизЛицо</name>
+      <synonym>
+        <key>ru</key>
+        <value>Физическое лицо</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.ФизическиеЛица</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <indexing>Index</indexing>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="0f761f68-eca9-423c-8dda-3226585ac2b9">
+      <name>НалогПоСтавке09</name>
+      <synonym>
+        <key>ru</key>
+        <value>Налог по ставке 9%</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="54959c73-8100-41b5-9a64-9f1cfa02dbe2">
+      <name>НалогПоСтавке13</name>
+      <synonym>
+        <key>ru</key>
+        <value>Налог по ставке 13%</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="656d2bba-2fa8-4861-9593-d630dc7fda18">
+      <name>НалогПоСтавке35</name>
+      <synonym>
+        <key>ru</key>
+        <value>Налог по ставке 35%</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="147f972b-2b0c-47ee-ad88-37ed2a821837">
+      <name>ПримененныйВычетЛичный</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет личный</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="bfc421be-6569-45b3-ae54-4a9bffa59e4f">
+      <name>ПримененныйВычетНаДетей</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="2cb6126c-14c5-4007-bc10-0444def8f2af">
+      <name>ПримененныйВычетНаДетейДвойной</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей двойной</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="b537c95e-ec59-43ba-8cf8-95f1a81f7cea">
+      <name>ПримененныйВычетНаДетейИнвалидов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей инвалидов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="355d96cd-b8f7-4e22-bfcf-e02776d5160f">
+      <name>ПримененныйВычетНаДетейИнвалидовДвойной</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей инвалидов двойной</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="7e72c6a3-b37d-4bf6-b719-513fdaa96b91">
+      <name>ПримененныйВычетИмущественныйРасход</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет имущественный - расход</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="5ff9b9b1-6181-4f30-9e76-e444f700f280">
+      <name>ПримененныйВычетИмущественныйПроцентыПоКредитам</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет имущественный - %% по кредитам</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="cbd64b4e-144a-44df-a82d-c8218f4529cd">
+      <name>ПримененныйВычетИмущественныйПроцентыПриПерекредитовании</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет имущественный - %% при перекредитовании</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="8b11c9bd-2f9e-497e-9e36-a169b2149389">
+      <name>ПодразделениеОрганизации</name>
+      <synonym>
+        <key>ru</key>
+        <value>Подразделение организации</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.ПодразделенияОрганизаций</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="31945de7-b7c7-4bdf-bab4-7827281f33cd">
+      <name>ПримененныйВычетНаДетейДвойнойВторой</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей двойной второй</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="1801d6f4-bccf-41a1-acbd-51a6297f07cd">
+      <name>ПримененныйВычетНаДетейИнвалидовДвойнойВторой</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей инвалидов двойной второй</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="59b97031-1453-4295-8e28-3b5197e8da04">
+      <name>ПримененныйВычетНаТретьегоРебенка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на третьего ребенка</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="cbc4e80c-d753-4095-bf4c-25308eab7f5f">
+      <name>ПримененныйВычетНаТретьегоРебенкаДвойной</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на третьего ребенка двойной</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="1979dc7a-4453-44fd-b07d-1cec30331b1e">
+      <name>ПримененныйВычетНаТретьегоРебенкаДвойнойВторой</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на третьего ребенка двойной второй</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="9164af1e-4324-4575-8024-8b2c29ba7451">
+      <name>ПримененныйВычетНаВторогоРебенкаДвойнойВторой</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на второго ребенка двойной второй</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="6cfa5c11-e064-4e14-873b-2f2c392edf20">
+      <name>ПримененныйВычетНаВторогоРебенкаДвойной</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на второго ребенка двойной</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="163c308a-785e-4995-af73-7725d0b3c8d6">
+      <name>ПримененныйВычетНаВторогоРебенка</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на второго ребенка</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="844ae249-45ac-4c87-8b4c-db3a44c89970">
+      <name>ЗачтеноАвансовыхПлатежейПоСтавке09</name>
+      <synonym>
+        <key>ru</key>
+        <value>9% (15%)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="fb40a8fc-fad8-43c0-ad0c-0990fccde917">
+      <name>ЗачтеноАвансовыхПлатежейПоСтавке13</name>
+      <synonym>
+        <key>ru</key>
+        <value>13% (30%)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="c66534a8-04cf-4b73-9406-2eb24b2dd840">
+      <name>ЗачтеноАвансовыхПлатежейПоСтавке35</name>
+      <synonym>
+        <key>ru</key>
+        <value>35% (30%)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="b345fd29-33c3-4661-a315-f287618b8f6f">
+      <name>МесяцНалоговогоПериода</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата получения дохода</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="2a25fbb8-812e-4e52-8d5d-67be39d761ae">
+      <name>ПримененныйВычетНаДетейИнвалидовДвойнойВторойОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей инвалидов двойной второй опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="3f133070-8c93-48f6-81fb-ccbb112d3f5a">
+      <name>ПримененныйВычетНаДетейИнвалидовДвойнойОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей инвалидов двойной опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="0cdd7ed6-83a0-4c95-8759-d9fc630efdfa">
+      <name>ПримененныйВычетНаДетейИнвалидовОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей инвалидов опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="05995a63-1ea4-497a-96f6-4083672f853e">
+      <name>ПримененныйВычетРасходыНаСвоеОбучение</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет расходы на свое обучение</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="8c66a37a-6c15-4303-876a-4d935f4b293f">
+      <name>ПримененныйВычетРасходыНаОбучениеДетей</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет расходы на обучение детей</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="d3742ea2-8021-437f-a8f5-20e9c11c05f0">
+      <name>ПримененныйВычетРасходыНаЛечение</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет расходы на лечение</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="23c91958-9499-4d67-a56e-155f3d69dc40">
+      <name>ПримененныйВычетСтраховыеВзносыНаМедУслуги</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет страховые взносы на мед услуги</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="6185b272-f1eb-4b31-93f4-c01a35497b4f">
+      <name>ПримененныйВычетРасходыНаДорогостоящееЛечение</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет расходы на дорогостоящее лечение</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="e7032b21-301d-443c-8d09-85d4bd9a24f9">
+      <name>ПримененныйВычетНаДетейОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="4ae8fbba-dbba-49c5-a787-b8d3707481f7">
+      <name>ПримененныйВычетНаДетейДвойнойОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей двойной опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="7b7f704d-0de7-4898-ae1d-73a34d06d690">
+      <name>ПримененныйВычетНаДетейДвойнойВторойОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на детей двойной второй опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="14fe6e9c-a130-4eb2-8f3c-a1d7be3df0de">
+      <name>ПримененныйВычетНаВторогоРебенкаОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на второго ребенка опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="5e37c7dc-0819-42fb-9c37-e4169c059fdc">
+      <name>ПримененныйВычетНаВторогоРебенкаДвойнойОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на второго ребенка двойной опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="7bf00c90-aa98-4361-8002-2b6ca17a5e4d">
+      <name>ПримененныйВычетНаВторогоРебенкаДвойнойВторойОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на второго ребенка двойной второй опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="689bdfa6-72e4-46bf-936e-322338deb499">
+      <name>ПримененныйВычетНаТретьегоРебенкаОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на третьего ребенка опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="47dca0d5-3778-4a18-9bfd-aba97f02dd9e">
+      <name>ПримененныйВычетНаТретьегоРебенкаДвойнойОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на третьего ребенка двойной опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="24452960-f29a-4e80-97e2-03086102bf07">
+      <name>ПримененныйВычетНаТретьегоРебенкаДвойнойВторойОпекунов</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет на третьего ребенка двойной второй опекунов</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+    <attributes uuid="f6c20d3b-060b-4b10-9693-12ab178d4353">
+      <name>ПримененныйВычетВзносыНаДобровольноеСтрахованиеЖизни</name>
+      <synonym>
+        <key>ru</key>
+        <value>Примененный вычет взносы на добровольное страхование жизни</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>12</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <dataHistory>Use</dataHistory>
+      <fullTextSearch>Use</fullTextSearch>
+    </attributes>
+  </tabularSections>
+</mdclass:Document>

@@ -1,0 +1,159 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html; charset=utf-8" http-equiv="Content-Type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 8.00.7600.16671"></meta></head><body>
+<p class="Usual">Отчет предназначен для формирования ведомости контрольных съемов показаний расчетных электрических счетчиков потребителей. Данная ведомость поддерживает как печать на бумажном носителе, так и выгрузку в *.xml файл. </p>
+<p class="Usual">Данная ведомость используется для обмена данными с системой «<strong>Контроль электрических приборов учета</strong>», разработанной компанией «<strong>Агент Плюс</strong>»: сформированный xml-файл передается и загружается в указанную систему.</p>
+<p class="Usual">Последующая загрузка показаний приборов учета, полученных от мобильной системы, осуществляется с помощью обработки «<strong>Загрузка реестра показаний счетчиков</strong>» </p>
+<p class="Usual">Если счетчик не действует на начало предыдущего месяца указанной даты, на которую анализируются данные, то он не попадает в таблицу результатов.</p>
+<p class="Usual"> </p>
+<p class="Usual">Перед формированием отчета необходимо указать следующие параметры:</p>
+<ul><li>«<strong>Период</strong>» - дата формирования отчета, на которую анализируются данные; </li></ul><p class="Usual"> </p>
+<p class="Usual">Шапка отчета заполняется по данным справочника «<a href="Catalog.Организации/Help">Организации</a>»:</p>
+<ul><li>
+<div>В качестве имени организации указывается сокращенное наименование организации (значение поля «<strong>Сокращенное наименование (по учредительным документам)</strong>» на закладке «<strong>Основные</strong>»);</div>
+</li><li>
+<div>В качестве адреса указывается юридический адрес организации (значение поля «<strong>Юридический адрес</strong>» на закладке «<strong>Адреса и телефоны</strong>»).</div></li></ul><p class="Usual"> </p>
+<p class="Usual">Чтобы сформировать отчет необходимо нажать на кнопку «<strong>Сформировать</strong>».</p>
+<p class="Usual"> </p>
+<p class="Usual">Для того чтобы сохранить полученные данные в файл формата *.xml необходимо нажать на кнопку «<strong>Сохранить в файл</strong>». После нажатия на данную кнопку будет выведено диалоговое окно, где необходимо указать каталог расположения файла и его имя. Если сохранение файла прошло удачно, то в окно служебных сообщений будет выведено соответствующее сообщение.</p>
+<p class="Usual">Формат выгружаемого файла имеет следующую структуру:</p>
+<p class="Usual">&lt;?xml version="1.0" encoding="utf-16"&gt;</p>
+<p class="Usual">&lt;DATA DBVERSION=""&gt;</p>
+<p class="Usual">   &lt;DOCUMENTS&gt;</p>
+<p class="Usual">      &lt;DOCUMENT GUID=""&gt;</p>
+<p class="Usual">         &lt;ELEMENTS&gt;</p>
+<p class="Usual">            &lt;ITEM GUID="" DocNumber="" IsPost="" IsDeleted="" dt="" A01="" A02="" A03="" A04="" A05="" A06="" A07="" A08="" A09="" A010="" A011="" A012="" A013="" A014="" A015=""/&gt;</p>
+<p class="Usual">         &lt;/ELEMENTS&gt;</p>
+<p class="Usual">      &lt;/DOCUMENT&gt;</p>
+<p class="Usual">   &lt;/DOCUMENTS&gt;</p>
+<p class="Usual">&lt;/DATA&gt;</p>
+<p class="Usual">где:</p>
+<ul><li>
+<div>Элемент «<strong>DATA</strong>»:</div>
+<ul><li>
+<div>Атрибут «<strong>DBVERSION</strong>» - Версия локальной базы данных мобильного устройства. Значение атрибута заполняется пустой строкой;</div></li></ul></li><li>
+<div>Элемент «<strong>DOCUMENT</strong>»:</div>
+<ul><li>
+<div>
+<div>Атрибут «<strong>GUID</strong>» - Идентификатор ведомости. Значение атрибута заполняется предопределенным значением «D18203A4-3458-47DB-8900-0B0E7233A45E»;</div></div></li></ul></li><li>
+<div>
+<div>
+<div>Элемент «<strong>ITEM</strong>»:</div></div></div>
+<ul><li>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>GUID</strong>» - Идентификатор счетчика;</div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>DocNumber</strong>» - Номер документа. Значение атрибута заполняется пустой строкой;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>IsPost</strong>» - Признак проведения документа. Значение атрибута заполняется «0»;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>IsDeleted</strong>» - Признак удаления документа. Значение атрибута заполняется «0»;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>dt</strong>» - Время создания элемента;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A01</strong>» - Номер лицевого счета;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A02</strong>» - ФИО жильца;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A03</strong>» - Состояние работы счетчика. Если счетчик включен, то значение атрибута заполняется «1», в противном случае «0»;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A04</strong>» - Улица;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A05</strong>» - Дом;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A06</strong>» - Квартира;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A07</strong>» - Корпус;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A08</strong>» - Тип счетчика. Значение атрибута определяется из заводского номера счетчика до первого символа «-»;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A09</strong>» - Номер счетчика. Значение атрибута определяется из заводского номера счетчика после первого символа «-»;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A010</strong>» - Значность. Значение атрибута принимает значение разрядности счетчика;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A011</strong>» - Номер пломбы счетчика. Значение атрибута заполняется пустой строкой;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A012</strong>» - Дата поверки счетчика;</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A013</strong>» - Текущие показания счетчика (значение заполняется пустой строкой);</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A014</strong>» - Количество проживающих (значение заполняется пустой строкой);</div></div></div></div></div>
+</li><li>
+<div>
+<div>
+<div>
+<div>
+<div>Атрибут «<strong>A015</strong>» - Примечание (значение заполняется пустой строкой).</div></div></div></div></div></li></ul></li></ul><p class="Usual"> </p>
+<p class="Usual">Отчет открывается через меню «Учет в ЖКХ / Отчеты / Ведомость по ПУ».</p></body></html>

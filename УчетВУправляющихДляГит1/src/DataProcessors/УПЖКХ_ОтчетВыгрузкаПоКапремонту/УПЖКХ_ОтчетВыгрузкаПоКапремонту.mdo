@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="dbea78f9-dd48-42dc-b1b2-9e0f11e09649">
+  <producedTypes>
+    <objectType typeId="1299249a-85f3-4442-88a9-a006ca8021b6" valueTypeId="d46446bc-53d3-4605-a836-ceca03c89929"/>
+    <managerType typeId="35dd50bf-2543-4925-bccf-e3c6da11da73" valueTypeId="f17789c7-572e-436a-a63c-87ce5679c218"/>
+  </producedTypes>
+  <name>УПЖКХ_ОтчетВыгрузкаПоКапремонту</name>
+  <synonym>
+    <key>ru</key>
+    <value>Отчет-выгрузка по капремонту</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.УПЖКХ_ОтчетВыгрузкаПоКапремонту.Form.Форма</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="f9d05965-2ac9-4c6e-b4fe-f022c8ba5039">
+    <name>ВариантОтчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Вариант отчета</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Вариант формируемого отчета</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="c2092782-dce7-485a-a032-8d7be03e4971">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация от имени которой формируется отчет</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="f7c23ccf-9b99-4d78-a070-b246286fb6df">
+    <name>Период</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Период за который формируется отчет</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="3e64cfcc-2314-40de-b19e-a9abb17c08c7">
+    <name>ПутьКФайлу</name>
+    <synonym>
+      <key>ru</key>
+      <value>Путь к файлу</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Путь к файлу выгрузки</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="9536a81d-67d8-4a92-9e30-2f26bb9a5f65">
+    <name>ХарактеристикаКодаЗдания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Характеристика кода здания</value>
+    </synonym>
+    <type>
+      <types>ChartOfCharacteristicTypesRef.ДополнительныеРеквизитыИСведения</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Необходимо указать дополнительный реквизит справочника &quot;Здания&quot;, в котором хранится код дома в системе расчетов.</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="964c7f67-eb5d-430c-9003-8813bbeeea35">
+    <name>СтрокаУслугиКапРемонта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Строка услуги кап ремонта</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Строка услуги капитального ремонта</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="02e4c576-6df0-4ae0-b03a-30b9d52db8bd">
+    <name>Ответственный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Ответственный</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ФизическиеЛица</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Сотрудник, ответственный за заполнение отчета</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="39d300f3-1c8c-46bc-8dfc-7d166357ea30">
+    <producedTypes>
+      <objectType typeId="4b46b89b-d6e9-425b-8f2f-faa88f04824e" valueTypeId="d1c3dffd-c80e-4a96-a18c-2558ee0e613e"/>
+      <rowType typeId="567bdfa1-7b44-497e-937b-b89a6d4a27b5" valueTypeId="e505d3ce-cbd5-4595-b6b3-6184ee70f40d"/>
+    </producedTypes>
+    <name>УслугиКапРемонта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Услуги кап ремонта</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="f6f60201-13e9-4945-83bd-98053d71aaf1">
+      <name>Услуга</name>
+      <synonym>
+        <key>ru</key>
+        <value>Услуга</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Услуги</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Услуга капитального ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="af059cd0-49c3-49a6-9b1f-61eb9873b328">
+    <producedTypes>
+      <objectType typeId="dc319175-7ead-4a0b-b86c-95f52f688446" valueTypeId="52dbeb8c-97ea-4e1c-975b-95ea37c88e30"/>
+      <rowType typeId="eebde77c-143d-4a52-94c6-f72bb20395f4" valueTypeId="85841aa5-e6ef-4338-ade7-217fccd089dd"/>
+    </producedTypes>
+    <name>ТаблицаОтчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Таблица отчета</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="c0660817-65b4-4f3a-8371-15fa2a3d9448">
+      <name>ДатаНачисленияОплаты</name>
+      <synonym>
+        <key>ru</key>
+        <value>Дата начисления/оплаты</value>
+      </synonym>
+      <type>
+        <types>Date</types>
+        <dateQualifiers>
+          <dateFractions>Date</dateFractions>
+        </dateQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Дата начисления/оплаты услуги по капитальному ремонту</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="8098ab18-7686-4bb6-b6bd-46442061ac90">
+      <name>КодДома</name>
+      <synonym>
+        <key>ru</key>
+        <value>Код дома</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>50</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Код выгружаемого дома</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="44c50e6a-a30d-4bd1-828a-0f7c42e462e3">
+      <name>АдресДома</name>
+      <synonym>
+        <key>ru</key>
+        <value>Адрес дома</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>256</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Адрес выгружаемого дома</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="4a4850bd-caeb-42eb-a831-f8c17e4fc6c5">
+      <name>НомерПомещения</name>
+      <synonym>
+        <key>ru</key>
+        <value>Номер помещения</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Номер выгружаемого помещения</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="e98f5d7d-fecb-4592-80fd-e534dfb57f44">
+      <name>ОбщаяПлощадь</name>
+      <synonym>
+        <key>ru</key>
+        <value>Общая площадь</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Общая площадь помещения, приходящаяся на выгружаемый лицевой счет</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="1cb51993-8f47-482c-90bb-cf1da6992332">
+      <name>ИдентификаторЛС</name>
+      <synonym>
+        <key>ru</key>
+        <value>Идентификатор лицевого счета</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>100</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Идентификатор выгружаемого лицевого счета</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="7138cbcf-8f59-4686-ad5d-ce839ffbb085">
+      <name>ФИОСобственника</name>
+      <synonym>
+        <key>ru</key>
+        <value>ФИО собственника</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>60</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>ФИО ответственного собственника/нанимателя выгружаемого лицевого счета</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="d55c9a53-8a91-4250-9254-e2b3438fbad8">
+      <name>ПериодНачисленияОплаты</name>
+      <synonym>
+        <key>ru</key>
+        <value>Период начисления/оплаты</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>15</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Период начисления/оплаты услуги по капитальному ремонту</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="1cdbb531-b2f3-429a-8b06-70ad5cb90e13">
+      <name>СуммаВзноса</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма взноса</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <format>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </format>
+      <editFormat>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </editFormat>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма взноса по услуге капитального ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="96af7e5f-bcc1-4fc0-9436-596588127b2c">
+      <name>СуммаПени</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма пени</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <format>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </format>
+      <editFormat>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </editFormat>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма пени по услуге капитального ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="3ef706bd-1713-40d8-8e2c-bd496493c32f">
+      <name>СуммаОплаченногоВзноса</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма оплаченного взноса</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <format>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </format>
+      <editFormat>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </editFormat>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма оплаченного взноса по услуге капитального ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="6ec08b05-2c09-4690-bfa2-5e2096deb549">
+      <name>СуммаОплаченногоПени</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма оплаченного пени</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <format>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </format>
+      <editFormat>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </editFormat>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма оплаченного пени по услуге капитального ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="c59260f8-69db-4c97-a5f4-23e5a7dfdf40">
+      <name>СуммаЗадолженностиПоВзносу</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма задолженности по взносу</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <format>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </format>
+      <editFormat>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </editFormat>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма задолженности по взносу по услуге капитального ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="6e18ff88-ea2e-4146-ba93-2a9d3088f4fe">
+      <name>СуммаЗадолженностиПоПени</name>
+      <synonym>
+        <key>ru</key>
+        <value>Сумма задолженности по пени</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>15</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <format>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </format>
+      <editFormat>
+        <key>ru</key>
+        <value>ЧДЦ=2; ЧН=0,00</value>
+      </editFormat>
+      <toolTip>
+        <key>ru</key>
+        <value>Сумма задолженности пени по взносам по услуге капитального ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="a3fde22e-53a9-47c9-b8e3-71f333123e49">
+      <name>ТипПомещения</name>
+      <synonym>
+        <key>ru</key>
+        <value>Тип помещения</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>10</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Тип выгружаемого помещения (жилое/нежилое)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="2b58cef6-5d11-41e2-b359-65df081e8b9c">
+      <name>ВидСобственности</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид собственности: муниципальная(1), частная(2), государственная(3), прочая(4)</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>1</precision>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Вид собственности на выгружаемое помещение: муниципальная(1), частная(2), государственная(3), прочая(4)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="51b15444-9a7f-4a06-9621-c142778fb0bc">
+      <name>КатегорияСобственника</name>
+      <synonym>
+        <key>ru</key>
+        <value>Категория собственника: физ.лицо(Ф.З.), Юр.лицо(Ю.Л.)</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>4</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Категория ответственного собственника/нанимателя выгружаемого лицевого счета: Физ.лицо (Ф.З.), Юр.лицо (Ю.Л.)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="435de682-aaf0-46c3-8a4f-e6237abd5df5">
+      <name>КоличествоКомнат</name>
+      <synonym>
+        <key>ru</key>
+        <value>Количество комнат</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>3</precision>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Количество комнат в помещении, приходящихся на выгружаемый лицевой счет</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="fb17f9e1-5ae9-4e9f-908a-6eadb1886455">
+      <name>ФИОНанимателяАрендатора</name>
+      <synonym>
+        <key>ru</key>
+        <value>Наименование арендатора</value>
+      </synonym>
+      <type>
+        <types>String</types>
+        <stringQualifiers>
+          <length>60</length>
+        </stringQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Наименование (ФИО нанимателя, арендатора)</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:StringValue">
+        <value></value>
+      </fillValue>
+    </attributes>
+    <attributes uuid="b54bb2ac-05c7-484d-9d1e-9b4d2cc603e5">
+      <name>КоличествоЗарегистрированных</name>
+      <synonym>
+        <key>ru</key>
+        <value>Количество зарегистрированных</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>4</precision>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Количество зарегистрированных жителей выгружаемого лицевого счета</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="09e08366-96c3-4284-a266-787ceb60709c">
+      <name>ЛьготированнаяПлощадьПомещения</name>
+      <synonym>
+        <key>ru</key>
+        <value>Льготированная площадь</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+          <nonNegative>true</nonNegative>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Льготированная площадь помещения, приходящаяся на выгружаемый лицевой счет</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="123b1604-b8e9-48ff-ab67-673ea9c04534">
+      <name>ПредъявленоCобственнику</name>
+      <synonym>
+        <key>ru</key>
+        <value>Предъявлено cобственнику</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Предъявлено cобственнику по услуге капитального ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="92eb37b2-c43d-4ef4-b628-c81c4c4644c2">
+      <name>Льгота</name>
+      <synonym>
+        <key>ru</key>
+        <value>Льгота</value>
+      </synonym>
+      <type>
+        <types>Number</types>
+        <numberQualifiers>
+          <precision>10</precision>
+          <scale>2</scale>
+        </numberQualifiers>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Льгота по услуге капитального ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="a89812a0-a153-4e01-b1de-55afcc1e2a0b">
+    <producedTypes>
+      <objectType typeId="a2e10bfe-6eef-48eb-8d7a-cd3d596ea11b" valueTypeId="7d2b65ea-3bc8-4986-998f-5bbd421d75e8"/>
+      <rowType typeId="81220477-c05e-4f40-9658-16849ca54ce5" valueTypeId="ed1f000a-dd5b-4c6e-aaa0-c1281297001d"/>
+    </producedTypes>
+    <name>Здания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Здания</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="b1b42637-2434-4731-a095-57666dd15001">
+      <name>Здание</name>
+      <synonym>
+        <key>ru</key>
+        <value>Здание</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Здания</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Выгружаемые здания</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="42580846-8dca-4a3b-b941-33147ab8e009">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма</value>
+    </synonym>
+    <help>
+      <pages>
+        <lang>ru</lang>
+      </pages>
+    </help>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="26a44266-c48a-42ef-b56f-c5a41a432112">
+    <name>ФормаНастройки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма настройки</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="330c1f65-a045-4a3e-a17b-5ed7c44d0c6f">
+    <name>МакетПечати</name>
+    <synonym>
+      <key>ru</key>
+      <value>Макет печати</value>
+    </synonym>
+  </templates>
+  <commands uuid="e1ef1a21-2500-4c43-a194-b3a3af9fd33a">
+    <name>Печать</name>
+    <synonym>
+      <key>ru</key>
+      <value>Печать</value>
+    </synonym>
+    <group>CommandGroup.УПЖКХ_Печать</group>
+    <commandParameterType/>
+    <representation>Auto</representation>
+    <shortcut></shortcut>
+  </commands>
+</mdclass:DataProcessor>

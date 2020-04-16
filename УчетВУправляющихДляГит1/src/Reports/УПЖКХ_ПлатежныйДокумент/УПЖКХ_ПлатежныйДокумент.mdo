@@ -1,0 +1,882 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:Report xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="bb823bea-bf01-4faf-a4ec-8bfa87a0480a">
+  <producedTypes>
+    <objectType typeId="a1ae34a2-8480-4d4f-8f58-ef2b5c67f9e3" valueTypeId="026f17db-967d-4a34-afad-5ed77253945e"/>
+    <managerType typeId="40f1d3b8-dfde-4188-9f2f-6610467c6e90" valueTypeId="767d8a3c-e92d-455d-9a3c-72a286f46d33"/>
+  </producedTypes>
+  <name>УПЖКХ_ПлатежныйДокумент</name>
+  <synonym>
+    <key>ru</key>
+    <value>Платежный документ</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>Report.УПЖКХ_ПлатежныйДокумент.Form.ФормаОтчета</defaultForm>
+  <includeHelpInContents>true</includeHelpInContents>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <attributes uuid="d7195047-64af-4288-96b2-d9f6f1f385d1">
+    <name>НеЗаполнятьНастройкиПриОткрытии</name>
+    <synonym>
+      <key>ru</key>
+      <value>Не заполнять настройки при открытии</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка заполнения параметров при открытии</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="04ac8ea7-a9f2-48cd-b1a9-64d760a4036f">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Организация, по которой формируется квитанция</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="55f2dd6e-f30d-4102-abe8-79b7cd765052">
+    <name>ПериодПросмотра</name>
+    <synonym>
+      <key>ru</key>
+      <value>Период просмотра</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Период формирования квитанции</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="e46efcf9-72be-409a-a4eb-853de6ad0f50">
+    <name>ТипПодбораОбъектов</name>
+    <synonym>
+      <key>ru</key>
+      <value>Тип подбора объектов</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>30</length>
+      </stringQualifiers>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка подбора объектов</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="8292dcc6-e447-4637-be8f-c1179f944e02">
+    <name>НастройкаСбораДанных</name>
+    <synonym>
+      <key>ru</key>
+      <value>Настройка сбора данных</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.УПЖКХ_НастройкиСбораДанныхДляКвитанцийИОбменов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="585c2fac-d36a-44cc-a639-b999f22cff3d">
+    <name>УдалитьВключатьОплатыВНачальноеСальдо</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить включать оплаты в начальное сальдо</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="1df2830e-1d3b-43e6-9768-3c85fc781639">
+    <name>УдалитьВсегдаВыводитьДополнительныеОбласти</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить всегда выводить дополнительные области</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка вывода дополнительных областей</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="285ba3a8-4de4-45cb-b857-fe8a15f7d7ee">
+    <name>УдалитьВыводитьОбъемыРасхождения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить выводить объемы расхождения</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка вывода объемов расхождения</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="bc972567-e587-434c-8ce8-ca3f59d94fa4">
+    <name>УдалитьИсполнительРасчетов</name>
+    <synonym>
+      <key>ru</key>
+      <value>(Удалить) Исполнитель расчетов</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Контрагенты</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="f34b5a4f-dac5-4a57-a459-c06bf4f9dfd6">
+    <name>УдалитьРасчетныйПериод</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить расчетный период</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>10</precision>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="75f7700f-57df-4ba0-a603-9cd36e83c639">
+    <name>УдалитьСтрокаУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить строка услуг</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers/>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="3557b23e-a086-4416-9650-21bbff4aff30">
+    <name>УдалитьВариантСортировки</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить вариант сортировки</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>20</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="756ce624-ede0-432b-bd87-6519b321d6f9">
+    <name>УдалитьВариантУчетаКомиссииБанка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить вариант учета комиссии банка</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="630a6399-2c58-400a-9112-6d5b2f3ed5f0">
+    <name>УдалитьДвусторонняяПечатьВыводитьОтступ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Выводить отступ при двусторонней печати</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка вывода отступа при двусторонней печати</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="339596a0-5989-43ac-8bcb-fcaca92b16e7">
+    <name>УдалитьВключениеНачальнойЗадолженности</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить включение начальной задолженности</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>64</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="52c4ceb2-2597-4b02-8213-098b70373ea1">
+    <name>УдалитьВыборУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить выбор услуг</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="9ad0d22d-1bdf-469f-aa30-7a759b47946f">
+    <name>УдалитьНеВыводитьПоказанияПоПУ</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить не выводить показания по ПУ</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка вывода показаний счетчиков</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="4beaceb5-5e7a-44e2-bb96-73c49d1b0369">
+    <name>УдалитьВыводитьИндРасходДляВсехУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить выводить инд расход для всех услуг</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="39ed55ba-48d4-4a12-ae09-8db8727ad14c">
+    <name>УдалитьВыводитьНачальноеСальдо</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить выводить начальное сальдо</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="65e5f3b0-19e3-44cf-aa0b-a90788197408">
+    <name>УдалитьВыводитьОтрицательнуюСуммуКОплате</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить выводить отрицательную сумму к оплате</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="204959c3-73ae-488d-b24d-29b7e5cb6cdd">
+    <name>УдалитьВыводитьРасчетнуюПлощадь</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить выводить расчетную площадь</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="11d76547-c398-4845-8d3c-465a47f7bc65">
+    <name>УдалитьВыводитьШК</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить выводить ШК</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="a55c18e0-46a3-4510-8c5d-7771ac9d77c2">
+    <name>УдалитьДвустороняяПечать</name>
+    <synonym>
+      <key>ru</key>
+      <value>Использовать двустороннюю печать</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="19092e1e-7012-4f04-ad7a-2b0c2d4f703f">
+    <name>УдалитьПечататьОтрывнойКорешокВнизу</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить печатать отрывной корешок внизу</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <toolTip>
+      <key>ru</key>
+      <value>Настройка расположения отрывного корешка</value>
+    </toolTip>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="cf0ad5e0-a2f5-4d78-9b84-b7754afb39fe">
+    <name>УдалитьКомиссияБанка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить комиссия банка</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>4</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="d80b7101-1cb5-447e-8410-400ffc16f0f4">
+    <name>УдалитьНеПечататьНулевыеКвитанции</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить не печатать нулевые квитанции</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="3bd2726e-576b-49e7-9126-5da3d725f785">
+    <name>УдалитьПечататьОтрывнойКорешок</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить печатать отрывной корешок</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="03b7e25a-9513-4d9f-bdea-f49440ce6ff9">
+    <name>УдалитьРазделятьУслугиПоТипам</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить разделять услуги по типам</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="04d89d8e-8311-49da-8657-a31ff9c44d5f">
+    <name>УдалитьСортироватьВПределахЗдания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить сортировать в пределах здания</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="e058b07d-8f20-476f-8f78-d970a28348b9">
+    <name>УдалитьРасчетнаяПлощадьЗдания</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить расчетная площадь здания</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.КВП_ТипыПлощадейЗдания</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="7cb043d7-f364-4c99-9ffe-20f40567b668">
+    <name>УдалитьРасчетнаяПлощадьПомещения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить расчетная площадь помещения</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.УПЖКХ_ВидыПлощадей</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="c97f5332-b452-47b7-adb2-d7eb083fe6b7">
+    <name>УдалитьСпособПечатиКвитанцииКапРемонт</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить способ печати квитанции кап ремонт</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="74a98e23-e434-4105-af4a-4ce51a21c64d">
+    <name>УдалитьСпособПечатиКвитанцииПоПеням</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить способ печати квитанции по пеням</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="173fa564-713d-424c-8275-f4e583624fa5">
+    <name>УдалитьУслугиИсполнителя</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить услуги исполнителя</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="89432b1e-6fe4-4b78-99ac-14a18c4967ac">
+    <name>УдалитьУчетОплат</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить учет оплат</value>
+    </synonym>
+    <type>
+      <types>String</types>
+      <stringQualifiers>
+        <length>50</length>
+      </stringQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="7fe1a5f0-5949-4e22-b29e-9ddcbe2b98cf">
+    <name>УдалитьУчитыватьПени</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить учитывать пени</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="ec9a41e7-2281-4354-907c-f2ddcb909c58">
+    <name>УдалитьПечататьКвитанциюКапРемонт</name>
+    <synonym>
+      <key>ru</key>
+      <value>(не используется) Удалить печатать квитанцию кап ремонт</value>
+    </synonym>
+    <type>
+      <types>Boolean</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <attributes uuid="ac473173-c862-43bd-bc2d-09f99c6d277d">
+    <name>УдалитьСохраняемыеРеквизиты</name>
+    <synonym>
+      <key>ru</key>
+      <value>(не используется, 2.0.54.1) сохраняемые реквизиты</value>
+    </synonym>
+    <type/>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </attributes>
+  <tabularSections uuid="4c6ee9d2-685e-4dd9-a790-40beb3f1b9c7">
+    <producedTypes>
+      <objectType typeId="2bc03628-674f-4119-a665-fd71684e2c38" valueTypeId="5fab8e55-578a-437a-9a1d-aee7d04a3cc8"/>
+      <rowType typeId="7da7d6c0-131a-4c35-b7a8-902f3c2742d2" valueTypeId="05bf2cfa-378c-49ea-90a4-3d0090659137"/>
+    </producedTypes>
+    <name>ОбъектыОтчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Объекты отчета</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="10addd0e-1296-4fbd-a676-3c8afc8c3f23">
+      <name>Объект</name>
+      <synonym>
+        <key>ru</key>
+        <value>Объект</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ЛицевыеСчета</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Текущий лицевой счет</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="44407cd3-ffeb-4eb6-9712-eaed2d3bc5b3">
+    <producedTypes>
+      <objectType typeId="9c228456-45c0-4a73-ac1c-78c8c7e78fbf" valueTypeId="46b4440c-daa0-4d9a-8f43-61f1777cd8ca"/>
+      <rowType typeId="2c30ca50-10a4-4af8-a5fa-044bc48169a4" valueTypeId="6d50f88f-f424-488b-88b2-628d2379c0e6"/>
+    </producedTypes>
+    <name>УдалитьВыбранныеУслуги</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить выбранные услуги</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="db386dfa-50e5-4b69-bf36-b93e483584f6">
+      <name>Услуга</name>
+      <synonym>
+        <key>ru</key>
+        <value>Услуга</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Услуги</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="4a244686-ab56-447f-af05-e4e3c2672b82">
+    <producedTypes>
+      <objectType typeId="34584f36-d334-40aa-ba77-4d6e5e8778c0" valueTypeId="ca7b8497-bede-4d4f-b51b-b967e8276704"/>
+      <rowType typeId="d9d794cf-bb63-4395-8dda-85271358e707" valueTypeId="adbbf17a-9483-44da-9c12-cecb2533fced"/>
+    </producedTypes>
+    <name>УдалитьОбщийСписокУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить общий список услуг</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="a256eca3-7d01-4563-bbec-a098a7958761">
+      <name>Услуга</name>
+      <synonym>
+        <key>ru</key>
+        <value>Услуга</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Услуги</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="5d5738a8-c607-4158-9edc-9048db3e548e">
+    <producedTypes>
+      <objectType typeId="2f1dfa72-edb3-4890-bafd-a5067bb72eb8" valueTypeId="6184a5a9-fa74-426e-ac7c-0e991d416cec"/>
+      <rowType typeId="05db1ca6-6cd6-4070-9513-fa781e5ce219" valueTypeId="ea3758d1-2038-4cb3-bd76-5447731b28c9"/>
+    </producedTypes>
+    <name>УдалитьПорядокУслуг</name>
+    <synonym>
+      <key>ru</key>
+      <value>Порядок услуг (не используется)</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="d0a75b7e-abe0-4000-96f0-00dcd5290265">
+      <name>ВидУслуги</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид услуги</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ВидыУслуг</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="0f6c14a6-7617-4e5e-b985-0d37a22ac74e">
+    <producedTypes>
+      <objectType typeId="6266fd05-9b28-4b6f-b970-f50cc908eb86" valueTypeId="909bd3a4-93dd-4a79-bc56-962af596170d"/>
+      <rowType typeId="df623997-db27-4734-906c-572a67de8712" valueTypeId="2b7f0b8c-86b8-4fd0-a750-d241cf9423c2"/>
+    </producedTypes>
+    <name>УдалитьУслугиБезОДН</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить услуги без ОДН</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="c64c8648-9353-4fe4-b866-32bf55d1861b">
+      <name>Услуга</name>
+      <synonym>
+        <key>ru</key>
+        <value>Услуга</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Услуги</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Текущая услуга</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="e52f4469-c9ed-43dc-a2f7-c101b87b72ff">
+    <producedTypes>
+      <objectType typeId="0c14aa9b-1c18-4883-8718-c85bcf002e47" valueTypeId="fae2d572-a6cf-45a5-8b1a-83788f627a25"/>
+      <rowType typeId="6b3c7b42-7e12-49cf-b267-5b10bec153eb" valueTypeId="8f532413-e6ce-4758-9c8c-babf34dd4b19"/>
+    </producedTypes>
+    <name>УдалитьУслугиКапРемонта</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить услуги кап ремонта</value>
+    </synonym>
+    <standardAttributes>
+      <dataHistory>Use</dataHistory>
+      <name>LineNumber</name>
+      <fillValue xsi:type="core:UndefinedValue"/>
+      <fullTextSearch>Use</fullTextSearch>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+    </standardAttributes>
+    <attributes uuid="eac168c2-9556-4919-9e5d-50b74b4a8143">
+      <name>Услуга</name>
+      <synonym>
+        <key>ru</key>
+        <value>Услуга</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_Услуги</types>
+      </type>
+      <toolTip>
+        <key>ru</key>
+        <value>Услуга кап. ремонта</value>
+      </toolTip>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <tabularSections uuid="e6a5af23-ee42-4cb2-b847-b3fdf6d84695">
+    <producedTypes>
+      <objectType typeId="b98915ef-2ebb-40fb-ad6b-16ddf070a2e5" valueTypeId="708fb964-aaa5-455e-888c-0c3402dd75d8"/>
+      <rowType typeId="fbf07a93-6d3d-4dd0-8afc-98e2c3eff557" valueTypeId="e25b9f27-7c8d-4d75-ade1-3291a3ad32fb"/>
+    </producedTypes>
+    <name>УдалитьУслугиПоТипам</name>
+    <synonym>
+      <key>ru</key>
+      <value>Удалить услуги по типам</value>
+    </synonym>
+    <attributes uuid="a6a995b6-ad2b-4fa9-904f-a6abb932ed06">
+      <name>ВидУслуги</name>
+      <synonym>
+        <key>ru</key>
+        <value>Вид услуги</value>
+      </synonym>
+      <type>
+        <types>CatalogRef.КВП_ВидыУслуг</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="4483accd-530f-4b1e-a073-749496324729">
+      <name>Коммунальная</name>
+      <synonym>
+        <key>ru</key>
+        <value>Коммунальная</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+    <attributes uuid="faad1b18-c6a9-4df7-9534-b44edc1e7935">
+      <name>СодержаниеИРемонт</name>
+      <synonym>
+        <key>ru</key>
+        <value>Содержание и ремонт</value>
+      </synonym>
+      <type>
+        <types>Boolean</types>
+      </type>
+      <minValue xsi:type="core:UndefinedValue"/>
+      <maxValue xsi:type="core:UndefinedValue"/>
+      <fillValue xsi:type="core:UndefinedValue"/>
+    </attributes>
+  </tabularSections>
+  <forms uuid="052e5729-9cf9-42d6-9aa2-883475b14b9d">
+    <name>ФормаОтчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма отчета</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <templates uuid="6f80bf0b-ab47-44cd-96fe-ec5bb3a64b31">
+    <name>ПФ_MXL_МакетСтандартный</name>
+    <synonym>
+      <key>ru</key>
+      <value>Плат. документ (приказ №454 в соответ. с пост. №354)</value>
+    </synonym>
+  </templates>
+  <templates uuid="3eff03e3-8ba3-4f2a-8846-4a6107546a62">
+    <name>ПФ_MXL_МакетСтандартныйКР</name>
+    <synonym>
+      <key>ru</key>
+      <value>Плат. документ (приказ №924/пр) - Утратил силу от 26.01.2018 г.</value>
+    </synonym>
+  </templates>
+  <templates uuid="7491797e-3353-4031-bf37-7a2ee9c97397">
+    <name>ПФ_MXL_МакетСПолямиБанка1</name>
+    <synonym>
+      <key>ru</key>
+      <value>Плат. документ (с полями для отметки банка №1)</value>
+    </synonym>
+  </templates>
+  <templates uuid="3050e35a-b2bf-4d80-8096-c83709fa623e">
+    <name>ПФ_MXL_МакетСПолямиБанка2</name>
+    <synonym>
+      <key>ru</key>
+      <value>Плат. документ (с полями для отметки банка №2)</value>
+    </synonym>
+  </templates>
+  <templates uuid="f43762de-4c31-44de-80cb-d6141fdd0f97">
+    <name>ПФ_MXL_МакетПермь</name>
+    <synonym>
+      <key>ru</key>
+      <value>Плат. документ (Пермский край)</value>
+    </synonym>
+  </templates>
+  <templates uuid="1150078d-10b4-4c7d-be2f-7248be1c5ea3">
+    <name>ПФ_MXL_МакетЧебоксары</name>
+    <synonym>
+      <key>ru</key>
+      <value>Плат. документ (Чувашская республика)</value>
+    </synonym>
+  </templates>
+  <templates uuid="1f3ff976-2d38-467e-8196-d367964de90f">
+    <name>ПФ_MXL_МакетМосковскаяОбласть</name>
+    <synonym>
+      <key>ru</key>
+      <value>Плат. документ (Московская область)</value>
+    </synonym>
+  </templates>
+  <templates uuid="296c9698-66bb-422f-9782-78354b141727">
+    <name>ПФ_MXL_МакетМосковскаяОбласть679</name>
+    <synonym>
+      <key>ru</key>
+      <value>Плат. документ (Московская область, приказ №679/30)</value>
+    </synonym>
+  </templates>
+  <templates uuid="8d1b91b0-ba1c-44e4-826d-aa6bffaa40ab">
+    <name>ПФ_MXL_Листовки_ОнлайнОплата</name>
+    <synonym>
+      <key>ru</key>
+      <value>Листовки Онлайн оплата</value>
+    </synonym>
+  </templates>
+  <templates uuid="8c5a3012-6cbf-49e6-b577-e4878eaf4da1">
+    <name>ПФ_MXL_МакетСтандартный43Пр</name>
+    <synonym>
+      <key>ru</key>
+      <value>Плат. документ (приказ №43/пр)</value>
+    </synonym>
+  </templates>
+</mdclass:Report>

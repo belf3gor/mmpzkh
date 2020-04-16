@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:InformationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="626ea690-14f8-41dd-a0ab-fda0e851c864">
+  <producedTypes>
+    <selectionType typeId="bf48ebeb-2499-4a8a-a08a-20b46fd545f0" valueTypeId="288856c2-4283-47c8-8d2c-0d4626d6ecf8"/>
+    <listType typeId="6db3434a-34c4-48c4-9b9a-aecaee5bf1fd" valueTypeId="7806e3e8-f501-4dda-9989-c9bc60656ede"/>
+    <managerType typeId="bd634a6d-942e-49dc-b4fd-c20f2cea4e35" valueTypeId="174db413-fbd2-45ca-8144-caf3126f5b75"/>
+    <recordSetType typeId="dcfba078-60c1-442e-be74-d69ddf97ec5a" valueTypeId="1ccecb62-0043-409d-ba0b-dc22924c94fd"/>
+    <recordKeyType typeId="2777c3e4-77e2-47a7-a1cf-d26750aac7ab" valueTypeId="22f8e1af-efe3-4b4c-a563-5f5daf745f95"/>
+    <recordType typeId="206f319b-d7fa-48b2-9c63-770188397d97" valueTypeId="f82e5756-4ce3-42a2-ad54-5a7b7dce669a"/>
+    <recordManagerType typeId="63b90751-15fe-4af2-bad1-8a0292f6c105" valueTypeId="280ee70a-4a07-4df3-b7b9-eac759a43997"/>
+  </producedTypes>
+  <name>УдалитьВычетыПоДоходамНДФЛ</name>
+  <synonym>
+    <key>ru</key>
+    <value>(не используется) Вычеты к доходам по НДФЛ</value>
+  </synonym>
+  <defaultRecordForm>InformationRegister.УдалитьВычетыПоДоходамНДФЛ.Form.ФормаЗаписи</defaultRecordForm>
+  <defaultListForm>InformationRegister.УдалитьВычетыПоДоходамНДФЛ.Form.ФормаСписка</defaultListForm>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Active</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>LineNumber</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Recorder</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <standardAttributes>
+    <dataHistory>Use</dataHistory>
+    <name>Period</name>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <fullTextSearch>Use</fullTextSearch>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+  </standardAttributes>
+  <informationRegisterPeriodicity>Year</informationRegisterPeriodicity>
+  <mainFilterOnPeriod>true</mainFilterOnPeriod>
+  <resources uuid="662508b0-6b2d-4f04-95f1-867550876e16">
+    <name>ГодовойВычет</name>
+    <synonym>
+      <key>ru</key>
+      <value>Годовой вычет</value>
+    </synonym>
+    <comment>Сумма вычета по коду дохода за год</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <resources uuid="03ff4b60-23de-4a36-886c-fcf5ab8ae838">
+    <name>НормативЗатрат</name>
+    <synonym>
+      <key>ru</key>
+      <value>Норматив затрат</value>
+    </synonym>
+    <comment>Норматив затрат в процентах от суммы дохода по авторским вознаграждениям, размер вычета по каждому случаю выплаты иных доходов</comment>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillValue xsi:type="core:UndefinedValue"/>
+  </resources>
+  <dimensions uuid="303fb737-43eb-40f8-ac30-16d4858bde93">
+    <name>КодДохода</name>
+    <synonym>
+      <key>ru</key>
+      <value>Код дохода</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.УдалитьВидыДоходовНДФЛ</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <choiceParameters>
+      <name>Отбор.ВычетРассчитываетсяАвтоматически</name>
+      <value xsi:type="core:BooleanValue">
+        <value>true</value>
+      </value>
+    </choiceParameters>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <dataHistory>Use</dataHistory>
+    <fillFromFillingValue>true</fillFromFillingValue>
+    <fillValue xsi:type="core:UndefinedValue"/>
+    <master>true</master>
+    <mainFilter>true</mainFilter>
+  </dimensions>
+  <forms uuid="abc7f8b2-9c08-41f4-b066-5e439f2c7c8c">
+    <name>РедактированиеИстории</name>
+    <synonym>
+      <key>ru</key>
+      <value>Редактирование истории</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="039e499d-08f8-431f-9ca0-2a94c24f240d">
+    <name>ФормаЗаписи</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма записи</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="271b2c1f-8623-498a-ab74-c83d392d87ab">
+    <name>ФормаСписка</name>
+    <synonym>
+      <key>ru</key>
+      <value>Форма списка</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:InformationRegister>

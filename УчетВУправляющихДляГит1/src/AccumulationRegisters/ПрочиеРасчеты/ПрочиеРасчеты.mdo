@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:AccumulationRegister xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="1c85dc6f-4cc9-43a3-a88d-4ee81681e6cb">
+  <producedTypes>
+    <selectionType typeId="08488789-468f-45e0-b590-92971dad4fac" valueTypeId="853305b8-04ef-486c-b0ed-193a66b8989d"/>
+    <listType typeId="48000097-6aa3-4039-b4bd-e85b492ed0fe" valueTypeId="44930926-a5a3-48cc-9dc2-902b28ca1c7c"/>
+    <managerType typeId="c2679501-bfa3-4a74-b83d-ad7debc075e3" valueTypeId="502d6c05-9da4-4611-afe8-1d47b923e7e3"/>
+    <recordSetType typeId="7bf7a170-d583-4494-913d-0d929e589435" valueTypeId="28aa0cbc-fd25-420d-a413-b6b741828b00"/>
+    <recordKeyType typeId="8c1a7a12-29a4-4348-8543-9ea0c8cb037a" valueTypeId="84a1ffc3-f6e1-4e0e-a7c2-4f32e96359fb"/>
+    <recordType typeId="bca6da05-54de-4152-a3fc-15cd8f8f6b3c" valueTypeId="5796369f-0f93-4bb4-937e-3b8029b00d45"/>
+  </producedTypes>
+  <name>ПрочиеРасчеты</name>
+  <synonym>
+    <key>ru</key>
+    <value>Прочие расчеты</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <enableTotalsSplitting>true</enableTotalsSplitting>
+  <resources uuid="3c21b4ce-b8c4-4291-afc2-2ce8ff4691a0">
+    <name>Сумма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Сумма</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>15</precision>
+        <scale>2</scale>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </resources>
+  <attributes uuid="cfebea83-a046-49ae-9b20-cc054202d669">
+    <name>ЭтапПроведения</name>
+    <synonym>
+      <key>ru</key>
+      <value>Этап проведения</value>
+    </synonym>
+    <type>
+      <types>Number</types>
+      <numberQualifiers>
+        <precision>1</precision>
+        <nonNegative>true</nonNegative>
+      </numberQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+  </attributes>
+  <dimensions uuid="8429f0d1-57f2-4e18-b2df-1260b7b1ee69">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="ee836745-b97f-47bb-abe9-099634f1a729">
+    <name>СчетУчета</name>
+    <synonym>
+      <key>ru</key>
+      <value>Счет учета</value>
+    </synonym>
+    <type>
+      <types>ChartOfAccountsRef.Хозрасчетный</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="29f9a939-56dd-4c3e-8929-cfd60aea3c69">
+    <name>Контрагент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Контрагент</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Склады</types>
+      <types>CatalogRef.Контрагенты</types>
+      <types>CatalogRef.ФизическиеЛица</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="2ef816c8-e26a-4fb8-8a8d-b85f5e691258">
+    <name>РасчетныйДокумент</name>
+    <synonym>
+      <key>ru</key>
+      <value>Расчетный документ</value>
+    </synonym>
+    <type>
+      <types>DocumentRef.ОтражениеЗарплатыВБухучете</types>
+      <types>DocumentRef.СписаниеСРасчетногоСчета</types>
+      <types>DocumentRef.АвансовыйОтчет</types>
+      <types>DocumentRef.ГТДИмпорт</types>
+      <types>DocumentRef.ВыдачаДенежныхДокументов</types>
+      <types>DocumentRef.ДокументРасчетовСКонтрагентом</types>
+      <types>DocumentRef.ПоступлениеНаРасчетныйСчет</types>
+      <types>DocumentRef.РасходныйКассовыйОрдер</types>
+      <types>DocumentRef.ОперацияБух</types>
+      <types>DocumentRef.УдалитьНачислениеЗарплатыРаботникамОрганизаций</types>
+      <types>DocumentRef.ПерерасчетСтраховыхВзносов</types>
+      <types>DocumentRef.ПоступлениеДенежныхДокументов</types>
+      <types>DocumentRef.ПоступлениеНМА</types>
+      <types>DocumentRef.КорректировкаДолга</types>
+      <types>DocumentRef.ОтражениеЗарплатыВУчете</types>
+      <types>DocumentRef.ПоступлениеТоваровУслуг</types>
+      <types>DocumentRef.Отпуск</types>
+      <types>DocumentRef.ОплатаПлатежнойКартой</types>
+      <types>DocumentRef.БольничныйЛист</types>
+      <types>DocumentRef.АктПроверкиСтраховыхВзносов</types>
+      <types>DocumentRef.ВводНачальныхОстатков</types>
+      <types>DocumentRef.ОтчетОРозничныхПродажах</types>
+      <types>DocumentRef.РегламентнаяОперация</types>
+      <types>DocumentRef.ПриходныйКассовыйОрдер</types>
+      <types>DocumentRef.НачислениеЗарплаты</types>
+      <types>DocumentRef.ЗаявлениеОВвозеТоваров</types>
+      <types>DocumentRef.УдалитьОтражениеЗарплатыВУчете</types>
+      <types>DocumentRef.РеализацияТоваровУслуг</types>
+      <types>DocumentRef.УдалитьРасчетЕСН</types>
+      <types>DocumentRef.Партия</types>
+      <types>DocumentRef.ПоступлениеДопРасходов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <denyIncompleteValues>true</denyIncompleteValues>
+    <indexing>Index</indexing>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+  <dimensions uuid="d84d7b04-9ca5-492d-ad86-ef35aa39a932">
+    <name>ДоговорКонтрагента</name>
+    <synonym>
+      <key>ru</key>
+      <value>Договор контрагента</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.ДоговорыКонтрагентов</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fullTextSearch>Use</fullTextSearch>
+    <useInTotals>true</useInTotals>
+  </dimensions>
+</mdclass:AccumulationRegister>

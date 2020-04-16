@@ -1,0 +1,62 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html">
+	<import namespace="http://www.w3.org/2001/XMLSchema"/>
+	<import namespace="http://v8.1c.ru/8.1/data-composition-system/settings"/>
+	<import namespace="http://v8.1c.ru/8.1/data/enterprise/current-config"/>
+	<property xmlns:d2p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="Контейнер" type="d2p1:Контейнер"/>
+	<valueType name="ВерсияФормата" base="xs:string" variety="Atomic">
+		<enumeration>3.0.1.0</enumeration>
+		<enumeration>3.0.1.1</enumeration>
+	</valueType>
+	<objectType name="Контейнер">
+		<property xmlns:d3p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="ВерсияФормата" type="d3p1:ВерсияФормата" form="Attribute"/>
+		<property xmlns:d3p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="ОбъектыСтатистическогоНаблюдения" type="d3p1:ОбъектыСтатистическогоНаблюдения" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="ФормыСтатистики" type="d3p1:ФормыСтатистики" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ОбъектыСтатистическогоНаблюдения">
+		<property name="Код" type="xs:string" form="Attribute"/>
+		<property name="ДатаИзменения" type="xs:date" form="Attribute"/>
+		<property name="Наименование" type="xs:string"/>
+		<property name="РеквизитДопУпорядочивания" type="xs:integer" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="ИсточникДанных" type="d3p1:EnumRef.ИсточникиДанныхСтатистическихПоказателей"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="Детализация" type="d3p1:EnumRef.ВидыСвободныхСтрокФормСтатистики"/>
+		<property name="ТребуетНастройки" type="xs:boolean"/>
+		<property xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" name="Настройка" type="dcsset:Filter" lowerBound="0"/>
+		<property xmlns:d3p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="СтатистическиеПоказатели" type="d3p1:СтатистическийПоказатель" lowerBound="0" upperBound="-1"/>
+		<property xmlns:d3p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="ОбъектыСтатистическогоНаблюдения" type="d3p1:ОбъектыСтатистическогоНаблюдения" lowerBound="0" upperBound="-1"/>
+	</objectType>
+	<objectType name="СтатистическийПоказатель">
+		<property name="ХарактеристикаОбъектаНаблюдения" type="xs:string" form="Attribute"/>
+		<property name="ДетализироватьОбъектНаблюдения" type="xs:boolean" form="Attribute"/>
+		<property name="НаименованиеПоказателя" type="xs:string"/>
+	</objectType>
+	<objectType name="ФормыСтатистики">
+		<property name="РегламентированныйОтчет" type="xs:string" form="Attribute"/>
+		<property name="ИмяФормы" type="xs:string" form="Attribute"/>
+		<property name="ДатаИзменения" type="xs:date" form="Attribute"/>
+		<property name="НаименованиеФормы" type="xs:string"/>
+		<property xmlns:d3p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="ГруппыПолей" type="d3p1:ГруппыПолейФормСтатистики" lowerBound="0" upperBound="-1" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="Поля" type="d3p1:ПоляФормСтатистики" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="ПоляФормСтатистики">
+		<property name="КодПоля" type="xs:string" form="Attribute"/>
+		<property name="КодГруппыПолей" type="xs:string" nillable="true"/>
+		<property name="ИмяПоля" type="xs:string" nillable="true" form="Element"/>
+		<property name="НаименованиеПоля" type="xs:string" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="СтатистическийПоказатель" type="d3p1:СтатистическийПоказательСсылка" lowerBound="0" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="Период" type="d3p1:EnumRef.ОтносительныеПериодыОтчетности" nillable="true"/>
+		<property name="СНачалаГода" type="xs:boolean" nillable="true"/>
+		<property name="ДоКонцаГода" type="xs:boolean" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/8.1/data/enterprise/current-config" name="ДополнительныйАлгоритм" type="d3p1:EnumRef.ДополнительныеАлгоритмыЗаполненияФормСтатистики" lowerBound="0" nillable="true" form="Element"/>
+		<property name="НомерСтрокиОтчета" type="xs:string" lowerBound="0" nillable="true" form="Element"/>
+	</objectType>
+	<objectType name="ГруппыПолейФормСтатистики">
+		<property name="КодПоля" form="Attribute"/>
+		<property name="НаименованиеПоля" type="xs:string" nillable="true"/>
+		<property xmlns:d3p1="http://v8.1c.ru/buhv8/gks.ru/metod/forma.html" name="ГруппыПолей" type="d3p1:ГруппыПолейФормСтатистики" lowerBound="0" upperBound="-1" nillable="true"/>
+	</objectType>
+	<objectType name="СтатистическийПоказательСсылка">
+		<property name="КодОбъектаНаблюдения" type="xs:string" form="Attribute"/>
+		<property name="ХарактеристикаОбъектаНаблюдения" type="xs:string" form="Attribute"/>
+		<property name="ДетализироватьОбъектНаблюдения" type="xs:boolean" form="Attribute"/>
+	</objectType>
+</package>

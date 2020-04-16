@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mdclass:DataProcessor xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:core="http://g5.1c.ru/v8/dt/mcore" xmlns:mdclass="http://g5.1c.ru/v8/dt/metadata/mdclass" uuid="30f9888f-cfbd-45dc-9441-106e0545a640">
+  <producedTypes>
+    <objectType typeId="cac10f03-e858-4e9d-92d8-57a65c4d45af" valueTypeId="12647b44-9fae-481c-8811-558e9c630e5c"/>
+    <managerType typeId="8d694ee4-d567-44cf-bbb6-400dd9c0cd48" valueTypeId="3357da71-3fd9-472c-9458-b78ab9d1ff88"/>
+  </producedTypes>
+  <name>ПомощникУчетаЗарплаты</name>
+  <synonym>
+    <key>ru</key>
+    <value>Помощник учета зарплаты</value>
+  </synonym>
+  <useStandardCommands>true</useStandardCommands>
+  <defaultForm>DataProcessor.ПомощникУчетаЗарплаты.Form.Форма</defaultForm>
+  <help>
+    <pages>
+      <lang>ru</lang>
+    </pages>
+  </help>
+  <extendedPresentation>
+    <key>ru</key>
+    <value>Выплата зарплаты и уплата НДФЛ</value>
+  </extendedPresentation>
+  <attributes uuid="ed20f495-c89d-4f36-9343-5cf2f5289b7a">
+    <name>Организация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Организация</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.Организации</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <attributes uuid="40bd9f58-cd67-48d5-92a4-80eedf18751d">
+    <name>СчетОрганизации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Банковский счет</value>
+    </synonym>
+    <type>
+      <types>CatalogRef.БанковскиеСчета</types>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+    <choiceParameterLinks>
+      <name>Отбор.Владелец</name>
+      <field>DataProcessor.ПомощникУчетаЗарплаты.Attribute.Организация</field>
+    </choiceParameterLinks>
+  </attributes>
+  <attributes uuid="c8868574-e569-495f-a511-72bf0528b95e">
+    <name>ПериодРегистрации</name>
+    <synonym>
+      <key>ru</key>
+      <value>Остатки на дату</value>
+    </synonym>
+    <type>
+      <types>Date</types>
+      <dateQualifiers>
+        <dateFractions>Date</dateFractions>
+      </dateQualifiers>
+    </type>
+    <minValue xsi:type="core:UndefinedValue"/>
+    <maxValue xsi:type="core:UndefinedValue"/>
+    <fillChecking>ShowError</fillChecking>
+  </attributes>
+  <forms uuid="b71530d0-54cc-4f0c-b00e-71589a0f2c06">
+    <name>Форма</name>
+    <synonym>
+      <key>ru</key>
+      <value>Уплата НДФЛ агентом</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+  <forms uuid="d111f7bf-dcc7-4eb5-8c73-cb92d7901390">
+    <name>ДлительнаяОперация</name>
+    <synonym>
+      <key>ru</key>
+      <value>Длительная операция</value>
+    </synonym>
+    <usePurposes>PersonalComputer</usePurposes>
+    <usePurposes>MobileDevice</usePurposes>
+  </forms>
+</mdclass:DataProcessor>

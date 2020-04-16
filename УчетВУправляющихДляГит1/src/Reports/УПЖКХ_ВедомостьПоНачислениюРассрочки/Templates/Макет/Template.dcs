@@ -1,0 +1,409 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НачисленияПоРассрочке</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Удалить_ВидРассрочки</dataPath>
+			<field>Удалить_ВидРассрочки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Услуга</dataPath>
+			<field>Услуга</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНачисленияОборот</dataPath>
+			<field>СуммаНачисленияОборот</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>МесяцРассрочки</dataPath>
+			<field>МесяцРассрочки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Месяц предоставления</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ=dd.MM.yyyy</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаявлениеНаРассрочку</dataPath>
+			<field>ЗаявлениеНаРассрочку</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Месяц начисления</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:periodNumber>1</dcscom:periodNumber>
+				<dcscom:periodType>Main</dcscom:periodType>
+			</role>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:parameter>Формат</dcscor:parameter>
+					<dcscor:value xsi:type="xs:string">ДФ='MMММ yyyy'</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Организация</dataPath>
+			<field>Организация</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Удалить_НачислениеВМесяц</dataPath>
+			<field>Удалить_НачислениеВМесяц</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидОперации</dataPath>
+			<field>ВидОперации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛицевойСчет</dataPath>
+			<field>ЛицевойСчет</field>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Удалить_ВидПлатежей</dataPath>
+			<field>Удалить_ВидПлатежей</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Удалить_СуммаРассрочки</dataPath>
+			<field>Удалить_СуммаРассрочки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Удалить_ПроцентнаяСтавка</dataPath>
+			<field>Удалить_ПроцентнаяСтавка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Удалить_Договор</dataPath>
+			<field>Удалить_Договор</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНачисленияКонечныйОстаток</dataPath>
+			<field>СуммаНачисленияКонечныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Конечный остаток</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>СуммаНачисления</dcscom:balanceGroupName>
+				<dcscom:balanceType>ClosingBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНачисленияНачальныйОстаток</dataPath>
+			<field>СуммаНачисленияНачальныйОстаток</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Начальный остаток</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:balance>true</dcscom:balance>
+				<dcscom:balanceGroupName>СуммаНачисления</dcscom:balanceGroupName>
+				<dcscom:balanceType>OpeningBalance</dcscom:balanceType>
+			</role>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНачисленияПриход</dataPath>
+			<field>СуммаНачисленияПриход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Предоставленная рассрочка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаНачисленияРасход</dataPath>
+			<field>СуммаНачисленияРасход</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Погашенная рассрочка</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.Период,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.Организация,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.ЗаявлениеНаРассрочку,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.ЛицевойСчет,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.Услуга,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.МесяцРассрочки,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.СуммаНачисленияНачальныйОстаток,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.СуммаНачисленияОборот,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.СуммаНачисленияКонечныйОстаток,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.СуммаНачисленияПриход,
+	УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты.СуммаНачисленияРасход
+ИЗ
+	РегистрНакопления.УПЖКХ_НачисленияПоРассрочке.ОстаткиИОбороты(, , Месяц, , ) КАК УПЖКХ_НачисленияПоРассрочкеОстаткиИОбороты</query>
+	</dataSet>
+	<dataSet xsi:type="DataSetQuery">
+		<name>СведенияОРассрочке</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Услуга</dataPath>
+			<field>Услуга</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРассрочки</dataPath>
+			<field>ВидРассрочки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаявлениеНаРассрочку</dataPath>
+			<field>ЗаявлениеНаРассрочку</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>НачислениеВМесяц</dataPath>
+			<field>НачислениеВМесяц</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛицевойСчет</dataPath>
+			<field>ЛицевойСчет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СуммаРассрочки</dataPath>
+			<field>СуммаРассрочки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидПлатежей</dataPath>
+			<field>ВидПлатежей</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПроцентнаяСтавка</dataPath>
+			<field>ПроцентнаяСтавка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Договор</dataPath>
+			<field>Договор</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	УПЖКХ_СведенияОРассрочкеСрезПоследних.ЗаявлениеНаРассрочку,
+	УПЖКХ_СведенияОРассрочкеСрезПоследних.ЛицевойСчет,
+	УПЖКХ_СведенияОРассрочкеСрезПоследних.Услуга,
+	УПЖКХ_СведенияОРассрочкеСрезПоследних.СуммаРассрочки,
+	УПЖКХ_СведенияОРассрочкеСрезПоследних.ВидРассрочки,
+	УПЖКХ_СведенияОРассрочкеСрезПоследних.Договор,
+	УПЖКХ_СведенияОРассрочкеСрезПоследних.ВидПлатежей,
+	УПЖКХ_СведенияОРассрочкеСрезПоследних.ГодоваяПроцентнаяСтавка КАК ПроцентнаяСтавка,
+	УПЖКХ_СведенияОРассрочкеСрезПоследних.НачислениеВМесяц
+ИЗ
+	РегистрСведений.УПЖКХ_СведенияОРассрочке.СрезПоследних({&amp;КонецПериода}) КАК УПЖКХ_СведенияОРассрочкеСрезПоследних</query>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>НачисленияПоРассрочке</sourceDataSet>
+		<destinationDataSet>СведенияОРассрочке</destinationDataSet>
+		<sourceExpression>ЗаявлениеНаРассрочку</sourceExpression>
+		<destinationExpression>ЗаявлениеНаРассрочку</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НачисленияПоРассрочке</sourceDataSet>
+		<destinationDataSet>СведенияОРассрочке</destinationDataSet>
+		<sourceExpression>ЛицевойСчет</sourceExpression>
+		<destinationExpression>ЛицевойСчет</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>НачисленияПоРассрочке</sourceDataSet>
+		<destinationDataSet>СведенияОРассрочке</destinationDataSet>
+		<sourceExpression>Услуга</sourceExpression>
+		<destinationExpression>Услуга</destinationExpression>
+	</dataSetLink>
+	<totalField>
+		<dataPath>СуммаНачисленияКонечныйОстаток</dataPath>
+		<expression>Сумма(СуммаНачисленияКонечныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНачисленияНачальныйОстаток</dataPath>
+		<expression>Сумма(СуммаНачисленияНачальныйОстаток)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНачисленияОборот</dataPath>
+		<expression>Сумма(СуммаНачисленияОборот)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНачисленияПриход</dataPath>
+		<expression>Сумма(СуммаНачисленияПриход)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>СуммаНачисленияРасход</dataPath>
+		<expression>Сумма(СуммаНачисленияРасход)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Ведомость по начислению рассрочки</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Период</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНачисленияНачальныйОстаток</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНачисленияПриход</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНачисленияРасход</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СуммаНачисленияКонечныйОстаток</dcsset:field>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:userSettingID>cbf3911c-e9bc-47dd-a6e2-6ed903adba0d</dcsset:userSettingID>
+			</dcsset:filter>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>2d77e7db-12c9-49b0-b24a-2ec5ab10b31e</dcsset:userSettingID>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КонецПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:dateTime">0001-01-01T00:00:00</dcscor:value>
+					<dcsset:userSettingID>76f4deed-c9f2-4e64-b1e7-6cee96302c84</dcsset:userSettingID>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>ЛицевойСчет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ЗаявлениеНаРассрочку</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>МесяцРассрочки</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Услуга</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

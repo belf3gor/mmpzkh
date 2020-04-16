@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаРождения</dataPath>
+			<field>ДатаРождения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Физлицо</dataPath>
+			<field>Физлицо</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресЗдание</dataPath>
+			<field>АдресЗдание</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Адрес здания</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>АдресКвартира</dataPath>
+			<field>АдресКвартира</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛицевойСчет</dataPath>
+			<field>ЛицевойСчет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Операция</dataPath>
+			<field>Операция</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Период</dataPath>
+			<field>Период</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СтепеньРодства</dataPath>
+			<field>СтепеньРодства</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФИО</dataPath>
+			<field>ФИО</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаВыбытия</dataPath>
+			<field>ДатаВыбытия</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаРегистрации</dataPath>
+			<field>ДатаРегистрации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Адрес</dataPath>
+			<field>Адрес</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаОперации</dataPath>
+			<field>ДатаОперации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаСнятияСУчета</dataPath>
+			<field>ДатаСнятияСУчета</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ВидРегистрации</dataPath>
+			<field>ВидРегистрации</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РодительРебенка</dataPath>
+			<field>РодительРебенка</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФизическоеЛицоОсновное</dataPath>
+			<field>ФизическоеЛицоОсновное</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Жилец</dataPath>
+			<field>Жилец</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ФизическоеЛицоСвязанное</dataPath>
+			<field>ФизическоеЛицоСвязанное</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Зарегистрирован</dataPath>
+			<field>Зарегистрирован</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ РАЗРЕШЕННЫЕ
+	ДокументыФизическихЛиц.Физлицо КАК Физлицо,
+	ДокументыФизическихЛиц.Физлицо.ДатаРождения КАК ДатаРождения,
+	ТаблицаСтепениРодства.СтепеньРодства КАК СтепеньРодства,
+	УПЖКХ_СведенияОЗарегистрированных.Жилец.Наименование КАК ФИО,
+	ВЫБОР
+		КОГДА УПЖКХ_СведенияОЗарегистрированных.Зарегистрирован = ЛОЖЬ
+			ТОГДА УПЖКХ_СведенияОЗарегистрированных.Период
+		ИНАЧЕ ДокументыФизическихЛиц.Период
+	КОНЕЦ КАК Период,
+	УПЖКХ_СведенияОЗарегистрированных.ЛицевойСчет КАК ЛицевойСчет,
+	УПЖКХ_СведенияОЗарегистрированных.Зарегистрирован КАК Зарегистрирован,
+	УПЖКХ_СведенияОЗарегистрированных.ЛицевойСчет.Адрес КАК АдресКвартира,
+	УПЖКХ_СведенияОЗарегистрированных.ЛицевойСчет.Адрес.Владелец КАК АдресЗдание,
+	УПЖКХ_СведенияОЗарегистрированных.ЛицевойСчет.Адрес.Владелец.Наименование + ", " + УПЖКХ_СведенияОЗарегистрированных.ЛицевойСчет.Адрес.Наименование КАК Адрес,
+	ВЫБОР
+		КОГДА УПЖКХ_СведенияОЗарегистрированных.Зарегистрирован = ЛОЖЬ
+			ТОГДА "Снятие с учета"
+		ИНАЧЕ ДокументыФизическихЛиц.ПричинаИзменения
+	КОНЕЦ КАК Операция,
+	ДатаРегистрацииВыбытия.ДатаРегистрации КАК ДатаРегистрации,
+	ДатаРегистрацииВыбытия.ДатаВыбытия КАК ДатаВыбытия
+ПОМЕСТИТЬ ТаблицаДанных
+ИЗ
+	РегистрСведений.ДокументыФизическихЛиц КАК ДокументыФизическихЛиц
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.УПЖКХ_СведенияОЗарегистрированных КАК УПЖКХ_СведенияОЗарегистрированных
+		ПО ДокументыФизическихЛиц.Физлицо = УПЖКХ_СведенияОЗарегистрированных.Жилец.ФизЛицо
+			И (УПЖКХ_СведенияОЗарегистрированных.ДатаИзменения В
+				(ВЫБРАТЬ
+					МАКСИМУМ(СведенияПроживающие.ДатаИзменения)
+				ИЗ
+					РегистрСведений.УПЖКХ_СведенияОЗарегистрированных КАК СведенияПроживающие
+				ГДЕ
+					СведенияПроживающие.ДатаИзменения &lt;= ДокументыФизическихЛиц.Период
+					И СведенияПроживающие.Жилец.ФизЛицо = ДокументыФизическихЛиц.Физлицо))
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			УПЖКХ_СтепеньРодстваФизЛицСрезПоследних.СтепеньРодства КАК СтепеньРодства,
+			УПЖКХ_СтепеньРодстваФизЛицСрезПоследних.ФизическоеЛицоСвязанное КАК ФизическоеЛицоСвязанное
+		ИЗ
+			РегистрСведений.УПЖКХ_СтепеньРодстваФизЛиц.СрезПоследних(&amp;КонецПериода, ) КАК УПЖКХ_СтепеньРодстваФизЛицСрезПоследних
+				ВНУТРЕННЕЕ СОЕДИНЕНИЕ РегистрСведений.УПЖКХ_ОтветственныйСобственникНанимательЛицевогоСчета.СрезПоследних(&amp;КонецПериода, ) КАК УПЖКХ_ОтветственныйСобственникНанимательЛицевогоСчетаСрезПоследних
+				ПО УПЖКХ_СтепеньРодстваФизЛицСрезПоследних.ФизическоеЛицоОсновное = УПЖКХ_ОтветственныйСобственникНанимательЛицевогоСчетаСрезПоследних.ОтветственныйВладелец.ФизЛицо) КАК ТаблицаСтепениРодства
+		ПО ДокументыФизическихЛиц.Физлицо = ТаблицаСтепениРодства.ФизическоеЛицоСвязанное
+		ЛЕВОЕ СОЕДИНЕНИЕ (ВЫБРАТЬ
+			ДатыРегистрации.ДатаИзменения КАК ДатаРегистрации,
+			ВЫБОР
+				КОГДА ДатыВыбытия.Зарегистрирован = ЛОЖЬ
+					ТОГДА ЕСТЬNULL(ДатыВыбытия.ДатаИзменения, 0)
+			КОНЕЦ КАК ДатаВыбытия,
+			ЕСТЬNULL(ДатыВыбытия.Жилец, ДатыРегистрации.Жилец) КАК Жилец
+		ИЗ
+			РегистрСведений.УПЖКХ_СведенияОЗарегистрированных.СрезПоследних(&amp;КонецПериода, Зарегистрирован) КАК ДатыРегистрации
+				ПОЛНОЕ СОЕДИНЕНИЕ РегистрСведений.УПЖКХ_СведенияОЗарегистрированных.СрезПоследних(, ) КАК ДатыВыбытия
+				ПО ДатыРегистрации.Жилец = ДатыВыбытия.Жилец) КАК ДатаРегистрацииВыбытия
+		ПО ДокументыФизическихЛиц.Физлицо = ДатаРегистрацииВыбытия.Жилец.ФизЛицо
+ГДЕ
+	ДокументыФизическихЛиц.Период МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ТаблицаДанных.Физлицо КАК Физлицо,
+	ТаблицаДанных.ДатаРождения КАК ДатаРождения,
+	ТаблицаДанных.СтепеньРодства КАК СтепеньРодства,
+	ТаблицаДанных.ФИО КАК ФИО,
+	ТаблицаДанных.Период КАК Период,
+	ТаблицаДанных.ЛицевойСчет КАК ЛицевойСчет,
+	ТаблицаДанных.Зарегистрирован КАК Зарегистрирован,
+	ТаблицаДанных.АдресКвартира КАК АдресКвартира,
+	ТаблицаДанных.АдресЗдание КАК АдресЗдание,
+	ТаблицаДанных.Адрес КАК Адрес,
+	ТаблицаДанных.Операция КАК Операция,
+	ВЫБОР
+		КОГДА ТаблицаДанных.Операция = "Снятие с учета"
+			ТОГДА ДАТАВРЕМЯ(1, 1, 1)
+		ИНАЧЕ ТаблицаДанных.ДатаРегистрации
+	КОНЕЦ КАК ДатаРегистрации,
+	ТаблицаДанных.ДатаВыбытия КАК ДатаВыбытия,
+	ВЫБОР
+		КОГДА ТаблицаДанных.Операция = "Снятие с учета"
+			ТОГДА ДАТАВРЕМЯ(1, 1, 1)
+		ИНАЧЕ ТаблицаДанных.Период
+	КОНЕЦ КАК ДатаОперации,
+	ВЫБОР
+		КОГДА ТаблицаДанных.Операция = "Снятие с учета"
+			ТОГДА ТаблицаДанных.Период
+		ИНАЧЕ ТаблицаДанных.ДатаВыбытия
+	КОНЕЦ КАК ДатаСнятияСУчета,
+	NULL КАК ВидРегистрации,
+	NULL КАК РодительРебенка
+ИЗ
+	ТаблицаДанных КАК ТаблицаДанных</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>false</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>Date</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СистемныеПоля.НомерПоПорядку</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>№ п/п</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ЛицевойСчет</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ФИО</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаРождения</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>СтепеньРодства</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Родственные оботношения к владельцу ЛС</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Адрес</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>Операция</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ВидРегистрации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаРегистрации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаОперации</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>ДатаСнятияСУчета</dcsset:field>
+				</dcsset:item>
+				<dcsset:item xsi:type="dcsset:SelectedItemField">
+					<dcsset:field>РодительРебенка</dcsset:field>
+					<dcsset:lwsTitle>
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>С кем из родителей прописан ребенок</v8:content>
+						</v8:item>
+					</dcsset:lwsTitle>
+				</dcsset:item>
+			</dcsset:selection>
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>НачалоПериода</dcscor:parameter>
+					<dcscor:value xsi:type="xs:boolean">false</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>АдресЗдание</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

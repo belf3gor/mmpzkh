@@ -1,0 +1,45 @@
+<package xmlns="http://v8.1c.ru/8.1/xdto" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://api.vetrf.ru/schema/cdm/application" elementFormQualified="true" attributeFormQualified="false">
+	<import namespace="http://api.vetrf.ru/schema/cdm/base"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/application" name="application" type="d2p1:Application"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/application" name="applicationData" type="d2p1:ApplicationData"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/application" name="applicationResultData" type="d2p1:ApplicationResultData"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/application" name="binary" type="d2p1:BinaryContent"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/application" name="businessError" type="d2p1:BusinessError"/>
+	<property xmlns:d2p1="http://api.vetrf.ru/schema/cdm/application" name="errorList" type="d2p1:BusinessErrorList"/>
+	<valueType name="APIKey" base="xs:string" variety="Atomic"/>
+	<valueType name="ApplicationStatus" base="xs:string" variety="Atomic">
+		<enumeration>ACCEPTED</enumeration>
+		<enumeration>IN_PROCESS</enumeration>
+		<enumeration>COMPLETED</enumeration>
+		<enumeration>REJECTED</enumeration>
+	</valueType>
+	<valueType name="BinaryContent" base="xs:base64Binary" variety="Atomic"/>
+	<valueType name="ContentEncoding" base="xs:token" variety="Atomic">
+		<enumeration>plain</enumeration>
+		<enumeration>gzip</enumeration>
+	</valueType>
+	<objectType name="Application">
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/base" name="applicationId" type="d3p1:UUID" lowerBound="0"/>
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/application" name="status" type="d3p1:ApplicationStatus" lowerBound="0"/>
+		<property name="serviceId" type="xs:Name" lowerBound="0"/>
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/base" name="issuerId" type="d3p1:UUID" lowerBound="0"/>
+		<property name="issueDate" type="xs:dateTime" lowerBound="0"/>
+		<property name="rcvDate" type="xs:dateTime" lowerBound="0"/>
+		<property name="prdcRsltDate" type="xs:dateTime" lowerBound="0"/>
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/application" name="data" type="d3p1:ApplicationDataWrapper" lowerBound="0"/>
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/application" name="result" type="d3p1:ApplicationResultWrapper" lowerBound="0"/>
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/application" name="errors" type="d3p1:BusinessErrorList" lowerBound="0"/>
+	</objectType>
+	<objectType name="ApplicationData" abstract="true"/>
+	<objectType name="ApplicationDataWrapper" open="true" sequenced="true">
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/application" name="encoding" type="d3p1:ContentEncoding" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType name="ApplicationResultData" abstract="true"/>
+	<objectType name="ApplicationResultWrapper" open="true" sequenced="true">
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/application" name="encoding" type="d3p1:ContentEncoding" lowerBound="0" form="Attribute"/>
+	</objectType>
+	<objectType xmlns:d2p1="http://api.vetrf.ru/schema/cdm/base" name="BusinessError" base="d2p1:Error"/>
+	<objectType name="BusinessErrorList">
+		<property xmlns:d3p1="http://api.vetrf.ru/schema/cdm/application" name="error" type="d3p1:BusinessError" lowerBound="0" upperBound="-1"/>
+	</objectType>
+</package>

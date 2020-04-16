@@ -1,0 +1,3522 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetUnion">
+		<name>ЗакупкиИЗатраты</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыНаСтроительствоХозспособом</dataPath>
+			<field>ЗатратыНаСтроительствоХозспособом</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СчетЗатрат</dataPath>
+			<field>СчетЗатрат</field>
+			<presentationExpression>СчетЗатрат.Код + " " + СчетЗатрат.Наименование</presentationExpression>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДоговорСПоставщиком</dataPath>
+			<field>ДоговорСПоставщиком</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Поставщик</dataPath>
+			<field>Поставщик</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДокументПриобретения</dataPath>
+			<field>ДокументПриобретения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Номенклатура</dataPath>
+			<field>Номенклатура</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Номенклатура</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодразделениеЗатрат</dataPath>
+			<field>ПодразделениеЗатрат</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПодразделенияОрганизаций</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СубконтоЗатрат1</dataPath>
+			<field>СубконтоЗатрат1</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Субконто затрат 1</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СубконтоЗатрат2</dataPath>
+			<field>СубконтоЗатрат2</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Субконто затрат 2</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>СубконтоЗатрат3</dataPath>
+			<field>СубконтоЗатрат3</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Субконто затрат 3</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КоличествоПриобретено</dataPath>
+			<field>КоличествоПриобретено</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмерения</dataPath>
+			<field>ЕдиницаИзмерения</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КодЕдиницыТысКВтЧ</dataPath>
+			<field>КодЕдиницыТысКВтЧ</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыМатериалы</dataPath>
+			<field>ЗатратыМатериалы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты на материалы</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСчет</dataPath>
+			<field>КорСчет</field>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счет</dataPath>
+			<field>Счет</field>
+			<presentationExpression>Счет.Код + " " + Счет.Наименование</presentationExpression>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:ChartOfAccountsRef.Хозрасчетный</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КорСубконто</dataPath>
+			<field>КорСубконто</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Аналитика кор счета (поставщик, подотчетное лицо или РБП)</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.Контрагенты</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.РасходыБудущихПериодов</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ФизическиеЛица</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыТопливо</dataPath>
+			<field>ЗатратыТопливо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты на топливо</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыУслуги</dataPath>
+			<field>ЗатратыУслуги</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты на услуги</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Статья</dataPath>
+			<field>Статья</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Статья затрат</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ПрочиеДоходыИРасходы</v8:Type>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.СтатьиЗатрат</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыАренда</dataPath>
+			<field>ЗатратыАренда</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты на аренду</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыКомандировки</dataPath>
+			<field>ЗатратыКомандировки</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты на командировки</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыПредставительские</dataPath>
+			<field>ЗатратыПредставительские</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Представительские затраты</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыСтрахование</dataPath>
+			<field>ЗатратыСтрахование</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты на страхование</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыНалоги</dataPath>
+			<field>ЗатратыНалоги</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты на налоги</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Затраты</dataPath>
+			<field>Затраты</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбъектСтроительства</dataPath>
+			<field>ОбъектСтроительства</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Объект строительства</v8:content>
+				</v8:item>
+			</title>
+			<role>
+				<dcscom:dimension>true</dcscom:dimension>
+				<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+			</role>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.ОбъектыСтроительства</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Документ</dataPath>
+			<field>Документ</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Документ</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыТовары</dataPath>
+			<field>ЗатратыТовары</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты товары</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Оплата</dataPath>
+			<field>Оплата</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Оплата</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗатратыНаСырьеИТопливо</dataPath>
+			<field>ЗатратыНаСырьеИТопливо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Затраты на сырье и топливо</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РасходыПоОплатеУслугСтороннихОрганизаций</dataPath>
+			<field>РасходыПоОплатеУслугСтороннихОрганизаций</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расходы по оплате услуг сторонних организаций</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОбособленноеПодразделение</dataPath>
+			<field>ОбособленноеПодразделение</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Обособленное подразделение</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УчетПоПодразделениям</dataPath>
+			<field>УчетПоПодразделениям</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПодотчетноеЛицо</dataPath>
+			<field>ПодотчетноеЛицо</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Подотчетное лицо</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>РБП</dataPath>
+			<field>РБП</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Расходы будущих периодов</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<item xsi:type="DataSetQuery">
+			<name>ЗатратыНаСтроительство</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыНаСтроительствоХозспособом</dataPath>
+				<field>ЗатратыНаСтроительствоХозспособом</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбъектСтроительства</dataPath>
+				<field>ОбъектСтроительства</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Объект строительства</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ ВТ_Счета
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.СтроительствоОбъектовОсновныхСредств))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыНаСтроительствоХозспособом,
+	ХозрасчетныйОбороты.Субконто1 КАК Субконто1,
+	ХозрасчетныйОбороты.Счет КАК Счет
+{ВЫБРАТЬ
+	ЗатратыНаСтроительствоХозспособом,
+	Субконто1 КАК ОбъектСтроительства,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					ВТ_Счета.Счет
+				ИЗ
+					ВТ_Счета КАК ВТ_Счета),
+			&amp;ВидСубконтоОбъектыСтроительства_СпособыСтроительства,
+			Организация В (&amp;Организация)
+				И Субконто2 = ЗНАЧЕНИЕ(Перечисление.СпособыСтроительства.Хозспособ) {(ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение},
+			,
+			) КАК ХозрасчетныйОбороты</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>Приобретение</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДокументПриобретения</dataPath>
+				<field>ДокументПриобретения</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПодразделениеЗатрат</dataPath>
+				<field>ПодразделениеЗатрат</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поставщик</dataPath>
+				<field>Поставщик</field>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Контрагенты</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СубконтоЗатрат1</dataPath>
+				<field>СубконтоЗатрат1</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СубконтоЗатрат2</dataPath>
+				<field>СубконтоЗатрат2</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СубконтоЗатрат3</dataPath>
+				<field>СубконтоЗатрат3</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>СчетЗатрат</dataPath>
+				<field>СчетЗатрат</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КоличествоПриобретено</dataPath>
+				<field>КоличествоПриобретено</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоговорСПоставщиком</dataPath>
+				<field>ДоговорСПоставщиком</field>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЕдиницаИзмерения</dataPath>
+				<field>ЕдиницаИзмерения</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КодЕдиницыТысКВтЧ</dataPath>
+				<field>КодЕдиницыТысКВтЧ</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Счет</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Документ</dataPath>
+				<field>Документ</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Документ</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Статья</dataPath>
+				<field>Статья</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Статья</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	ТаблицаУслуги.Номенклатура.ЕдиницаИзмерения КАК ЕдиницаИзмерения,
+	&amp;КодЕдиницыТысКВтЧ КАК КодЕдиницыТысКВтЧ,
+	СУММА(ТаблицаУслуги.Количество) КАК КоличествоПриобретено,
+	ПоступлениеТоваровУслуг.Контрагент КАК Поставщик,
+	ПоступлениеТоваровУслуг.ДоговорКонтрагента КАК ДоговорСПоставщиком,
+	ПоступлениеТоваровУслуг.СчетУчетаРасчетовСКонтрагентом КАК СчетУчетаРасчетовСКонтрагентом,
+	ПоступлениеТоваровУслуг.Ссылка КАК Документ,
+	ВЫБОР
+		КОГДА ТаблицаУслуги.Субконто1 ССЫЛКА Справочник.СтатьиЗатрат
+				ИЛИ ТаблицаУслуги.Субконто1 ССЫЛКА Справочник.ПрочиеДоходыИРасходы
+			ТОГДА ТаблицаУслуги.Субконто1
+		КОГДА ТаблицаУслуги.Субконто2 ССЫЛКА Справочник.СтатьиЗатрат
+				ИЛИ ТаблицаУслуги.Субконто2 ССЫЛКА Справочник.ПрочиеДоходыИРасходы
+			ТОГДА ТаблицаУслуги.Субконто2
+		КОГДА ТаблицаУслуги.Субконто3 ССЫЛКА Справочник.СтатьиЗатрат
+				ИЛИ ТаблицаУслуги.Субконто3 ССЫЛКА Справочник.ПрочиеДоходыИРасходы
+			ТОГДА ТаблицаУслуги.Субконто3
+	КОНЕЦ КАК Статья
+{ВЫБРАТЬ
+	ЕдиницаИзмерения,
+	КодЕдиницыТысКВтЧ,
+	КоличествоПриобретено,
+	Поставщик КАК Поставщик,
+	ДоговорСПоставщиком КАК ДоговорСПоставщиком,
+	СчетУчетаРасчетовСКонтрагентом.* КАК Счет,
+	Документ,
+	Статья}
+ИЗ
+	Документ.ПоступлениеТоваровУслуг.Услуги КАК ТаблицаУслуги
+		ВНУТРЕННЕЕ СОЕДИНЕНИЕ Документ.ПоступлениеТоваровУслуг КАК ПоступлениеТоваровУслуг
+		ПО ТаблицаУслуги.Ссылка = ПоступлениеТоваровУслуг.Ссылка
+ГДЕ
+	ПоступлениеТоваровУслуг.Проведен
+	И ПоступлениеТоваровУслуг.Организация В(&amp;Организация)
+	И ПоступлениеТоваровУслуг.Дата МЕЖДУ &amp;НачалоПериода И &amp;КонецПериода
+{ГДЕ
+	ПоступлениеТоваровУслуг.Контрагент.* КАК Поставщик,
+	ПоступлениеТоваровУслуг.ДоговорКонтрагента.* КАК ДоговорСПоставщиком,
+	ПоступлениеТоваровУслуг.Ссылка.* КАК ДокументПриобретения,
+	ТаблицаУслуги.Номенклатура.*,
+	ТаблицаУслуги.СчетЗатрат,
+	ТаблицаУслуги.ПодразделениеЗатрат.*,
+	ТаблицаУслуги.ПодразделениеЗатрат КАК ОбособленноеПодразделение,
+	ТаблицаУслуги.Субконто1.* КАК СубконтоЗатрат1,
+	ТаблицаУслуги.Субконто2.* КАК СубконтоЗатрат2,
+	ТаблицаУслуги.Субконто3.* КАК СубконтоЗатрат3,
+	(ВЫБОР
+			КОГДА ТаблицаУслуги.Субконто1 ССЫЛКА Справочник.СтатьиЗатрат
+					ИЛИ ТаблицаУслуги.Субконто1 ССЫЛКА Справочник.ПрочиеДоходыИРасходы
+				ТОГДА ТаблицаУслуги.Субконто1
+			КОГДА ТаблицаУслуги.Субконто2 ССЫЛКА Справочник.СтатьиЗатрат
+					ИЛИ ТаблицаУслуги.Субконто2 ССЫЛКА Справочник.ПрочиеДоходыИРасходы
+				ТОГДА ТаблицаУслуги.Субконто2
+			КОГДА ТаблицаУслуги.Субконто3 ССЫЛКА Справочник.СтатьиЗатрат
+					ИЛИ ТаблицаУслуги.Субконто3 ССЫЛКА Справочник.ПрочиеДоходыИРасходы
+				ТОГДА ТаблицаУслуги.Субконто3
+		КОНЕЦ) КАК Статья}
+
+СГРУППИРОВАТЬ ПО
+	ТаблицаУслуги.Номенклатура.ЕдиницаИзмерения,
+	ПоступлениеТоваровУслуг.Контрагент,
+	ПоступлениеТоваровУслуг.ДоговорКонтрагента,
+	ПоступлениеТоваровУслуг.СчетУчетаРасчетовСКонтрагентом,
+	ПоступлениеТоваровУслуг.Ссылка,
+	ВЫБОР
+		КОГДА ТаблицаУслуги.Субконто1 ССЫЛКА Справочник.СтатьиЗатрат
+				ИЛИ ТаблицаУслуги.Субконто1 ССЫЛКА Справочник.ПрочиеДоходыИРасходы
+			ТОГДА ТаблицаУслуги.Субконто1
+		КОГДА ТаблицаУслуги.Субконто2 ССЫЛКА Справочник.СтатьиЗатрат
+				ИЛИ ТаблицаУслуги.Субконто2 ССЫЛКА Справочник.ПрочиеДоходыИРасходы
+			ТОГДА ТаблицаУслуги.Субконто2
+		КОГДА ТаблицаУслуги.Субконто3 ССЫЛКА Справочник.СтатьиЗатрат
+				ИЛИ ТаблицаУслуги.Субконто3 ССЫЛКА Справочник.ПрочиеДоходыИРасходы
+			ТОГДА ТаблицаУслуги.Субконто3
+	КОНЕЦ</query>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗатратыМатериалы</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыМатериалы</dataPath>
+				<field>ЗатратыМатериалы</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Номенклатура</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоговорСПоставщиком</dataPath>
+				<field>ДоговорСПоставщиком</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поставщик</dataPath>
+				<field>Поставщик</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Контрагенты</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаМатериалов
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.Материалы))
+	И НЕ Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.Топливо))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПоставщиками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиИПодрядчиками), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСРазнымиДебиторамиИКредиторами))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыМатериалы,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Номенклатура,
+	ХозрасчетныйОбороты.КорСубконто1 КАК Поставщик,
+	ХозрасчетныйОбороты.КорСубконто2 КАК ДоговорСПоставщиком
+{ВЫБРАТЬ
+	ЗатратыМатериалы,
+	Счет.*,
+	КорСчет.*,
+	Номенклатура.*,
+	Поставщик.*,
+	ДоговорСПоставщиком.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаМатериалов.Счет
+				ИЗ
+					СчетаМатериалов КАК СчетаМатериалов),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Номенклатура),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Номенклатура, (КорСубконто1).* КАК Поставщик, (КорСубконто2).* КАК ДоговорСПоставщиком},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПоставщиками.Счет
+				ИЗ
+					СчетаРасчетовСПоставщиками КАК СчетаРасчетовСПоставщиками),
+			&amp;ВидСубконтоКонтрагентДоговор) КАК ХозрасчетныйОбороты</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗатратыТопливо</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Номенклатура</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто</dataPath>
+				<field>КорСубконто</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Контрагенты</v8:Type>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ФизическиеЛица</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыТопливо</dataPath>
+				<field>ЗатратыТопливо</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поставщик</dataPath>
+				<field>Поставщик</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Поставщик</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПодотчетноеЛицо</dataPath>
+				<field>ПодотчетноеЛицо</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Подотчетное лицо</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаМатериалов
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.Топливо))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПоставщиками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиИПодрядчиками), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСРазнымиДебиторамиИКредиторами))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПодотчетниками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПодотчетнымиЛицами_))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыТопливо,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Номенклатура,
+	ХозрасчетныйОбороты.КорСубконто1 КАК КорСубконто
+{ВЫБРАТЬ
+	ЗатратыТопливо,
+	Счет.*,
+	КорСчет.*,
+	Номенклатура.*,
+	КорСубконто.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаМатериалов.Счет
+				ИЗ
+					СчетаМатериалов КАК СчетаМатериалов),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Номенклатура),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Номенклатура, (КорСубконто1).* КАК КорСубконто, (КорСубконто1).* КАК Поставщик},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПоставщиками.Счет
+				ИЗ
+					СчетаРасчетовСПоставщиками КАК СчетаРасчетовСПоставщиками),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты)) КАК ХозрасчетныйОбороты
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт,
+	ХозрасчетныйОбороты.Счет,
+	ХозрасчетныйОбороты.КорСчет,
+	ХозрасчетныйОбороты.Субконто1,
+	ХозрасчетныйОбороты.КорСубконто1
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаМатериалов.Счет
+				ИЗ
+					СчетаМатериалов КАК СчетаМатериалов),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Номенклатура),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Номенклатура, (КорСубконто1).* КАК КорСубконто, (КорСубконто1).* КАК ПодотчетноеЛицо},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПодотчетниками.Счет
+				ИЗ
+					СчетаРасчетовСПодотчетниками КАК СчетаРасчетовСПодотчетниками),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.РаботникиОрганизаций)) КАК ХозрасчетныйОбороты</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗатратыНалоги</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Статья</dataPath>
+				<field>Статья</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.СтатьиЗатрат</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыНалоги</dataPath>
+				<field>ЗатратыНалоги</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаЗатрат
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОсновноеПроизводство), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВспомогательныеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбслуживающиеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыНаПродажу))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСБюджетом
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыПоНалогам))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыНалоги,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Статья
+{ВЫБРАТЬ
+	ЗатратыНалоги,
+	Счет.*,
+	КорСчет.*,
+	Статья.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаЗатрат.Счет
+				ИЗ
+					СчетаЗатрат КАК СчетаЗатрат),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.СтатьиЗатрат),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Статья},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСБюджетом.Счет
+				ИЗ
+					СчетаРасчетовСБюджетом КАК СчетаРасчетовСБюджетом),
+			) КАК ХозрасчетныйОбороты</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>Затраты</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Затраты</dataPath>
+				<field>Затраты</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поставщик</dataPath>
+				<field>Субконто1</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Контрагенты</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоговорСПоставщиком</dataPath>
+				<field>Субконто2</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПоставщиками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиИПодрядчиками), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСРазнымиДебиторамиИКредиторами))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаЗатрат
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОсновноеПроизводство), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВспомогательныеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбслуживающиеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыНаПродажу))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПодотчетниками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПодотчетнымиЛицами_))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотКт КАК Затраты,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Субконто1,
+	ХозрасчетныйОбороты.Субконто2 КАК Субконто2
+{ВЫБРАТЬ
+	Затраты,
+	Счет.*,
+	КорСчет.*,
+	Субконто1.*,
+	Субконто2.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПоставщиками.Счет
+				ИЗ
+					СчетаРасчетовСПоставщиками КАК СчетаРасчетовСПоставщиками),
+			&amp;ВидСубконтоКонтрагентДоговор,
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Субконто1, (Субконто2).* КАК Субконто2},
+			КорСчет В
+					(ВЫБРАТЬ
+						СчетаРасчетовСПодотчетниками.Счет
+					ИЗ
+						СчетаРасчетовСПодотчетниками КАК СчетаРасчетовСПодотчетниками)
+				ИЛИ КорСчет В
+					(ВЫБРАТЬ
+						СчетаЗатрат.Счет
+					ИЗ
+						СчетаЗатрат КАК СчетаЗатрат),
+			) КАК ХозрасчетныйОбороты</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetUnion">
+			<name>ЗатратыУслуги</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто</dataPath>
+				<field>КорСубконто</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Контрагенты</v8:Type>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ФизическиеЛица</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыУслуги</dataPath>
+				<field>ЗатратыУслуги</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Статья</dataPath>
+				<field>Статья</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ПрочиеДоходыИРасходы</v8:Type>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.СтатьиЗатрат</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыАренда</dataPath>
+				<field>ЗатратыАренда</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыКомандировки</dataPath>
+				<field>ЗатратыКомандировки</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыПредставительские</dataPath>
+				<field>ЗатратыПредставительские</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыСтрахование</dataPath>
+				<field>ЗатратыСтрахование</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поставщик</dataPath>
+				<field>Поставщик</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Поставщик</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ПодотчетноеЛицо</dataPath>
+				<field>ПодотчетноеЛицо</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Подотчетное лицо</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РБП</dataPath>
+				<field>РБП</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>РБП</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<item xsi:type="DataSetQuery">
+				<name>Затраты_Поставщики</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСчет</dataPath>
+					<field>КорСчет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСубконто</dataPath>
+					<field>КорСубконто</field>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыУслуги</dataPath>
+					<field>ЗатратыУслуги</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПрочиеДоходыИРасходы</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтатьиЗатрат</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыАренда</dataPath>
+					<field>ЗатратыАренда</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыКомандировки</dataPath>
+					<field>ЗатратыКомандировки</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыПредставительские</dataPath>
+					<field>ЗатратыПредставительские</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыСтрахование</dataPath>
+					<field>ЗатратыСтрахование</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОбособленноеПодразделение</dataPath>
+					<field>ОбособленноеПодразделение</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обособленное подразделение</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Поставщик</dataPath>
+					<field>Поставщик</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поставщик</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Контрагенты</v8:Type>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаЗатрат
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОсновноеПроизводство), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВспомогательныеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбслуживающиеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыНаПродажу))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПоставщиками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиИПодрядчиками), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСРазнымиДебиторамиИКредиторами))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыУслуги,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Статья,
+	ХозрасчетныйОбороты.КорСубконто1 КАК КорСубконто,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.АрендаФедеральногоИМуниципальногоИмущества)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыАренда,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.КомандировочныеРасходы)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыКомандировки,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ПредставительскиеРасходы)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыПредставительские,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ В (ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ДобровольноеЛичноеСтрахование), ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ДобровольноеЛичноеСтрахованиеНаСлучайСмертиИлиУтратыРаботоспособности), ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ДобровольноеСтрахованиеПоДоговорамДолгосрочногоСтрахованияЖизниРаботников))
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыСтрахование
+{ВЫБРАТЬ
+	ЗатратыУслуги,
+	Счет.*,
+	КорСчет.*,
+	Статья.*,
+	КорСубконто.*,
+	КорСубконто.* КАК Поставщик,
+	ЗатратыАренда,
+	ЗатратыКомандировки,
+	ЗатратыПредставительские,
+	ЗатратыСтрахование}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаЗатрат.Счет
+				ИЗ
+					СчетаЗатрат КАК СчетаЗатрат),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.СтатьиЗатрат),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Статья, (КорСубконто1).* КАК КорСубконто, (КорСубконто1).* КАК Поставщик},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПоставщиками.Счет
+				ИЗ
+					СчетаРасчетовСПоставщиками КАК СчетаРасчетовСПоставщиками),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты)) КАК ХозрасчетныйОбороты</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Затраты_Подотчетники</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСчет</dataPath>
+					<field>КорСчет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСубконто</dataPath>
+					<field>КорСубконто</field>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыУслуги</dataPath>
+					<field>ЗатратыУслуги</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПрочиеДоходыИРасходы</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтатьиЗатрат</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыАренда</dataPath>
+					<field>ЗатратыАренда</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыКомандировки</dataPath>
+					<field>ЗатратыКомандировки</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыПредставительские</dataPath>
+					<field>ЗатратыПредставительские</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыСтрахование</dataPath>
+					<field>ЗатратыСтрахование</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОбособленноеПодразделение</dataPath>
+					<field>ОбособленноеПодразделение</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обособленное подразделение</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПодотчетноеЛицо</dataPath>
+					<field>ПодотчетноеЛицо</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подотчетное лицо</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</v8:Type>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаЗатрат
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОсновноеПроизводство), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВспомогательныеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбслуживающиеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыНаПродажу))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПодотчетниками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПодотчетнымиЛицами_))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыУслуги,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Статья,
+	ХозрасчетныйОбороты.КорСубконто1 КАК КорСубконто,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.АрендаФедеральногоИМуниципальногоИмущества)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыАренда,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.КомандировочныеРасходы)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыКомандировки,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ПредставительскиеРасходы)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыПредставительские,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ В (ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ДобровольноеЛичноеСтрахование), ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ДобровольноеЛичноеСтрахованиеНаСлучайСмертиИлиУтратыРаботоспособности), ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ДобровольноеСтрахованиеПоДоговорамДолгосрочногоСтрахованияЖизниРаботников))
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыСтрахование
+{ВЫБРАТЬ
+	ЗатратыУслуги,
+	Счет.*,
+	КорСчет.*,
+	Статья.*,
+	КорСубконто.*,
+	КорСубконто.* КАК ПодотчетноеЛицо,
+	ЗатратыАренда,
+	ЗатратыКомандировки,
+	ЗатратыПредставительские,
+	ЗатратыСтрахование}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаЗатрат.Счет
+				ИЗ
+					СчетаЗатрат КАК СчетаЗатрат),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.СтатьиЗатрат),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Статья, (КорСубконто1).* КАК КорСубконто, (КорСубконто1).* КАК ПодотчетноеЛицо},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПодотчетниками.Счет
+				ИЗ
+					СчетаРасчетовСПодотчетниками КАК СчетаРасчетовСПодотчетниками),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.РаботникиОрганизаций)) КАК ХозрасчетныйОбороты</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ПрочиеЗатраты_Поставщики</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСчет</dataPath>
+					<field>КорСчет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСубконто</dataPath>
+					<field>КорСубконто</field>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыУслуги</dataPath>
+					<field>ЗатратыУслуги</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПрочиеДоходыИРасходы</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтатьиЗатрат</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыАренда</dataPath>
+					<field>ЗатратыАренда</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОбособленноеПодразделение</dataPath>
+					<field>ОбособленноеПодразделение</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обособленное подразделение</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Поставщик</dataPath>
+					<field>Поставщик</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Поставщик</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Контрагенты</v8:Type>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаПрочихРасходов
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ПрочиеРасходы))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПоставщиками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиИПодрядчиками), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСРазнымиДебиторамиИКредиторами))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыУслуги,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Статья,
+	ХозрасчетныйОбороты.КорСубконто1 КАК КорСубконто,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.ПрочиеДоходыИРасходы).ВидПрочихДоходовИРасходов = ЗНАЧЕНИЕ(Перечисление.ВидыПрочихДоходовИРасходов.СдачаИмуществаВАрендуИлиСубаренду)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыАренда
+{ВЫБРАТЬ
+	ЗатратыУслуги,
+	Счет.*,
+	КорСчет.*,
+	Статья.*,
+	КорСубконто.*,
+	КорСубконто.* КАК Поставщик,
+	ЗатратыАренда}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаПрочихРасходов.Счет
+				ИЗ
+					СчетаПрочихРасходов КАК СчетаПрочихРасходов),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ПрочиеДоходыИРасходы),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Статья, (КорСубконто1).* КАК КорСубконто, (КорСубконто1).* КАК Поставщик},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПоставщиками.Счет
+				ИЗ
+					СчетаРасчетовСПоставщиками КАК СчетаРасчетовСПоставщиками),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты)) КАК ХозрасчетныйОбороты</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ПрочиеЗатраты_Подотчетники</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСчет</dataPath>
+					<field>КорСчет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСубконто</dataPath>
+					<field>КорСубконто</field>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыУслуги</dataPath>
+					<field>ЗатратыУслуги</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПрочиеДоходыИРасходы</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтатьиЗатрат</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыАренда</dataPath>
+					<field>ЗатратыАренда</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ОбособленноеПодразделение</dataPath>
+					<field>ОбособленноеПодразделение</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Обособленное подразделение</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ПодотчетноеЛицо</dataPath>
+					<field>ПодотчетноеЛицо</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Подотчетное лицо</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</v8:Type>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаПрочихРасходов
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ПрочиеРасходы))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПодотчетниками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПодотчетнымиЛицами_))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыУслуги,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Статья,
+	ХозрасчетныйОбороты.КорСубконто1 КАК КорСубконто,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.ПрочиеДоходыИРасходы).ВидПрочихДоходовИРасходов = ЗНАЧЕНИЕ(Перечисление.ВидыПрочихДоходовИРасходов.СдачаИмуществаВАрендуИлиСубаренду)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыАренда
+{ВЫБРАТЬ
+	ЗатратыУслуги,
+	Счет.*,
+	КорСчет.*,
+	Статья.*,
+	КорСубконто.*,
+	КорСубконто.* КАК ПодотчетноеЛицо,
+	ЗатратыАренда}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаПрочихРасходов.Счет
+				ИЗ
+					СчетаПрочихРасходов КАК СчетаПрочихРасходов),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ПрочиеДоходыИРасходы),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Статья, (КорСубконто1).* КАК КорСубконто, (КорСубконто1).* КАК ПодотчетноеЛицо},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПодотчетниками.Счет
+				ИЗ
+					СчетаРасчетовСПодотчетниками КАК СчетаРасчетовСПодотчетниками),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.РаботникиОрганизаций)) КАК ХозрасчетныйОбороты</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>Затраты_РБП</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСчет</dataPath>
+					<field>КорСчет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСубконто</dataPath>
+					<field>КорСубконто</field>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.РасходыБудущихПериодов</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыУслуги</dataPath>
+					<field>ЗатратыУслуги</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПрочиеДоходыИРасходы</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтатьиЗатрат</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыАренда</dataPath>
+					<field>ЗатратыАренда</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыКомандировки</dataPath>
+					<field>ЗатратыКомандировки</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыПредставительские</dataPath>
+					<field>ЗатратыПредставительские</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыСтрахование</dataPath>
+					<field>ЗатратыСтрахование</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по подразделениям</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>РБП</dataPath>
+					<field>РБП</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РБП</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.РасходыБудущихПериодов</v8:Type>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаЗатрат
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОсновноеПроизводство), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВспомогательныеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбслуживающиеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыНаПродажу))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРБП
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыБудущихПериодов))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыУслуги,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Статья,
+	ХозрасчетныйОбороты.КорСубконто1 КАК КорСубконто,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.АрендаФедеральногоИМуниципальногоИмущества)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыАренда,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.КомандировочныеРасходы)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыКомандировки,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ПредставительскиеРасходы)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыПредставительские,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.СтатьиЗатрат).ВидРасходовНУ В (ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ДобровольноеЛичноеСтрахование), ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ДобровольноеЛичноеСтрахованиеНаСлучайСмертиИлиУтратыРаботоспособности), ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.ДобровольноеСтрахованиеПоДоговорамДолгосрочногоСтрахованияЖизниРаботников))
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыСтрахование
+{ВЫБРАТЬ
+	ЗатратыУслуги,
+	Счет.*,
+	КорСчет.*,
+	Статья.*,
+	КорСубконто.*,
+	КорСубконто.* КАК РБП,
+	ЗатратыАренда,
+	ЗатратыКомандировки,
+	ЗатратыПредставительские,
+	ЗатратыСтрахование}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаЗатрат.Счет
+				ИЗ
+					СчетаЗатрат КАК СчетаЗатрат),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.СтатьиЗатрат),
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Статья, (КорСубконто1).* КАК КорСубконто, (КорСубконто1).* КАК РБП},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРБП.Счет
+				ИЗ
+					СчетаРБП КАК СчетаРБП),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.РасходыБудущихПериодов)) КАК ХозрасчетныйОбороты</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+			<item xsi:type="DataSetQuery">
+				<name>ПрочиеЗатраты_РБП</name>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСчет</dataPath>
+					<field>КорСчет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Счет</dataPath>
+					<field>Счет</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+					</role>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>КорСубконто</dataPath>
+					<field>КорСубконто</field>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.Контрагенты</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.РасходыБудущихПериодов</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ФизическиеЛица</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыУслуги</dataPath>
+					<field>ЗатратыУслуги</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>Статья</dataPath>
+					<field>Статья</field>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.ПрочиеДоходыИРасходы</v8:Type>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.СтатьиЗатрат</v8:Type>
+					</valueType>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>ЗатратыАренда</dataPath>
+					<field>ЗатратыАренда</field>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>УчетПоПодразделениям</dataPath>
+					<field>УчетПоПодразделениям</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>Учет по подразделениям</v8:content>
+						</v8:item>
+					</title>
+				</field>
+				<field xsi:type="DataSetFieldField">
+					<dataPath>РБП</dataPath>
+					<field>РБП</field>
+					<title xsi:type="v8:LocalStringType">
+						<v8:item>
+							<v8:lang>ru</v8:lang>
+							<v8:content>РБП</v8:content>
+						</v8:item>
+					</title>
+					<role>
+						<dcscom:dimension>true</dcscom:dimension>
+						<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+					</role>
+					<valueType>
+						<v8:Type xmlns:d7p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d7p1:CatalogRef.РасходыБудущихПериодов</v8:Type>
+					</valueType>
+				</field>
+				<dataSource>ИсточникДанных1</dataSource>
+				<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаПрочихРасходов
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ПрочиеРасходы))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	(ЛОЖЬ) КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРБП
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыБудущихПериодов))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыУслуги,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Статья,
+	ХозрасчетныйОбороты.КорСубконто1 КАК КорСубконто,
+	ВЫБОР
+		КОГДА ВЫРАЗИТЬ(ХозрасчетныйОбороты.Субконто1 КАК Справочник.ПрочиеДоходыИРасходы).ВидПрочихДоходовИРасходов = ЗНАЧЕНИЕ(Перечисление.ВидыПрочихДоходовИРасходов.СдачаИмуществаВАрендуИлиСубаренду)
+			ТОГДА ХозрасчетныйОбороты.СуммаОборотДт
+		ИНАЧЕ 0
+	КОНЕЦ КАК ЗатратыАренда
+{ВЫБРАТЬ
+	ЗатратыУслуги,
+	Счет.*,
+	КорСчет.*,
+	Статья.*,
+	КорСубконто.*,
+	КорСубконто.* КАК РБП,
+	ЗатратыАренда}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаПрочихРасходов.Счет
+				ИЗ
+					СчетаПрочихРасходов КАК СчетаПрочихРасходов),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ПрочиеДоходыИРасходы),
+			{(Организация В (&amp;Организация)), (Субконто1).* КАК Статья, (КорСубконто1).* КАК КорСубконто, (КорСубконто1).* КАК РБП},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРБП.Счет
+				ИЗ
+					СчетаРБП КАК СчетаРБП),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.РасходыБудущихПериодов)) КАК ХозрасчетныйОбороты</query>
+				<autoFillFields>false</autoFillFields>
+			</item>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗатратыТовары</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Номенклатура</dataPath>
+				<field>Номенклатура</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Номенклатура</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоговорСПоставщиком</dataPath>
+				<field>ДоговорСПоставщиком</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.ДоговорыКонтрагентов</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поставщик</dataPath>
+				<field>Поставщик</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+				<valueType>
+					<v8:Type xmlns:d6p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d6p1:CatalogRef.Контрагенты</v8:Type>
+				</valueType>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыТовары</dataPath>
+				<field>ЗатратыТовары</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Затраты товары</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаТоваров
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.Товары))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПоставщиками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиИПодрядчиками), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСРазнымиДебиторамиИКредиторами))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотДт КАК ЗатратыТовары,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.Субконто1 КАК Номенклатура,
+	ХозрасчетныйОбороты.КорСубконто1 КАК Поставщик,
+	ХозрасчетныйОбороты.КорСубконто2 КАК ДоговорСПоставщиком
+{ВЫБРАТЬ
+	ЗатратыТовары,
+	Счет.*,
+	КорСчет.*,
+	Номенклатура.*,
+	Поставщик.*,
+	ДоговорСПоставщиком.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаТоваров.Счет
+				ИЗ
+					СчетаТоваров КАК СчетаТоваров),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Номенклатура),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (Субконто1).* КАК Номенклатура, (КорСубконто1).* КАК Поставщик, (КорСубконто2).* КАК ДоговорСПоставщиком},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПоставщиками.Счет
+				ИЗ
+					СчетаРасчетовСПоставщиками КАК СчетаРасчетовСПоставщиками),
+			&amp;ВидСубконтоКонтрагентДоговор) КАК ХозрасчетныйОбороты</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>Оплата_Поставщики</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Оплата</dataPath>
+				<field>Оплата</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Оплата</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Поставщик</dataPath>
+				<field>Поставщик</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Поставщик</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ДоговорСПоставщиком</dataPath>
+				<field>ДоговорСПоставщиком</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Договор с поставщиком</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСубконто</dataPath>
+				<field>КорСубконто</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Кор субконто</v8:content>
+					</v8:item>
+				</title>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+					<dcscom:ignoreNullValues>true</dcscom:ignoreNullValues>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаДенежныхСредств
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.Касса), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетныеСчета), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВалютныеСчета), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ПереводыВПути_))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПоставщиками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиИПодрядчиками), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСРазнымиДебиторамиИКредиторами))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ХозрасчетныйОбороты.СуммаОборотКт КАК Оплата,
+	ХозрасчетныйОбороты.Счет КАК Счет,
+	ХозрасчетныйОбороты.КорСчет КАК КорСчет,
+	ХозрасчетныйОбороты.КорСубконто1 КАК Поставщик,
+	ХозрасчетныйОбороты.КорСубконто2 КАК ДоговорСПоставщиком
+{ВЫБРАТЬ
+	Оплата,
+	Поставщик.*,
+	ДоговорСПоставщиком.*,
+	Счет.*,
+	Поставщик.* КАК КорСубконто}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаДенежныхСредств.Счет
+				ИЗ
+					СчетаДенежныхСредств КАК СчетаДенежныхСредств),
+			,
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение, (КорСубконто1).* КАК Поставщик, (КорСубконто1).* КАК КорСубконто, (КорСубконто1).* КАК Поставщик, (КорСубконто2).* КАК ДоговорСПоставщиком},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПоставщиками.Счет
+				ИЗ
+					СчетаРасчетовСПоставщиками КАК СчетаРасчетовСПоставщиками),
+			&amp;ВидСубконтоКонтрагентДоговор) КАК ХозрасчетныйОбороты</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>ЗатратыНаСырьеДляПроизводства</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ЗатратыНаСырьеИТопливо</dataPath>
+				<field>ЗатратыНаСырьеИТопливо</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Затраты на сырье и топливо</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Кор счет</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаЗатрат
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОсновноеПроизводство), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВспомогательныеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбслуживающиеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыНаПродажу))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаМатериалов
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.Материалы))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ЗатратыНаСырьеИТопливо.СуммаОборотДт КАК ЗатратыНаСырьеИТопливо,
+	ЗатратыНаСырьеИТопливо.Счет КАК Счет
+{ВЫБРАТЬ
+	ЗатратыНаСырьеИТопливо,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаЗатрат.Счет
+				ИЗ
+					СчетаЗатрат КАК СчетаЗатрат),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.СтатьиЗатрат),
+			{(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаМатериалов.Счет
+				ИЗ
+					СчетаМатериалов КАК СчетаМатериалов),
+			) КАК ЗатратыНаСырьеИТопливо</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+		<item xsi:type="DataSetQuery">
+			<name>РасходыПоОплатеУслугСтороннихОрганизаций</name>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>РасходыПоОплатеУслугСтороннихОрганизаций</dataPath>
+				<field>РасходыПоОплатеУслугСтороннихОрганизаций</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Расходы по оплате услуг сторонних организаций</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>Счет</dataPath>
+				<field>Счет</field>
+				<role>
+					<dcscom:dimension>true</dcscom:dimension>
+				</role>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>ОбособленноеПодразделение</dataPath>
+				<field>ОбособленноеПодразделение</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Обособленное подразделение</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>УчетПоПодразделениям</dataPath>
+				<field>УчетПоПодразделениям</field>
+			</field>
+			<field xsi:type="DataSetFieldField">
+				<dataPath>КорСчет</dataPath>
+				<field>КорСчет</field>
+				<title xsi:type="v8:LocalStringType">
+					<v8:item>
+						<v8:lang>ru</v8:lang>
+						<v8:content>Кор счет</v8:content>
+					</v8:item>
+				</title>
+			</field>
+			<dataSource>ИсточникДанных1</dataSource>
+			<query>ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаЗатрат
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОсновноеПроизводство), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ВспомогательныеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщепроизводственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбслуживающиеПроизводства), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.ОбщехозяйственныеРасходы), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасходыНаПродажу))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК Счет,
+	Хозрасчетный.УчетПоПодразделениям КАК УчетПоПодразделениям}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	Хозрасчетный.Ссылка КАК Счет
+ПОМЕСТИТЬ СчетаРасчетовСПоставщиками
+ИЗ
+	ПланСчетов.Хозрасчетный КАК Хозрасчетный
+ГДЕ
+	Хозрасчетный.Ссылка В ИЕРАРХИИ (ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСПоставщикамиИПодрядчиками), ЗНАЧЕНИЕ(ПланСчетов.Хозрасчетный.РасчетыСРазнымиДебиторамиИКредиторами))
+{ГДЕ
+	Хозрасчетный.Ссылка.* КАК КорСчет}
+
+ИНДЕКСИРОВАТЬ ПО
+	Счет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	РасхоыНПоОплатеУслугСтороннихОрганизаций.СуммаОборотДт КАК РасходыПоОплатеУслугСтороннихОрганизаций,
+	РасхоыНПоОплатеУслугСтороннихОрганизаций.Счет КАК Счет
+{ВЫБРАТЬ
+	РасходыПоОплатеУслугСтороннихОрганизаций КАК РасходыПоОплатеУслугСтороннихОрганизаций,
+	Счет.*}
+ИЗ
+	РегистрБухгалтерии.Хозрасчетный.Обороты(
+			&amp;НачалоПериода,
+			&amp;КонецПериода,
+			,
+			Счет В
+				(ВЫБРАТЬ
+					СчетаЗатрат.Счет
+				ИЗ
+					СчетаЗатрат КАК СчетаЗатрат),
+			ЗНАЧЕНИЕ(ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.статьиЗатрат),
+			Субконто1.ВидРасходовНУ = ЗНАЧЕНИЕ(Перечисление.ВидыРасходовНУ.МатериальныеРасходы) {(Организация В (&amp;Организация)), (ЕСТЬNULL(Подразделение, ЗНАЧЕНИЕ(Справочник.ПодразделенияОрганизаций.ПустаяСсылка))).* КАК ОбособленноеПодразделение},
+			КорСчет В
+				(ВЫБРАТЬ
+					СчетаРасчетовСПоставщиками.Счет
+				ИЗ
+					СчетаРасчетовСПоставщиками КАК СчетаРасчетовСПоставщиками),
+			) КАК РасхоыНПоОплатеУслугСтороннихОрганизаций</query>
+			<autoFillFields>false</autoFillFields>
+		</item>
+	</dataSet>
+	<dataSet xsi:type="DataSetObject">
+		<name>ПересчетВБазовуюЕдиницу</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмерения</dataPath>
+			<field>ЕдиницаИзмерения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Единица измерения</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БазоваяЕдиница</dataPath>
+			<field>БазоваяЕдиница</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Базовая единица</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КодЕдиницыИзмерения</dataPath>
+			<field>КодЕдиницыИзмерения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код единицы измерения</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Fixed</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПересчетВБазовуюЕдиницу.КодБазовойЕдиницы</dataPath>
+			<field>КодБазовойЕдиницы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчет в базовую единицу.Код базовой единицы</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Fixed</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПересчетВБазовуюЕдиницу.Коэффициент</dataPath>
+			<field>Коэффициент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчет в базовую единицу.Коэффициент</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>ПравилаПересчетаЕдиницИзмерения</objectName>
+	</dataSet>
+	<dataSet xsi:type="DataSetObject">
+		<name>ПересчетВЕдиницуСтатистическогоУчета</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЕдиницаИзмерения</dataPath>
+			<field>ЕдиницаИзмерения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Единица измерения</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>БазоваяЕдиница</dataPath>
+			<field>БазоваяЕдиница</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Базовая единица</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type xmlns:d5p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d5p1:CatalogRef.КлассификаторЕдиницИзмерения</v8:Type>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КодЕдиницыИзмерения</dataPath>
+			<field>КодЕдиницыИзмерения</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Код единицы измерения</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Fixed</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПересчетВЕдиницуСтатистическогоУчета.КодБазовойЕдиницы</dataPath>
+			<field>КодБазовойЕдиницы</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчет в единицу статистического учета.Код базовой единицы</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:string</v8:Type>
+				<v8:StringQualifiers>
+					<v8:Length>4</v8:Length>
+					<v8:AllowedLength>Fixed</v8:AllowedLength>
+				</v8:StringQualifiers>
+			</valueType>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ПересчетВЕдиницуСтатистическогоУчета.Коэффициент</dataPath>
+			<field>Коэффициент</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Пересчет в единицу статистического учета.Коэффициент</v8:content>
+				</v8:item>
+			</title>
+			<valueType>
+				<v8:Type>xs:decimal</v8:Type>
+				<v8:NumberQualifiers>
+					<v8:Digits>0</v8:Digits>
+					<v8:FractionDigits>0</v8:FractionDigits>
+					<v8:AllowedSign>Nonnegative</v8:AllowedSign>
+				</v8:NumberQualifiers>
+			</valueType>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<objectName>ПравилаПересчетаЕдиницИзмерения</objectName>
+	</dataSet>
+	<dataSetLink>
+		<sourceDataSet>ЗакупкиИЗатраты</sourceDataSet>
+		<destinationDataSet>ПересчетВБазовуюЕдиницу</destinationDataSet>
+		<sourceExpression>ЕдиницаИзмерения</sourceExpression>
+		<destinationExpression>ЕдиницаИзмерения</destinationExpression>
+	</dataSetLink>
+	<dataSetLink>
+		<sourceDataSet>ЗакупкиИЗатраты</sourceDataSet>
+		<destinationDataSet>ПересчетВЕдиницуСтатистическогоУчета</destinationDataSet>
+		<sourceExpression>КодЕдиницыТысКВтЧ</sourceExpression>
+		<destinationExpression>КодЕдиницыИзмерения</destinationExpression>
+	</dataSetLink>
+	<calculatedField>
+		<dataPath>КоличествоПриобретеноТысКВтЧ</dataPath>
+		<expression>ВЫБОР КОГДА ISNULL(ПересчетВЕдиницуСтатистическогоУчета.Коэффициент,0) = 0 ТОГДА КоличествоПриобретено 
+КОГДА ISNULL(ПересчетВБазовуюЕдиницу.Коэффициент,0) = 0 ТОГДА КоличествоПриобретено 
+КОГДА ПересчетВЕдиницуСтатистическогоУчета.КодБазовойЕдиницы &lt;&gt; ПересчетВБазовуюЕдиницу.КодБазовойЕдиницы ТОГДА КоличествоПриобретено 
+ИНАЧЕ КоличествоПриобретено * (ПересчетВБазовуюЕдиницу.Коэффициент / ПересчетВЕдиницуСтатистическогоУчета.Коэффициент) КОНЕЦ</expression>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Количество приобретено (в тыс. кВт*Ч)</v8:content>
+			</v8:item>
+		</title>
+		<useRestriction>
+			<condition>true</condition>
+			<group>true</group>
+			<order>true</order>
+		</useRestriction>
+	</calculatedField>
+	<totalField>
+		<dataPath>ЗатратыНаСтроительствоХозспособом</dataPath>
+		<expression>Сумма(ЗатратыНаСтроительствоХозспособом)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоПриобретено</dataPath>
+		<expression>Сумма(КоличествоПриобретено)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>КоличествоПриобретеноТысКВтЧ</dataPath>
+		<expression>Сумма(КоличествоПриобретеноТысКВтЧ)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыМатериалы</dataPath>
+		<expression>Сумма(ЗатратыМатериалы)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыТопливо</dataPath>
+		<expression>Сумма(ЗатратыТопливо)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыУслуги</dataPath>
+		<expression>Сумма(ЗатратыУслуги)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыАренда</dataPath>
+		<expression>Сумма(ЗатратыАренда)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыКомандировки</dataPath>
+		<expression>Сумма(ЗатратыКомандировки)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыПредставительские</dataPath>
+		<expression>Сумма(ЗатратыПредставительские)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыСтрахование</dataPath>
+		<expression>Сумма(ЗатратыСтрахование)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыНалоги</dataPath>
+		<expression>Сумма(ЗатратыНалоги)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Затраты</dataPath>
+		<expression>Сумма(Затраты)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>Оплата</dataPath>
+		<expression>Сумма(Оплата)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыТовары</dataPath>
+		<expression>Сумма(ЗатратыТовары)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>ЗатратыНаСырьеИТопливо</dataPath>
+		<expression>Сумма(ЗатратыНаСырьеИТопливо)</expression>
+	</totalField>
+	<totalField>
+		<dataPath>РасходыПоОплатеУслугСтороннихОрганизаций</dataPath>
+		<expression>Сумма(РасходыПоОплатеУслугСтороннихОрганизаций)</expression>
+	</totalField>
+	<parameter>
+		<name>НачалоПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Начало периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КонецПериода</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Конец периода</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>Организация</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Организация</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:CatalogRef.Организации</v8:Type>
+		</valueType>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>КодЕдиницыТысКВтЧ</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Код единицы тыс к вт Ч</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:string</v8:Type>
+			<v8:StringQualifiers>
+				<v8:Length>4</v8:Length>
+				<v8:AllowedLength>Fixed</v8:AllowedLength>
+			</v8:StringQualifiers>
+		</valueType>
+		<value xsi:type="xs:string">246 </value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ВидСубконтоКонтрагентДоговор</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид субконто контрагент договор</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоХозрасчетные</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Договоры</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<parameter>
+		<name>ВидСубконтоОбъектыСтроительства_СпособыСтроительства</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Вид субконто объекты строительства способы строительства</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type xmlns:d4p1="http://v8.1c.ru/8.1/data/enterprise/current-config">d4p1:ChartOfCharacteristicTypesRef.ВидыСубконтоХозрасчетные</v8:Type>
+		</valueType>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.ОбъектыСтроительства</value>
+		<value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.СпособыСтроительства</value>
+		<useRestriction>true</useRestriction>
+		<valueListAllowed>true</valueListAllowed>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КодЕдиницыТысКВтЧ</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Расшифровка</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Расшифровка</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КодЕдиницыТысКВтЧ</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ЗатратыНаСтроительство</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Затраты на строительство</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КодЕдиницыТысКВтЧ</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ОбъектСтроительства</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Приобретение</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Приобретение</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КодЕдиницыТысКВтЧ</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Поставщик</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Документ</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ЗатратыМатериалы</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Затраты материалы</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КодЕдиницыТысКВтЧ</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Поставщик</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Номенклатура</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ЗатратыТопливо</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Затраты топливо</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>КорСубконто</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Номенклатура</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ЗатратыУслуги</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Затраты услуги</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>КорСубконто</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Статья</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+						</dcsset:selection>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>ЗатратыНалоги</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Затраты налоги</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Статья</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+	<settingsVariant>
+		<dcsset:name>Затраты</dcsset:name>
+		<dcsset:presentation xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Затраты</v8:content>
+			</v8:item>
+		</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:dataParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>КодЕдиницыТысКВтЧ</dcscor:parameter>
+					<dcscor:value xsi:type="dcscor:DesignTimeValue">ПланВидовХарактеристик.ВидыСубконтоХозрасчетные.Контрагенты</dcscor:value>
+				</dcscor:item>
+			</dcsset:dataParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Счет</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Поставщик</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+					</dcsset:selection>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

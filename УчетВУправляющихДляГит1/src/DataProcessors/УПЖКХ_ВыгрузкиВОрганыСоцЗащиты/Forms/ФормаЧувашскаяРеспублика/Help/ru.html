@@ -1,0 +1,246 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"><html><head><meta content="text/html;charset=utf-8" http-equiv="content-type"></meta><link rel="stylesheet" type="text/css" href="v8help://service_book/service_style"></link><meta name="GENERATOR" content="MSHTML 11.00.10570.1001"></meta></head><body>
+<h1><font size="5">Чувашская республика</font></h1>
+<div><font size="2">Обработка предназначена для выгрузки данных в отдел социальной защиты населения Чувашской республики за указанный период.</font></div>
+<div><br><font size="2">Перед началом выгрузки данных, в обработке необходимо заполнить следующие параметры:</font></div>
+<ul><li><font size="2">«<strong>Период</strong>» - месяц, за который необходимо предоставить данные; </font>
+</li><li><font size="2">«<strong>Организация</strong>» - ссылка на элемент справочника </font><a href="Catalog.Организации/Help"><font size="2">«Организации»</font></a><font size="2">, по которой будут браться необходимые данные за указанный период; </font>
+</li><li><font size="2">«<strong>Файл загрузки</strong>» - указывается имя загружаемого файла в формат *.CSV; </font>
+</li><li><font size="2">«<strong>Кодировка файла</strong>» - указывается кодировка файлов загрузки/выгрузки.</font></li></ul><p><br><font size="2">Перед началом загрузки/выгрузки данных, для корректного заполнения табличных частей обработки, необходимо произвести предварительную настройку. Для вызова диалогового окна настройки необходимо нажать на кнопку «<strong>Настройка</strong>».<br>1. В табличной части вкладки «<strong>Настройка соответствия услуг</strong>» необходимо установить соответствия между услугами в ОСЗН и услугами в организации. <br></font><font size="2">2. В табличной части вкладки «<strong>Настройка соответствия степеней родства</strong>» необходимо установить соответствия между степенями родства в ОСЗН и степенями родства в базе. <br>3. В табличной части вкладки «<strong>Настройка соответствия норм зданий</strong>» по необходимости можно установить соответствия между зданиями в Базе и нормами потребления услуг в Базе, которые необходимо выгружать по всем лицевым счетам, принадлежащим текущему зданию в поле "Норматив потребления" таблицы "Сведения об услугах ЖКХ". Если норма для здания не указана, то по умолчанию будут выгружены те нормы потребления по услугам, которые актуальны для выгружаемых лицевых счетов по состоянию на конец отчетного периода. <br>4. На вкладке «<strong>Тариф услуги подогрева</strong>» по необходимости можно указать услугу, соответствующую услуге "Подогрев" в ОСЗН и указать для нее тариф, который необходимо выгружать.</font></p>
+<p><font size="2">Для загрузки данных в обработке обязательно необходимо указать файл в поле «<strong>Файл загрузки</strong>» и указать его кодировку в поле «<strong>Кодировка файла</strong></font><font size="2">». </font></p>
+<div><font size="2"><strong>Типы записей в файлах загрузки/выгрузки данных.</strong><br>A – идентификация источника сведений;<br>О – основная запись об учетных данных льготника;<br>Ж – сведения о гражданах и характеристиках жилья;<br>С – сведения о составе семьи льготника;<br>У – сведения об услугах ЖКХ.</font></div>
+<div><br><font size="2">Запись типа «A» должна быть всегда первой записью каждого файла.<br>Запись типа «О» является уникальной и может быть представлена на одно лицо, имеющее право на льготы по оплате жилья и коммунальных услуг.<br>Запись типа «Ж» должна идти после записи типа «O», обязательно должна присутствовать в файле выгрузке.</font></div>
+<div><br><strong><em><font size="2">В файле загрузки должны обязательно присутствовать запись типа «A» и записи типа «О».<br></font></em></strong></div>
+<div><font size="2">В файле выгрузки будут присутствовать запись типа «A» и записи типа «О». Далее если адрес идентифицирован на каждую запись типа «О» обязательно будет присутствовать запись типа «Ж» и допускаются запись(и) типа «С», запись(и) типа «У».<br>В записях типа «С» данные из записи типа «О» не указываются, т.е. в составе семьи сам льготник не указывается.</font></div>
+<div><font size="2"></font> </div>
+<div><font size="2">Структура типов записей:</font></div>
+<div><font size="2">1. Запись типа "А":</font></div>
+<div>
+<div><font size="2"></font></div>
+<div>
+<table bordercolor="#000000" width="800" border="1"><tbody><tr><td width="200">
+<p align="center"><strong><font size="2">Наименование поля</font></strong></p></td>
+<td width="100">
+<p align="center"><strong><font size="2">Размерность</font></strong></p></td>
+<td width="500">
+<p align="center"><strong><font size="2">Примечание</font></strong></p></td></tr><tr><td><font size="2">Идентификатор запроса</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Начинается с литеры “A”, далее служебная информация</font></td></tr><tr><td><font size="2">Идентификатор компании</font></td>
+<td><font size="2">15</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Тип файла</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">0 - Запрос, 1 - ответ</font></td></tr><tr><td><font size="2">Начало периода запроса</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Дата начала запроса: ГГГГММДД</font></td></tr><tr><td><font size="2">Окончание периода запроса</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Дата окончания запроса: ГГГГММДД</font></td></tr><tr><td><font size="2">Наименование компании</font></td>
+<td><font size="2">100</font></td>
+<td><font size="2"> </font></td></tr></tbody></table></div>
+<div><font size="2"></font> </div>
+<div>
+<div><font size="2">2. Запись типа "О":</font></div>
+<div>
+<div><font size="2"></font></div>
+<div>
+<table bordercolor="#000000" width="800" border="1"><tbody><tr><td width="200">
+<p align="center"><strong><font size="2">Наименование поля</font></strong></p></td>
+<td width="100">
+<p align="center"><strong><font size="2">Размерность</font></strong></p></td>
+<td width="500">
+<p align="center"><strong><font size="2">Примечание</font></strong></p></td></tr><tr><td><font size="2">Идентификатор записи</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">Имеет значение “О”</font></td></tr><tr><td><font size="2">ИД</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Уникальный идентификатор гражданина, имеющего право на МСП (код района + номер личного дела)</font></td></tr><tr><td><font size="2">Идентификатор лицевого счета</font></td>
+<td><font size="2">20</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">СНИЛС</font></td>
+<td><font size="2">14</font></td>
+<td><font size="2">Страховой номер индивидуального счета</font></td></tr><tr><td><font size="2">Фамилия</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Имя</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Отчество</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Дата рождения</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">ГГГГММДД</font></td></tr><tr><td><font size="2">Пол</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">“М” - мужчина, “Ж” – женщина</font></td></tr><tr><td><font size="2">Идентификатор компании</font></td>
+<td><font size="2">15</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Наименование компании</font></td>
+<td><font size="2">100</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Код по адресному классификатору (КЛАДР)</font></td>
+<td><font size="2">20</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Административный район субъекта Федерации</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Тип населенного пункта</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Наименование населенного пункта</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Тип улицы (улица, площадь, бульвар и т.п.)</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Наименование улицы</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Номер дома</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Корпус</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Квартира</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Паспорт: серия</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Паспорт: номер</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Паспорт: дата выдачи</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">ГГГГММДД</font></td></tr><tr><td><font size="2">Признак собственника жилья</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">1- собственник, 0 -нет</font></td></tr><tr><td><font size="2">Признак состава семьи</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">1- организации необходимо предоставить сведения о составе, 0 –нет</font></td></tr></tbody></table></div>
+<div><font size="2"></font> </div>
+<div>
+<div>
+<div><font size="2">3. Запись типа "Ж":</font></div>
+<div>
+<div><font size="2"></font></div>
+<div>
+<table bordercolor="#000000" width="800" border="1"><tbody><tr><td width="200">
+<p align="center"><strong><font size="2">Наименование поля</font></strong></p></td>
+<td width="100">
+<p align="center"><strong><font size="2">Размерность</font></strong></p></td>
+<td width="500">
+<p align="center"><strong><font size="2">Примечание</font></strong></p></td></tr><tr><td><font size="2">Идентификатор записи</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">Имеет значение “Ж”</font></td></tr><tr><td><font size="2">ИД</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Уникальный идентификатор гражданина, имеющего право на МСП (код района + номер личного дела)</font></td></tr><tr><td><font size="2">Идентификатор лицевого счета</font></td>
+<td><font size="2">20</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Идентификатор компании</font></td>
+<td><font size="2">15</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Наименование компании</font></td>
+<td><font size="2">100</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Код по адресному классификатору (КЛАДР)</font></td>
+<td><font size="2">20</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Административный район субъекта Федерации</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Тип населенного пункта</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Наименование населенного пункта</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Тип улицы (улица, площадь, бульвар и т.п.)</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Наименование улицы</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Номер дома</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Корпус</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Квартира</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Тип собственности</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">Муниципальная – 1, Частная -2,  Федеральная -3</font></td></tr><tr><td><font size="2">Общая площадь</font></td>
+<td><font size="2">6</font></td>
+<td><font size="2">Формат: 999.99</font></td></tr><tr><td><font size="2">Жилая площадь</font></td>
+<td><font size="2">6</font></td>
+<td><font size="2">Формат: 999.99</font></td></tr><tr><td><font size="2">Количество проживающих</font></td>
+<td><font size="2">2</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Количество проживающих- членов семьи льготника</font></td>
+<td><font size="2">2</font></td>
+<td><font size="2">Равно количеству строк «С», введенных по данному человеку</font></td></tr><tr><td><font size="2">Сумма оплаты за ЖКУ</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99 </font>
+<div><font size="2">Если поле "Внесенная оплата задолженности за ЖКУ" пустое, то здесь отражается внесенная сумма оплаты (полностью).<br>Если в поле "Внесенная оплата задолженности за ЖКУ" есть сумма задолженности и сумма, оплаченная человеком, МЕНЬШЕ суммы в поле "Внесенная оплата задолженности за ЖКУ", то это поле — ПУСТОЕ.<br>Если в поле "Внесенная оплата задолженности за ЖКУ" есть сумма задолженности, которая меньше суммы внесенной оплаты, то есть полностью погашается задолженность и производится оплата ЖКУ за текущий месяц, то здесь ставится РАЗНИЦА (всего оплачено минус поле "Внесенная оплата задолженности за ЖКУ")</font></div></td></tr><tr><td><font size="2">Сумма пени</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99</font></td></tr><tr><td><font size="2">Сумма задолженности за ЖКУ</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99</font></td></tr><tr><td><font size="2">Количество месяцев задолженности за ЖКУ</font></td>
+<td><font size="2">2</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Внесенная оплата задолженности за ЖКУ</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99 </font>
+<div><font size="2">Если нет задолженности (пустое поле "Сумма задолженности за ЖКУ"), то тут ТОЖЕ ПУСТО.<br>Если задолженность (поле "Сумма задолженности за ЖКУ") больше внесенной человеком суммы, то вся внесенная сумма ставится ТОЛЬКО сюда.<br>Если вносимая сумма превышает сумму в поле "Сумма задолженности за ЖКУ", то здесь отражается сумма НЕ БОЛЕЕ, чем в поле "Сумма задолженности за ЖКУ". Разница проставляется в поле "Сумма оплаты за ЖКУ".</font></div></td></tr><tr><td><font size="2">Код ошибки</font></td>
+<td><font size="2">2</font></td>
+<td><font size="2">0 – не идентифицирован, <br>1 – идентифицирован </font>
+<div><font size="2">если по льготнику дается начисление (он действительно зарегистрирован по этому адресу), то он ИДЕНТИФИЦИРОВАН в базе данных, и в этом поле должно стоять 1.</font></div></td></tr><tr><td><font size="2">Комментарий компании-поставщика</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Размер земельного участка</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99</font></td></tr><tr><td><font size="2">Количество комнат</font></td>
+<td><font size="2">2</font></td>
+<td><font size="2"> </font></td></tr></tbody></table></div>
+<div><font size="2"></font> </div>
+<div>
+<div><font size="2">4. Запись типа "С":</font></div>
+<div>
+<div><font size="2"></font></div>
+<div>
+<table bordercolor="#000000" width="800" border="1"><tbody><tr><td width="200">
+<p align="center"><strong><font size="2">Наименование поля</font></strong></p></td>
+<td width="100">
+<p align="center"><strong><font size="2">Размерность</font></strong></p></td>
+<td width="500">
+<p align="center"><strong><font size="2">Примечание</font></strong></p></td></tr><tr><td><font size="2">Идентификатор записи</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">Имеет значение “C” </font>
+<div><font size="2">В состав семьи входят только близкие родственники. Если степень родства отлична от Брат, Внук (по реш.суда), Внучка (по реш.суда), Дочь, Жена, Мать, Муж, Опекун, Отец, Правнук (по реш.суда), Правнучка (по реш.суда), Сестра, Сын — то человек в состав семьи льготника НЕ ВХОДИТ и строка «С» по нему не заводится.</font></div></td></tr><tr><td><font size="2">Дата рождения</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">ГГГГММДД</font></td></tr><tr><td><font size="2">Пол</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">“М” - мужчина, “Ж” – женщина</font></td></tr><tr><td><font size="2">Степень родства</font></td>
+<td><font size="2">20</font></td>
+<td><font size="2">Дата начала запроса: ГГГГММДД</font></td></tr><tr><td><font size="2">Признак собственника</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">1 – собственник, 0 - нет</font></td></tr><tr><td><font size="2">Признак льготника</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">1 – льготник, 0 - нет</font></td></tr><tr><td><font size="2">Фамилия</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Имя</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Отчество</font></td>
+<td><font size="2">50</font></td>
+<td><font size="2"> </font></td></tr></tbody></table></div>
+<div><font size="2"></font> </div>
+<div>
+<div><font size="2">5. Запись типа "У":</font></div>
+<div>
+<div><font size="2"></font></div>
+<div>
+<table bordercolor="#000000" width="800" border="1"><tbody><tr><td width="200">
+<p align="center"><strong><font size="2">Наименование поля</font></strong></p></td>
+<td width="100">
+<p align="center"><strong><font size="2">Размерность</font></strong></p></td>
+<td width="500">
+<p align="center"><strong><font size="2">Примечание</font></strong></p></td></tr><tr><td><font size="2">Идентификатор записи</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">Имеет значение “У”</font></td></tr><tr><td><font size="2">Код услуги ЖКХ</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Справочник</font></td></tr><tr><td><font size="2">Единица измерения</font></td>
+<td><font size="2">30</font></td>
+<td><font size="2">Справочник</font></td></tr><tr><td><font size="2">Тариф на ЖКУ</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99</font></td></tr><tr><td><font size="2">Норматив потребления</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 99999.9999</font></td></tr><tr><td><font size="2">Объем услуги</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 99999.9999</font></td></tr><tr><td><font size="2">Объем услуги определен по</font></td>
+<td><font size="2">2</font></td>
+<td><font size="2"> </font></td></tr><tr><td><font size="2">Начислено</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99</font></td></tr><tr><td><font size="2">Перерасчет суммы</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99</font></td></tr><tr><td>
+<div><font size="2">Начало периода перерасчета</font></div></td>
+<td><font size="2">10</font></td>
+<td><font size="2">ГГГГММДД</font></td></tr><tr><td><font size="2">Конец периода перерасчета</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">ГГГГММДД</font></td></tr><tr><td><font size="2">Начислено пени</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99</font></td></tr><tr><td><font size="2">Оплачено</font></td>
+<td><font size="2">10</font></td>
+<td><font size="2">Формат: 9999999.99</font></td></tr><tr><td><font size="2">Отметка об отсутствии нарушений порядка оплаты</font></td>
+<td><font size="2">1</font></td>
+<td><font size="2">1 - Имеются нарушения, 0 – нарушения отсутствуют</font></td></tr></tbody></table></div>
+<div><font size="2"></font> </div></div></div>
+<div><font size="2">Для заполнения таблиц обработки данными необходимо нажать на кнопку «<strong>Считать данные из файла загрузки и заполнить таблицы</strong>» на верхней командной панели формы. <br>Для выгрузки заполненных в таблицах обработки данных в файл формата *.CSV необходимо нажать на кнопку «<strong>Выгрузить данные в файл</strong>» на верхней командной панели формы. <br><br><font style="BACKGROUND-COLOR: #ffff00">Выгружаемый файл будет сохранен в тот же каталог, где находится файл загрузки.</font></font></div>
+<div><font style="BACKGROUND-COLOR: #ffff00" size="2"></font> </div></div></div></div></div></div></div></div></div></body></html>

@@ -1,0 +1,580 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DataCompositionSchema xmlns="http://v8.1c.ru/8.1/data-composition-system/schema" xmlns:dcscom="http://v8.1c.ru/8.1/data-composition-system/common" xmlns:dcscor="http://v8.1c.ru/8.1/data-composition-system/core" xmlns:dcsset="http://v8.1c.ru/8.1/data-composition-system/settings" xmlns:v8="http://v8.1c.ru/8.1/data/core" xmlns:v8ui="http://v8.1c.ru/8.1/data/ui" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<dataSource>
+		<name>ИсточникДанных1</name>
+		<dataSourceType>Local</dataSourceType>
+	</dataSource>
+	<dataSet xsi:type="DataSetQuery">
+		<name>НаборДанных1</name>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Счетчик</dataPath>
+			<field>Счетчик</field>
+			<appearance>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МинимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">20</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>МаксимальнаяШирина</dcscor:parameter>
+					<dcscor:value xsi:type="xs:decimal">50</dcscor:value>
+				</dcscor:item>
+			</appearance>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЗаводскойНомер</dataPath>
+			<field>ЗаводскойНомер</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Здание</dataPath>
+			<field>Здание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Объект</dataPath>
+			<field>Объект</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтветственныйВладелец</dataPath>
+			<field>ОтветственныйВладелец</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ответственный собственник, наниматель по л/с</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Подъезд</dataPath>
+			<field>Подъезд</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Примечание</dataPath>
+			<field>Примечание</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>УровеньИерархии</dataPath>
+			<field>УровеньИерархии</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ЛицевойСчет</dataPath>
+			<field>ЛицевойСчет</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Помещение</dataPath>
+			<field>Помещение</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Услуга</dataPath>
+			<field>Услуга</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>КолВоЛС</dataPath>
+			<field>КолВоЛС</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ОтветственныйВладелецПоПомещению</dataPath>
+			<field>ОтветственныйВладелецПоПомещению</field>
+			<title xsi:type="v8:LocalStringType">
+				<v8:item>
+					<v8:lang>ru</v8:lang>
+					<v8:content>Ответственный собственник, наниматель, тел.</v8:content>
+				</v8:item>
+			</title>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>ДатаПоверки</dataPath>
+			<field>ДатаПоверки</field>
+		</field>
+		<field xsi:type="DataSetFieldField">
+			<dataPath>Телефон</dataPath>
+			<field>Телефон</field>
+		</field>
+		<dataSource>ИсточникДанных1</dataSource>
+		<query>ВЫБРАТЬ
+	КВП_ЛицевыеСчетаСрезПоследних.ЛицевойСчет.Адрес КАК Помещение,
+	КВП_ЛицевыеСчетаСрезПоследних.ЛицевойСчет КАК ЛицевойСчет,
+	КВП_ЛицевыеСчетаСрезПоследних.Объект.Владелец КАК Здание,
+	КВП_ЛицевыеСчетаСрезПоследних.Объект.Подъезд КАК Подъезд
+ПОМЕСТИТЬ втЛицевыеСчета
+ИЗ
+	РегистрСведений.КВП_ЛицевыеСчета.СрезПоследних(&amp;Период, ) КАК КВП_ЛицевыеСчетаСрезПоследних
+ГДЕ
+	КВП_ЛицевыеСчетаСрезПоследних.Действует
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	УПЖКХ_ОтветственныйСобственникНанимательЛицевогоСчетаСрезПоследних.ЛицевойСчет КАК ЛицевойСчет,
+	УПЖКХ_ОтветственныйСобственникНанимательЛицевогоСчетаСрезПоследних.ЛицевойСчет.Адрес КАК Помещение,
+	УПЖКХ_ОтветственныйСобственникНанимательЛицевогоСчетаСрезПоследних.ОтветственныйВладелец КАК ОтветственныйВладелец
+ПОМЕСТИТЬ втОтветственныйСобственник
+ИЗ
+	РегистрСведений.УПЖКХ_ОтветственныйСобственникНанимательЛицевогоСчета.СрезПоследних(
+			&amp;Период,
+			ЛицевойСчет В
+				(ВЫБРАТЬ
+					втЛицевыеСчета.ЛицевойСчет
+				ИЗ
+					втЛицевыеСчета КАК втЛицевыеСчета)) КАК УПЖКХ_ОтветственныйСобственникНанимательЛицевогоСчетаСрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Здания
+			ТОГДА 1
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Подъезды
+			ТОГДА 2
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+				ИЛИ ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+			ТОГДА 3
+	КОНЕЦ КАК УровеньИерархии,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес.Владелец
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+				ИЛИ ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Подъезды
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Владелец
+		ИНАЧЕ ЗакрепленныеСчетчикиСрезПоследних.Объект
+	КОНЕЦ КАК Здание,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Подъезды
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Подъезд
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес.Подъезд
+	КОНЕЦ КАК Подъезд,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект
+	КОНЕЦ КАК Помещение,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект
+	КОНЕЦ КАК ЛицевойСчет,
+	ВЫБОР
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_ЛицевыеСчета
+			ТОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект.Адрес
+		КОГДА ЗакрепленныеСчетчикиСрезПоследних.Объект ССЫЛКА Справочник.КВП_Здания
+			ТОГДА "дом № " + ЗакрепленныеСчетчикиСрезПоследних.Объект.НомерДома
+		ИНАЧЕ ЗакрепленныеСчетчикиСрезПоследних.Объект
+	КОНЕЦ КАК Объект,
+	ЗакрепленныеСчетчикиСрезПоследних.Счетчик КАК Счетчик,
+	ЗакрепленныеСчетчикиСрезПоследних.Счетчик.ВидУслуги КАК Услуга
+ПОМЕСТИТЬ врПУ
+ИЗ
+	РегистрСведений.КВП_ЗакрепленныеСчетчики.СрезПоследних(
+			&amp;Период,
+			(Объект В
+					(ВЫБРАТЬ
+						втЛицевыеСчета.Здание
+					ИЗ
+						втЛицевыеСчета КАК втЛицевыеСчета)
+				ИЛИ Объект В
+					(ВЫБРАТЬ
+						втЛицевыеСчета.Помещение
+					ИЗ
+						втЛицевыеСчета КАК втЛицевыеСчета)
+				ИЛИ Объект В
+					(ВЫБРАТЬ
+						втЛицевыеСчета.ЛицевойСчет
+					ИЗ
+						втЛицевыеСчета КАК втЛицевыеСчета)
+				ИЛИ Объект В
+					(ВЫБРАТЬ
+						втЛицевыеСчета.Подъезд
+					ИЗ
+						втЛицевыеСчета КАК втЛицевыеСчета))
+				И ДатаИзменения &lt;= &amp;Период) КАК ЗакрепленныеСчетчикиСрезПоследних
+ГДЕ
+	ЗакрепленныеСчетчикиСрезПоследних.Действует
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втЛицевыеСчета.Помещение КАК Помещение,
+	КОЛИЧЕСТВО(РАЗЛИЧНЫЕ втЛицевыеСчета.ЛицевойСчет) КАК КолВоЛицевыхСчетов
+ПОМЕСТИТЬ втКолВоЛС
+ИЗ
+	втЛицевыеСчета КАК втЛицевыеСчета
+
+СГРУППИРОВАТЬ ПО
+	втЛицевыеСчета.Помещение
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	УПЖКХ_Жильцы.Ссылка КАК ОтветственныйВладелец,
+	УПЖКХ_Жильцы.ФизЛицо КАК ФизЛицо
+ПОМЕСТИТЬ втЖильцы
+ИЗ
+	Справочник.УПЖКХ_Жильцы КАК УПЖКХ_Жильцы
+ГДЕ
+	УПЖКХ_Жильцы.Ссылка В
+			(ВЫБРАТЬ
+				ОтветственныйСобственник.ОтветственныйВладелец
+			ИЗ
+				втОтветственныйСобственник КАК ОтветственныйСобственник
+			ГДЕ
+				ОтветственныйСобственник.ОтветственныйВладелец ССЫЛКА Справочник.УПЖКХ_Жильцы)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КонтрагентыКонтактнаяИнформация.Ссылка КАК ОтветственныйВладелец,
+	ВЫРАЗИТЬ(КонтрагентыКонтактнаяИнформация.Представление КАК СТРОКА(50)) КАК Телефон
+ПОМЕСТИТЬ втНомераТелефоновОтветственныхСобственников
+ИЗ
+	Справочник.Контрагенты.КонтактнаяИнформация КАК КонтрагентыКонтактнаяИнформация
+ГДЕ
+	КонтрагентыКонтактнаяИнформация.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Телефон)
+	И КонтрагентыКонтактнаяИнформация.Ссылка В
+			(ВЫБРАТЬ
+				ОтветственныйСобственник.ОтветственныйВладелец
+			ИЗ
+				втОтветственныйСобственник КАК ОтветственныйСобственник
+			ГДЕ
+				ОтветственныйСобственник.ОтветственныйВладелец ССЫЛКА Справочник.Контрагенты)
+
+ОБЪЕДИНИТЬ ВСЕ
+
+ВЫБРАТЬ
+	втЖильцы.ОтветственныйВладелец,
+	ВЫРАЗИТЬ(ФизическиеЛицаКонтактнаяИнформация.Представление КАК СТРОКА(50))
+ИЗ
+	втЖильцы КАК втЖильцы
+		ЛЕВОЕ СОЕДИНЕНИЕ Справочник.ФизическиеЛица.КонтактнаяИнформация КАК ФизическиеЛицаКонтактнаяИнформация
+		ПО втЖильцы.ФизЛицо = ФизическиеЛицаКонтактнаяИнформация.Ссылка
+			И (ФизическиеЛицаКонтактнаяИнформация.Тип = ЗНАЧЕНИЕ(Перечисление.ТипыКонтактнойИнформации.Телефон))
+ГДЕ
+	ФизическиеЛицаКонтактнаяИнформация.Ссылка В
+			(ВЫБРАТЬ
+				Жильцы.ФизЛицо
+			ИЗ
+				втЖильцы КАК Жильцы)
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	врПУ.УровеньИерархии КАК УровеньИерархии,
+	врПУ.Здание КАК Здание,
+	врПУ.Подъезд КАК Подъезд,
+	врПУ.Помещение КАК Помещение,
+	врПУ.ЛицевойСчет КАК ЛицевойСчет,
+	врПУ.Объект КАК Объект,
+	врПУ.Счетчик КАК Счетчик,
+	ЕСТЬNULL(втКолВоЛС.КолВоЛицевыхСчетов, 0) КАК КолВоЛС,
+	врПУ.Услуга КАК Услуга,
+	втОтветственныйСобственник.ОтветственныйВладелец КАК ОтветственныйВладелец,
+	ВЫБОР
+		КОГДА НЕ врПУ.ЛицевойСчет.Телефон = ""
+			ТОГДА врПУ.ЛицевойСчет.Телефон
+		ИНАЧЕ втНомераТелефоновОтветственныхСобственников.Телефон
+	КОНЕЦ КАК Телефон
+ПОМЕСТИТЬ втПУСКолЛС
+ИЗ
+	врПУ КАК врПУ
+		ЛЕВОЕ СОЕДИНЕНИЕ втКолВоЛС КАК втКолВоЛС
+		ПО врПУ.Помещение = втКолВоЛС.Помещение
+		ЛЕВОЕ СОЕДИНЕНИЕ втОтветственныйСобственник КАК втОтветственныйСобственник
+			ЛЕВОЕ СОЕДИНЕНИЕ втНомераТелефоновОтветственныхСобственников КАК втНомераТелефоновОтветственныхСобственников
+			ПО втОтветственныйСобственник.ОтветственныйВладелец = втНомераТелефоновОтветственныхСобственников.ОтветственныйВладелец
+		ПО врПУ.ЛицевойСчет = втОтветственныйСобственник.ЛицевойСчет
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втПУСКолЛС.УровеньИерархии КАК УровеньИерархии,
+	втПУСКолЛС.Здание КАК Здание,
+	втПУСКолЛС.Подъезд КАК Подъезд,
+	втПУСКолЛС.Объект КАК Объект,
+	втПУСКолЛС.Счетчик.ЗаводскойНомер КАК ЗаводскойНомер,
+	втПУСКолЛС.ЛицевойСчет КАК ЛицевойСчет,
+	втПУСКолЛС.Счетчик КАК Счетчик,
+	"" КАК Примечание,
+	втПУСКолЛС.Помещение КАК Помещение,
+	втПУСКолЛС.ОтветственныйВладелец КАК ОтветственныйВладелец,
+	втПУСКолЛС.Услуга КАК Услуга,
+	втПУСКолЛС.КолВоЛС КАК КолВоЛС,
+	втПУСКолЛС.Телефон КАК Телефон
+ПОМЕСТИТЬ втИтоговая
+ИЗ
+	втПУСКолЛС КАК втПУСКолЛС
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	КВП_ЗакрепленныеСчетчикиСрезПоследних.Счетчик КАК Счетчик,
+	КВП_ЗакрепленныеСчетчикиСрезПоследних.ДатаИзменения КАК ДатаПоверки
+ПОМЕСТИТЬ втДатыПоверки
+ИЗ
+	РегистрСведений.КВП_ЗакрепленныеСчетчики.СрезПоследних(
+			,
+			Счетчик В
+					(ВЫБРАТЬ
+						втПУСКолЛС.Счетчик
+					ИЗ
+						втПУСКолЛС КАК втПУСКолЛС)
+				И ПричинаОтключения = ЗНАЧЕНИЕ(Перечисление.УПЖКХ_ПричиныОтключенияПриборовУчета.Поверка)
+				И ДатаИзменения &gt;= &amp;Период) КАК КВП_ЗакрепленныеСчетчикиСрезПоследних
+;
+
+////////////////////////////////////////////////////////////////////////////////
+ВЫБРАТЬ
+	втИтоговая.УровеньИерархии КАК УровеньИерархии,
+	втИтоговая.Здание КАК Здание,
+	втИтоговая.Подъезд КАК Подъезд,
+	втИтоговая.Объект КАК Объект,
+	втИтоговая.ЗаводскойНомер КАК ЗаводскойНомер,
+	втИтоговая.ЛицевойСчет КАК ЛицевойСчет,
+	втИтоговая.Счетчик КАК Счетчик,
+	втИтоговая.Примечание КАК Примечание,
+	втИтоговая.Помещение КАК Помещение,
+	втИтоговая.ОтветственныйВладелец КАК ОтветственныйВладелец,
+	втИтоговая.Услуга КАК Услуга,
+	втИтоговая.КолВоЛС КАК КолВоЛС,
+	втИтоговая.Телефон КАК Телефон,
+	ВЫБОР
+		КОГДА втИтоговая.Объект ССЫЛКА Справочник.УПЖКХ_Помещения
+				И втИтоговая.КолВоЛС = 1
+			ТОГДА втОтветственныйСобственник.ЛицевойСчет.Наименование + ", " + втОтветственныйСобственник.ОтветственныйВладелец.Наименование + ", тел." + втИтоговая.Телефон
+	КОНЕЦ КАК ОтветственныйВладелецПоПомещению,
+	ЕСТЬNULL(втДатыПоверки.ДатаПоверки, "") КАК ДатаПоверки
+ИЗ
+	втИтоговая КАК втИтоговая
+		ЛЕВОЕ СОЕДИНЕНИЕ втОтветственныйСобственник КАК втОтветственныйСобственник
+		ПО втИтоговая.ЛицевойСчет = втОтветственныйСобственник.ЛицевойСчет
+		ЛЕВОЕ СОЕДИНЕНИЕ втДатыПоверки КАК втДатыПоверки
+		ПО втИтоговая.Счетчик = втДатыПоверки.Счетчик</query>
+	</dataSet>
+	<parameter>
+		<name>Период</name>
+		<title xsi:type="v8:LocalStringType">
+			<v8:item>
+				<v8:lang>ru</v8:lang>
+				<v8:content>Период</v8:content>
+			</v8:item>
+		</title>
+		<valueType>
+			<v8:Type>xs:dateTime</v8:Type>
+			<v8:DateQualifiers>
+				<v8:DateFractions>DateTime</v8:DateFractions>
+			</v8:DateQualifiers>
+		</valueType>
+		<value xsi:type="xs:dateTime">0001-01-01T00:00:00</value>
+		<useRestriction>true</useRestriction>
+		<availableAsField>false</availableAsField>
+	</parameter>
+	<settingsVariant>
+		<dcsset:name>Основной</dcsset:name>
+		<dcsset:presentation xsi:type="xs:string">Основной</dcsset:presentation>
+		<dcsset:settings xmlns:style="http://v8.1c.ru/8.1/data/ui/style" xmlns:sys="http://v8.1c.ru/8.1/data/ui/fonts/system" xmlns:web="http://v8.1c.ru/8.1/data/ui/colors/web" xmlns:win="http://v8.1c.ru/8.1/data/ui/colors/windows">
+			<dcsset:selection>
+				<dcsset:item xsi:type="dcsset:SelectedItemAuto"/>
+			</dcsset:selection>
+			<dcsset:filter>
+				<dcsset:item xsi:type="dcsset:FilterItemComparison">
+					<dcsset:use>false</dcsset:use>
+					<dcsset:left xsi:type="dcscor:Field">Услуга</dcsset:left>
+					<dcsset:comparisonType>Equal</dcsset:comparisonType>
+					<dcsset:userSettingID>48919da4-89f2-42e5-a9a2-8a3e37fd2f52</dcsset:userSettingID>
+				</dcsset:item>
+			</dcsset:filter>
+			<dcsset:outputParameters>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>РасположениеГруппировки</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionGroupPlacement">None</dcscor:value>
+				</dcscor:item>
+				<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+					<dcscor:use>false</dcscor:use>
+					<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+					<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">Output</dcscor:value>
+				</dcscor:item>
+			</dcsset:outputParameters>
+			<dcsset:item xsi:type="dcsset:StructureItemGroup">
+				<dcsset:groupItems>
+					<dcsset:item xsi:type="dcsset:GroupItemField">
+						<dcsset:field>Здание</dcsset:field>
+						<dcsset:groupType>Items</dcsset:groupType>
+						<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+						<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+						<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+					</dcsset:item>
+				</dcsset:groupItems>
+				<dcsset:order>
+					<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+				</dcsset:order>
+				<dcsset:selection>
+					<dcsset:item xsi:type="dcsset:SelectedItemField">
+						<dcsset:field>Здание</dcsset:field>
+					</dcsset:item>
+				</dcsset:selection>
+				<dcsset:item xsi:type="dcsset:StructureItemGroup">
+					<dcsset:groupItems>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>УровеньИерархии</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>Объект</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+						<dcsset:item xsi:type="dcsset:GroupItemField">
+							<dcsset:field>ОтветственныйВладелецПоПомещению</dcsset:field>
+							<dcsset:groupType>Items</dcsset:groupType>
+							<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+							<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+							<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+						</dcsset:item>
+					</dcsset:groupItems>
+					<dcsset:order>
+						<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+					</dcsset:order>
+					<dcsset:selection>
+						<dcsset:item xsi:type="dcsset:SelectedItemFolder">
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Объект</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ОтветственныйВладелецПоПомещению</dcsset:field>
+							</dcsset:item>
+							<dcsset:placement>Together</dcsset:placement>
+						</dcsset:item>
+					</dcsset:selection>
+					<dcsset:item xsi:type="dcsset:StructureItemGroup">
+						<dcsset:groupItems>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Помещение</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ЛицевойСчет</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>ОтветственныйВладелец</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:GroupItemField">
+								<dcsset:field>Телефон</dcsset:field>
+								<dcsset:groupType>Items</dcsset:groupType>
+								<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+								<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+								<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+							</dcsset:item>
+						</dcsset:groupItems>
+						<dcsset:filter>
+							<dcsset:item xsi:type="dcsset:FilterItemComparison">
+								<dcsset:left xsi:type="dcscor:Field">ЛицевойСчет</dcsset:left>
+								<dcsset:comparisonType>NotEqual</dcsset:comparisonType>
+								<dcsset:presentation xsi:type="v8:LocalStringType">
+									<v8:item>
+										<v8:lang>ru</v8:lang>
+										<v8:content>""</v8:content>
+									</v8:item>
+								</dcsset:presentation>
+								<dcsset:application>Hierarchy</dcsset:application>
+							</dcsset:item>
+						</dcsset:filter>
+						<dcsset:order>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>Помещение.Код</dcsset:field>
+								<dcsset:orderType>Asc</dcsset:orderType>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:OrderItemField">
+								<dcsset:field>ЛицевойСчет</dcsset:field>
+								<dcsset:orderType>Asc</dcsset:orderType>
+							</dcsset:item>
+						</dcsset:order>
+						<dcsset:selection>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ЛицевойСчет</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>ОтветственныйВладелец</dcsset:field>
+							</dcsset:item>
+							<dcsset:item xsi:type="dcsset:SelectedItemField">
+								<dcsset:field>Телефон</dcsset:field>
+							</dcsset:item>
+						</dcsset:selection>
+						<dcsset:outputParameters>
+							<dcscor:item xsi:type="dcsset:SettingsParameterValue">
+								<dcscor:parameter>ВыводитьОтбор</dcscor:parameter>
+								<dcscor:value xsi:type="dcsset:DataCompositionTextOutputType">DontOutput</dcscor:value>
+							</dcscor:item>
+						</dcsset:outputParameters>
+						<dcsset:item xsi:type="dcsset:StructureItemGroup">
+							<dcsset:groupItems>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Счетчик</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ЗаводскойНомер</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>ДатаПоверки</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:GroupItemField">
+									<dcsset:field>Примечание</dcsset:field>
+									<dcsset:groupType>Items</dcsset:groupType>
+									<dcsset:periodAdditionType>None</dcsset:periodAdditionType>
+									<dcsset:periodAdditionBegin xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionBegin>
+									<dcsset:periodAdditionEnd xsi:type="xs:dateTime">0001-01-01T00:00:00</dcsset:periodAdditionEnd>
+								</dcsset:item>
+							</dcsset:groupItems>
+							<dcsset:order>
+								<dcsset:item xsi:type="dcsset:OrderItemAuto"/>
+							</dcsset:order>
+							<dcsset:selection>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Счетчик</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ЗаводскойНомер</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>ДатаПоверки</dcsset:field>
+								</dcsset:item>
+								<dcsset:item xsi:type="dcsset:SelectedItemField">
+									<dcsset:field>Примечание</dcsset:field>
+								</dcsset:item>
+							</dcsset:selection>
+						</dcsset:item>
+					</dcsset:item>
+				</dcsset:item>
+			</dcsset:item>
+		</dcsset:settings>
+	</settingsVariant>
+</DataCompositionSchema>

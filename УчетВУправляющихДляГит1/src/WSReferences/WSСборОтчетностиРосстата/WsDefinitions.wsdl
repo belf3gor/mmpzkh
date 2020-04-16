@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<definitions xmlns="http://schemas.xmlsoap.org/wsdl/"
+		xmlns:soap12bind="http://schemas.xmlsoap.org/wsdl/soap12/"
+		xmlns:soapbind="http://schemas.xmlsoap.org/wsdl/soap/"
+		xmlns:tns="http://tempuri.org/"
+		xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy"
+		xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd"
+		xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+		xmlns:xsd1="http://schemas.datacontract.org/2004/07/Croc.Rosstat.Websbor.WebIntegration"
+		xmlns:xsd2="http://schemas.microsoft.com/2003/10/Serialization/"
+		xmlns:xsd3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+		xmlns:xsd4="http://tempuri.org/"
+		xmlns:xsd5="http://tempuri.org/Imports"
+		name="PublicIntegrationService"
+		targetNamespace="http://tempuri.org/">
+	<wsp:Policy wsu:Id="BasicHttpBinding_IPublicIntegrationService_policy">
+		<wsp:ExactlyOne>
+			<wsp:All>
+				<pass:TransportBinding xmlns:pass="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy"/>
+			</wsp:All>
+		</wsp:ExactlyOne>
+	</wsp:Policy>
+	<types>
+		<xsd:schema xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract"
+				xmlns:ns1="http://schemas.microsoft.com/2003/10/Serialization/"
+				xmlns:ns2="http://schemas.datacontract.org/2004/07/Croc.Rosstat.Websbor.WebIntegration"
+				xmlns:ns3="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+				xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+				xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/"
+				xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/"
+				xmlns:tns="http://tempuri.org/Imports"
+				xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing"
+				xmlns:wsa10="http://www.w3.org/2005/08/addressing"
+				xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata"
+				xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy"
+				xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl"
+				xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+				xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex"
+				xmlns:xsd1="http://tempuri.org/Imports"
+				xmlns:xsd2="http://tempuri.org/"
+				xmlns:xsd3="http://schemas.datacontract.org/2004/07/Croc.Rosstat.Websbor.WebIntegration"
+				xmlns:xsd4="http://schemas.microsoft.com/2003/10/Serialization/"
+				xmlns:xsd5="http://schemas.microsoft.com/2003/10/Serialization/Arrays"
+				targetNamespace="http://tempuri.org/Imports">
+			<xsd:import schemaLocation="file://1.xsd"
+					namespace="http://tempuri.org/"/>
+			<xsd:import schemaLocation="file://4.xsd"
+					namespace="http://schemas.microsoft.com/2003/10/Serialization/"/>
+			<xsd:import schemaLocation="file://2.xsd"
+					namespace="http://schemas.datacontract.org/2004/07/Croc.Rosstat.Websbor.WebIntegration"/>
+			<xsd:import schemaLocation="file://3.xsd"
+					namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays"/>
+		</xsd:schema>
+	</types>
+	<message name="IPublicIntegrationService_GetActualVersion_InputMessage">
+		<part name="parameters"
+				element="tns:GetActualVersion"/>
+	</message>
+	<message name="IPublicIntegrationService_GetActualVersion_OutputMessage">
+		<part name="parameters"
+				element="tns:GetActualVersionResponse"/>
+	</message>
+	<message name="IPublicIntegrationService_GetTemplatesInfo_InputMessage">
+		<part name="parameters"
+				element="tns:GetTemplatesInfo"/>
+	</message>
+	<message name="IPublicIntegrationService_GetTemplatesInfo_OutputMessage">
+		<part name="parameters"
+				element="tns:GetTemplatesInfoResponse"/>
+	</message>
+	<message name="IPublicIntegrationService_GetTemplateBody_InputMessage">
+		<part name="parameters"
+				element="tns:GetTemplateBody"/>
+	</message>
+	<message name="IPublicIntegrationService_GetTemplateBody_OutputMessage">
+		<part name="parameters"
+				element="tns:GetTemplateBodyResponse"/>
+	</message>
+	<portType name="IPublicIntegrationService">
+		<operation name="GetActualVersion">
+			<input name="GetActualVersionRequest"
+					message="tns:IPublicIntegrationService_GetActualVersion_InputMessage"/>
+			<output name="GetActualVersionResponse"
+					message="tns:IPublicIntegrationService_GetActualVersion_OutputMessage"/>
+		</operation>
+		<operation name="GetTemplatesInfo">
+			<input name="GetTemplatesInfoRequest"
+					message="tns:IPublicIntegrationService_GetTemplatesInfo_InputMessage"/>
+			<output name="GetTemplatesInfoResponse"
+					message="tns:IPublicIntegrationService_GetTemplatesInfo_OutputMessage"/>
+		</operation>
+		<operation name="GetTemplateBody">
+			<input name="GetTemplateBodyRequest"
+					message="tns:IPublicIntegrationService_GetTemplateBody_InputMessage"/>
+			<output name="GetTemplateBodyResponse"
+					message="tns:IPublicIntegrationService_GetTemplateBody_OutputMessage"/>
+		</operation>
+	</portType>
+	<binding name="BasicHttpBinding_IPublicIntegrationService"
+			type="tns:IPublicIntegrationService">
+		<wsp:PolicyReference URI="#BasicHttpBinding_IPublicIntegrationService_policy"/>
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="GetActualVersion">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/IPublicIntegrationService/GetActualVersion"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetTemplatesInfo">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/IPublicIntegrationService/GetTemplatesInfo"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetTemplateBody">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/IPublicIntegrationService/GetTemplateBody"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<binding name="BasicHttpBinding_IPublicIntegrationService1"
+			type="tns:IPublicIntegrationService">
+		<soapbind:binding style="document"
+				transport="http://schemas.xmlsoap.org/soap/http"/>
+		<operation name="GetActualVersion">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/IPublicIntegrationService/GetActualVersion"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetTemplatesInfo">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/IPublicIntegrationService/GetTemplatesInfo"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+		<operation name="GetTemplateBody">
+			<soapbind:operation style="document"
+					soapAction="http://tempuri.org/IPublicIntegrationService/GetTemplateBody"/>
+			<input>
+				<soapbind:body use="literal"/>
+			</input>
+			<output>
+				<soapbind:body use="literal"/>
+			</output>
+		</operation>
+	</binding>
+	<service name="PublicIntegrationService">
+		<port name="BasicHttpBinding_IPublicIntegrationService"
+				binding="tns:BasicHttpBinding_IPublicIntegrationService">
+			<soapbind:address location="https://p24-webcco-01/webstat/webservices/Publicintegrationservice.svc"/>
+		</port>
+		<port name="BasicHttpBinding_IPublicIntegrationService1"
+				binding="tns:BasicHttpBinding_IPublicIntegrationService1">
+			<soapbind:address location="http://p24-webcco-01/webstat/webservices/Publicintegrationservice.svc"/>
+		</port>
+	</service>
+</definitions>
